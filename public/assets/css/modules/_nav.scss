@@ -85,9 +85,11 @@ nav ul.nav-list {
     background-color: $white;
     transition: transform $turtle $ease-out;
 }
+
 .headroom--pinned {
     transform: translateY(0%);
 }
+
 .headroom--unpinned {
     transform: translateY(-100%);
 }

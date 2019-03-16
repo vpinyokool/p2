@@ -86,15 +86,18 @@ margin-bottom: $masonry-padding;
 
 .title-container {
 	padding: 16px;
-	font-family: $font-text;
 	font-size: 14px;
+	font-weight: 500;
+	font-family: $font-text;
+	letter-spacing: -0.3px;
+	line-height: 1.4;
 	bottom: 0;
 	width: 100%;
 	z-index: 1;
 	opacity: 0;
-	backdrop-filter: blur(20px);
+	backdrop-filter: blur(30px) saturate(150%);
 	border-radius: 0 0 $masonry-border $masonry-border;
-	background-color: rgba(255, 255, 255, 0.3);
+	background-color: rgba(255, 255, 255, 0.5);
 	color: rgba($black, .85);
 }
 
@@ -103,6 +106,17 @@ margin-bottom: $masonry-padding;
 	padding: 8px;
 	top: 8px;
 	left: 8px;
+	font-size: 10px;
+	border-radius: 100px;
+	backdrop-filter: blur(20px);
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.promoted-badge {
+	position: absolute;
+	padding: 8px;
+	top: 8px;
+	right: 8px;
 	font-size: 10px;
 	border-radius: 100px;
 	backdrop-filter: blur(20px);
@@ -173,5 +187,50 @@ margin-bottom: $masonry-padding;
 
 	&.overflow {
 		background-image: url('/assets/icons/pin-overflow.svg');
+	}
+}
+
+
+.ad-chin {
+	.ad-background-img {
+		height: 94px;
+		background-position: center bottom;
+		background-size: 100% auto;
+		margin-top: -2px;
+		transform: scaleY(-1);
+		border-radius: $masonry-border $masonry-border 0 0;
+	}
+
+	.ad-meta-container {
+		background-color: rgba(255, 255, 255, 0.3);
+		color: rgba($black, .85);
+		backdrop-filter: blur(20px) brightness(120%) contrast(80%);
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		padding: 16px;
+		border-radius: 0 0 $masonry-border $masonry-border;
+	}
+	.ad-title-container {
+		padding-right: 20px;
+		font-size: 14px;
+		font-weight: 500;
+		font-family: $font-text;
+		letter-spacing: -0.3px;
+		line-height: 1.4;
+	}
+	.ad-attribution-container {
+		padding-top: 8px;
+		font-family: $font-text;
+		letter-spacing: -0.3px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		font-size: 13px;
+		img {
+			width: 24px;
+			height: 24px;
+			margin-right: 8px;
+		}
 	}
 }

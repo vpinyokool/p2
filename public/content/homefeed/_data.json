@@ -3,185 +3,193 @@
 		{
 			"title":"title here",
 			"img": "1",
-			"type:":"organic",
+			"type":"organic",
 			"url":"mawebsite.com"
 		},
 		{
 			"title":"title here",
 			"img": "2",
-			"type:":"organic",
+			"type":"organic",
 			"url":"fandwebsite.com"
 		},
 		{
-			"title":"title here",
-			"img": "3",
-			"type:":"organic",
+			"title":"Summer 2018 refreshed in three limited-edition colorways",
+			"img": "4",
+			"type":"ad",
+			"attribution": "Warby Parker",
+			"attributionImg": "wp.png",
+			"media": "video",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
-			"img": "4",
-			"type:":"organic",
+			"img": "3",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "5",
-			"type:":"organic",
+			"type":"organic",
 			"url":"mawebsite.com"
 		},
 		{
 			"title":"title here",
 			"img": "6",
-			"type:":"organic",
+			"type":"organic",
 			"url":"fandwebsite.com"
 		},
 		{
 			"title":"title here",
 			"img": "7",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "8",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"img": "9",
-			"type:":"organic",
+			"type":"organic",
 			"url":"mawebsite.com"
 		},
 		{
-			"title":"title here",
+			"title":"COS Sets a Desert Scene with Spring 2016 Campaign",
 			"img": "10",
-			"type:":"organic",
+			"type":"ad",
+			"attribution": "COS",
+			"attributionImg": "cos.png",
 			"url":"fandwebsite.com"
 		},
 		{
 			"title":"title here",
-			"img": "11",
-			"type:":"organic",
-			"url":"website.com"
-		},
-		{
-			"title":"title here",
 			"img": "12",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "13",
-			"type:":"organic",
+			"type":"organic",
 			"url":"mawebsite.com"
 		},
 		{
+			"title":"Nordic Ripple Long Drink Glass Set design by Ferm Living",
+			"img": "11",
+			"attribution": "Ferm Living",
+			"attributionImg": "ferm.png",
+			"type":"ad",
+			"url":"website.com"
+		},
+		{
 			"img": "14",
-			"type:":"organic",
+			"type":"organic",
 			"url":"fandwebsite.com"
 		},
 		{
 			"title":"title here",
 			"img": "15",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "16",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
+
 		{
 			"title":"title here",
 			"img": "17",
-			"type:":"organic",
+			"type":"organic",
 			"url":"mawebsite.com"
 		},
 		{
 			"img": "18",
-			"type:":"organic",
+			"type":"organic",
 			"url":"fandwebsite.com"
 		},
 		{
 			"title":"title here",
 			"img": "19",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"img": "20",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 				{
 			"title":"title here",
 			"img": "21",
-			"type:":"organic",
+			"type":"organic",
 			"url":"fandwebsite.com"
 		},
 		{
 			"title":"title here",
 			"img": "22",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "23",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "24",
-			"type:":"organic",
+			"type":"organic",
 			"url":"mawebsite.com"
 		},
 		{
 			"title":"title here",
 			"img": "25",
-			"type:":"organic",
+			"type":"organic",
 			"url":"fandwebsite.com"
 		},
 		{
 			"title":"title here",
 			"img": "26",
 			"media": "video",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "26",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "27",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "28",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "29",
 			"media": "gif",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		},
 		{
 			"title":"title here",
 			"img": "30",
-			"type:":"organic",
+			"type":"organic",
 			"url":"website.com"
 		}
 	]

@@ -15,31 +15,57 @@ nav {
 nav .search-bar {
 	display: inline-block;
 	padding: 24px;
-	width: calc(100vw - 580px);
+	width: calc(100vw - 524px);
 	margin-left: $masonry-padding;
 	background-color: $light;
-	border-radius: 4px;
+	border-radius: 8px;
 	vertical-align: middle;
 }
 nav ul.nav-list {
 	display: inline-block;
 	position: absolute;
 	right: 0;
+	font-size: 0;
 	vertical-align: middle;
 
 	li {
 		display: inline-block;
-		margin-right: $masonry-padding;
-		vertical-align: top;
+		padding: $masonry-padding;
 		vertical-align: middle;
+		font-size: 16px;
+		font-weight: 600;
+		letter-spacing: -.6px;
+		color: $dark;
+		&._active {
+			color: $darkest;
+		}
+
+		&.img {
+			width: $masonry-padding*2;
+			height: $masonry-padding*2;
+			padding: 0;
+			margin-left: $masonry-padding;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		&.name {
+			padding-left: $masonry-padding/2;
+		}
 
 		&.img-icon {
+			padding: 0;
 			width: 48px;
 			height: 48px;
 			vertical-align: middle;
 			img {
 				width: 100%;
 				height: auto;
+			}
+			&:last-child {
+				margin-right: $masonry-padding;
 			}
 		}
 	}

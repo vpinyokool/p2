@@ -1,0 +1,117 @@
+<%
+var projectData;
+var marcusData  = public.content.list._data.case[0];
+var fandangoData  = public.content.list._data.case[1];
+var tevaData  = public.content.list._data.case[2];
+//
+var pastData  = public.content.list._data.pastWork[0];
+var almostData  = public.content.list._data.pastWork[1];
+//
+if ( mode == "marcus" ) {
+projectData = marcusData;
+}
+if ( mode == "teva" ) {
+projectData = tevaData;
+}
+if ( mode == "fandango" ) {
+projectData = fandangoData;
+}
+if ( mode == "past" ) {
+projectData = pastData;
+}
+if ( mode == "almost" ) {
+projectData = almostData;
+}
+%>
+<% if ( mode == "marcus" || mode == "teva" || mode == "fandango" || mode == "past" || mode == "almost" ) { %>
+<section class="hero-content-wrapper">
+	<div class="hero-content">
+		<div class="hero-row">
+			<div class="hero-col two-third">
+				<h1>
+				<%- projectData.caption %>
+				</h1>
+			</div>
+		</div>
+		<% if ( projectData.past) { %>
+			<div class="hero-row archive">
+				<div class="hero-col two-third">
+					<h4>
+					<%= projectData.past %>
+					</h4>
+				</div>
+			</div>
+		<% } %>
+		<% if ( projectData.almost) { %>
+			<div class="hero-row archive">
+				<div class="hero-col two-third">
+					<h4>
+					<%= projectData.almost %>
+					</h4>
+				</div>
+			</div>
+		<% } %>
+		<% if ( projectData.brand && projectData.role) { %>
+			<div class="hero-row">
+				<div class="hero-col two-third">
+					<h4>
+					<%- projectData.brand %> <%- projectData.role %>
+					</h4>
+				</div>
+			</div>
+		<% } %>
+	</div>
+</section>
+<% } %>
+<% if ( mode == "old") { %>
+<section class="hero-content-wrapper">
+	<div class="hero-content">
+		<div class="hero-title-container">
+			<h6 class="headline">
+			<%= projectData.title %>
+			</h6>
+			<% if ( mode == "marcus" ) { %>
+			<h1 class="headline">
+			From Wall Street<br>
+			<span class="headline">
+				to Main Street
+			</span>
+			</h1>
+			<% } %>
+			<% if ( mode == "teva" ) { %>
+			<h1 class="headline">
+			More than<br>
+			<span class="headline">
+				Meds&<br>Drugs
+			</span>
+			</h1>
+			<% } %>
+		</div>
+		<div class="project-summary">
+			<div class="project-title">
+				<%= projectData.caption %>
+			</div>
+			<div class="year">
+				<%= projectData.year %>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="hero-img-container">
+	<img src="/assets/projects/<%= projectData.heroImg %>" alt="">
+</div>
+<% } %>
+<% if ( mode == "older" ) { %>
+<section class="text-container archive-hero">
+	<div class="inner">
+		<div class="archive-hero">
+			<p>
+				Archive
+			</p>
+			<p class="light">
+				2010-2018
+			</p>
+		</div>
+	</div>
+</section>
+<% } %>

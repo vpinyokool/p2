@@ -1,0 +1,87 @@
+<%
+var caseData = public.content.list._data.case;
+var pastWorkData = public.content.list._data.pastWork;
+var clientData = public.content.list._data.client;
+var contactData = public.content.list._data.contact;
+%>
+<% if ( mode == "case" ) { %>
+<div class="home-container case">
+	<section class="inner-row">
+		<h5>Selected Work</h5>
+		<ul class="list-with-caption">
+			<% for ( var i=0; i < caseData.length; i++ ) { %>
+			<li class="project work-list <%- caseData[i].class %>">
+				<a href="/projects/<%= caseData[i].link %>">
+					<h3>
+					<%- caseData[i].title %>
+					</h3>
+				</a>
+			</li>
+			<% } %>
+		</ul>
+	</section>
+</div>
+<% } %>
+
+<% if ( mode == "pastwork" ) { %>
+<div class="home-container case">
+	<section class="inner-row">
+		<h5>Quick scroll</h5>
+		<ul class="list-with-caption">
+			<% for ( var i=0; i < pastWorkData.length; i++ ) { %>
+			<li class="project work-list <%- pastWorkData[i].class %>">
+				<a href="/projects/<%= pastWorkData[i].link %>">
+					<h3>
+					<%- pastWorkData[i].title %>
+					</h3>
+				</a>
+			</li>
+			<% } %>
+		</ul>
+	</section>
+</div>
+<% } %>
+
+<% if ( mode == "client" ) { %>
+<div class="home-container">
+	<section class="inner-row">
+		<h5>Client Experiences</h5>
+		<ul class="list-inline-block">
+			<% for ( var i=0; i < clientData.length; i++ ) { %>
+			<li>
+				<h3>
+				<%= clientData[i].title %>
+				</h3>
+			</li>
+			<% } %>
+		</ul>
+	</section>
+</div>
+<% } %>
+<% if ( mode == "contact" ) { %>
+<div class="home-container contact">
+	<section class="inner-row">
+		<h5>Contact</h5>
+		<ul class="list-inline-block">
+			<% for ( var i=0; i < contactData.length; i++ ) { %>
+			<li>
+				<a
+					<% if ( contactData[i].isBlank ) { %>
+					target="_blank"
+					<% } %>
+					href="<%= contactData[i].url %>">
+					<h3>
+					<%= contactData[i].title %>
+					</h3>
+				</a>
+				<% if ( contactData[i].isFirst ) { %>
+				<li>
+					<h3 class="thin"> /</h3>
+				</li>
+				<% } %>
+			</li>
+			<% } %>
+		</ul>
+	</section>
+</div>
+<% } %>

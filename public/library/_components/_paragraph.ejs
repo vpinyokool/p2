@@ -1,0 +1,202 @@
+<%
+var projectData;
+var oneData = public.content.projects._data.marcus;
+var twoData = public.content.projects._data.teva;
+var threeData = public.content.projects._data.fandango;
+if ( mode == "marcus" ) {
+projectData = oneData;
+};
+if ( mode == "teva" ) {
+projectData = twoData;
+};
+if ( mode == "fandango" ) {
+projectData = threeData;
+};
+%>
+<div class="detail-content">
+    <% for ( var i=0; i < projectData.length; i++ ) { %>
+    <section class="row <%= projectData[i].color %> ">
+        <% for ( var j=0; j < projectData[i].sections.length; j++ ) { %>
+        <!-- intro -->
+        <% if (projectData[i].sections[j].container == "intro") { %>
+        <div class="container intro-container">
+            <% for ( var k=0; k < projectData[i].sections[j].content.length; k++ ) { %>
+            <h5 class="<%= projectData[i].sections[j].content[k].class %>">
+            <%= projectData[i].sections[j].content[k].heading %>
+            </h5>
+            <% } %>
+            <hr>
+        </div>
+        <% } %>
+        <!-- text -->
+        <% if (projectData[i].sections[j].container == "text") { %>
+        <div class="container text-container <%= projectData[i].class %>">
+            <% for ( var k=0; k < projectData[i].sections[j].content.length; k++ ) { %>
+            <% if (projectData[i].sections[j].content[k].heading) { %>
+            <h5><%- projectData[i].sections[j].content[k].heading %></h5>
+            <% } %>
+            <% if (projectData[i].sections[j].content[k].body) { %>
+            <p><%- projectData[i].sections[j].content[k].body %></p>
+            <% } %>
+            <% } %>
+        </div>
+        <% } %>
+        <!-- image -->
+        <% if (projectData[i].sections[j].container == "image") { %>
+        <div class="container img-container <%= projectData[i].sections[j].class %>">
+            <% for ( var k=0; k < projectData[i].sections[j].content.length; k++ ) { %>
+            <div class="img-container-inner">
+                <img
+                    src="/assets/projects/<%= projectData[i].sections[j].content[k].src %>"
+                    alt=""
+                >
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+        <!-- carousel -->
+        <% if (projectData[i].sections[j].container == "carousel") { %>
+        <div class="container carousel-container <%= projectData[i].sections[j].class %>">
+            <% for ( var k=0; k < projectData[i].sections[j].content.length; k++ ) { %>
+            <div class="cell">
+                <% if (projectData[i].sections[j].content[k].type == 'image') { %>
+                <img src="/assets/projects/<%= projectData[i].sections[j].content[k].src %>" alt="">
+                <% } %>
+                <% if (projectData[i].sections[j].content[k].type == 'animation') { %>
+                <div id="<%= projectData[i].sections[j].content[k].id %>"></div>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+        <!-- animation -->
+        <% if (projectData[i].sections[j].container == "animation") { %>
+        <div class="container animation-container <%= projectData[i].sections[j].class %>">
+            <% for ( var k=0; k < projectData[i].sections[j].content.length; k++ ) { %>
+            <div class="animation-container-inner">
+                <div id="<%= projectData[i].sections[j].content[k].id %>"></div>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+        <!-- video -->
+        <% if (projectData[i].sections[j].container == "video") { %>
+        <div class="container video-container <%= projectData[i].sections[j].class %>">
+            <section class="inner with-iframe <%= projectData[i].sections[j].class %>">
+                <iframe src="https://player.vimeo.com/video/<%= projectData[i].sections[j].src %>?background=1" width="<%= projectData[i].sections[j].w %>" height="<%= projectData[i].sections[j].h %>" loop=1 autoplay=1 ></iframe>
+            </section>
+        </div>
+        <% } %>
+        <!-- data -->
+        <% if (projectData[i].sections[j].container == "data") { %>
+        <div class="container data-container <%= projectData[i].sections[j].class %>">
+            <% for ( var k=0; k < projectData[i].sections[j].content.length; k++ ) { %>
+            <div class="data-col">
+                <h2 class="data-title" data-before="<%= projectData[i].sections[j].content[k].before %>" data-after="<%= projectData[i].sections[j].content[k].after %>">
+                <%= projectData[i].sections[j].content[k].data %>
+                </h2>
+                <p class="data-text">
+                    <%= projectData[i].sections[j].content[k].caption %>
+                </p>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+        <!-- big-bullets -->
+        <% if (projectData[i].sections[j].container == "conditions") { %>
+        <div class="container text-container conditions">
+            <ul class="conditions-list">
+                <% for ( var k=0; k < projectData[i].sections[j].content.length; k++ ) { %>
+                <li class="condition <%= projectData[i].sections[j].content[k].class %>">
+                    <h2 class="condition-title">
+                        <%= projectData[i].sections[j].content[k].title %>
+                    </h2>
+                    <div class="condition-caption">
+                        <%= projectData[i].sections[j].content[k].caption %>
+                    </div>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <% } %>
+
+        <!-- list -->
+        <% if (projectData[i].sections[j].container == "bullets") { %>
+        <div class="container text-container bullets">
+            <ul class="bullet-list <%= projectData[i].sections[j].class %>">
+                <% for ( var k=0; k < projectData[i].sections[j].content.length; k++ ) { %>
+                <li class="bullet <%= projectData[i].sections[j].content[k].class %>">
+                    <h4 class="bullet-title">
+                        <%= projectData[i].sections[j].content[k].title %>
+                    </h4>
+
+                    <% if (projectData[i].sections[j].content[k].caption) { %>
+                        <div class="bullet-caption">
+                            <%= projectData[i].sections[j].content[k].caption %>
+                        </div>
+                    <% } %>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <% } %>
+
+        <!-- quotes -->
+        <% if (projectData[i].sections[j].container == "quotes") { %>
+        <div class="container quotes-container">
+            <ul data-bg-img="<%= projectData[i].sections[j].backgroundImg%>" class="quotes-lists <%= projectData[i].sections[j].class %>">
+                <% for ( var k=0; k < projectData[i].sections[j].content.length; k++ ) { %>
+                <li class="quote <%= projectData[i].sections[j].content[k].class %>">
+                    <% if (projectData[i].sections[j].content[k].question) { %>
+                        <h4 class="quote-question">
+                            <%= projectData[i].sections[j].content[k].question %>
+                        </h4>
+                    <% } %>
+                    <h2 class="quote-title">
+                        <%= projectData[i].sections[j].content[k].quote %>
+                    </h2>
+                    <p class="quote-credit">
+                        <%= projectData[i].sections[j].content[k].credit %>
+                    </p>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <% } %>
+
+        <!-- card-list -->
+        <% if (projectData[i].sections[j].container == "card-list") { %>
+        <div class="container card-list-container">
+            <ul class="card-lists <%= projectData[i].sections[j].class %>">
+                <% for ( var k=0; k < projectData[i].sections[j].content.length; k++ ) { %>
+                <li class="card-list <%= projectData[i].sections[j].content[k].class %>">
+                    <div class="card-list-img-container">
+                        <img src="/assets/projects/<%= projectData[i].sections[j].content[k].imgSrc %>" alt="">
+                    </div>
+                    <div class="card-list-caption-container">
+                        <h4 class="card-list-title">
+                            <%= projectData[i].sections[j].content[k].title %>
+                        </h4>
+
+                        <% if (projectData[i].sections[j].content[k].caption) { %>
+                            <div class="card-list-caption">
+                                <%= projectData[i].sections[j].content[k].caption %>
+                            </div>
+                        <% } %>
+
+                        <% if (projectData[i].sections[j].content[k].endImg) { %>
+                            <div class="card-list-end-image">
+                                <img src="/assets/projects/<%= projectData[i].sections[j].content[k].endImg %>" alt="">
+                            </div>
+                        <% } %>
+                    </div>
+                </li>
+                <% } %>
+            </ul>
+        </div>
+        <% } %>
+
+        <% } %>
+    </section>
+    <% } %>
+</div>

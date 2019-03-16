@@ -1,0 +1,15 @@
+
+// grid config
+$susy: (
+  columns: 12,
+  container: auto,
+  gutters: .2,
+  container-position: center,
+  gutter-position: after,
+  debug: (
+     image: true,
+     color: rgba(blue, .2),
+     output: background,
+     toggle: top right,
+   )
+);

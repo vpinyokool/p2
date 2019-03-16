@@ -49,7 +49,6 @@
 			"url":"website.com"
 		},
 		{
-			"title":"title here",
 			"img": "9",
 			"type:":"organic",
 			"url":"mawebsite.com"
@@ -79,7 +78,6 @@
 			"url":"mawebsite.com"
 		},
 		{
-			"title":"title here",
 			"img": "14",
 			"type:":"organic",
 			"url":"fandwebsite.com"
@@ -103,7 +101,6 @@
 			"url":"mawebsite.com"
 		},
 		{
-			"title":"title here",
 			"img": "18",
 			"type:":"organic",
 			"url":"fandwebsite.com"
@@ -115,7 +112,6 @@
 			"url":"website.com"
 		},
 		{
-			"title":"title here",
 			"img": "20",
 			"type:":"organic",
 			"url":"website.com"

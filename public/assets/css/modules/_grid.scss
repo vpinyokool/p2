@@ -2,7 +2,7 @@
 // masonry stuff
 
 .masonry-layout {
-	padding: 200px 0;
+	padding: 84px 0;
 	margin-bottom: 200px;
 	position: relative;
 	-webkit-column-break-inside: avoid;
@@ -11,7 +11,8 @@
 	padding-right: $masonry-padding;
 	-webkit-column-gap: $masonry-padding;
 	column-gap: $masonry-padding;
-
+	column-count: 7;
+	-webkit-column-count: 7;
 	@include breakpoint(max-width 2000px) {
 		column-count: 6;
 		-webkit-column-count: 6;
@@ -58,11 +59,17 @@ margin-bottom: $masonry-padding;
 	}
 	&:hover {
 		cursor: pointer;
-		.meta-container {
-			transform: translateY(0);
+		.title-container {
+			opacity: 1;
 		}
 		.save-dropdown {
 			opacity: 1;
+		}
+		.meta-icon-wrap {
+			opacity: 1;
+		}
+		.gif-badge {
+			opacity: 0;
 		}
 	}
 }
@@ -72,17 +79,19 @@ margin-bottom: $masonry-padding;
 	bottom: 0;
 	width: 100%;
 	height: 100%;
-	transform: translateY(50px);
+	display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .title-container {
 	padding: 16px;
 	font-family: $font-text;
 	font-size: 14px;
-	position: absolute;
 	bottom: 0;
 	width: 100%;
 	z-index: 1;
+	opacity: 0;
 	backdrop-filter: blur(20px);
 	border-radius: 0 0 $masonry-border $masonry-border;
 	background-color: rgba(255, 255, 255, 0.3);
@@ -110,13 +119,13 @@ margin-bottom: $masonry-padding;
 		letter-spacing: -0.4px;
 		position: absolute;
 		font-family: $font-text;
-		top: $masonry-padding;
 		width: calc(100% - 98px);
 		padding-top: 16px;
 		padding-left: 16px;
 		font-weight: 500;
 		height: 45px;
-		left: $masonry-padding;
+		top: 8px;
+		left: 8px;
 		border-radius:  $masonry-border 4px 4px $masonry-border ;
 	}
 	.save-btn {
@@ -124,13 +133,45 @@ margin-bottom: $masonry-padding;
 		background-color: $primary;
 		font-size: 13px;
 		font-family: $font-display;
-		// letter-spacing: -0.2px;
 		font-weight: 700;
 		display: inline-block;
 		position: absolute;
-		top: $masonry-padding;
 		padding: 16px 24px;
-		right: $masonry-padding;
+		top: 8px;
+		right: 8px;
 		border-radius:  4px $masonry-border $masonry-border 4px ;
+	}
+}
+
+.meta-icon-wrap {
+	display: flex;
+	align-content: flex-end;
+	flex-direction: row;
+	justify-content: flex-end;
+	width: 100%;
+	height: 32px;
+	opacity: 0;
+	margin-bottom: 8px;
+}
+.meta-icon {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	margin-right: 8px;
+	border-radius: 100%;
+	background-color: rgba(255, 255, 255, 0.3);
+	color: rgba($white, .85);
+	backdrop-filter: blur(20px) brightness(120%) contrast(80%);
+	opacity: .9;
+	background-image: url('/assets/icons/pin-arrow.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+
+	&.send {
+		background-image: url('/assets/icons/pin-send.svg');
+	}
+
+	&.overflow {
+		background-image: url('/assets/icons/pin-overflow.svg');
 	}
 }

@@ -323,8 +323,7 @@ var Global = (function() {
             reset: false
         });
         sr.reveal('.masonry-layout__panel__wrap', {
-            duration: 650,
-            viewFactor: 0.5
+            duration: 650
         });
     }
 

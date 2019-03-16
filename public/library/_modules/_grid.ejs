@@ -34,13 +34,20 @@ var homefeedData = public.content.homefeed._data.pins;
 
 				</div>
 				<!-- asset ends -->
-<!---->
+				<!---->
 
 
 					<div class="meta-container">
-						<div class="title-container">
-							<%- homefeedData[i].title %>
+						<div class="meta-icon-wrap">
+							<div class="meta-icon link"></div>
+							<div class="meta-icon send"></div>
+							<div class="meta-icon overflow"></div>
 						</div>
+						<% if (homefeedData[i].title) { %>
+							<div class="title-container">
+								<%- homefeedData[i].title %>
+							</div>
+						<% } %>
 					</div>
 				</div>
 			</div>

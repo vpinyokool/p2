@@ -153,6 +153,13 @@
 		{
 			"title":"title here",
 			"img": "26",
+			"media": "video",
+			"type:":"organic",
+			"url":"website.com"
+		},
+		{
+			"title":"title here",
+			"img": "26",
 			"type:":"organic",
 			"url":"website.com"
 		},
@@ -171,6 +178,7 @@
 		{
 			"title":"title here",
 			"img": "29",
+			"media": "gif",
 			"type:":"organic",
 			"url":"website.com"
 		},

@@ -1,0 +1,63 @@
+//
+// webfonts
+//
+
+
+// display
+@font-face {
+  font-family: 'display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/SF-Pro-Display-Regular.otf') format('opentype'); /* Pretty Modern Browsers */
+}
+
+@font-face {
+  font-family: 'display';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/SF-Pro-Display-Medium.otf') format('opentype'); /* Pretty Modern Browsers */
+}
+
+@font-face {
+  font-family: 'display';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/SF-Pro-Display-Semibold.otf') format('opentype'); /* Pretty Modern Browsers */
+}
+
+@font-face {
+  font-family: 'display';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/SF-Pro-Display-Bold.otf') format('opentype'); /* Pretty Modern Browsers */
+}
+
+
+// text
+@font-face {
+  font-family: 'text';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/SF-Pro-Text-Regular.otf') format('opentype'); /* Pretty Modern Browsers */
+}
+
+@font-face {
+  font-family: 'text';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/SF-Pro-Text-Medium.otf') format('opentype'); /* Pretty Modern Browsers */
+}
+
+@font-face {
+  font-family: 'text';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/SF-Pro-Text-Semibold.otf') format('opentype'); /* Pretty Modern Browsers */
+}
+
+@font-face {
+  font-family: 'text';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/SF-Pro-Display-Bold.otf') format('opentype'); /* Pretty Modern Browsers */
+}

@@ -1,8 +1,12 @@
+// var
+//
+$nav-padding: 16px;
+
 
 nav {
 	width: 100%;
 	position: absolute;
-	padding: $masonry-padding;
+	padding: $nav-padding;
 	font-size: 18px;
 	// background-color: green;
 }
@@ -16,7 +20,7 @@ nav .search-bar {
 	display: inline-block;
 	padding: 24px;
 	width: calc(100vw - 524px);
-	margin-left: $masonry-padding;
+	margin-left: $nav-padding;
 	background-color: $light;
 	border-radius: 8px;
 	vertical-align: middle;
@@ -30,21 +34,22 @@ nav ul.nav-list {
 
 	li {
 		display: inline-block;
-		padding: $masonry-padding;
+		padding: $nav-padding;
 		vertical-align: middle;
 		font-size: 16px;
-		font-weight: 600;
-		letter-spacing: -.6px;
+		font-weight: 700;
+		font-family: $font-display;
+		letter-spacing: -.4px;
 		color: $dark;
 		&._active {
 			color: $darkest;
 		}
 
 		&.img {
-			width: $masonry-padding*2;
-			height: $masonry-padding*2;
+			width: $nav-padding*2;
+			height: $nav-padding*2;
 			padding: 0;
-			margin-left: $masonry-padding;
+			margin-left: $nav-padding;
 			img {
 				width: 100%;
 				height: auto;
@@ -52,7 +57,7 @@ nav ul.nav-list {
 		}
 
 		&.name {
-			padding-left: $masonry-padding/2;
+			padding-left: $nav-padding/2;
 		}
 
 		&.img-icon {
@@ -65,7 +70,7 @@ nav ul.nav-list {
 				height: auto;
 			}
 			&:last-child {
-				margin-right: $masonry-padding;
+				margin-right: $nav-padding;
 			}
 		}
 	}

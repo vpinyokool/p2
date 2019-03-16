@@ -15,7 +15,7 @@ textarea {
 
 body {
   @include font-smoothing();
-  font-family: $font-reg;
+  font-family: $font-text;
   font-weight: 400;
   font-size: 100%;
   text-rendering: geometricPrecision;

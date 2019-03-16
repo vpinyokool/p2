@@ -59,9 +59,9 @@ $sml: max-width $sml-width;
 // Fonts
 //
 
-$font-reg: '-apple-system', helvetica;
-$font-serif: '-apple-system', helvetica;
-$font-mono: '-apple-system', helvetica;
+$font-display: 'display', helvetica;
+$font-text: 'text', helvetica;
+
 
 
 // Spacing
@@ -73,8 +73,8 @@ $nav-width: 70px;
 //
 // masonry
 //
-$masonry-border: 16px;
-$masonry-padding: 16px;
+$masonry-border: 4px;
+$masonry-padding: 8px;
 
 
 //

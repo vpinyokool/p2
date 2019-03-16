@@ -1,28 +1,49 @@
 <%
 var homefeedData = public.content.homefeed._data.pins;
 %>
-
-
 <div class="masonry-layout ">
-
 	<% for ( var i=0; i < homefeedData.length; i++ ) { %>
 	<div class="masonry-layout__panel__wrap">
 		<div class="masonry-layout__panel">
 			<div class="masonry-layout__panel-content">
+				<!---->
+				<!-- badges start -->
+				<% if ( homefeedData[i].media == 'gif') { %>
 				<div class="gif-badge">GIF</div>
-				<div><img src="/assets/images/<%= i+1 %>.png" />
-				</div>
-
-				<div class="meta-container">
-					<div class="title-container">
-						<%- homefeedData[i].title %>
+				<% } %>
+				<!---->
+				<% if ( homefeedData[i].media == 'video') { %>
+					<div class="gif-badge">1:12</div>
+				<% } %>
+				<!-- badges eds -->
+				<!---->
+				<div class="asset-container">
+				<!---->
+				<!-- asset starts -->
+					<div class="save-dropdown">
+						<div class="board-name">Board name</div>
+						<div class="save-btn">Save</div>
 					</div>
+					<img src="/assets/images/<%= homefeedData[i].img %>
+						<% if ( homefeedData[i].media == 'gif' || homefeedData[i].media == 'video') { %>
+							.gif
+						<% } else { %>
+							.png
+						<% } %>
+					" />
+
+				</div>
+				<!-- asset ends -->
+<!---->
 
 
-
+					<div class="meta-container">
+						<div class="title-container">
+							<%- homefeedData[i].title %>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-		</div>
-	<% } %>
-</div>
+		<% } %>
+	</div>

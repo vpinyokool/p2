@@ -18,6 +18,10 @@ var Global = (function() {
         }
     }, false);
 
+    function headroom() {
+        $('nav').headroom();
+    }
+
     function pageLoad() {
 
 
@@ -409,9 +413,7 @@ var Global = (function() {
         //     imgLoaded();
         // }
 
-        function projectHeader() {
-            $('header').headroom();
-        }
+
 
         function imgLoaded() {
 
@@ -628,6 +630,7 @@ var Global = (function() {
         reveal: reveal,
         isOnDetail: isOnDetail,
         afterIntro: afterIntro,
-        fastClick: fastClick
+        fastClick: fastClick,
+        headroom: headroom
     }
 })();

@@ -8,6 +8,7 @@ var call = {
         // run everywhere
         // Global.pageLoad();
         Global.reveal();
+        Global.headroom();
         // Global.fastClick();
 
     },
@@ -16,9 +17,6 @@ var call = {
         var sPath = window.location.pathname;
 
         // run on specific page
-        if (sPath.indexOf('projects') > -1) {
-            Global.isOnDetail();
-        }
 
 
 

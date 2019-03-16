@@ -2842,6 +2842,10 @@ var Global = (function() {
         }
     }, false);
 
+    function headroom() {
+        $('nav').headroom();
+    }
+
     function pageLoad() {
 
 
@@ -3233,9 +3237,7 @@ var Global = (function() {
         //     imgLoaded();
         // }
 
-        function projectHeader() {
-            $('header').headroom();
-        }
+
 
         function imgLoaded() {
 
@@ -3452,7 +3454,8 @@ var Global = (function() {
         reveal: reveal,
         isOnDetail: isOnDetail,
         afterIntro: afterIntro,
-        fastClick: fastClick
+        fastClick: fastClick,
+        headroom: headroom
     }
 })();
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -3465,6 +3468,7 @@ var call = {
         // run everywhere
         // Global.pageLoad();
         Global.reveal();
+        Global.headroom();
         // Global.fastClick();
 
     },
@@ -3473,9 +3477,6 @@ var call = {
         var sPath = window.location.pathname;
 
         // run on specific page
-        if (sPath.indexOf('projects') > -1) {
-            Global.isOnDetail();
-        }
 
 
 

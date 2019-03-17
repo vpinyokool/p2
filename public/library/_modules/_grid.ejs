@@ -16,7 +16,7 @@ var homefeedData = public.content.homefeed._data.pins;
 				<div class="gif-badge">1:12</div>
 				<% } %>
 				<% if ( homefeedData[i].type == 'ad') { %>
-				<div class="promoted-badge">promoted</div>
+				<div class="promoted-badge">Promoted</div>
 				<% } %>
 				<!-- badges ends -->
 				<!---->
@@ -25,7 +25,9 @@ var homefeedData = public.content.homefeed._data.pins;
 					<!---->
 					<!-- asset starts -->
 					<div class="save-dropdown">
-						<div class="board-name">Board name</div>
+						<div class="board-name">
+							<%= homefeedData[i].board %>
+						</div>
 						<div class="save-btn">Save</div>
 					</div>
 					<img src="/assets/images/<%= homefeedData[i].img %>
@@ -47,12 +49,29 @@ var homefeedData = public.content.homefeed._data.pins;
 					<% if (homefeedData[i].title) { %>
 					<div class="title-container">
 						<%- homefeedData[i].title %>
+						<% if (homefeedData[i].cookTime) { %>
+							<div class="pti-container">
+								<%- homefeedData[i].cookTime %> to make
+							</div>
+						<% } %>
+						<% if (homefeedData[i].seller) { %>
+							<div class="seller-container">
+								<%- homefeedData[i].seller %>
+							</div>
+						<% } %>
 					</div>
 					<% } %>
+
 				</div>
 				<% } else { %>
 				<!-- ad is true -->
 				<div class="asset-container ad">
+										<div class="save-dropdown">
+						<div class="board-name">
+							<%= homefeedData[i].board %>
+						</div>
+						<div class="save-btn">Save</div>
+					</div>
 					<img src="/assets/images/<%= homefeedData[i].img %>
 					<% if ( homefeedData[i].media == 'gif' || homefeedData[i].media == 'video') { %>
 					.gif
@@ -62,7 +81,11 @@ var homefeedData = public.content.homefeed._data.pins;
 
 					" />
 				</div>
-
+						<div class="ad-meta-icon-wrap">
+							<div class="meta-icon link"></div>
+							<div class="meta-icon send"></div>
+							<div class="meta-icon overflow"></div>
+						</div>
 				<div class="ad-chin">
 
 

@@ -327,7 +327,8 @@ var Global = (function() {
             reset: false
         });
         sr.reveal('.masonry-layout__panel__wrap', {
-            duration: 650
+            duration: 650,
+            distance: '100px',
         });
     }
 

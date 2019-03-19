@@ -3,14 +3,16 @@
 //
 
 $legoMode: true;
-// $legoMode: false;
+$legoMode: false;
+
+$masonry-border: 16px;
+$masonry-padding: 16px;
 
 //
 // Colors
 //
 
 // Black and White
-
 $white: #fff;
 $black: #000;
 
@@ -75,13 +77,6 @@ $font-text: 'text', helvetica;
 
 $base-padding: 10px;
 $nav-width: 70px;
-
-
-//
-// masonry
-//
-$masonry-border: 16px;
-$masonry-padding: 16px;
 
 
 //

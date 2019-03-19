@@ -5,6 +5,9 @@
 	padding: 84px 0;
 	margin-bottom: 200px;
 	position: relative;
+	@include lego-mode {
+		color: rgba($white, .8);
+	}
 	-webkit-column-break-inside: avoid;
   column-break-inside: avoid;
 	padding-left: $masonry-padding;
@@ -100,6 +103,9 @@ margin-bottom: $masonry-padding;
 	z-index: 1;
 	opacity: 0;
 	border-radius: 0 0 $masonry-border $masonry-border;
+	@include lego-mode {
+		@include blur(dark);
+	}
 
 }
 
@@ -112,6 +118,7 @@ margin-bottom: $masonry-padding;
 	font-size: 13px;
 	font-weight: 400;
 	padding-top: 8px;
+	margin-bottom: $masonry-padding;
 }
 
 .seller-container,
@@ -129,20 +136,31 @@ margin-bottom: $masonry-padding;
     	margin-top: 0;
 		background-size: contain;
 		background-repeat: no-repeat;
+		@include lego-mode {
+			background-image: url('/assets/icons/pin-tag-lite.svg');
+		}
 	}
 }
 
 .read-time-container:before,
 .pti-container:before {
 	background-image: url('/assets/icons/pin-clock.svg');
+	@include lego-mode {
+		background-image: url('/assets/icons/pin-clock-lite.svg');
+	}
 }
 
 .stars-container {
+	margin-bottom: 0;
 	text-indent: 84px;
 }
 .stars-container:before {
 	width: 77px;
 	background-image: url('/assets/icons/pin-stars.svg');
+	@include lego-mode {
+		background-image: url('/assets/icons/pin-stars-lite.svg');
+	}
+
 }
 
 
@@ -165,6 +183,9 @@ margin-bottom: $masonry-padding;
 	font-size: 11px;
 	border-radius: 100px;
 	font-family: $font-text;
+	@include lego-mode {
+		@include blur(dark);
+	}
 }
 
 .save-dropdown {
@@ -231,13 +252,23 @@ margin-bottom: $masonry-padding;
 	background-image: url('/assets/icons/pin-arrow.svg');
 	background-position: center;
 	background-repeat: no-repeat;
+	@include lego-mode {
+		@include blur(dark);
+		background-image: url('/assets/icons/pin-arrow-lite.svg');
+	}
 
 	&.send {
 		background-image: url('/assets/icons/pin-send.svg');
+		@include lego-mode {
+			background-image: url('/assets/icons/pin-send-lite.svg');
+		}
 	}
 
 	&.overflow {
 		background-image: url('/assets/icons/pin-overflow.svg');
+		@include lego-mode {
+			background-image: url('/assets/icons/pin-overflow-lite.svg');
+		}
 	}
 }
 
@@ -259,6 +290,9 @@ margin-bottom: $masonry-padding;
 		width: 100%;
 		padding: 16px;
 		border-radius: 0 0 $masonry-border $masonry-border;
+		@include lego-mode {
+			@include blur(dark);
+		}
 	}
 	.ad-title-container {
 		padding-right: 20px;

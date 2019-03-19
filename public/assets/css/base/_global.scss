@@ -22,7 +22,10 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   background-color: $white;
+  @include lego-mode {
+    background-color: $black;
   }
+}
 
 
 

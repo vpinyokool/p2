@@ -15,15 +15,38 @@ nav {
 .logo-wrap {
 	display: inline-block;
 	vertical-align: middle;
+	background-image: url('/assets/icons/pinterest.svg');
+	background-size: contain;
+	width: 28px;
+	height: 28px;
+	@include lego-mode {
+		background-image: url('/assets/icons/pinterest-lite.svg');
+  	}
 }
 nav .search-bar {
 	display: inline-block;
 	padding: 24px;
 	width: calc(100vw - 524px);
 	margin-left: $nav-padding;
-	background-color: $light;
+	background-color: $white;
 	border-radius: 8px;
 	vertical-align: middle;
+	@include lego-mode {
+	    background-color: rgba($dark, .4);
+	    position: relative;
+	    width: calc(100vw - 124px);
+	    border-radius: 24px;
+	    &:after {
+	    	content: '';
+	    	position: absolute;
+	    	background-image: url('/assets/icons/pin-overflow-lite.svg');
+	    	width: 15px;
+	    	height: 15px;
+	    	background-size: contain;
+	    	right: -32px;
+	    	background-repeat: no-repeat;
+	    }
+  	}
 }
 nav ul.nav-list {
 	display: inline-block;
@@ -31,6 +54,9 @@ nav ul.nav-list {
 	right: 0;
 	font-size: 0;
 	vertical-align: middle;
+	@include lego-mode {
+		display: none;
+	}
 
 	li {
 		display: inline-block;
@@ -76,13 +102,13 @@ nav ul.nav-list {
 	}
 }
 
-
-
-
 .headroom {
 	position: fixed;
     z-index: 1;
     background-color: $white;
+    @include lego-mode {
+    background-color: $black;
+  }
     transition: transform $turtle $ease-out;
 }
 
@@ -92,4 +118,33 @@ nav ul.nav-list {
 
 .headroom--unpinned {
     transform: translateY(-100%);
+}
+
+.lego-nav {
+	display: none;
+	@include lego-mode {
+		position: fixed;
+		bottom: 32px;
+		right: 32px;
+		background-color: $white;
+		z-index: 10;
+		box-shadow: 0 10px 32px rgba($black, .15);
+		padding: 26px 15px;
+		border-radius: 40px;
+	}
+}
+
+.lego-home-wrap {
+	width: 40px;
+	height: 40px;
+	background-image: url('/assets/icons/lego-home-icon.svg');
+	background-size: 60%;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+.lego-avatar-wrap {
+	background-color: yellow;
 }

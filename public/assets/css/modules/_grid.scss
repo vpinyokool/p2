@@ -298,3 +298,11 @@ margin-bottom: $masonry-padding;
 		border-radius: $masonry-border  $masonry-border 0 0;
 	}
 }
+
+.avatar-wrap {
+	border-radius: 50%;
+	width: 24px;
+	height: 24px;
+	margin-right: 8px;
+	overflow: hidden;
+}

@@ -41,11 +41,10 @@
   width: 100%;
 }
 .masonry-layout__panel__wrap{
-overflow: hidden;
  -webkit-column-break-inside: avoid;
   column-break-inside: avoid;
 margin-bottom: $masonry-padding;
-	border-radius: $masonry-border;
+
 
 }
 .masonry-layout__panel {
@@ -106,7 +105,9 @@ margin-bottom: $masonry-padding;
 }
 
 .pti-container,
-.seller-container {
+.seller-container,
+.read-time-container,
+.stars-container {
 	font-family: $font-text;
 	letter-spacing: -0.3px;
 	font-size: 13px;
@@ -114,19 +115,37 @@ margin-bottom: $masonry-padding;
 	padding-top: 8px;
 }
 
-.seller-container {
-	text-indent: 18px;
+.seller-container,
+.read-time-container,
+.pti-container,
+.stars-container {
+	text-indent: 24px;
 	&:before {
 		content: '';
 		width: 12px;
 		height: 12px;
 		background-image: url('/assets/icons/pin-tag.svg');
 		position: absolute;
-		left: 16px;
-		margin-top: 4px;
+	    left: 4px;
+    	margin-top: 0;
 		background-size: contain;
+		background-repeat: no-repeat;
 	}
 }
+
+.read-time-container:before,
+.pti-container:before {
+	background-image: url('/assets/icons/pin-clock.svg');
+}
+
+.stars-container {
+	text-indent: 84px;
+}
+.stars-container:before {
+	width: 77px;
+	background-image: url('/assets/icons/pin-stars.svg');
+}
+
 
 .gif-badge {
 	position: absolute;
@@ -280,4 +299,12 @@ margin-bottom: $masonry-padding;
 	position: absolute;
 	right: 0;
 	bottom: 110px;
+}
+
+.asset-container {
+	overflow: hidden;
+	border-radius: $masonry-border;
+	&.ad {
+		border-radius: $masonry-border  $masonry-border 0 0;
+	}
 }

@@ -1,5 +1,6 @@
 <%
 var homefeedData = public.content.homefeed._data.pins;
+// var homefeedData = public.content.homefeed._data.ugly;
 %>
 <div class="masonry-layout ">
 	<% for ( var i=0; i < homefeedData.length; i++ ) { %>
@@ -49,20 +50,11 @@ var homefeedData = public.content.homefeed._data.pins;
 					<% if (homefeedData[i].title) { %>
 					<div class="title-container">
 						<%- homefeedData[i].title %>
-						<% if (homefeedData[i].cookTime) { %>
-							<div class="pti-container">
-								<%- homefeedData[i].cookTime %> to make
-							</div>
-						<% } %>
-						<% if (homefeedData[i].seller) { %>
-							<div class="seller-container">
-								<%- homefeedData[i].seller %>
-							</div>
-						<% } %>
 					</div>
 					<% } %>
 
 				</div>
+
 				<% } else { %>
 				<!-- ad is true -->
 				<div class="asset-container ad">
@@ -106,6 +98,25 @@ var homefeedData = public.content.homefeed._data.pins;
 				<% } %>
 			</div>
 		</div>
+		<% if (homefeedData[i].seller) { %>
+			<div class="seller-container">
+				<%- homefeedData[i].seller %>
+			</div>
+		<% } %>
+		<% if (homefeedData[i].readTime) { %>
+			<div class="read-time-container">
+				<%- homefeedData[i].readTime %> read
+			</div>
+		<% } %>
+		<% if (homefeedData[i].cookTime) { %>
+			<div class="stars-container">
+				9
+			</div>
+			<div class="pti-container">
+				<%- homefeedData[i].cookTime %> to make
+			</div>
+		<% } %>
 	</div>
+
 	<% } %>
 </div>

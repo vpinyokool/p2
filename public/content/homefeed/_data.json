@@ -1,4 +1,384 @@
 {
+	"ugly": [
+		{
+			"img": "ugly/1",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/2",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/3",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/4",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/5",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/6",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/7",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/8",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/9",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/10",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/11",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/12",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/13",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/14",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/15",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/16",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/17",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/18",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/19",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/20",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/21",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+				{
+			"img": "ugly/1",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/2",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/3",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/4",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/5",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/6",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/7",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/8",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/9",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/10",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/11",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/12",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/13",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/14",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/15",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/16",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/17",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/18",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/19",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/20",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/21",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+				{
+			"img": "ugly/1",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/2",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/3",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/4",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/5",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/6",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/7",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/8",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/9",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/10",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/11",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/12",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/13",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/14",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/15",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/16",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/17",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/18",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/19",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/20",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		},
+		{
+			"img": "ugly/21",
+			"board": "Food",
+			"type":"organic",
+			"url":"mawebsite.com"
+		}
+	],
 		"og": [
 		{
 			"title":"Wee Society Collection, Prints and Posters ",
@@ -184,6 +564,7 @@
 		},
 		{
 			"title":"Landscape & Starry sky timelapse",
+			"readTime": "4 mins",
 			"img": "26",
 			"board": "Landscape",
 			"media": "video",
@@ -399,6 +780,7 @@
 		},
 		{
 			"title":"Landscape & Starry sky timelapse",
+			"readTime": "4 mins",
 			"img": "26",
 			"board": "Landscape",
 			"media": "video",
@@ -612,6 +994,7 @@
 		},
 		{
 			"title":"Landscape & Starry sky timelapse",
+			"readTime": "4 mins",
 			"img": "26",
 			"board": "Landscape",
 			"media": "video",
@@ -825,6 +1208,7 @@
 		},
 		{
 			"title":"Landscape & Starry sky timelapse",
+			"readTime": "4 mins",
 			"img": "26",
 			"board": "Landscape",
 			"media": "video",
@@ -1040,6 +1424,7 @@
 		},
 		{
 			"title":"Landscape & Starry sky timelapse",
+			"readTime": "4 mins",
 			"img": "26",
 			"board": "Landscape",
 			"media": "video",
@@ -1226,6 +1611,7 @@
 		},
 		{
 			"title":"Landscape & Starry sky timelapse",
+			"readTime": "4 mins",
 			"img": "26",
 			"board": "Landscape",
 			"media": "video",

@@ -126,15 +126,15 @@ margin-bottom: $masonry-padding;
 .read-time-container,
 .pti-container,
 .stars-container {
-	text-indent: 24px;
+	text-indent: 20px;
 	&:before {
 		content: '';
 		width: 12px;
 		height: 12px;
 		background-image: url('/assets/icons/pin-tag.svg');
 		position: absolute;
-	    left: 4px;
-    	margin-top: 0;
+	    left: 0;
+    	margin-top: 2px;
 		background-size: contain;
 		background-repeat: no-repeat;
 		@include lego-mode {
@@ -153,7 +153,7 @@ margin-bottom: $masonry-padding;
 
 .stars-container {
 	margin-bottom: 0;
-	text-indent: 84px;
+	text-indent: 82px;
 }
 .stars-container:before {
 	width: 77px;

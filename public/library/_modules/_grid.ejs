@@ -48,18 +48,36 @@ var homefeedData = public.content.homefeed._data.pins;
 						<div class="meta-icon send"></div>
 						<div class="meta-icon overflow"></div>
 					</div>
-					<% if (homefeedData[i].title) { %>
+<% if (homefeedData[i].title || homefeedData[i].seller || homefeedData[i].readTime || homefeedData[i].cookTime ) { %>
 					<div class="title-container">
+						<% if (homefeedData[i].title) { %>
 						<%- homefeedData[i].title %>
+						<% } %>
+						<% if (homefeedData[i].seller) { %>
+						<div class="seller-container">
+							<%- homefeedData[i].seller %>
+						</div>
+						<% } %>
+						<% if (homefeedData[i].readTime) { %>
+						<div class="read-time-container">
+							<%- homefeedData[i].readTime %> read
+						</div>
+						<% } %>
+						<% if (homefeedData[i].cookTime) { %>
+						<div class="stars-container">
+							9
+						</div>
+						<div class="pti-container">
+							<%- homefeedData[i].cookTime %> to make
+						</div>
+						<% } %>
 					</div>
-					<% } %>
-
+<% } %>
 				</div>
-
 				<% } else { %>
 				<!-- ad is true -->
 				<div class="asset-container ad">
-										<div class="save-dropdown">
+					<div class="save-dropdown">
 						<div class="board-name">
 							<%= homefeedData[i].board %>
 						</div>
@@ -71,20 +89,15 @@ var homefeedData = public.content.homefeed._data.pins;
 					<% } else { %>
 					.png
 					<% } %>
-
 					" />
 				</div>
-						<div class="ad-meta-icon-wrap">
-							<div class="meta-icon link"></div>
-							<div class="meta-icon send"></div>
-							<div class="meta-icon overflow"></div>
-						</div>
+				<div class="ad-meta-icon-wrap">
+					<div class="meta-icon link"></div>
+					<div class="meta-icon send"></div>
+					<div class="meta-icon overflow"></div>
+				</div>
 				<div class="ad-chin">
-
-
-
-						<div class="ad-background-img" style="background-image: url('/assets/images/<%= homefeedData[i].img %><% if ( homefeedData[i].media == 'gif' || homefeedData[i].media == 'video') { %>.gif<% } else { %>.png<% } %>')">
-
+					<div class="ad-background-img" style="background-image: url('/assets/images/<%= homefeedData[i].img %><% if ( homefeedData[i].media == 'gif' || homefeedData[i].media == 'video') { %>.gif<% } else { %>.png<% } %>')">
 					</div>
 					<div class="ad-meta-container">
 						<div class="ad-title-container">
@@ -101,25 +114,6 @@ var homefeedData = public.content.homefeed._data.pins;
 				<% } %>
 			</div>
 		</div>
-		<% if (homefeedData[i].seller) { %>
-			<div class="seller-container">
-				<%- homefeedData[i].seller %>
-			</div>
-		<% } %>
-		<% if (homefeedData[i].readTime) { %>
-			<div class="read-time-container">
-				<%- homefeedData[i].readTime %> read
-			</div>
-		<% } %>
-		<% if (homefeedData[i].cookTime) { %>
-			<div class="stars-container">
-				9
-			</div>
-			<div class="pti-container">
-				<%- homefeedData[i].cookTime %> to make
-			</div>
-		<% } %>
 	</div>
-
 	<% } %>
 </div>

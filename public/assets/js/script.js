@@ -9,6 +9,7 @@ var call = {
         // Global.pageLoad();
         Global.reveal();
         Global.headroom();
+        Global.scrollMeta();
         // Global.fastClick();
 
     },

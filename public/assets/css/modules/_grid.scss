@@ -389,6 +389,18 @@ li.tool {
 		display: inline-block;
 		font-size: 0;
 	}
+	&.with-switch {
+		position: relative;
+		&:after {
+			content: '';
+			background-image: url('/assets/icons/switch-off.svg');
+			position: absolute;
+			right: 0;
+			height: 24px;
+			width: 40px;
+			top: 0;
+		}
+	}
 	&.search-bar {
 		width: calc(540px - 48px);
 		padding: 14.5px 16px;
@@ -541,6 +553,38 @@ li.tool {
 	}
 }
 
+.modal-action-bar {
+	position: fixed;
+	box-shadow: 0 0 8px rgba($black, .1);
+	width: 540px;
+	background-color: $white;
+	bottom: 0;
+	margin-left: -24px;
+	padding: 16px;
+}
+
+
+// btn
+
+.secondary-btn {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 13px 12px 12px 13px;
+	border-radius: 100px;
+	background-color: $light;
+}
+
+.primary-btn {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: 700;
+	padding: 13px 12px 12px 13px;
+	color: $white;
+	float: right;
+	border-radius: 100px;
+	background-color: $primary;
+}
 
 .copy-link-btn {
 	display: inline-block;

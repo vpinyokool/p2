@@ -1,0 +1,166 @@
+<%
+var avatarData = public.content.homefeed._data.people;
+var addToBoardData = public.content.homefeed._data.addToBoard;
+%>
+
+<!-- EDIT -->
+<div class="overlay edit">
+	<div class="modal">
+		<div class="modal-title">
+			Edit your board
+		</div>
+
+		<div class="modal-row">
+			<div class="modal-lead">
+				Name
+			</div>
+			<div class="input-field">Need to visit soon</div>
+
+		</div>
+
+		<div class="modal-row">
+			<div class="modal-lead">
+				Description
+			</div>
+			<div class="input-field large phd">Description goes here</div>
+
+		</div>
+
+		<div class="modal-row">
+			<div class="modal-lead">
+				Add dates (optional)
+			</div>
+			<div class="input-field phd has-dates">Select start and end</div>
+
+		</div>
+
+		<div class="modal-row">
+			<div class="modal-lead">
+				Cover
+			</div>
+			<div class="input-field cover">
+				<img src="/assets/images/1.png" alt=""></div>
+
+		</div>
+
+<div class="modal-row">
+	<div class="modal-lead">
+		Collaborators
+	</div>
+	<div class="modal-avatar-wrap">
+		<img src="/assets/images/avatar.png" alt="">
+		<div class="add-btn"></div>
+	</div>
+</div>
+
+		<div class="modal-row">
+			<div class="modal-lead">
+				Settings
+			</div>
+			<div class="modal-item">
+				Type
+			</div>
+			<div class="modal-caption">
+				Keep this board secret, so only you and collaborators can see it
+			</div>
+
+		</div>
+
+		<div class="modal-row">
+			<div class="modal-item">
+				Personalization
+			</div>
+			<div class="modal-caption">
+				Show Pins inspired by this board in your home feed
+			</div>
+
+		</div>
+
+				<div class="modal-row">
+			<div class="modal-item">
+				Email notifications
+			</div>
+			<div class="modal-caption">
+				Receive emails when Pins are added to this board
+			</div>
+
+		</div>
+
+				<div class="modal-row">
+			<div class="modal-item">
+				Board requests
+			</div>
+			<div class="modal-caption">
+				People can request to join this board
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+<!-- ADD -->
+<div class="overlay add">
+	<div class="modal">
+		<div class="modal-title">
+			Add to board
+		</div>
+<% for ( var i=0; i < addToBoardData.length; i++ ) { %>
+		<div class="add-to-board-row-wrap">
+			<div class="icon-wrap">
+				<img src="/assets/icons/<%= addToBoardData[i].img %>.svg" alt="">
+			</div>
+
+			<div class="title-wrap">
+				<div class="addToBoard-title">
+					<%= addToBoardData[i].title %>
+				</div>
+				<div class="addToBoard-caption">
+					<%= addToBoardData[i].caption %>
+				</div>
+			</div>
+			<div class="add-button-wrap">
+				<div class="add-button"></div>
+			</div>
+
+		</div>
+		<% } %>
+	</div>
+</div>
+<!-- INVITE -->
+<div class="overlay invite">
+	<div class="modal">
+		<div class="modal-title">
+			Invite collaborator
+		</div>
+		<!-- /// -->
+		<div class="modal-row">
+			<div class="modal-lead">
+				Collaborors can...
+			</div>
+			<div class="modal-item">
+				Do (almost) anything
+			</div>
+			<div class="modal-caption">
+				Add, move or delete Pins and sections, comment and react
+			</div>
+		</div>
+		<!-- /// -->
+		<!-- /// -->
+		<div class="modal-row inline-block">
+			<div class="link-field">https://pin.it/7w6Bqbk</div>
+			<div class="copy-link-btn">Copy link</div>
+		</div>
+		<div class="modal-row search-bar">Search by name or email</div>
+		<% for ( var i=0; i < avatarData.length; i++ ) { %>
+		<div class="modal-row avatar">
+			<img src="assets/images/a-<%= i+1 %>.png" alt="">
+			<div class="name-wrap">
+				<div class="name"><%= avatarData[i].name %></div>
+				<div class="username"><%= avatarData[i].userName %></div>
+			</div>
+			<div class="invite-btn">Invite</div>
+		</div>
+		<% } %>
+	</div>
+</div>

@@ -22,6 +22,9 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   background-color: $white;
+  &._overlay-is-on {
+    overflow-y: hidden;
+  }
   @include lego-mode {
     background-color: $black;
   }

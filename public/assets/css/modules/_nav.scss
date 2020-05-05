@@ -5,146 +5,107 @@ $nav-padding: 16px;
 
 nav {
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	padding: $nav-padding;
-	font-size: 18px;
-	// background-color: green;
+	font-size: 0;
+	height: 80px;
+	background-color: $white;
+	z-index: 4;
 }
-
 
 .logo-wrap {
 	display: inline-block;
 	vertical-align: middle;
+	width: 48px;
+	height: 48px;
+
+	.logo-asset {
 	background-image: url('/assets/icons/pinterest.svg');
-	background-size: contain;
-	width: 28px;
-	height: 28px;
-	@include lego-mode {
-		background-image: url('/assets/icons/pinterest-lite.svg');
-  	}
+	background-size: cover;
+	margin-top: 12px;
+	margin-left: 12px;
+	width: 24px;
+	height: 24px;
+	}
 }
 nav .search-bar {
 	display: inline-block;
-	padding: 24px;
-	width: calc(100vw - 524px);
-	margin-left: $nav-padding;
-	background-color: $light;
-	border-radius: 8px;
+	width: calc(100vw - 518px);
+	margin-left: $nav-padding*0.5;
+	margin-right: $nav-padding*0.5;
+	border: 2px solid $light;
+	border-radius: 44px;
+	font-weight: 400 !important;
+	color: $dark !important;
+	padding: 14px 16px;
 	vertical-align: middle;
-	@include lego-mode {
-	    background-color: rgba($dark, .4);
-	    position: relative;
-	    width: calc(100vw - 124px);
-	    border-radius: 24px;
-	    &:after {
-	    	content: '';
-	    	position: absolute;
-	    	background-image: url('/assets/icons/pin-overflow-lite.svg');
-	    	width: 15px;
-	    	height: 15px;
-	    	background-size: contain;
-	    	right: -32px;
-	    	background-repeat: no-repeat;
-	    }
-  	}
 }
 nav ul.nav-list {
 	display: inline-block;
-	position: absolute;
-	right: 0;
 	font-size: 0;
 	vertical-align: middle;
-	@include lego-mode {
-		display: none;
-	}
 
 	li {
 		display: inline-block;
-		padding: $nav-padding;
 		vertical-align: middle;
 		font-size: 16px;
 		font-weight: 700;
-		font-family: $font-display;
-		letter-spacing: -.4px;
-		color: $dark;
-		&._active {
-			color: $darkest;
-		}
-
-		&.img {
-			width: $nav-padding*2;
-			height: $nav-padding*2;
-			padding: 0;
-			margin-left: $nav-padding;
-			img {
-				width: 100%;
-				height: auto;
+		font-family: $font-text;
+		color: $darkest;
+		&.text {
+			padding: 16px;
+			border-radius: 100px;
+			&:hover {
+				background-color: $light;
+				cursor: pointer;
 			}
 		}
 
-		&.name {
-			padding-left: $nav-padding/2;
+		&.img.avatar {
+		width: 48px;
+		height: 48px;
+		border-radius: 100px;
+			img {
+				margin-top: 12px;
+				margin-left: 12px;
+				width: 24px;
+				height: 24px;
+				border-radius: 100px;
+				box-shadow: 0 0 0 2px $darkest;
+				border: 1px solid $white;
+			}
+			&:hover {
+				cursor: pointer;
+				background-color: $light;
+			}
+		}
+		&.img {
+			width: 24px;
+			height: 24px;
+			border-radius: 100px;
+			&:hover {
+				cursor: pointer;
+				background-color: $light;
+			}
 		}
 
 		&.img-icon {
 			padding: 0;
 			width: 48px;
 			height: 48px;
+			border-radius: 100px;
 			vertical-align: middle;
 			img {
-				width: 100%;
+				margin-top: 12px;
+				margin-left: 12px;
+				width: 24px;
 				height: auto;
 			}
-			&:last-child {
-				margin-right: $nav-padding;
+			&:hover {
+				cursor: pointer;
+				background-color: $light;
 			}
 		}
 	}
 }
 
-.headroom {
-	position: fixed;
-    z-index: 1;
-    background-color: $white;
-    @include lego-mode {
-    background-color: $black;
-  }
-    transition: transform $turtle $ease-out;
-}
-
-.headroom--pinned {
-    transform: translateY(0%);
-}
-
-.headroom--unpinned {
-    transform: translateY(-100%);
-}
-
-.lego-nav {
-	display: none;
-	@include lego-mode {
-		position: fixed;
-		bottom: 32px;
-		right: 32px;
-		background-color: $white;
-		z-index: 10;
-		box-shadow: 0 10px 32px rgba($black, .15);
-		padding: 26px 15px;
-		border-radius: 40px;
-	}
-}
-
-.lego-home-wrap {
-	width: 40px;
-	height: 40px;
-	background-image: url('/assets/icons/lego-home-icon.svg');
-	background-size: 60%;
-	background-position: center;
-	background-repeat: no-repeat;
-	display: block;
-	margin: 0 auto;
-	margin-bottom: 20px;
-}
-.lego-avatar-wrap {
-	background-color: yellow;
-}

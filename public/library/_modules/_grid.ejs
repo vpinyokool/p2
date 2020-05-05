@@ -5,115 +5,27 @@ var homefeedData = public.content.homefeed._data.pins;
 %>
 <div class="masonry-layout ">
 	<% for ( var i=0; i < homefeedData.length; i++ ) { %>
-	<div class="masonry-layout__panel__wrap">
-		<div class="masonry-layout__panel">
-			<div class="masonry-layout__panel-content">
-				<!---->
-				<!-- badges start -->
-				<% if ( homefeedData[i].media == 'gif') { %>
-				<div class="gif-badge">GIF</div>
-				<% } %>
-				<!---->
-				<% if ( homefeedData[i].media == 'video') { %>
-				<div class="gif-badge">1:12</div>
-				<% } %>
-				<% if ( homefeedData[i].type == 'ad') { %>
-				<div class="promoted-badge">Promoted</div>
-				<% } %>
-				<!-- badges ends -->
-				<!---->
-				<% if ( homefeedData[i].type == 'organic' ) { %>
-				<div class="asset-container organic">
-					<!---->
-					<!-- asset starts -->
-					<div class="save-dropdown">
-						<div class="board-name">
-							<%= homefeedData[i].board %>
-						</div>
-						<div class="save-btn">Save</div>
-					</div>
-					<img src="/assets/images/<%= homefeedData[i].img %>
-					<% if ( homefeedData[i].media == 'gif' || homefeedData[i].media == 'video') { %>
-					.gif
-					<% } else { %>
-					.png
-					<% } %>
-					" />
-				</div>
-				<!-- asset ends -->
-				<!---->
-				<div class="meta-container">
-					<div class="meta-icon-wrap">
-						<div class="meta-icon link"></div>
-						<div class="meta-icon send"></div>
-						<div class="meta-icon overflow"></div>
-					</div>
-<% if (homefeedData[i].title || homefeedData[i].seller || homefeedData[i].readTime || homefeedData[i].cookTime ) { %>
-					<div class="title-container">
-						<% if (homefeedData[i].title) { %>
-						<%- homefeedData[i].title %>
-						<% } %>
-						<% if (homefeedData[i].seller) { %>
-						<div class="seller-container">
-							<%- homefeedData[i].seller %>
-						</div>
-						<% } %>
-						<% if (homefeedData[i].readTime) { %>
-						<div class="read-time-container">
-							<%- homefeedData[i].readTime %> read
-						</div>
-						<% } %>
-						<% if (homefeedData[i].cookTime) { %>
-						<div class="stars-container">
-							9
-						</div>
-						<div class="pti-container">
-							<%- homefeedData[i].cookTime %> to make
-						</div>
-						<% } %>
-					</div>
-<% } %>
-				</div>
-				<% } else { %>
-				<!-- ad is true -->
-				<div class="asset-container ad">
-					<div class="save-dropdown">
-						<div class="board-name">
-							<%= homefeedData[i].board %>
-						</div>
-						<div class="save-btn">Save</div>
-					</div>
-					<img src="/assets/images/<%= homefeedData[i].img %>
-					<% if ( homefeedData[i].media == 'gif' || homefeedData[i].media == 'video') { %>
-					.gif
-					<% } else { %>
-					.png
-					<% } %>
-					" />
-				</div>
-				<div class="ad-meta-icon-wrap">
-					<div class="meta-icon link"></div>
-					<div class="meta-icon send"></div>
-					<div class="meta-icon overflow"></div>
-				</div>
-				<div class="ad-chin">
-					<div class="ad-background-img" style="background-image: url('/assets/images/<%= homefeedData[i].img %><% if ( homefeedData[i].media == 'gif' || homefeedData[i].media == 'video') { %>.gif<% } else { %>.png<% } %>')">
-					</div>
-					<div class="ad-meta-container">
-						<div class="ad-title-container">
-							<%- homefeedData[i].title %>
-						</div>
-						<div class="ad-attribution-container">
-							<div class="avatar-wrap">
-								<img src="/assets/images/<%- homefeedData[i].attributionImg %>" alt="">
-							</div>
-							<%- homefeedData[i].attribution %>
-						</div>
-					</div>
-				</div>
-				<% } %>
-			</div>
+
+<%	if (homefeedData[i].isPin)  { %>
+		<div class="item pin-grid <% if (homefeedData[i].img == '2') { %> always-there
+	}
+<% } %>">
+			<img src="/assets/images/<%= homefeedData[i].img %>.png" />
 		</div>
-	</div>
+
+<% } else { %>
+			<div class="item section <%=homefeedData[i].class%> _hidden">
+				<img src="/assets/images/<%= homefeedData[i].img %>.png" />
+				<div class="chin">
+					<div class="section-title">
+						<%=homefeedData[i].title%>
+					</div>
+					<div class="section-caption">
+						23 Pins
+					</div>
+				</div>
+			</div>
+	<% } %>
+
 	<% } %>
 </div>

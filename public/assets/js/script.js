@@ -7,8 +7,13 @@ var call = {
     firstInit: function() {
         // run everywhere
         Global.reveal();
-        Global.headroom();
-        Global.scrollMeta();
+        // Global.headroom();
+        // Global.scrollMeta();
+        Global.masonry();
+        Global.settings();
+        Global.dock();
+        Global.more();
+        Global.modal();
 
     },
     init: function() {

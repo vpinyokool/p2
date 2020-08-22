@@ -6,26 +6,18 @@ var homefeedData = public.content.homefeed._data.pins;
 <div class="masonry-layout ">
 	<% for ( var i=0; i < homefeedData.length; i++ ) { %>
 
-<%	if (homefeedData[i].isPin)  { %>
-		<div class="item pin-grid <% if (homefeedData[i].img == '2') { %> always-there
+
+		<div class="item pin-grid <% if (homefeedData[i].img == '2') { %>
 	}
 <% } %>">
-			<img src="/assets/images/<%= homefeedData[i].img %>.png" />
+			<div class="pin-img-wrapper">
+				<img src="/assets/images/<%= homefeedData[i].img %>.png" />
+			</div>
+			<div class="pin-title">
+				<%= homefeedData[i].title %>
+			</div>
 		</div>
 
-<% } else { %>
-			<div class="item section <%=homefeedData[i].class%> _hidden">
-				<img src="/assets/images/<%= homefeedData[i].img %>.png" />
-				<div class="chin">
-					<div class="section-title">
-						<%=homefeedData[i].title%>
-					</div>
-					<div class="section-caption">
-						23 Pins
-					</div>
-				</div>
-			</div>
-	<% } %>
 
 	<% } %>
 </div>

@@ -71,31 +71,6 @@
 	],
 	"pins": [
 		{
-			"title":"Body of water",
-			"img": "body-of-water",
-			"class": "always-there",
-			"isPin":false,
-			"url":"mawebsite.com"
-		},
-		{
-			"title":"Ice cold",
-			"img": "ice-cold",
-			"isPin":false,
-			"url":"mawebsite.com"
-		},
-		{
-			"title":"Dunes",
-			"img": "dunes",
-			"isPin":false,
-			"url":"mawebsite.com"
-		},
-		{
-			"title":"Forest",
-			"img": "forest",
-			"isPin": false,
-			"url":"mawebsite.com"
-		},
-		{
 			"title":"Wee Society Collection, Prints and Posters ",
 			"img": "2",
 			"board": "Art & Design",

@@ -2,5 +2,21 @@
 	"index":{
 		"title":"Pinterest",
 		"layout": "library/_views/_layout"
+	},
+	"tag-one":{
+		"title":"Notes example",
+		"layout": "library/_views/_layout"
+	},
+	"tag-two":{
+		"title":"Notes example",
+		"layout": "library/_views/_layout"
+	},
+	"tag-three":{
+		"title":"Notes example",
+		"layout": "library/_views/_layout"
+	},
+	"tag-four":{
+		"title":"Notes example",
+		"layout": "library/_views/_layout"
 	}
 }

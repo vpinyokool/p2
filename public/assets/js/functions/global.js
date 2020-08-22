@@ -42,15 +42,33 @@ var Global = (function() {
     }
 
     function masonry() {
-        $('.masonry-layout').masonry({
+
+        var $grid = $('.masonry-layout').masonry({
           itemSelector: '.item',
-          columnWidth: 236,
-          gutter: 16,
+          columnWidth: 176,
+          gutter: 8,
           horizontalOrder: true,
           fitWidth: true,
           originLeft: true,
           transitionDuration: 0
         });
+
+
+        $grid.imagesLoaded().progress( function() {
+            $grid.masonry('layout');
+        });
+
+        $('.item').on('click', function() {
+            $('body').addClass('_closeup-is-on');
+            $('.closeup').addClass('_active');
+            $('.pingrid').addClass('_active');
+        })
+
+        $('.icon-button.back').on('click', function() {
+            $('body').removeClass('_closeup-is-on');
+            $('.closeup').removeClass('_active');
+            $('.pingrid').removeClass('_active');
+        })
     }
 
     function modal() {

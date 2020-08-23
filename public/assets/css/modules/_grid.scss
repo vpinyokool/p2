@@ -39,6 +39,7 @@ main,
 
 .home-indicator-wrap {
 	position: absolute;
+	pointer-events: none;
 	bottom: 0;
 	height: 34px;
 	// background-color: yellow;
@@ -215,30 +216,87 @@ main,
 
 .masonry-layout {
 	margin-left: 8px;
+	margin-bottom: 48px;
 }
+
+.icon-button-star {
+	cursor: pointer;
+	border-radius: 100%;
+	position: relative;
+	&:after {
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 100%;
+		border-radius: 100%;
+		background-color: rgba($black, .05);
+		z-index: 1;
+		left: 0;
+		top: 0;
+		opacity: 0;
+	}
+	&:hover {
+		&:after {
+			opacity: 1;
+		}
+	}
+}
+
 .pin-img-wrapper {
 	border-radius: 16px;
+	font-size: 0;
 	overflow: hidden;
+	position: relative;
+	img {
+		width: 100%;
+		height: auto;
+
+	}
+	.star {
+		cursor: pointer;
+		width: 32px;
+		height: 32px;
+		position: absolute;
+		background-color: rgba($white, .8);
+		border-radius: 100%;
+		right: 8px;
+		bottom: 8px;
+		.icon-wrap {
+			width: 32px;
+			height: 32px;
+			transform:  scale(.8);
+			background-image: url('/assets/icons/icon-not-active.svg');
+			transition: transform 450ms $ease-out-back 100ms;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		&:hover {
+			background-color: $white;
+		}
+		&._active {
+			.icon-wrap {
+				transform:  scale(.88);
+				background-image: url('/assets/icons/icon-star-active.svg');
+			}
+		}
+	}
 }
 .pin-title {
 	font-size: 12px;
 	font-weight: 600;
 	padding-left: 6px;
-	padding-top: 2px;
+	padding-top: 6px;
 	line-height: 1.2;
 }
 .item {
 	width: 176px;
 	margin-bottom: 16px;
-	img {
-		width: 100%;
-		height: auto;
-	}
 }
 
 // closeup view
 
 .phone-canvas {
+	transition: all 450ms $ease-out;
 	background-color: $white;
 	._closeup-is-on & {
 		background-color: $black;
@@ -248,30 +306,33 @@ main,
 	transition: all 450ms $ease-out;
 	transform: translateX(0);
 }
-.pingrid._active {
-	transform: translateX(-100%);
-	opacity: 0;
+
+.closeup {
+	top: 0;
+	z-index: 2;
+	transition: transform 450ms $ease-out;
+	transform: translateX(100%);
+	padding-top: 44px;
+}
+
+._closeup-is-on {
+	 .pingrid {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	.closeup {
+		transform: translateX(0);
+	}
 }
 .scroll-area {
 	position: absolute;
 	width: 375px;
 	height: 812px;
 	z-index: 1;
-}
-.closeup.scroll-area {
-	position: absolute;
-	height: 812px;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	top: 0;
-	z-index: 2;
-	transition: transform 450ms $ease-out;
-	transform: translateX(100%);
-	&._active {
-		transform: translateX(0);
-	}
-
 }
+// closeup module
 
 .closeup-module {
 	width: 100%;
@@ -279,7 +340,77 @@ main,
 	border-radius: 32px;
 	margin-bottom: 2px;
 	height: 300px;
+text-align: center;
 	&:first-child {
 		margin-top: 44px;
 	}
 }
+
+
+// main card
+.main-card-buttons-wrap {
+	display: flex;
+	align-items: center;
+}
+.button {
+	padding: 22px 12px;
+	width: 80px;
+	background-color: $light;
+	display: inline-block;
+	text-align: center;
+	text-align: center;
+	font-weight: 600;
+	font-size: 16px;
+	border-radius: 32px;
+	&.save {
+		background-color: $primary;
+		color: $white;
+	}
+}
+
+.main-card-wrapper {
+	background-color: $white;
+	overflow: hidden;
+	border-radius: 32px;
+	margin-bottom: 2px;
+	&._hidden {
+		display: none;
+	}
+
+	img {
+		width: 100%;
+	}
+}
+.cu-pin-title {
+	font-size: 28px;
+	margin: 0 auto;
+	margin-top: 16px;
+	font-weight: 600;
+	width: 330px;
+	text-align: center;
+	line-height: 1.1;
+	letter-spacing: -1.2px;
+}
+.cu-pin-description {
+	text-align: center;
+	margin-top: 8px;
+}
+
+.cu-pin-actions-wrap {
+	display: flex;
+	padding: 16px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+// others
+.cu-title {
+	font-size: 20px;
+	font-weight: 600;
+	letter-spacing: -0.2px;
+	padding: 24px 0;
+	text-align: center;
+	font-family: $font-display;
+}
+
+

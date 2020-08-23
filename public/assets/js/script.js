@@ -6,14 +6,15 @@ var call = {
 
     firstInit: function() {
         // run everywhere
-        Global.reveal();
+        // Global.reveal();
         // Global.headroom();
         // Global.scrollMeta();
         Global.masonry();
-        Global.settings();
-        Global.dock();
-        Global.more();
-        Global.modal();
+        // Global.settings();
+        // Global.dock();
+        // Global.more();
+        // Global.modal();
+        Global.bodyMovin();
 
     },
     init: function() {

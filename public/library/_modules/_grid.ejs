@@ -7,10 +7,12 @@ var homefeedData = public.content.homefeed._data.pins;
 	<% for ( var i=0; i < homefeedData.length; i++ ) { %>
 
 
-		<div class="item pin-grid <% if (homefeedData[i].img == '2') { %>
-	}
-<% } %>">
+		<div data-closeup-id="<%= i+1 %>" class="item pin-grid">
 			<div class="pin-img-wrapper">
+
+				<div class="star star-<%= i+1 %>">
+					<div class="icon-wrap"></div>
+				</div>
 				<img src="/assets/images/<%= homefeedData[i].img %>.png" />
 			</div>
 			<div class="pin-title">

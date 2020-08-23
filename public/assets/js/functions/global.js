@@ -41,6 +41,108 @@ var Global = (function() {
         }));
     }
 
+    function bodyMovin() {
+        var animOne = lottie.loadAnimation({
+            container: document.getElementById('star-1'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-1').on('click', function() {
+            if ( $('.star-1').hasClass('_active') ) {
+                $('.star-1').removeClass('_active');
+                animOne.goToAndStop(0, true);
+            } else {
+                $('.star-1').addClass('_active');
+                animOne.play();
+            }
+        })
+
+        ////////////
+
+        var animTwo = lottie.loadAnimation({
+            container: document.getElementById('star-2'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-2').on('click', function() {
+            if ( $('.star-2').hasClass('_active') ) {
+                $('.star-2').removeClass('_active');
+                animTwo.goToAndStop(0, true);
+            } else {
+                $('.star-2').addClass('_active');
+                animTwo.play();
+            }
+        })
+
+        ////////////
+
+        var animThree = lottie.loadAnimation({
+            container: document.getElementById('star-3'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-3').on('click', function() {
+            if ( $('.star-3').hasClass('_active') ) {
+                $('.star-3').removeClass('_active');
+                animThree.goToAndStop(0, true);
+            } else {
+                $('.star-3').addClass('_active');
+                animThree.play();
+            }
+        })
+
+        ////////////
+
+        var animFour = lottie.loadAnimation({
+            container: document.getElementById('star-4'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-4').on('click', function() {
+            if ( $('.star-4').hasClass('_active') ) {
+                $('.star-4').removeClass('_active');
+                animFour.goToAndStop(0, true);
+            } else {
+                $('.star-4').addClass('_active');
+                animFour.play();
+            }
+        })
+
+        ////////////
+
+        var animFive = lottie.loadAnimation({
+            container: document.getElementById('star-5'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-5').on('click', function() {
+            if ( $('.star-5').hasClass('_active') ) {
+                $('.star-5').removeClass('_active');
+                animFive.goToAndStop(0, true);
+            } else {
+                $('.star-5').addClass('_active');
+                animFive.play();
+            }
+        })
+
+        ////////////
+
+    };
     function masonry() {
 
         var $grid = $('.masonry-layout').masonry({
@@ -58,16 +160,27 @@ var Global = (function() {
             $grid.masonry('layout');
         });
 
+        var currentCloseupID;
         $('.item').on('click', function() {
+
+            // get id
+            currentCloseupID = $(this).data('closeup-id');
+
+            //  switch state
             $('body').addClass('_closeup-is-on');
-            $('.closeup').addClass('_active');
-            $('.pingrid').addClass('_active');
-        })
+
+            // show the right module
+            $('.main-card-wrapper').addClass('_hidden');
+            $('.cu-' + currentCloseupID).removeClass('_hidden');
+        });
+
+        $('.pin-img-wrapper .star').click(function (e) {
+            e.stopPropagation();
+        });
+
 
         $('.icon-button.back').on('click', function() {
             $('body').removeClass('_closeup-is-on');
-            $('.closeup').removeClass('_active');
-            $('.pingrid').removeClass('_active');
         })
     }
 
@@ -185,6 +298,7 @@ var Global = (function() {
         settings: settings,
         modal: modal,
         dock: dock,
-        more: more
+        more: more,
+        bodyMovin: bodyMovin
     }
 })();

@@ -1,0 +1,21 @@
+<%
+var homefeedData = public.content.homefeed._data.pins;
+// var homefeedData = public.content.homefeed._data.ugly;
+// var homefeedData = public.content.homefeed._data.real;
+%>
+
+<% for ( var i=0; i < homefeedData.length; i++ ) { %>
+	<div class="main-card-wrapper cu-<%= i+1 %>">
+		<img src="/assets/images/<%= homefeedData[i].img %>.png" />
+		<div class="cu-pin-title"><%= homefeedData[i].title %></div>
+		<div class="cu-pin-description">Pin description goes here</div>
+		<div class="cu-pin-actions-wrap">
+			<div class="icon-button-star star-<%= i+1 %>" id="star-<%= i+1 %>"></div>
+			<div class="main-card-button-wrap">
+				<div class="button visit">Visit</div>
+				<div class="button save">Save</div>
+			</div>
+			<div class="icon-button overflow"></div>
+		</div>
+	</div>
+<% } %>

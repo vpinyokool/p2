@@ -6,23 +6,34 @@ var call = {
 
     firstInit: function() {
         // run everywhere
-        // Global.reveal();
-        // Global.headroom();
-        // Global.scrollMeta();
-        Global.masonry();
-        // Global.settings();
-        // Global.dock();
-        // Global.more();
-        // Global.modal();
+        Global.states();
+        Global.backButton();
+        Global.modal();
         Global.bodyMovin();
+        Global.likeThisGrid();
 
     },
     init: function() {
         // getting location path
         var sPath = window.location.pathname;
-
+        console.log(sPath);
         // run on specific page
+        if ( sPath == '/tag-one' ) {
+            Global.filter();
+        }
 
+        if ( sPath == '/tag-two' ) {
+            console.log('ran');
+            Global.isotope();
+        }
+
+        if ( sPath == '/tag-three' ) {
+
+        }
+
+        if ( sPath == '/tag-four' ) {
+
+        }
 
     }
 }

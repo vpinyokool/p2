@@ -1,1 +1,82 @@
-tag.ejs
+<div class="proto-nav">
+	<a href="tag-one">1</a>
+	<a class="_active" href="tag-two">2</a>
+	<a href="tag-three">3</a>
+	<a href="tag-four">4</a>
+</div>
+<section class="canvas tags-two">
+	<div class="phone-canvas">
+		<div class="home-indicator-wrap">
+			<img src="/assets/images/home-indicator.svg" alt="">
+		</div>
+
+<div class="status-bar-wrap">
+	<img class="dark" src="/assets/images/status-bar-dark.svg" alt="">
+	<img class="light" src="/assets/images/status-bar-light.svg" alt="">
+</div>
+<div class="icon-button back"></div>
+<div class="closeup scroll-area">
+	<%- partial('library/_modules/_closeup-card-food') %>
+	<div class="closeup-module">
+		<div class="cu-title">Comments</div>
+		<div class="comments-caption">
+			Love this Pin? Add a comment!
+		</div>
+		<div class="composer-wrap">
+			<div class="comment-avatar"></div>
+			<div class="comments-input">Add comment or photo</div>
+		</div>
+
+	</div>
+	<div class="closeup-module">
+		<div class="cu-title">More like this</div>
+		<%- partial('library/_modules/_more-like-this-grid') %>
+	</div>
+</div>
+<div class="pingrid scroll-area">
+
+<div class="navigation-bar">
+	<div class="icon-button overflow"></div>
+</div>
+<div class="board-header">
+	<div class="board-title">
+		Go Go Recipes!
+	</div>
+	<div class="avatars">
+		<div class="you"></div>
+		<div class="add"></div>
+	</div>
+</div>
+<div class="board-toolbar">
+	<div class="tool more-ideas">
+		<div class="icon"></div>
+		<div class="text">More ideas</div>
+	</div>
+	<div class="tool organize">
+		<div class="icon"></div>
+		<div class="text">Organize</div>
+	</div>
+	<div class="tool notes">
+		<div class="icon"></div>
+		<div class="text">Notes</div>
+	</div>
+	</div>
+	<div class="auto-generate-tags-bar">
+		<div data-filter="*" class="button-sml _is-checked">All</div>
+		<div data-filter=".italian" class="button-sml">Italian</div>
+		<div data-filter=".japanese" class="button-sml">Japanese</div>
+		<div data-filter=".thai" class="button-sml">Thai</div>
+		<div data-filter="lessThan30" class="button-sml">Less than 30m</div>
+		<div data-filter="starsGreaterThan4" class="button-sml">≥★★★★</div>
+		<div data-filter="serve2" class="button-sml">Serve 2</div>
+	</div>
+
+	<%- partial('library/_modules/_grid-tag-two') %>
+	<div class="empty-state _hidden">
+		You don't have any star Pins yet.<br>Tap ★ to mark your favorite ideas.
+	</div>
+	</div>
+</div>
+	</div>
+</div>
+</section>

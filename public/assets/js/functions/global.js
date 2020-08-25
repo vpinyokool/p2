@@ -16,8 +16,88 @@ var Global = (function() {
         }
     }, false);
 
-    function headroom() {
-        $('nav').headroom();
+
+    function isotope() {
+        // init Isotope
+        var $grid = $('.masonry-layout').isotope({
+            itemSelector: '.item',
+            stagger: 30,
+            masonry: {
+                columnWidth: 176,
+                gutter: 8
+            }
+        });
+        // filter functions
+        var filterFns = {
+
+            starsGreaterThan4: function() {
+                var number = $(this).find('.number').text();
+                $('.number-wrap').removeClass('_hidden');
+                return parseInt(number) > 3;
+            },
+
+            lessThan30: function() {
+                var time = $(this).find('.time').text();
+                $('.time-wrap').removeClass('_hidden');
+                return parseInt(time) < 30;
+
+            },
+
+            serve2: function() {
+                var serve = $(this).find('.serve').text();
+                $('.serve-wrap').removeClass('_hidden');
+                return parseInt(serve) == 2;
+            }
+        };
+        // bind filter button click
+        $('.auto-generate-tags-bar .button-sml').on('click', function() {
+            $('.time-wrap').addClass('_hidden');
+            $('.serve-wrap').addClass('_hidden');
+            $('.number-wrap').addClass('_hidden');
+            var filterValue = $(this).attr('data-filter');
+            // use filterFn if matches value
+            filterValue = filterFns[filterValue] || filterValue;
+            $grid.isotope({
+                filter: filterValue
+            });
+        });
+        // change is-checked class on buttons
+        $('.auto-generate-tags-bar .button-sml').on('click', function() {
+            $('.button-sml').removeClass('_is-checked');
+            $(this).addClass('_is-checked');
+        });
+
+    }
+
+    function updateCloseupState(scrollpos) {
+        var cst;
+        var el = $('.icon-button.back');
+        $('.closeup.scroll-area').on('scroll', function() {
+            cst = $(this).scrollTop();
+
+            if (cst > scrollpos) {
+                el.addClass('_active');
+            } else {
+                el.removeClass('_active');
+            }
+        });
+    }
+
+    function backButton() {
+        var gst;
+        var el = $('.icon-button.back');
+
+
+
+        $('.pingrid.scroll-area').on('scroll', function() {
+            gst = $(this).scrollTop();
+
+            if (gst > 15) {
+                el.addClass('_active');
+            } else {
+                el.removeClass('_active');
+            }
+        });
     }
 
     function scrollMeta() {
@@ -51,7 +131,7 @@ var Global = (function() {
             path: 'assets/animation/star/data.json'
         });
         $('.star-1').on('click', function() {
-            if ( $('.star-1').hasClass('_active') ) {
+            if ($('.star-1').hasClass('_active')) {
                 $('.star-1').removeClass('_active');
                 animOne.goToAndStop(0, true);
             } else {
@@ -71,7 +151,7 @@ var Global = (function() {
             path: 'assets/animation/star/data.json'
         });
         $('.star-2').on('click', function() {
-            if ( $('.star-2').hasClass('_active') ) {
+            if ($('.star-2').hasClass('_active')) {
                 $('.star-2').removeClass('_active');
                 animTwo.goToAndStop(0, true);
             } else {
@@ -91,7 +171,7 @@ var Global = (function() {
             path: 'assets/animation/star/data.json'
         });
         $('.star-3').on('click', function() {
-            if ( $('.star-3').hasClass('_active') ) {
+            if ($('.star-3').hasClass('_active')) {
                 $('.star-3').removeClass('_active');
                 animThree.goToAndStop(0, true);
             } else {
@@ -111,7 +191,7 @@ var Global = (function() {
             path: 'assets/animation/star/data.json'
         });
         $('.star-4').on('click', function() {
-            if ( $('.star-4').hasClass('_active') ) {
+            if ($('.star-4').hasClass('_active')) {
                 $('.star-4').removeClass('_active');
                 animFour.goToAndStop(0, true);
             } else {
@@ -131,7 +211,7 @@ var Global = (function() {
             path: 'assets/animation/star/data.json'
         });
         $('.star-5').on('click', function() {
-            if ( $('.star-5').hasClass('_active') ) {
+            if ($('.star-5').hasClass('_active')) {
                 $('.star-5').removeClass('_active');
                 animFive.goToAndStop(0, true);
             } else {
@@ -142,23 +222,209 @@ var Global = (function() {
 
         ////////////
 
+        var animSix = lottie.loadAnimation({
+            container: document.getElementById('star-6'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-6').on('click', function() {
+            if ($('.star-6').hasClass('_active')) {
+                $('.star-6').removeClass('_active');
+                animSix.goToAndStop(0, true);
+            } else {
+                $('.star-6').addClass('_active');
+                animSix.play();
+            }
+        })
+
+        ////////////
+
+        var animSeven = lottie.loadAnimation({
+            container: document.getElementById('star-7'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-7').on('click', function() {
+            if ($('.star-7').hasClass('_active')) {
+                $('.star-7').removeClass('_active');
+                animSeven.goToAndStop(0, true);
+            } else {
+                $('.star-7').addClass('_active');
+                animSeven.play();
+            }
+        })
+
+        ////////////
+
+        var animEight = lottie.loadAnimation({
+            container: document.getElementById('star-8'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-8').on('click', function() {
+            if ($('.star-8').hasClass('_active')) {
+                $('.star-8').removeClass('_active');
+                animEight.goToAndStop(0, true);
+            } else {
+                $('.star-8').addClass('_active');
+                animEight.play();
+            }
+        })
+
+        ////////////
+
+        var animNine = lottie.loadAnimation({
+            container: document.getElementById('star-9'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-9').on('click', function() {
+            if ($('.star-9').hasClass('_active')) {
+                $('.star-9').removeClass('_active');
+                animNine.goToAndStop(0, true);
+            } else {
+                $('.star-9').addClass('_active');
+                animNine.play();
+            }
+        })
+
+        ////////////
+
+        var animTen = lottie.loadAnimation({
+            container: document.getElementById('star-10'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-10').on('click', function() {
+            if ($('.star-10').hasClass('_active')) {
+                $('.star-10').removeClass('_active');
+                animTen.goToAndStop(0, true);
+            } else {
+                $('.star-10').addClass('_active');
+                animTen.play();
+            }
+        })
+
+        ////////////
+
+        var animEleven = lottie.loadAnimation({
+            container: document.getElementById('star-11'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-11').on('click', function() {
+            if ($('.star-11').hasClass('_active')) {
+                $('.star-11').removeClass('_active');
+                animEleven.goToAndStop(0, true);
+            } else {
+                $('.star-11').addClass('_active');
+                animEleven.play();
+            }
+        })
+
+        ////////////
+
+        var animTwelve = lottie.loadAnimation({
+            container: document.getElementById('star-12'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-12').on('click', function() {
+            if ($('.star-12').hasClass('_active')) {
+                $('.star-12').removeClass('_active');
+                animTwelve.goToAndStop(0, true);
+            } else {
+                $('.star-12').addClass('_active');
+                animTwelve.play();
+            }
+        })
+
+        ////////////
+
+        var animThirteen = lottie.loadAnimation({
+            container: document.getElementById('star-13'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-13').on('click', function() {
+            if ($('.star-13').hasClass('_active')) {
+                $('.star-13').removeClass('_active');
+                animThirteen.goToAndStop(0, true);
+            } else {
+                $('.star-13').addClass('_active');
+                animThirteen.play();
+            }
+        })
+
+        ////////////
+
+        var animFourteen = lottie.loadAnimation({
+            container: document.getElementById('star-14'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-14').on('click', function() {
+            if ($('.star-14').hasClass('_active')) {
+                $('.star-14').removeClass('_active');
+                animFourteen.goToAndStop(0, true);
+            } else {
+                $('.star-14').addClass('_active');
+                animFourteen.play();
+            }
+        })
+
+        ////////////
+
+        var animFifteen = lottie.loadAnimation({
+            container: document.getElementById('star-15'),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            speed: .1,
+            path: 'assets/animation/star/data.json'
+        });
+        $('.star-15').on('click', function() {
+            if ($('.star-15').hasClass('_active')) {
+                $('.star-15').removeClass('_active');
+                animFifteen.goToAndStop(0, true);
+            } else {
+                $('.star-15').addClass('_active');
+                animFifteen.play();
+            }
+        })
+
+        ////////////
+
     };
-    function masonry() {
 
-        var $grid = $('.masonry-layout').masonry({
-          itemSelector: '.item',
-          columnWidth: 176,
-          gutter: 8,
-          horizontalOrder: true,
-          fitWidth: true,
-          originLeft: true,
-          transitionDuration: 0
-        });
-
-
-        $grid.imagesLoaded().progress( function() {
-            $grid.masonry('layout');
-        });
+    function states() {
 
         var currentCloseupID;
         $('.item').on('click', function() {
@@ -172,9 +438,14 @@ var Global = (function() {
             // show the right module
             $('.main-card-wrapper').addClass('_hidden');
             $('.cu-' + currentCloseupID).removeClass('_hidden');
+            var imgHeight = $('.cu-' + currentCloseupID).find('img').height();
+            console.log(imgHeight);
+            // run backbutton function
+
+            updateCloseupState(imgHeight);
         });
 
-        $('.pin-img-wrapper .star').click(function (e) {
+        $('.pin-img-wrapper .star').click(function(e) {
             e.stopPropagation();
         });
 
@@ -185,120 +456,107 @@ var Global = (function() {
     }
 
     function modal() {
-        // invite
-        $('.avatar-list').on('click', function() {
-            $('.overlay.invite').addClass('_active');
-            $('body').addClass('_overlay-is-on');
+        // filter sheet
+        $('.show-sheet').on('click', function() {
+            $('body').addClass('_sheet-is-on');
         });
 
-        // add
-        $('.tool.add').on('click', function() {
-           $('.overlay.add').addClass('_active');
-           $('body').addClass('_overlay-is-on');
+        $('.close-sheet').on('click', function() {
+            $('body').removeClass('_sheet-is-on');
         });
 
-        // edit
-        $('.edit-board').on('click', function() {
-           $('.overlay.edit').addClass('_active');
-           $('.more-flyout').removeClass('_active');
-           $('.more-trigger').removeClass('_active');
-           $('body').addClass('_overlay-is-on');
-
-        });
-
-
-        $('.overlay').on('click', function(){
-            $(this).removeClass('_active');
-            $('body').removeClass('_overlay-is-on');
+        $('.overlay').on('click', function() {
+            $('body').removeClass('_sheet-is-on');
         });
 
 
     }
-    function more() {
-        $('.more-trigger').on('click', function() {
-            $(this).toggleClass('_active');
-            $('.more-flyout').toggleClass('_active');
-        });
-    }
 
-    function dock() {
-        var sp;
-        var trigger = parseInt($('.board-tools').offset().top) + 40;
-        console.log(trigger);
-        $(window).on('scroll',function() {
-            sp = $(this).scrollTop();
-            console.log(sp);
-            if (sp > trigger) {
-                $('.tools-dock').addClass('_active');
-            } else {
-                $('.tools-dock').removeClass('_active');
+    function likeThisGrid() {
+        var $likeThisGrid = $('.more-like-this-grid').isotope({
+            itemSelector: '.disco-pin',
+            masonry: {
+                columnWidth: 176,
+                gutter: 8,
+                horizontalOrder: true,
+                fitWidth: true,
+                originLeft: true
             }
         });
-    }
-    function settings() {
-        $('#setting-trigger').on('click', function() {
-            $(this).toggleClass('_active');
-            $('.settings').toggleClass('_active');
-        });
-      $('.settings li').on('click', function() {
-            $('#setting-trigger').toggleClass('_active');
-            $('.settings').removeClass('_active');
 
-            $('.settings li').removeClass('_active');
+        $likeThisGrid.imagesLoaded().progress(function() {
+            $likeThisGrid.isotope('layout');
+        });
+    }
+
+    function filter() {
+
+
+
+        var $grid = $('.masonry-layout').isotope({
+            itemSelector: '.item',
+            masonry: {
+                columnWidth: 176,
+                gutter: 8,
+                horizontalOrder: true,
+                fitWidth: true,
+                originLeft: true
+            }
+        });
+
+        function renderGrid() {
+            $grid.imagesLoaded().progress(function() {
+                $grid.isotope('layout');
+            });
+        }
+
+        function updateCount() {
+            var num = $('.item:not(._hidden)').length;
+            // console.log(num);
+            $('.pin-count span.num').html(num + ' ');
+
+        }
+        renderGrid();
+
+        $('.filter-sheet li').on('click', function() {
+            $('.filter-sheet li').removeClass('_active');
             $(this).addClass('_active');
+        });
 
-            if ( $(this).data('pins') ) {
-                $('.section').addClass('_hidden');
-                $('.pin-grid').removeClass('_hidden');
-                console.log('pins-clicked');
-                masonry();
-            } else if ( $(this).data('pin') ) {
-                $('.section').addClass('_hidden');
-                $('.pin-grid:not(.always-there)').addClass('_hidden');
-                console.log('pin-clicked');
-                masonry();
-            } else if ( $(this).data('sections-pins') ) {
-                $('.section').removeClass('_hidden');
-                $('.pin-grid').removeClass('_hidden');
-                console.log('sections-pins');
-                masonry();
-            } else if ( $(this).data('section-pins') ) {
-                $('.section').addClass('_hidden');
-                $('.section.always-there').removeClass('_hidden');
-                $('.pin-grid').removeClass('_hidden');
-                console.log('section-pins');
-                masonry();
-            } else if ( $(this).data('section-pin') ) {
-                $('.section').addClass('_hidden');
-                $('.section.always-there').removeClass('_hidden');
-                $('.pin-grid').removeClass('_hidden');
-                $('.pin-grid:not(.always-there)').addClass('_hidden');
-                console.log('section-pin');
-                masonry();
+
+        // show all pins
+        $('.show-all-pins').on('click', function() {
+            $('.item').removeClass('_hidden');
+            renderGrid();
+            $('body').removeClass('_sheet-is-on');
+            updateCount();
+            $('span.pin-type').addClass('_hidden');
+            $('.empty-state').addClass('_hidden');
+        });
+
+        // show stars only
+        $('.show-stars-only').on('click', function() {
+            $('.item').addClass('_hidden');
+            $('.star._active').parent().parent().removeClass('_hidden');
+            renderGrid();
+            $('body').removeClass('_sheet-is-on');
+            updateCount();
+            $('span.pin-type').removeClass('_hidden');
+            if ($('.item:not(._hidden)').length == 0) {
+                $('.empty-state').removeClass('_hidden');
             }
         });
+    }
 
-    }
-    function reveal() {
-        // Changing the defaults
-        window.sr = ScrollReveal({
-            reset: false
-        });
-        sr.reveal('.masonry-layout__panel__wrap', {
-            duration: 650,
-            distance: '100px',
-        });
-    }
+
 
     return {
-        reveal: reveal,
-        headroom: headroom,
-        scrollMeta: scrollMeta,
-        masonry: masonry,
-        settings: settings,
+        states: states,
         modal: modal,
-        dock: dock,
-        more: more,
-        bodyMovin: bodyMovin
+        filter: filter,
+        isotope: isotope,
+        backButton: backButton,
+        bodyMovin: bodyMovin,
+        likeThisGrid: likeThisGrid
     }
 })();

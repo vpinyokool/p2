@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="9px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>pin-arrow-lite</title>
+    <desc>Created with Sketch.</desc>
+    <g id="homefeed" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-183.000000, -108.000000)" fill="#FFFFFF">
+            <g id="pin-arrow-lite" transform="translate(183.000000, 108.000000)">
+                <path d="M1.84809375,0.375 C1.36021875,0.375 0.96421875,0.77025 0.96421875,1.258875 C0.96421875,1.7475 1.36021875,2.14275 1.84809375,2.14275 L5.60709375,2.14275 L0.63346875,7.116 C0.28884375,7.461 0.28884375,8.020875 0.63346875,8.36625 C0.80634375,8.539125 1.03246875,8.625 1.25896875,8.625 C1.48509375,8.625 1.71121875,8.539125 1.88409375,8.36625 L6.85696875,3.392625 L6.85696875,7.151625 C6.85696875,7.64025 7.25296875,8.035875 7.74121875,8.035875 C8.22909375,8.035875 8.62509375,7.64025 8.62509375,7.151625 L8.62509375,0.375 L1.84809375,0.375 Z" id="path-1"></path>
+            </g>
+        </g>
+    </g>
+</svg>

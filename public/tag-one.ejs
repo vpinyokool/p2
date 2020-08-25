@@ -1,4 +1,10 @@
-<section class="canvas">
+<div class="proto-nav">
+	<a class="_active" href="tag-one">1</a>
+	<a href="tag-two">2</a>
+	<a href="tag-three">3</a>
+	<a href="tag-four">4</a>
+</div>
+<section class="canvas tags-one">
 	<div class="phone-canvas">
 		<div class="home-indicator-wrap">
 			<img src="/assets/images/home-indicator.svg" alt="">
@@ -9,10 +15,38 @@
 	<img class="light" src="/assets/images/status-bar-light.svg" alt="">
 </div>
 <div class="icon-button back"></div>
+<div class="overlay"></div>
+<div class="filter-sheet">
+	<div class="filter-sheet-subhead">
+		Filter options
+	</div>
+	<ul>
+		<li class="show-all-pins _active">
+			Show all my ideas
+		</li>
+		<li class="show-stars-only">
+			Show ★ only
+		</li>
+	</ul>
+	<div class="button secondary close-sheet">Close</div>
+</div>
 <div class="closeup scroll-area">
 	<%- partial('library/_modules/_closeup-card') %>
-	<div class="closeup-module"><div class="cu-title">Comments</div></div>
-	<div class="closeup-module"><div class="cu-title">More like this</div></div>
+	<div class="closeup-module">
+		<div class="cu-title">Comments</div>
+		<div class="comments-caption">
+			Love this Pin? Add a comment!
+		</div>
+		<div class="composer-wrap">
+			<div class="comment-avatar"></div>
+			<div class="comments-input">Add comment or photo</div>
+		</div>
+
+	</div>
+	<div class="closeup-module">
+		<div class="cu-title">More like this</div>
+		<%- partial('library/_modules/_more-like-this-grid') %>
+	</div>
 </div>
 <div class="pingrid scroll-area">
 
@@ -43,11 +77,15 @@
 	</div>
 	</div>
 	<div class="filter-bar">
-		<div class="pin-count">15 Pins</div>
-		<div class="icon-button filter"></div>
+		<div class="pin-count"><span class="num">15 </span><span class="pin-type _hidden">★ </span>Pins</div>
+		<div class="button-sml show-sheet">Filter</div>
+
 	</div>
 
 	<%- partial('library/_modules/_grid') %>
+	<div class="empty-state _hidden">
+		You don't have any star Pins yet.<br>Tap ★ to mark your favorite ideas.
+	</div>
 	</div>
 </div>
 	</div>

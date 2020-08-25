@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="9px" height="7px" viewBox="0 0 9 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>pin-down-chevron</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M4.50009375,7.5 L0.24721875,3.29790037 C-0.08240625,2.97221079 -0.08240625,2.44421573 0.24721875,2.11926719 C0.57646875,1.7935776 1.11121875,1.7935776 1.44046875,2.11926719 L4.50009375,5.14199259 L7.55971875,2.11926719 C7.88896875,1.7935776 8.42371875,1.7935776 8.75296875,2.11926719 C9.08259375,2.44421573 9.08259375,2.97221079 8.75296875,3.29790037 L4.50009375,7.5 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy-16" transform="translate(-965.000000, -479.000000)">
+            <g id="Group-4-Copy" transform="translate(798.000000, 455.000000)">
+                <g id="Group-3">
+                    <g id="Icons/arrow-down" transform="translate(167.000000, 23.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Color" fill="#333333" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

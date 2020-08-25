@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>pin-clock-lite</title>
+    <desc>Created with Sketch.</desc>
+    <g id="homefeed" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-83.000000, -102.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="pin-clock-lite" transform="translate(83.000000, 102.000000)">
+                <path d="M7.819625,7.819625 C7.68533333,7.95391667 7.50933333,8.02083333 7.33333333,8.02083333 C7.15779167,8.02083333 6.98179167,7.95391667 6.8475,7.819625 L4.8125,5.78508333 L4.8125,2.75 C4.8125,2.3705 5.1205,2.0625 5.5,2.0625 C5.87995833,2.0625 6.1875,2.3705 6.1875,2.75 L6.1875,5.215375 L7.819625,6.8475 C8.08820833,7.11608333 8.08820833,7.55104167 7.819625,7.819625 M5.5,0 C2.462625,0 0,2.462625 0,5.5 C0,8.53783333 2.462625,11 5.5,11 C8.53783333,11 11,8.53783333 11,5.5 C11,2.462625 8.53783333,0 5.5,0" id="clock"></path>
+            </g>
+        </g>
+    </g>
+</svg>

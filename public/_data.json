@@ -4,19 +4,19 @@
 		"layout": "library/_views/_layout"
 	},
 	"tag-one":{
-		"title":"Notes example",
+		"title":"Pinterest-Tags-1",
 		"layout": "library/_views/_layout"
 	},
 	"tag-two":{
-		"title":"Notes example",
+		"title":"Pinterest-Tags-2",
 		"layout": "library/_views/_layout"
 	},
 	"tag-three":{
-		"title":"Notes example",
+		"title":"Pinterest-Tags-3",
 		"layout": "library/_views/_layout"
 	},
 	"tag-four":{
-		"title":"Notes example",
+		"title":"Pinterest-Tags-4",
 		"layout": "library/_views/_layout"
 	}
 }

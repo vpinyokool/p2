@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="4px" viewBox="0 0 12 4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Web Desktop Components/Icon Buttons/Icon button XS 24px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M6,4.5 C5.1715,4.5 4.5,5.1715 4.5,6 C4.5,6.8285 5.1715,7.5 6,7.5 C6.8285,7.5 7.5,6.8285 7.5,6 C7.5,5.1715 6.8285,4.5 6,4.5 M1.5,4.5 C2.3285,4.5 3,5.1715 3,6 C3,6.8285 2.3285,7.5 1.5,7.5 C0.6715,7.5 0,6.8285 0,6 C0,5.1715 0.6715,4.5 1.5,4.5 Z M10.5,4.5 C11.3285,4.5 12,5.1715 12,6 C12,6.8285 11.3285,7.5 10.5,7.5 C9.6715,7.5 9,6.8285 9,6 C9,5.1715 9.6715,4.5 10.5,4.5 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="236-width,-flex-gutter,-content-on-hover-copy-9" transform="translate(-539.000000, -423.000000)">
+            <g id="Group-14" transform="translate(288.000000, 100.000000)">
+                <g id="Icons/ellipsis" transform="translate(251.000000, 319.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Color" fill="#333333" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

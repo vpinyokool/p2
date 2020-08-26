@@ -4,7 +4,7 @@
 	<a href="tag-three">3</a>
 	<a class="_active" href="tag-four">4</a>
 </div>
-<section class="canvas tags-four">
+<section class="canvas tags-two">
 	<div class="phone-canvas">
 		<div class="home-indicator-wrap">
 			<img src="/assets/images/home-indicator.svg" alt="">
@@ -15,23 +15,8 @@
 	<img class="light" src="/assets/images/status-bar-light.svg" alt="">
 </div>
 <div class="icon-button back"></div>
-<div class="overlay"></div>
-<div class="filter-sheet">
-	<div class="filter-sheet-subhead">
-		Filter options
-	</div>
-	<ul>
-		<li class="show-all-pins _active">
-			Show all my ideas
-		</li>
-		<li class="show-stars-only">
-			Show ★ only
-		</li>
-	</ul>
-	<div class="button secondary close-sheet">Close</div>
-</div>
 <div class="closeup scroll-area">
-	<%- partial('library/_modules/_closeup-card') %>
+	<%- partial('library/_modules/_closeup-card-ugc') %>
 	<div class="closeup-module">
 		<div class="cu-title">Comments</div>
 		<div class="comments-caption">
@@ -55,7 +40,7 @@
 </div>
 <div class="board-header">
 	<div class="board-title">
-		Our new home
+		Our new Home
 	</div>
 	<div class="avatars">
 		<div class="you"></div>
@@ -76,15 +61,10 @@
 		<div class="text">Notes</div>
 	</div>
 	</div>
-	<div class="filter-bar">
-		<div class="pin-count"><span class="num">15 </span><span class="pin-type _hidden">★ </span>Pins</div>
-		<div class="button-sml show-sheet">Filter</div>
-
-	</div>
-
-	<%- partial('library/_modules/_grid') %>
+	<%- partial('library/_modules/_usg-tags') %>
+	<%- partial('library/_modules/_grid-four') %>
 	<div class="empty-state _hidden">
-		You don't have any star Pins yet.<br>Tap ★ to mark your favorite ideas.
+		You don't have any tagged Pins yet. Tap on a pin and tag it!
 	</div>
 	</div>
 </div>

@@ -1,0 +1,21 @@
+<%
+var homefeedData = public.content.homefeed._data.pins;
+// var homefeedData = public.content.homefeed._data.ugly;
+// var homefeedData = public.content.homefeed._data.real;
+%>
+<div class="masonry-layout ">
+	<% for ( var i=0; i < homefeedData.length; i++ ) { %>
+
+
+		<div id="pin-<%= i+1 %>"data-closeup-id="<%= i+1 %>" class="item pin-grid">
+			<div class="pin-img-wrapper">
+
+				<img src="/assets/images/<%= homefeedData[i].img %>.png" />
+			</div>
+			<div class="pin-title">
+				<%= homefeedData[i].title %>
+			</div>
+		</div>
+
+	<% } %>
+</div>

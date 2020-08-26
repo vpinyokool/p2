@@ -19,24 +19,19 @@ var homefeedData = public.content.homefeed._data.pins;
 		</div>
 	</div>
 	<div data-closeup-id = "<%= i+1 %>" class="reaction-card-wrapper cu-<%= i+1 %>">
-		<div class="cu-title">Mark  it</div>
+		<div class="cu-title">Label it</div>
 		<div class="comments-caption">
-			Mark this Pin so you can find it later
+			Put a label on your Pin so you can find it later. Choose one or create your own.
 		</div>
 
-		<div class="reaction-button-wrap">
-			<div data-reaction="wannaTry" class="reaction-btn wanna-try-btn">
-				<div id="wanna-try-<%= i+1 %>"></div>
-			</div>
-			<div data-reaction="triedIt" class="reaction-btn tried-it-btn">
-				<div id="tried-it-<%= i+1 %>"></div>
-			</div>
-			<div data-reaction="loveIt" class="reaction-btn love-it-btn">
-				<div id="love-it-<%= i+1 %>"></div>
-			</div>
-			<div data-reaction="maybe" class="reaction-btn maybe-btn">
-				<div id="maybe-<%= i+1 %>"></div>
-			</div>
-		</div>
+<div data-closeup-id = "<%= i+1 %>" class="usg-tags-wrap">
+	<div data-tag="fav" class="usg-tag button-sml">Favorite</div>
+	<div data-tag="price" class="usg-tag button-sml">Right price</div>
+	<div data-tag="try" class="usg-tag button-sml">To try</div>
+	<div data-tag="partner" class="usg-tag button-sml">Show my partner</div>
+	<div data-tag="tried" class="usg-tag button-sml">Tried this</div>
+	<div data-tag="" class="button-sml new-tag"></div>
+
+</div>
 	</div>
 <% } %>

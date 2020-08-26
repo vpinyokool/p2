@@ -32,7 +32,7 @@ var call = {
         }
 
         if ( sPath == '/tag-four' ) {
-
+            Global.organicTagsGrid();
         }
 
     }

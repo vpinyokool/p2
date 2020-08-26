@@ -21,17 +21,16 @@
 		Filter options
 	</div>
 	<ul>
-		<li class="show-all-pins _active">
-			Show all my ideas
-		</li>
-		<li class="show-stars-only">
-			Show ★ only
-		</li>
+		<li data-filter="*" class="show-all-pins _active">Show all my ideas</li>
+		<li data-filter=".wanna-try" class="">Show Pins I wanna try</li>
+		<li data-filter=".tried-it" class="">Show Pins I tried</li>
+		<li data-filter=".love-it" class="">Show Pins I love</li>
+		<li data-filter=".maybe" class="">Maybe Pins</li>
 	</ul>
 	<div class="button secondary close-sheet">Close</div>
 </div>
 <div class="closeup scroll-area">
-	<%- partial('library/_modules/_closeup-card') %>
+	<%- partial('library/_modules/_closeup-card-reactions') %>
 	<div class="closeup-module">
 		<div class="cu-title">Comments</div>
 		<div class="comments-caption">
@@ -82,7 +81,7 @@
 
 	</div>
 
-	<%- partial('library/_modules/_grid') %>
+	<%- partial('library/_modules/_grid-tag-three') %>
 	<div class="empty-state _hidden">
 		You don't have any star Pins yet.<br>Tap ★ to mark your favorite ideas.
 	</div>

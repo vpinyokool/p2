@@ -1921,8 +1921,166 @@ var Global = (function() {
         }
     }, false);
 
+    function reactionAnimation() {
+        var pinCount = 15;
+        var wannaTry = [];
+        var triedIt = [];
+        var loveIt = [];
+        var maybe = [];
+        for (var i = 0; i < pinCount; i++) {
 
-    function isotope() {
+            wannaTry[i + 1] = lottie.loadAnimation({
+                container: document.getElementById('wanna-try-' + [i + 1]),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'assets/animation/wanna-try.json'
+            });
+
+
+            triedIt[i + 1] = lottie.loadAnimation({
+                container: document.getElementById('tried-it-' + [i + 1]),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'assets/animation/tried-it.json'
+            });
+
+            loveIt[i + 1] = lottie.loadAnimation({
+                container: document.getElementById('love-it-' + [i + 1]),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'assets/animation/love-it.json'
+            });
+
+            maybe[i + 1] = lottie.loadAnimation({
+                container: document.getElementById('maybe-' + [i + 1]),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'assets/animation/maybe.json'
+            });
+        }
+
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        $.each(arr, function(index, value) {
+            $('#wanna-try-' + value).on('click', function() {
+                triedIt[value].goToAndStop(0, true);
+                maybe[value].goToAndStop(0, true);
+                loveIt[value].goToAndStop(0, true);
+                //
+                wannaTry[value].playSegments([0,47], true);
+            });
+
+            $('#tried-it-' + value).on('click', function() {
+                maybe[value].goToAndStop(0, true);
+                loveIt[value].goToAndStop(0, true);
+                wannaTry[value].goToAndStop(0, true);
+                //
+                triedIt[value].playSegments([0,47], true);
+            });
+
+            $('#love-it-' + value).on('click', function() {
+                triedIt[value].goToAndStop(0, true);
+                maybe[value].goToAndStop(0, true);
+                wannaTry[value].goToAndStop(0, true);
+                //
+                loveIt[value].playSegments([0,47], true);
+            });
+
+            $('#maybe-' + value).on('click', function() {
+                triedIt[value].goToAndStop(0, true);
+                loveIt[value].goToAndStop(0, true);
+                wannaTry[value].goToAndStop(0, true);
+                //
+                maybe[value].playSegments([0,47], true);
+            });
+        });
+    }
+
+    function reactionGrid() {
+        // init Isotope
+        var $grid = $('.masonry-layout').isotope({
+            itemSelector: '.item',
+            stagger: 30,
+            masonry: {
+                columnWidth: 176,
+                gutter: 8
+            }
+        });
+        var currentReactionID;
+        var currentPinItem;
+
+        $('.wanna-try-btn').on('click', function() {
+            // get id
+            currentReactionID = $(this).parent().parent().data('closeup-id');
+            currentPinItem = $('.pin-id-' + currentReactionID);
+            // add state to grid item
+            currentPinItem.removeClass('love-it wanna-try maybe tried-it');
+            currentPinItem.addClass('wanna-try');
+            currentPinItem.find('.reaction-marker').addClass('_hidden');
+            currentPinItem.find('span.wanna-try').removeClass('_hidden');
+            $grid.isotope('layout');
+
+        });
+
+        //
+        $('.love-it-btn').on('click', function() {
+            // get id
+            currentReactionID = $(this).parent().parent().data('closeup-id');
+            currentPinItem = $('.pin-id-' + currentReactionID);
+            // add state to grid item
+            currentPinItem.removeClass('love-it wanna-try maybe tried-it');
+            currentPinItem.addClass('love-it');
+            currentPinItem.find('.reaction-marker').addClass('_hidden');
+            currentPinItem.find('span.love-it').removeClass('_hidden');
+            $grid.isotope('layout');
+
+        });
+        //
+        $('.tried-it-btn').on('click', function() {
+            // get id
+            currentReactionID = $(this).parent().parent().data('closeup-id');
+            currentPinItem = $('.pin-id-' + currentReactionID);
+            // add state to grid item
+            currentPinItem.removeClass('love-it wanna-try maybe tried-it');
+            currentPinItem.addClass('tried-it');
+            currentPinItem.find('.reaction-marker').addClass('_hidden');
+            currentPinItem.find('span.tried-it').removeClass('_hidden');
+            $grid.isotope('layout');
+
+        });
+        //
+        $('.maybe-btn').on('click', function() {
+            // get id
+            currentReactionID = $(this).parent().parent().data('closeup-id');
+            currentPinItem = $('.pin-id-' + currentReactionID);
+            // add state to grid item
+            currentPinItem.removeClass('love-it wanna-try maybe tried-it');
+            currentPinItem.addClass('maybe');
+            currentPinItem.find('.reaction-marker').addClass('_hidden');
+            currentPinItem.find('span.maybe').removeClass('_hidden');
+            $grid.isotope('layout');
+
+        });
+
+        ////////////
+
+        // bind filter button click
+        var filterLists = $('.filter-sheet li');
+        filterLists.on('click', function() {
+            filterLists.removeClass('_active');
+            $(this).addClass('_active');
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({
+                filter: filterValue
+            });
+            $('body').removeClass('_sheet-is-on');
+        });
+    }
+
+    function autoTags() {
         // init Isotope
         var $grid = $('.masonry-layout').isotope({
             itemSelector: '.item',
@@ -2005,327 +2163,33 @@ var Global = (function() {
         });
     }
 
-    function scrollMeta() {
-        var $metaContainer = $('.title-container');
-        var delay = 500;
-        var ease = Power3.easeOut;
-
-        $(window).scroll($.debounce(delay, true, function() {
-            console.log('SCROLLING!');
-
-            TweenLite.to($metaContainer, 1, {
-                opacity: 0,
-                ease: ease
-            })
-        }));
-        $(window).scroll($.debounce(delay, function() {
-            TweenLite.to($metaContainer, 1, {
-                opacity: 1,
-                ease: ease
-            })
-        }));
-    }
-
     function bodyMovin() {
-        var animOne = lottie.loadAnimation({
-            container: document.getElementById('star-1'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
+        var pinCount = 15;
+        var anim = [];
+        for (var i = 0; i < pinCount; i++) {
+            anim[i + 1] = lottie.loadAnimation({
+                container: document.getElementById('star-' + [i + 1]),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'assets/animation/star/data.json'
+            });
+        }
+
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        $.each(arr, function(index, value) {
+            $('.star-' + value).on('click', function() {
+                if ($('.star-' + value).hasClass('_active')) {
+                    $('.star-' + value).removeClass('_active');
+                    anim[value].goToAndStop(0, true);
+                } else {
+                    $('.star-' + value).addClass('_active');
+                    anim[value].play();
+                }
+            });
         });
-        $('.star-1').on('click', function() {
-            if ($('.star-1').hasClass('_active')) {
-                $('.star-1').removeClass('_active');
-                animOne.goToAndStop(0, true);
-            } else {
-                $('.star-1').addClass('_active');
-                animOne.play();
-            }
-        })
 
-        ////////////
 
-        var animTwo = lottie.loadAnimation({
-            container: document.getElementById('star-2'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-2').on('click', function() {
-            if ($('.star-2').hasClass('_active')) {
-                $('.star-2').removeClass('_active');
-                animTwo.goToAndStop(0, true);
-            } else {
-                $('.star-2').addClass('_active');
-                animTwo.play();
-            }
-        })
-
-        ////////////
-
-        var animThree = lottie.loadAnimation({
-            container: document.getElementById('star-3'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-3').on('click', function() {
-            if ($('.star-3').hasClass('_active')) {
-                $('.star-3').removeClass('_active');
-                animThree.goToAndStop(0, true);
-            } else {
-                $('.star-3').addClass('_active');
-                animThree.play();
-            }
-        })
-
-        ////////////
-
-        var animFour = lottie.loadAnimation({
-            container: document.getElementById('star-4'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-4').on('click', function() {
-            if ($('.star-4').hasClass('_active')) {
-                $('.star-4').removeClass('_active');
-                animFour.goToAndStop(0, true);
-            } else {
-                $('.star-4').addClass('_active');
-                animFour.play();
-            }
-        })
-
-        ////////////
-
-        var animFive = lottie.loadAnimation({
-            container: document.getElementById('star-5'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-5').on('click', function() {
-            if ($('.star-5').hasClass('_active')) {
-                $('.star-5').removeClass('_active');
-                animFive.goToAndStop(0, true);
-            } else {
-                $('.star-5').addClass('_active');
-                animFive.play();
-            }
-        })
-
-        ////////////
-
-        var animSix = lottie.loadAnimation({
-            container: document.getElementById('star-6'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-6').on('click', function() {
-            if ($('.star-6').hasClass('_active')) {
-                $('.star-6').removeClass('_active');
-                animSix.goToAndStop(0, true);
-            } else {
-                $('.star-6').addClass('_active');
-                animSix.play();
-            }
-        })
-
-        ////////////
-
-        var animSeven = lottie.loadAnimation({
-            container: document.getElementById('star-7'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-7').on('click', function() {
-            if ($('.star-7').hasClass('_active')) {
-                $('.star-7').removeClass('_active');
-                animSeven.goToAndStop(0, true);
-            } else {
-                $('.star-7').addClass('_active');
-                animSeven.play();
-            }
-        })
-
-        ////////////
-
-        var animEight = lottie.loadAnimation({
-            container: document.getElementById('star-8'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-8').on('click', function() {
-            if ($('.star-8').hasClass('_active')) {
-                $('.star-8').removeClass('_active');
-                animEight.goToAndStop(0, true);
-            } else {
-                $('.star-8').addClass('_active');
-                animEight.play();
-            }
-        })
-
-        ////////////
-
-        var animNine = lottie.loadAnimation({
-            container: document.getElementById('star-9'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-9').on('click', function() {
-            if ($('.star-9').hasClass('_active')) {
-                $('.star-9').removeClass('_active');
-                animNine.goToAndStop(0, true);
-            } else {
-                $('.star-9').addClass('_active');
-                animNine.play();
-            }
-        })
-
-        ////////////
-
-        var animTen = lottie.loadAnimation({
-            container: document.getElementById('star-10'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-10').on('click', function() {
-            if ($('.star-10').hasClass('_active')) {
-                $('.star-10').removeClass('_active');
-                animTen.goToAndStop(0, true);
-            } else {
-                $('.star-10').addClass('_active');
-                animTen.play();
-            }
-        })
-
-        ////////////
-
-        var animEleven = lottie.loadAnimation({
-            container: document.getElementById('star-11'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-11').on('click', function() {
-            if ($('.star-11').hasClass('_active')) {
-                $('.star-11').removeClass('_active');
-                animEleven.goToAndStop(0, true);
-            } else {
-                $('.star-11').addClass('_active');
-                animEleven.play();
-            }
-        })
-
-        ////////////
-
-        var animTwelve = lottie.loadAnimation({
-            container: document.getElementById('star-12'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-12').on('click', function() {
-            if ($('.star-12').hasClass('_active')) {
-                $('.star-12').removeClass('_active');
-                animTwelve.goToAndStop(0, true);
-            } else {
-                $('.star-12').addClass('_active');
-                animTwelve.play();
-            }
-        })
-
-        ////////////
-
-        var animThirteen = lottie.loadAnimation({
-            container: document.getElementById('star-13'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-13').on('click', function() {
-            if ($('.star-13').hasClass('_active')) {
-                $('.star-13').removeClass('_active');
-                animThirteen.goToAndStop(0, true);
-            } else {
-                $('.star-13').addClass('_active');
-                animThirteen.play();
-            }
-        })
-
-        ////////////
-
-        var animFourteen = lottie.loadAnimation({
-            container: document.getElementById('star-14'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-14').on('click', function() {
-            if ($('.star-14').hasClass('_active')) {
-                $('.star-14').removeClass('_active');
-                animFourteen.goToAndStop(0, true);
-            } else {
-                $('.star-14').addClass('_active');
-                animFourteen.play();
-            }
-        })
-
-        ////////////
-
-        var animFifteen = lottie.loadAnimation({
-            container: document.getElementById('star-15'),
-            renderer: 'svg',
-            loop: false,
-            autoplay: false,
-            speed: .1,
-            path: 'assets/animation/star/data.json'
-        });
-        $('.star-15').on('click', function() {
-            if ($('.star-15').hasClass('_active')) {
-                $('.star-15').removeClass('_active');
-                animFifteen.goToAndStop(0, true);
-            } else {
-                $('.star-15').addClass('_active');
-                animFifteen.play();
-            }
-        })
-
-        ////////////
 
     };
 
@@ -2342,6 +2206,7 @@ var Global = (function() {
 
             // show the right module
             $('.main-card-wrapper').addClass('_hidden');
+            $('.reaction-card-wrapper').addClass('_hidden');
             $('.cu-' + currentCloseupID).removeClass('_hidden');
             var imgHeight = $('.cu-' + currentCloseupID).find('img').height();
             console.log(imgHeight);
@@ -2358,6 +2223,10 @@ var Global = (function() {
         $('.icon-button.back').on('click', function() {
             $('body').removeClass('_closeup-is-on');
         })
+    }
+
+    function reactions() {
+
     }
 
     function modal() {
@@ -2395,8 +2264,6 @@ var Global = (function() {
     }
 
     function filter() {
-
-
 
         var $grid = $('.masonry-layout').isotope({
             itemSelector: '.item',
@@ -2437,10 +2304,14 @@ var Global = (function() {
             updateCount();
             $('span.pin-type').addClass('_hidden');
             $('.empty-state').addClass('_hidden');
+           $('.show-sheet').removeClass('_active');
+            $('.show-sheet').text('Filter');
         });
 
         // show stars only
         $('.show-stars-only').on('click', function() {
+            $('.show-sheet').addClass('_active');
+            $('.show-sheet').text('Filter(1)');
             $('.item').addClass('_hidden');
             $('.star._active').parent().parent().removeClass('_hidden');
             renderGrid();
@@ -2459,9 +2330,11 @@ var Global = (function() {
         states: states,
         modal: modal,
         filter: filter,
-        isotope: isotope,
+        autoTags: autoTags,
+        reactionGrid: reactionGrid,
         backButton: backButton,
         bodyMovin: bodyMovin,
+        reactionAnimation: reactionAnimation,
         likeThisGrid: likeThisGrid
     }
 })();
@@ -2490,12 +2363,12 @@ var call = {
         }
 
         if ( sPath == '/tag-two' ) {
-            console.log('ran');
-            Global.isotope();
+            Global.autoTags();
         }
 
         if ( sPath == '/tag-three' ) {
-
+            Global.reactionGrid();
+            Global.reactionAnimation();
         }
 
         if ( sPath == '/tag-four' ) {

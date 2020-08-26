@@ -1,0 +1,42 @@
+<%
+var homefeedData = public.content.homefeed._data.pins;
+// var homefeedData = public.content.homefeed._data.ugly;
+// var homefeedData = public.content.homefeed._data.real;
+%>
+
+<% for ( var i=0; i < homefeedData.length; i++ ) { %>
+	<div class="main-card-wrapper cu-<%= i+1 %>">
+		<img src="/assets/images/<%= homefeedData[i].img %>.png" />
+		<div class="cu-pin-title"><%= homefeedData[i].title %></div>
+		<div class="cu-pin-description">Pin description goes here</div>
+		<div class="cu-pin-actions-wrap">
+			<div class="icon-button share"></div>
+			<div class="main-card-button-wrap">
+				<div class="button secondary">Visit</div>
+				<div class="button primary">Save</div>
+			</div>
+			<div class="icon-button overflow"></div>
+		</div>
+	</div>
+	<div data-closeup-id = "<%= i+1 %>" class="reaction-card-wrapper cu-<%= i+1 %>">
+		<div class="cu-title">Mark  it</div>
+		<div class="comments-caption">
+			Mark this Pin so you can find it later
+		</div>
+
+		<div class="reaction-button-wrap">
+			<div class="reaction-btn wanna-try-btn">
+				<div id="wanna-try-<%= i+1 %>"></div>
+			</div>
+			<div class="reaction-btn tried-it-btn">
+				<div id="tried-it-<%= i+1 %>"></div>
+			</div>
+			<div class="reaction-btn love-it-btn">
+				<div id="love-it-<%= i+1 %>"></div>
+			</div>
+			<div class="reaction-btn maybe-btn">
+				<div id="maybe-<%= i+1 %>"></div>
+			</div>
+		</div>
+	</div>
+<% } %>

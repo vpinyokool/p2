@@ -23,12 +23,12 @@ var call = {
         }
 
         if ( sPath == '/tag-two' ) {
-            console.log('ran');
-            Global.isotope();
+            Global.autoTags();
         }
 
         if ( sPath == '/tag-three' ) {
-
+            Global.reactionGrid();
+            Global.reactionAnimation();
         }
 
         if ( sPath == '/tag-four' ) {

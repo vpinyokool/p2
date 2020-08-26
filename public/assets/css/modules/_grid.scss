@@ -3,6 +3,13 @@ $second: #FFE4C3;
 $third: #D0FECC;
 $fourth: #FFE5FF;
 
+//
+
+$wanna-try: #695DC4;
+$tried-it: #4189F6;
+$love-it: #FF6464;
+$maybe: #F6C341;
+
 html,
 body,
 main,
@@ -178,6 +185,15 @@ main,
 .filter {
 	background-image: url('/assets/icons/icon-filter.svg');
 			background-size: 20px;
+}
+
+.show-sheet._active {
+	background-color: $darkest;;
+	color: $white;
+	&:hover {
+		background-color: $darkest;;
+		color: $white;
+	}
 }
 // header
 .board-header {
@@ -420,7 +436,6 @@ text-align: center;
 
 .composer-wrap {
 	padding: 16px;
-	margin-top: 16px;
 	display: flex;
 	align-items: center;
 }
@@ -486,6 +501,18 @@ text-align: center;
 		width: 100%;
 	}
 }
+
+.reaction-card-wrapper {
+	background-color: $white;
+	overflow: hidden;
+	border-radius: 32px;
+	margin: 0 auto;
+	margin-bottom: 2px;
+	text-align: center;
+	&._hidden {
+		display: none;
+	}
+}
 .cu-pin-title {
 	font-size: 28px;
 	margin: 0 auto;
@@ -513,7 +540,7 @@ text-align: center;
 	font-size: 20px;
 	font-weight: 600;
 	letter-spacing: -0.2px;
-	padding: 24px 0;
+	padding: 24px 0 16px 0;
 	text-align: center;
 	font-family: $font-display;
 }
@@ -639,6 +666,7 @@ padding: 80px 32px;
 .icon-button.back {
 	background-color: $white;
 	cursor: pointer;
+	z-index: 2;
 	transition: box-shadow 350ms $ease-out, background-color 350ms $ease-out;
 	._closeup-is-on & {
 		background-image: url('/assets/icons/icon-back-white.svg');
@@ -774,7 +802,8 @@ padding: 80px 32px;
 	a {
 		display: block;
 		margin-bottom: 16px;
-		padding: 8px;
+		padding: 9.5px 8px;
+		font-size: 13px;
 		width: 32px;
 		text-decoration: none;
 		text-align: center;
@@ -787,4 +816,43 @@ padding: 80px 32px;
 			color: $white;
 		}
 	}
+}
+
+// reaction button
+.reaction-button-wrap {
+	display: flex;
+	padding: 32px;
+	padding-bottom: 24px;
+	margin: 0 auto;
+	text-align: center;
+	align-items: center;
+	justify-content: space-between;
+}
+.reaction-btn  {
+	width: 64px;
+	height: 108px;
+	cursor: pointer;
+}
+
+// reaction tags
+span.wanna-try,
+span.tried-it,
+span.love-it,
+span.maybe {
+	&._hidden {
+		display: none;
+	}
+}
+
+span.wanna-try span {
+	color: $wanna-try;
+}
+span.tried-it span {
+	color: $tried-it;
+}
+span.love-it span {
+	color: $love-it;
+}
+span.maybe span {
+	color: $maybe;
 }

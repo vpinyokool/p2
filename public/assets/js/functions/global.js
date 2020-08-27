@@ -356,6 +356,29 @@ var Global = (function() {
     };
 
     function organicTagsGrid() {
+
+        var input = $('.composer input');
+        var newTag;
+        $('.new-tag').on('click', function() {
+            $('body').addClass('_keyboard-is-on');
+            input.val('');
+            setTimeout(function() {
+                input.focus();
+            }, 450);
+        });
+        $('#confirm-tag').on('click', function() {
+            $('body').removeClass('_keyboard-is-on');
+            newTag = input.val();
+            var newFilterBtn =  '<div data-filter=".' + newTag + '" class="button-sml multiple">' + newTag + '</div>';
+            var newTagUI = '<div data-tag="' + newTag + '" class="usg-tag button-sml">' + newTag + '</div>';
+
+            // add new ui to filter bar on grid
+            $('.usg-tag-bar').append(newFilterBtn);
+
+            // add new ui to label it module on closeup
+            $('.new-tag').before(newTagUI);
+
+        });
         var $gridFour = $('.masonry-layout').isotope({
             itemSelector: '.item',
             masonry: {
@@ -371,7 +394,7 @@ var Global = (function() {
             $gridFour.isotope('layout');
         });
         // click event
-        $('.usg-tag').on('click', function() {
+        $('.usg-tags-wrap').on('click', '.usg-tag',function() {
             // which tag
             var curTag = $(this).data('tag');
 
@@ -393,11 +416,10 @@ var Global = (function() {
 
 
         });
-        var filterLists = $('.usg-tag-bar .button-sml');
         var isotope = $gridFour.data('isotope');
         // filtering on grid
-        filterLists.on('click', function() {
-            filterLists.removeClass('_is-checked');
+        $('.usg-tag-bar').on('click', '.button-sml', function() {
+            $('.usg-tag-bar .button-sml').removeClass('_is-checked');
             $(this).addClass('_is-checked');
             var filterValue = $(this).attr('data-filter');
             $gridFour.isotope({
@@ -432,7 +454,7 @@ var Global = (function() {
             $('.reaction-card-wrapper').addClass('_hidden');
             $('.cu-' + currentCloseupID).removeClass('_hidden');
             var imgHeight = $('.cu-' + currentCloseupID).find('img').height();
-            console.log(imgHeight);
+            // console.log(imgHeight);
             // run backbutton function
 
             updateCloseupState(imgHeight);
@@ -445,6 +467,7 @@ var Global = (function() {
 
         $('.icon-button.back').on('click', function() {
             $('body').removeClass('_closeup-is-on');
+            $('body').removeClass('_keyboard-is-on');
         })
     }
 
@@ -464,6 +487,7 @@ var Global = (function() {
 
         $('.overlay').on('click', function() {
             $('body').removeClass('_sheet-is-on');
+            $('body').removeClass('_keyboard-is-on');
         });
 
 

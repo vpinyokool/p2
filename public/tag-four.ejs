@@ -4,7 +4,7 @@
 	<a href="tag-three">3</a>
 	<a class="_active" href="tag-four">4</a>
 </div>
-<section class="canvas tags-two">
+<section class="canvas tags-four">
 	<div class="phone-canvas">
 		<div class="home-indicator-wrap">
 			<img src="/assets/images/home-indicator.svg" alt="">
@@ -15,6 +15,7 @@
 	<img class="light" src="/assets/images/status-bar-light.svg" alt="">
 </div>
 <div class="icon-button back"></div>
+<div class="overlay"></div>
 <div class="closeup scroll-area">
 	<%- partial('library/_modules/_closeup-card-ugc') %>
 	<div class="closeup-module">
@@ -33,6 +34,15 @@
 		<%- partial('library/_modules/_more-like-this-grid') %>
 	</div>
 </div>
+<div class="new-tag-sheet">
+	<div class="composer">
+		<input placeholder="New tag" type="text">
+		<div id="confirm-tag" class="button-sml">Done</div>
+	</div>
+	<div class="keyboard">
+		<img src="/assets/images/keyboard.svg" alt="">
+	</div>
+</div>
 <div class="pingrid scroll-area">
 
 <div class="navigation-bar">
@@ -40,7 +50,7 @@
 </div>
 <div class="board-header">
 	<div class="board-title">
-		Our new Home
+		Our new home
 	</div>
 	<div class="avatars">
 		<div class="you"></div>
@@ -64,7 +74,7 @@
 	<%- partial('library/_modules/_usg-tags') %>
 	<%- partial('library/_modules/_grid-four') %>
 	<div class="empty-state _hidden">
-		You don't have any tagged Pins yet. Tap on a pin and tag it!
+		You don't have any tagged Pins yet. Tap on a Pin to tag it.
 	</div>
 	</div>
 </div>

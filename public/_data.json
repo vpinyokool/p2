@@ -18,5 +18,13 @@
 	"tag-four":{
 		"title":"Pinterest-Tags-4",
 		"layout": "library/_views/_layout"
+	},
+	"tag-a":{
+	"title":"Pinterest-Tags-A",
+	"layout": "library/_views/_layout"
+	},
+	"tag-b":{
+	"title":"Pinterest-Tags-B",
+	"layout": "library/_views/_layout"
 	}
 }

@@ -34,6 +34,14 @@ var call = {
         if ( sPath == '/tag-four' ) {
             Global.organicTagsGrid();
         }
+        if ( sPath == '/tag-a' ) {
+            Global.filter();
+        }
+        if ( sPath == '/tag-b' ) {
+            Global.reactionGrid();
+            Global.reactionAnimation();
+            Global.optionalNote();
+        }
 
     }
 }

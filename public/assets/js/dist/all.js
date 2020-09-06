@@ -261,16 +261,16 @@ var Global = (function() {
                 emptyStateString = '';
             }
             if ($(this).attr('data-filter') == '.wanna-try') {
-                pinCountString = ' I wanna try';
-                emptyStateString = ' you wanna try';
+                pinCountString = ' with wanna try';
+                emptyStateString = ' with wanna try';
             }
             if ($(this).attr('data-filter') == '.tried-it') {
-                pinCountString = ' I tried';
-                emptyStateString = ' you tried';
+                pinCountString = ' with Tried it';
+                emptyStateString = ' with Tried it';
             }
             if ($(this).attr('data-filter') == '.love-it') {
-                pinCountString = ' I love';
-                emptyStateString = ' you love';
+                pinCountString = ' with Love it';
+                emptyStateString = ' with Love it';
             }
             if ($(this).attr('data-filter') == '.maybe') {
                 pinCountString = ' with maybe';
@@ -403,10 +403,149 @@ var Global = (function() {
 
     };
 
+    function optionalNote() {
+
+        var $grid = $('.masonry-layout').isotope({
+            itemSelector: '.item',
+            stagger: 30,
+            masonry: {
+                columnWidth: 176,
+                gutter: 8
+            }
+        });
+
+        var input = $('.note-composer-input');
+        var submit = $('.button-confirm-note');
+        var deleteNote = $('.button-delete-note');
+        var editNote = $('.reaction-card-wrapper .button-sml');
+        var currentCloseupID;
+        var curPrivateNote;
+        var curCloseupPrivateNote;
+
+        function deleteNoteButton() {
+            if (input.val() != '') {
+                deleteNote.removeClass('_hidden');
+            } else {
+                deleteNote.addClass('_hidden');
+            }
+        }
+
+        function deletePrivateNote(id, value) {
+
+            // update the grid
+            $('.pin-id-' + id + ' .pin-note').text(value);
+            $('.pin-id-' + id + ' .pin-note').addClass('_hidden');
+
+            // remove .with-notes class to pin
+            $('.pin-id-' + id).removeClass('with-notes');
+
+            // show the input
+            $('.reaction-card-wrapper.cu-' + id + ' .note-input').removeClass('_hidden');
+
+            // hide edit button
+            $('.reaction-card-wrapper.cu-' + id + ' .button-sml').addClass('_hidden');
+
+            // hide the note
+            $('.reaction-card-wrapper.cu-' + id + ' .private-note').addClass('_hidden');
+            // update masonry
+            $grid.isotope('layout');
+        }
+
+        $('.note-input').on('click', function() {
+            $('body').addClass('_keyboard-is-on');
+            input.val('');
+            deleteNoteButton();
+
+            setTimeout(function() {
+                input.focus();
+            }, 450);
+        });
+
+        input.on('keyup', function() {
+            deleteNoteButton();
+        });
+
+        submit.on('click', function() {
+            $('body').removeClass('_keyboard-is-on');
+            curPrivateNote = input.val();
+            currentCloseupID = $('body').data('cu-id');
+
+            // move note to closeup  module
+            $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .private-note span').text(curPrivateNote);
+
+            // add data to body
+            $('body').data('note-' + currentCloseupID, curPrivateNote);
+
+
+
+            // if val isn't empty
+            if (curPrivateNote.length > 0) {
+
+
+                // add note to Pin on grid and show the pin note + run masonry
+                $('.pin-id-' + currentCloseupID + ' .pin-note').text(curPrivateNote);
+                $('.pin-id-' + currentCloseupID + ' .pin-note').removeClass('_hidden');
+                $grid.isotope('layout');
+
+                // add .with-notes class to pin
+                $('.pin-id-' + currentCloseupID).addClass('with-notes');
+
+                // show the note
+                $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .private-note').removeClass('_hidden');
+
+                // show edit button
+                $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .button-sml').removeClass('_hidden');
+
+                // hide the input
+                $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .note-input').addClass('_hidden');
+
+
+
+                // if val us empty close the keyboard
+            } else {
+
+                deletePrivateNote(currentCloseupID, curPrivateNote);
+
+            }
+
+        });
+
+        // editing note
+        editNote.on('click', function() {
+            $('body').addClass('_keyboard-is-on');
+            deleteNoteButton();
+            var currentCloseupID = $('body').data('cu-id');
+
+            // get note data
+            curCloseupPrivateNote = $('body').data('note-' + currentCloseupID);
+            // add note to composer
+            input.val(curCloseupPrivateNote);
+            setTimeout(function() {
+                input.focus();
+            }, 450);
+        });
+        // deleting note
+        deleteNote.on('click', function() {
+            $('body').removeClass('_keyboard-is-on');
+            curPrivateNote = input.val();
+            currentCloseupID = $('body').data('cu-id');
+
+            // move note to closeup  module
+            $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .private-note span').text(curPrivateNote);
+
+            // add data to body
+            $('body').data('note-' + currentCloseupID, curPrivateNote);
+
+
+            deletePrivateNote(currentCloseupID, curPrivateNote);
+        });
+    }
+
     function organicTagsGrid() {
 
         var input = $('.composer input');
         var newTag;
+        var trimmedTag;
         $('.new-tag').on('click', function() {
             $('body').addClass('_keyboard-is-on');
             input.val('');
@@ -417,8 +556,9 @@ var Global = (function() {
         $('#confirm-tag').on('click', function() {
             $('body').removeClass('_keyboard-is-on');
             newTag = input.val();
-            var newFilterBtn =  '<div data-filter=".' + newTag + '" class="button-sml multiple">' + newTag + '</div>';
-            var newTagUI = '<div data-tag="' + newTag + '" class="usg-tag button-sml">' + newTag + '</div>';
+            trimmedTag = newTag.replace(/\s+/g, '').replace(/,/g, '').toLowerCase();
+            var newFilterBtn = '<div data-filter=".' + trimmedTag + '" class="button-sml multiple">' + newTag + '</div>';
+            var newTagUI = '<div data-tag="' + trimmedTag + '" class="usg-tag button-sml">' + newTag + '</div>';
 
             // add new ui to filter bar on grid
             $('.usg-tag-bar').append(newFilterBtn);
@@ -442,7 +582,7 @@ var Global = (function() {
             $gridFour.isotope('layout');
         });
         // click event
-        $('.usg-tags-wrap').on('click', '.usg-tag',function() {
+        $('.usg-tags-wrap').on('click', '.usg-tag', function() {
             // which tag
             var curTag = $(this).data('tag');
 
@@ -493,6 +633,7 @@ var Global = (function() {
 
             // get id
             currentCloseupID = $(this).data('closeup-id');
+            $('body').data('cu-id', currentCloseupID);
 
             //  switch state
             $('body').addClass('_closeup-is-on');
@@ -517,6 +658,7 @@ var Global = (function() {
             $('body').removeClass('_closeup-is-on');
             $('body').removeClass('_keyboard-is-on');
         })
+
     }
 
     function reactions() {
@@ -631,7 +773,8 @@ var Global = (function() {
         bodyMovin: bodyMovin,
         reactionAnimation: reactionAnimation,
         likeThisGrid: likeThisGrid,
-        organicTagsGrid: organicTagsGrid
+        organicTagsGrid: organicTagsGrid,
+        optionalNote: optionalNote
     }
 })();
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -669,6 +812,14 @@ var call = {
 
         if ( sPath == '/tag-four' ) {
             Global.organicTagsGrid();
+        }
+        if ( sPath == '/tag-a' ) {
+            Global.filter();
+        }
+        if ( sPath == '/tag-b' ) {
+            Global.reactionGrid();
+            Global.reactionAnimation();
+            Global.optionalNote();
         }
 
     }

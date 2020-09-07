@@ -36,6 +36,7 @@ var call = {
         }
         if ( sPath == '/tag-a' ) {
             Global.filter();
+            Global.optionalNote();
         }
         if ( sPath == '/tag-b' ) {
             Global.reactionGrid();

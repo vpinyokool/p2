@@ -2,11 +2,10 @@
 // global
 var Global = (function() {
     var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
-    // return true or false
 
+    // return true or false
     var $body = $('body');
     var $nav = $('nav');
-
 
     // disable zoom on phones
     document.addEventListener('touchmove', function(event) {
@@ -117,73 +116,41 @@ var Global = (function() {
         var currentReactionID;
         var currentPinItem;
 
-        $('.wanna-try-btn').on('click', function() {
-
+        function filtering(el, name) {
             // update state
             $('.reaction-btn').removeClass('_active');
-            $(this).addClass('_active');
+            el.addClass('_active');
+
+            // update masonry
+            $grid.isotope('layout');
+
             // get id
-            currentReactionID = $(this).parent().parent().data('closeup-id');
+            currentReactionID = el.parent().parent().data('closeup-id');
             currentPinItem = $('.pin-id-' + currentReactionID);
             // add state to grid item
             currentPinItem.removeClass('love-it wanna-try maybe tried-it');
-            currentPinItem.addClass('wanna-try');
+            currentPinItem.addClass(name);
             currentPinItem.find('.reaction-marker').addClass('_hidden');
-            currentPinItem.find('span.wanna-try').removeClass('_hidden');
-            $grid.isotope('layout');
+            currentPinItem.find('span.' + name).removeClass('_hidden');
+        }
 
+        $('.wanna-try-btn').on('click', function() {
+            filtering($(this), 'wanna-try');
         });
 
         //
         $('.love-it-btn').on('click', function() {
-
-            // update state
-            $('.reaction-btn').removeClass('_active');
-            $(this).addClass('_active');
-            // get id
-            currentReactionID = $(this).parent().parent().data('closeup-id');
-            currentPinItem = $('.pin-id-' + currentReactionID);
-            // add state to grid item
-            currentPinItem.removeClass('love-it wanna-try maybe tried-it');
-            currentPinItem.addClass('love-it');
-            currentPinItem.find('.reaction-marker').addClass('_hidden');
-            currentPinItem.find('span.love-it').removeClass('_hidden');
-            $grid.isotope('layout');
-
+            filtering($(this), 'love-it');
         });
         //
         $('.tried-it-btn').on('click', function() {
-            // update state
-            $('.reaction-btn').removeClass('_active');
-            $(this).addClass('_active');
-            // get id
-            currentReactionID = $(this).parent().parent().data('closeup-id');
-            currentPinItem = $('.pin-id-' + currentReactionID);
-            // add state to grid item
-            currentPinItem.removeClass('love-it wanna-try maybe tried-it');
-            currentPinItem.addClass('tried-it');
-            currentPinItem.find('.reaction-marker').addClass('_hidden');
-            currentPinItem.find('span.tried-it').removeClass('_hidden');
-            $grid.isotope('layout');
-
+            filtering($(this), 'tried-it');
         });
         //
         $('.maybe-btn').on('click', function() {
-            // update state
-            $('.reaction-btn').removeClass('_active');
-            $(this).addClass('_active');
-
-            // get id
-            currentReactionID = $(this).parent().parent().data('closeup-id');
-            currentPinItem = $('.pin-id-' + currentReactionID);
-            // add state to grid item
-            currentPinItem.removeClass('love-it wanna-try maybe tried-it');
-            currentPinItem.addClass('maybe');
-            currentPinItem.find('.reaction-marker').addClass('_hidden');
-            currentPinItem.find('span.maybe').removeClass('_hidden');
-            $grid.isotope('layout');
-
+            filtering($(this), 'maybe');
         });
+
 
         ////////////
 
@@ -228,6 +195,12 @@ var Global = (function() {
                 pinCountString = ' with maybe';
                 emptyStateString = ' with maybe';
             }
+
+            if ($(this).attr('data-filter') == '.with-notes') {
+                pinCountString = ' with notes';
+                emptyStateString = ' with notes';
+            }
+
             $('span.reaction').text(pinCountString);
             $('span.empty-reaction').text(emptyStateString);
         });
@@ -343,9 +316,11 @@ var Global = (function() {
             $('.star-' + value).on('click', function() {
                 if ($('.star-' + value).hasClass('_active')) {
                     $('.star-' + value).removeClass('_active');
+                    $('.pin-id-' + value).removeClass('star');
                     anim[value].goToAndStop(0, true);
                 } else {
                     $('.star-' + value).addClass('_active');
+                    $('.pin-id-' + value).addClass('star');
                     anim[value].play();
                 }
             });
@@ -370,6 +345,7 @@ var Global = (function() {
         var submit = $('.button-confirm-note');
         var deleteNote = $('.button-delete-note');
         var editNote = $('.reaction-card-wrapper .button-sml');
+        var keyboardTrigger = $('.kb-trigger');
         var currentCloseupID;
         var curPrivateNote;
         var curCloseupPrivateNote;
@@ -391,6 +367,9 @@ var Global = (function() {
             // remove .with-notes class to pin
             $('.pin-id-' + id).removeClass('with-notes');
 
+            // update masonry
+            $grid.isotope('layout');
+
             // show the input
             $('.reaction-card-wrapper.cu-' + id + ' .note-input').removeClass('_hidden');
 
@@ -399,11 +378,17 @@ var Global = (function() {
 
             // hide the note
             $('.reaction-card-wrapper.cu-' + id + ' .private-note').addClass('_hidden');
-            // update masonry
-            $grid.isotope('layout');
+
+            // hide the title (tag a only)
+            $('.reaction-card-wrapper.cu-' + id + ' .cu-title').addClass('_hidden');
+
+            // hide note trigger wrap (tag a only)
+            $('.reaction-card-wrapper.cu-' + id + ' .note-trigger-wrap').removeClass('_hidden');
+
+
         }
 
-        $('.note-input').on('click', function() {
+        keyboardTrigger.on('click', function() {
             $('body').addClass('_keyboard-is-on');
             input.val('');
             deleteNoteButton();
@@ -451,7 +436,11 @@ var Global = (function() {
                 // hide the input
                 $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .note-input').addClass('_hidden');
 
+                // show the title (tag a only)
+                $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .cu-title').removeClass('_hidden');
 
+                // hide note trigger wrap (tag a only)
+                $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .note-trigger-wrap').addClass('_hidden');
 
                 // if val us empty close the keyboard
             } else {
@@ -665,50 +654,50 @@ var Global = (function() {
             }
         });
 
+        var isotope = $grid.data('isotope');
+
         function renderGrid() {
             $grid.imagesLoaded().progress(function() {
                 $grid.isotope('layout');
             });
         }
 
-        function updateCount() {
-            var num = $('.item:not(._hidden)').length;
-            // console.log(num);
-            $('.pin-count span.num').html(num + ' ');
-
+        function updateCount(string) {
+            $('.pin-count').text(isotope.filteredItems.length + ' Pins' + string);
+            if (isotope.filteredItems.length == 0) {
+                $('.empty-state').removeClass('_hidden');
+            } else {
+                $('.empty-state').addClass('_hidden');
+            }
         }
         renderGrid();
 
+
         $('.filter-sheet li').on('click', function() {
             $('.filter-sheet li').removeClass('_active');
+            $('body').removeClass('_sheet-is-on');
             $(this).addClass('_active');
-        });
 
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({
+                filter: filterValue
+            });
 
-        // show all pins
-        $('.show-all-pins').on('click', function() {
-            $('.item').removeClass('_hidden');
-            renderGrid();
-            $('body').removeClass('_sheet-is-on');
-            updateCount();
-            $('span.pin-type').addClass('_hidden');
-            $('.empty-state').addClass('_hidden');
-            $('.show-sheet').removeClass('_active');
-            $('.show-sheet').text('Filter');
-        });
+            if ($(this).attr('data-filter') == '*') {
 
-        // show stars only
-        $('.show-stars-only').on('click', function() {
-            $('.show-sheet').addClass('_active');
-            $('.show-sheet').text('Filter(1)');
-            $('.item').addClass('_hidden');
-            $('.star._active').parent().parent().removeClass('_hidden');
-            renderGrid();
-            $('body').removeClass('_sheet-is-on');
-            updateCount();
-            $('span.pin-type').removeClass('_hidden');
-            if ($('.item:not(._hidden)').length == 0) {
-                $('.empty-state').removeClass('_hidden');
+                $('.show-sheet').removeClass('_active');
+                $('.show-sheet').text('Filter');
+                updateCount('');
+            }
+
+            if ($(this).attr('data-filter') == '.star') {
+                $('.show-sheet').addClass('_active').text('Filter(1)')
+                updateCount(' starred');
+            }
+
+            if ($(this).attr('data-filter') == '.with-notes') {
+                $('.show-sheet').addClass('_active').text('Filter(1)')
+                updateCount(' with notes');
             }
         });
     }

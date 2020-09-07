@@ -1047,9 +1047,8 @@ span.maybe span {
 	width: 100%;
 	background-color: white;
 	padding: 16px;
-height: 70px;
+	height: 70px;
 	position: relative;
-
 
 	&:before {
 		content: '';
@@ -1063,13 +1062,20 @@ height: 70px;
 
 .button-delete-note {
 	cursor: pointer;
+	width: 44px;
+	height: 44px;
+	// background-color: red;
+	background-position: center;
+	background-image: url('/assets/icons/icon-trash.svg');
+	background-size: 74%;
+	background-repeat: no-repeat;
 	vertical-align: middle;
 	margin-right: 8px;
-	font-size: 12px;
+	font-size: 0px;
 	position: absolute;
-	left: 16px;
+	left: 8px;
 	top: 50%;
-	margin-top: -6px;
+	margin-top: -22px;
 
 }
 

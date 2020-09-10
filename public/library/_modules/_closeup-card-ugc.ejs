@@ -6,7 +6,7 @@ var homefeedData = public.content.homefeed._data.pins;
 
 <% for ( var i=0; i < homefeedData.length; i++ ) { %>
 	<div class="main-card-wrapper cu-<%= i+1 %>">
-		<img src="/assets/images/<%= homefeedData[i].img %>.png" />
+		<img src="<%= homefeedData[i].img %>" />
 		<div class="cu-pin-title"><%= homefeedData[i].title %></div>
 		<div class="cu-pin-description">Pin description goes here</div>
 		<div class="cu-pin-actions-wrap">

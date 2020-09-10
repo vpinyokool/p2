@@ -11,6 +11,7 @@ var call = {
         Global.modal();
         Global.bodyMovin();
         Global.likeThisGrid();
+        Global.trunk8();
 
     },
     init: function() {

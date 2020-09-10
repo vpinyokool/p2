@@ -223,6 +223,21 @@ main,
 		.you {
 			background-image: url('/assets/images/a-4.png');
 			background-size: cover;
+			&.k {
+				background-image: url(https://i.pinimg.com/280x280_RS/2d/15/dd/2d15ddccec3ec11e81b3e588dc95918b.jpg);
+			}
+			&.s {
+				background-image: url(https://i.pinimg.com/280x280_RS/c7/6d/54/c76d54c920375166747a5bb6b693f87d.jpg);
+			}
+			&.moomin {
+				background-image: url(https://i.pinimg.com/280x280_RS/21/e5/57/21e557334adb859a84ab911f61af05fa.jpg);
+			}
+			&.m {
+				background-image: url(https://i.pinimg.com/280x280_RS/29/6b/dd/296bdda90bcdc28e0cb8e9c91f62a640.jpg);
+			}
+			&.n {
+				background-image: url(https://i.pinimg.com/280x280_RS/ec/43/37/ec43373b026e476bdb219ff5ccf7da7c.jpg);
+			}
 		}
 		.add {
 			margin-left: -16px;
@@ -551,12 +566,14 @@ text-align: center;
 	font-weight: 600;
 	width: 330px;
 	text-align: center;
-	line-height: 1.1;
+	line-height: 1.2;
 	letter-spacing: -1.2px;
 }
 .cu-pin-description {
 	text-align: center;
 	margin-top: 8px;
+	padding: 0 8px;
+	line-height: 1.3;
 }
 
 .cu-pin-actions-wrap {

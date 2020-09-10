@@ -602,8 +602,10 @@ var Global = (function() {
 
     }
 
-    function reactions() {
-
+    function trunk8() {
+        $('.cu-pin-description .string').trunk8({
+            lines: 2
+        });
     }
 
     function modal() {
@@ -706,6 +708,7 @@ var Global = (function() {
 
     return {
         states: states,
+        trunk8: trunk8,
         modal: modal,
         filter: filter,
         autoTags: autoTags,

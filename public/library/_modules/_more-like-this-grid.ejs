@@ -8,7 +8,7 @@ var homefeedData = public.content.homefeed._data.pins;
 	<% for ( var i=0; i < homefeedData.length; i++ ) { %>
 	<div class="disco-pin">
 			<div class="pin-img-wrapper">
-				<img src="/assets/images/<%= homefeedData[i].img %>.png" />
+				<img src="<%= homefeedData[i].img %>" />
 			</div>
 			<div class="pin-title more-like-this">
 				<%= homefeedData[i].title %>

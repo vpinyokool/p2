@@ -1,14 +1,15 @@
 <%
-var homefeedData = public.content.homefeed._data.pins;
-
-var krizzyly7Data = public.content.homefeed._data.pins;
+var homefeedData;
+//
+var demoData = public.content.homefeed._data.pins;
+var krizzly7Data = public.content.krizzly7._data.pins;
 var marialat530Data = public.content.homefeed._data.pins;
 var moominmom3Data = public.content.homefeed._data.pins;
 var shavonData = public.content.homefeed._data.pins;
 var thenifyshopperData = public.content.homefeed._data.pins;
 
-if (mode == "krizzyly7") {
-	homefeedData = krizzyly7Data;
+if (mode == "krizzly7") {
+	homefeedData = krizzly7Data;
 }
 
 if (mode == "marialat530") {
@@ -26,7 +27,12 @@ if (mode == "shavon") {
 if (mode == "thenifyshopper") {
 	homefeedData = thenifyshopperData;
 }
+
+if (mode == "demo") {
+	homefeedData = demoData;
+}
 %>
+
 
 <div class="masonry-layout ">
 	<% for ( var i=0; i < homefeedData.length; i++ ) { %>
@@ -38,7 +44,7 @@ if (mode == "thenifyshopper") {
 				<div class="star star-<%= i+1 %>">
 					<div class="icon-wrap"></div>
 				</div>
-				<img src="/assets/images/<%= homefeedData[i].img %>.png" />
+				<img src="<%= homefeedData[i].img %>" />
 			</div>
 			<div class="pin-title">
 				<%= homefeedData[i].title %>

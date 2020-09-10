@@ -76,7 +76,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: 'assets/animation/wanna-try.json'
+                path: '/assets/animation/wanna-try.json'
             });
 
 
@@ -85,7 +85,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: 'assets/animation/tried-it.json'
+                path: '/assets/animation/tried-it.json'
             });
 
             loveIt[i + 1] = lottie.loadAnimation({
@@ -93,7 +93,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: 'assets/animation/love-it.json'
+                path: '/assets/animation/love-it.json'
             });
 
             maybe[i + 1] = lottie.loadAnimation({
@@ -101,7 +101,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: 'assets/animation/maybe.json'
+                path: '/assets/animation/maybe.json'
             });
         }
 
@@ -355,7 +355,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: 'assets/animation/star/data.json'
+                path: '/assets/animation/star/data.json'
             });
         }
 
@@ -802,11 +802,11 @@ var call = {
         if ( sPath == '/tag-four' ) {
             Global.organicTagsGrid();
         }
-        if ( sPath == '/tag-a' ) {
+        if ( sPath.indexOf('/tag-a') > 1 ) {
             Global.filter();
             Global.optionalNote();
         }
-        if ( sPath == '/tag-b' ) {
+        if ( sPath.indexOf('/tag-b') > 1 ) {
             Global.reactionGrid();
             Global.reactionAnimation();
             Global.optionalNote();

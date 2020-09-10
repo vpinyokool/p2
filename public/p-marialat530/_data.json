@@ -1,0 +1,10 @@
+{
+	"tag-a":{
+		"title":"Pinterest-Tags-1",
+		"layout": "../library/_views/_layout"
+	},
+	"tag-b":{
+		"title":"Pinterest-Tags-2",
+		"layout": "../library/_views/_layout"
+	}
+}

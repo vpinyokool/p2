@@ -1,11 +1,12 @@
-<div class="proto-nav">
-	<a href="tag-one">1</a>
-	<a href="tag-two">2</a>
-	<a href="tag-three">3</a>
-	<a class="_active" href="tag-four">4</a>
+<%
+var name = "moominmom3";
+%>
 
+<div class="proto-nav">
+	<a class="_active" href="tag-a">A</a>
+	<a href="tag-b">B</a>
 </div>
-<section class="canvas tags-four">
+<section class="canvas tags-a">
 	<div class="phone-canvas">
 		<div class="home-indicator-wrap">
 			<img src="/assets/images/home-indicator.svg" alt="">
@@ -17,8 +18,37 @@
 </div>
 <div class="icon-button back"></div>
 <div class="overlay"></div>
+<div class="new-tag-sheet">
+<div class="keyboard">
+	<div class="optional-note-composer">
+		<textarea placeholder="Add private note to self" type="text" class="note-composer-input"></textarea>
+	</div>
+			<div class="send-bar">
+				<div class="button-delete-note _hidden"></div>
+			<div class="button-confirm-note">Save</div>
+		</div>
+	<img src="/assets/images/keyboard.svg" alt="">
+</div>
+</div>
+<div class="filter-sheet">
+	<div class="filter-sheet-subhead">
+		Filter options
+	</div>
+	<ul>
+		<li data-filter="*" class="show-all-pins _active">
+			Show all Pins
+		</li>
+		<li data-filter=".star" class="show-stars-only">
+			Show Pins with ★
+		</li>
+		<li data-filter=".with-notes" class="show-stars-only">
+			Show Pins with notes
+		</li>
+	</ul>
+	<div class="button secondary close-sheet">Close</div>
+</div>
 <div class="closeup scroll-area">
-	<%- partial('library/_modules/_closeup-card-ugc') %>
+	<%- partial("../library/_modules/_closeup-card-with-notes", {mode: name}) %>
 	<div class="closeup-module">
 		<div class="cu-title">Comments</div>
 		<div class="comments-caption">
@@ -32,16 +62,7 @@
 	</div>
 	<div class="closeup-module">
 		<div class="cu-title">More like this</div>
-		<%- partial('library/_modules/_more-like-this-grid') %>
-	</div>
-</div>
-<div class="new-tag-sheet">
-	<div class="composer">
-		<input placeholder="New tag" type="text">
-		<div id="confirm-tag" class="button-sml">Done</div>
-	</div>
-	<div class="keyboard">
-		<img src="/assets/images/keyboard.svg" alt="">
+		<%- partial('../library/_modules/_more-like-this-grid') %>
 	</div>
 </div>
 <div class="pingrid scroll-area">
@@ -69,13 +90,17 @@
 	</div>
 	<div class="tool notes">
 		<div class="icon"></div>
-		<div class="text">Notes</div>
+		<div class="text">To-dos</div>
 	</div>
 	</div>
-	<%- partial('library/_modules/_usg-tags') %>
-	<%- partial('library/_modules/_grid-four') %>
+	<div class="filter-bar">
+		<div class="pin-count">15 Pins</div>
+		<div class="button-sml show-sheet">Filter</div>
+
+	</div>
+    <%- partial("../library/_modules/_grid", {mode: name}) %>
 	<div class="empty-state _hidden">
-		You don't have any tagged Pins yet. Tap on a Pin to tag it.
+		You don't have any star Pins yet.<br>Tap ★ to mark your favorite ideas.
 	</div>
 	</div>
 </div>

@@ -28,7 +28,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: 'assets/animation/wanna-try.json'
+                path: '/assets/animation/wanna-try.json'
             });
 
 
@@ -37,7 +37,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: 'assets/animation/tried-it.json'
+                path: '/assets/animation/tried-it.json'
             });
 
             loveIt[i + 1] = lottie.loadAnimation({
@@ -45,7 +45,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: 'assets/animation/love-it.json'
+                path: '/assets/animation/love-it.json'
             });
 
             maybe[i + 1] = lottie.loadAnimation({
@@ -53,7 +53,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: 'assets/animation/maybe.json'
+                path: '/assets/animation/maybe.json'
             });
         }
 
@@ -307,7 +307,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: 'assets/animation/star/data.json'
+                path: '/assets/animation/star/data.json'
             });
         }
 

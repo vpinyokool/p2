@@ -1,10 +1,12 @@
+<%
+var name = "moominmom3";
+%>
+
 <div class="proto-nav">
-	<a href="tag-one">1</a>
-	<a href="tag-two">2</a>
-	<a class="_active" href="tag-three">3</a>
-	<a href="tag-four">4</a>
+	<a href="tag-a">A</a>
+	<a class="_active" href="tag-b">B</a>
 </div>
-<section class="canvas tags-three">
+<section class="canvas tags-b">
 	<div class="phone-canvas">
 		<div class="home-indicator-wrap">
 			<img src="/assets/images/home-indicator.svg" alt="">
@@ -16,6 +18,18 @@
 </div>
 <div class="icon-button back"></div>
 <div class="overlay"></div>
+<div class="new-tag-sheet">
+<div class="keyboard">
+	<div class="optional-note-composer">
+		<textarea placeholder="Add private note to self" type="text" class="note-composer-input"></textarea>
+	</div>
+			<div class="send-bar">
+				<div class="button-delete-note _hidden"></div>
+			<div class="button-confirm-note">Save</div>
+		</div>
+	<img src="/assets/images/keyboard.svg" alt="">
+</div>
+</div>
 <div class="filter-sheet">
 	<div class="filter-sheet-subhead">
 		Filter options
@@ -26,11 +40,12 @@
 		<li data-filter=".wanna-try" class="">Show Pins with Wanna try</li>
 		<li data-filter=".maybe" class="">Show Pins with Maybe</li>
 		<li data-filter=".tried-it" class="">Show Pins with Tried it</li>
+		<li data-filter=".with-notes" class="">Show Pins with notes</li>
 	</ul>
 	<div class="button secondary close-sheet">Close</div>
 </div>
 <div class="closeup scroll-area">
-	<%- partial('library/_modules/_closeup-card-reactions') %>
+	<%- partial("../library/_modules/_closeup-card-reactions-with-notes", {mode: name}) %>
 	<div class="closeup-module">
 		<div class="cu-title">Comments</div>
 		<div class="comments-caption">
@@ -44,7 +59,7 @@
 	</div>
 	<div class="closeup-module">
 		<div class="cu-title">More like this</div>
-		<%- partial('library/_modules/_more-like-this-grid') %>
+		<%- partial('../library/_modules/_more-like-this-grid') %>
 	</div>
 </div>
 <div class="pingrid scroll-area">
@@ -72,7 +87,7 @@
 	</div>
 	<div class="tool notes">
 		<div class="icon"></div>
-		<div class="text">Notes</div>
+		<div class="text">To-dos</div>
 	</div>
 	</div>
 	<div class="filter-bar">
@@ -82,7 +97,7 @@
 
 	</div>
 
-	<%- partial('library/_modules/_grid-tag-three') %>
+	<%- partial("../library/_modules/_grid-tag-b", {mode: name}) %>
 	<div class="empty-state _hidden">
 		You don't have any Pins <span class="empty-reaction"></span> yet. Mark your Pins to filter them.
 

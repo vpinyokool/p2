@@ -1,7 +1,31 @@
 <%
 var homefeedData = public.content.homefeed._data.pins;
-// var homefeedData = public.content.homefeed._data.ugly;
-// var homefeedData = public.content.homefeed._data.real;
+
+var krizzyly7Data = public.content.homefeed._data.pins;
+var marialat530Data = public.content.homefeed._data.pins;
+var moominmom3Data = public.content.homefeed._data.pins;
+var shavonData = public.content.homefeed._data.pins;
+var thenifyshopperData = public.content.homefeed._data.pins;
+
+if (mode == "krizzyly7") {
+	homefeedData = krizzyly7Data;
+}
+
+if (mode == "marialat530") {
+	homefeedData = marialat530Data;
+}
+
+if (mode == "moominmom3") {
+	homefeedData = moominmom3Data;
+}
+
+if (mode == "shavon") {
+	homefeedData = shavonData;
+}
+
+if (mode == "thenifyshopper") {
+	homefeedData = thenifyshopperData;
+}
 %>
 
 <% for ( var i=0; i < homefeedData.length; i++ ) { %>

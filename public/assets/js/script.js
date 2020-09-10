@@ -34,11 +34,11 @@ var call = {
         if ( sPath == '/tag-four' ) {
             Global.organicTagsGrid();
         }
-        if ( sPath == '/tag-a' ) {
+        if ( sPath.indexOf('/tag-a') > 1 ) {
             Global.filter();
             Global.optionalNote();
         }
-        if ( sPath == '/tag-b' ) {
+        if ( sPath.indexOf('/tag-b') > 1 ) {
             Global.reactionGrid();
             Global.reactionAnimation();
             Global.optionalNote();

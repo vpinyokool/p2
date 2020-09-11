@@ -779,7 +779,7 @@ var Global = (function() {
             path = 'assets/animation/star.json';
             console.log('on-tag-one-page. path is ' + path);
         } else {
-            console.log('NOTE on-tag-one-page. path is ' + path);
+            console.log('NOT on-tag-one-page. path is ' + path);
         }
 
 

@@ -23,7 +23,7 @@ var Global = (function() {
             pathPrefix = 'assets/animation/';
             console.log('on-tag-three-page. path is ' + pathPrefix);
         } else {
-            console.log('NOT on-tag-three-page. path is ' + pathPrefix);
+            console.log('NOT on-tag-three-page. on b page path is ' + pathPrefix + 'wanna-try.json');
         }
 
 
@@ -338,7 +338,7 @@ var Global = (function() {
             path = 'assets/animation/star.json';
             console.log('on-tag-one-page. path is ' + path);
         } else {
-            console.log('NOT on-tag-one-page. path is ' + path);
+            console.log('NOT on-tag-one-page. on tag a page. path is ' + path);
         }
 
 

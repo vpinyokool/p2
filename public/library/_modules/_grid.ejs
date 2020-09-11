@@ -1,3 +1,9 @@
+  <% var pathPrefix = "";
+     for (var i = 0; i < current.path.length-1; i++) {
+        pathPrefix += "../";
+     };
+  %>
+
 <%
 var homefeedData;
 //
@@ -45,7 +51,7 @@ if (mode == "demo") {
 				<div class="star star-<%= i+1 %>">
 					<div class="icon-wrap"></div>
 				</div>
-				<img src="<%= homefeedData[i].img %>" />
+				<img src="<%= pathPrefix %><%= homefeedData[i].img %>" />
 			</div>
 			<div class="pin-title">
 				<%= homefeedData[i].title %>

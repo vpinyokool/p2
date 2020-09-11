@@ -1,3 +1,9 @@
+  <%
+   var pathPrefix = "";
+     for (var i = 0; i < current.path.length-1; i++) {
+        pathPrefix += "../";
+     };
+  %>
 <%
 var homefeedData = public.content.homefeed._data.pins;
 // var homefeedData = public.content.homefeed._data.ugly;
@@ -8,7 +14,7 @@ var homefeedData = public.content.homefeed._data.pins;
 	<% for ( var i=0; i < homefeedData.length; i++ ) { %>
 	<div class="disco-pin">
 			<div class="pin-img-wrapper">
-				<img src="<%= homefeedData[i].img %>" />
+				<img src="<%= pathPrefix %><%= homefeedData[i].img %>" />
 			</div>
 			<div class="pin-title more-like-this">
 				<%= homefeedData[i].title %>

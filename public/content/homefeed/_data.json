@@ -72,21 +72,21 @@
 	"pins": [
 		{
 			"title":"Wee Society Collection, Prints and Posters ",
-			"img": "/assets/images/2.png",
+			"img": "assets/images/2.png",
 			"board": "Art & Design",
 			"isPin":true,
 			"url":"mawebsite.com"
 		},
 		{
 			"title":"Jelly Milky Clenser",
-			"img": "/assets/images/1.png",
+			"img": "assets/images/1.png",
 			"board": "Makeup",
 			"isPin":true,
 			"url":"fandwebsite.com"
 		},
 		{
 			"title":"New colors for 2018 Fall/Winter Collection",
-			"img": "/assets/images/3.png",
+			"img": "assets/images/3.png",
 			"board": "Sneakers",
 			"seller": "Common Projects",
 			"isPin":true,
@@ -94,7 +94,7 @@
 		},
 		{
 			"title":"BLT with Lemon Basil Mayo",
-			"img": "/assets/images/4.png",
+			"img": "assets/images/4.png",
 			"board": "Recipes",
 			"cookTime": "15 mins",
 			"isPin":true,
@@ -102,7 +102,7 @@
 		},
 		{
 			"title":"BLT with Lemon Basil Mayo",
-			"img": "/assets/images/5.png",
+			"img": "assets/images/5.png",
 			"board": "Recipes",
 			"cookTime": "15 mins",
 			"isPin":true,
@@ -110,7 +110,7 @@
 		},
 		{
 			"title":"Healthy Thai chicken lettuce wraps",
-			"img": "/assets/images/6.png",
+			"img": "assets/images/6.png",
 			"board": "Recipes",
 			"cookTime": "30 mins",
 			"isPin":true,
@@ -118,28 +118,28 @@
 		},
 		{
 			"title":"Yesterday’s New Quintet, poster submitted and designed by Jacek Rudzki",
-			"img": "/assets/images/7.png",
+			"img": "assets/images/7.png",
 			"board": "Art & Design",
 			"isPin":true,
 			"url":"website.com"
 		},
 		{
 			"title":"Youmeus design big top barware collection for homes",
-			"img": "/assets/images/8.png",
+			"img": "assets/images/8.png",
 			"board": "Living",
 			"seller": "Youmeus design",
 			"isPin":true,
 			"url":"website.com"
 		},
 		{
-			"img": "/assets/images/9.png",
+			"img": "assets/images/9.png",
 			"board": "Portrait",
 			"isPin":true,
 			"url":"mawebsite.com"
 		},
 		{
 			"title":"COS Sets a Desert Scene with Spring 2016 Campaign",
-			"img": "/assets/images/10.png",
+			"img": "assets/images/10.png",
 			"board": "Styles",
 			"isPin":true,
 			"attribution": "COS",
@@ -148,7 +148,7 @@
 		},
 		{
 			"title":"COS Sets a Desert Scene with Spring 2016 Campaign",
-			"img": "/assets/images/11.png",
+			"img": "assets/images/11.png",
 			"board": "Styles",
 			"isPin":true,
 			"attribution": "COS",
@@ -157,28 +157,28 @@
 		},
 		{
 			"title":"Refettorio Felix",
-			"img": "/assets/images/12.png",
+			"img": "assets/images/12.png",
 			"board": "Architecture",
 			"isPin":true,
 			"url":"website.com"
 		},
 		{
 			"title":"Thai Seafood Massaman Curry",
-			"img": "/assets/images/13.png",
+			"img": "assets/images/13.png",
 			"cookTime": "40 mins",
 			"board": "Recipes",
 			"isPin":true,
 			"url":"mawebsite.com"
 		},
 		{
-			"img": "/assets/images/14.png",
+			"img": "assets/images/14.png",
 			"board": "Architecture",
 			"isPin":true,
 			"url":"fandwebsite.com"
 		},
 		{
 			"title":"Model Aliane Uwimana Gatabazi",
-			"img": "/assets/images/15.png",
+			"img": "assets/images/15.png",
 			"board": "Portrait",
 			"isPin":true,
 			"url":"website.com"

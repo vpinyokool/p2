@@ -1,3 +1,10 @@
+
+  <% var pathPrefix = "";
+     for (var i = 0; i < current.path.length-1; i++) {
+        pathPrefix += "../";
+     };
+  %>
+
 <%
 var homefeedData;
 //
@@ -36,7 +43,7 @@ if (mode == "demo") {
 
 <% for ( var i=0; i < homefeedData.length; i++ ) { %>
 	<div class="main-card-wrapper cu-<%= i+1 %>">
-		<img src="<%= homefeedData[i].img %>" />
+		<img src="<%= pathPrefix %><%= homefeedData[i].img %>" />
 		<div class="cu-pin-title"><%= homefeedData[i].title %></div>
 		<div class="cu-pin-description">
 			<div class="string">

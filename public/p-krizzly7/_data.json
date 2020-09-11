@@ -1,10 +1,10 @@
 {
 	"tag-a":{
-		"title":"Pinterest-Tags-1",
+		"title":"Pinterest-A",
 		"layout": "../library/_views/_layout"
 	},
 	"tag-b":{
-		"title":"Pinterest-Tags-2",
+		"title":"Pinterest-B",
 		"layout": "../library/_views/_layout"
 	}
 }

@@ -9,7 +9,6 @@ var call = {
         Global.states();
         Global.backButton();
         Global.modal();
-        Global.bodyMovin();
         Global.likeThisGrid();
         Global.trunk8();
 
@@ -22,6 +21,7 @@ var call = {
         if (sPath == '/tag-one.html' || sPath == '/boards-2020/tag-one.html' ) {
             console.log('on-tag-one-page');
             Global.filter();
+            Global.bodyMovin();
         }
 
 
@@ -47,6 +47,7 @@ var call = {
             console.log('on-tag-a-page');
             Global.filter();
             Global.optionalNote();
+            Global.bodyMovin();
         }
         if (sPath.indexOf('/tag-b') > 1) {
             console.log('on-tag-b-page');

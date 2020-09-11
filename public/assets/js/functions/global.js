@@ -16,13 +16,14 @@ var Global = (function() {
     }, false);
 
     function reactionAnimation() {
-        // console.log('ran');
         var sPath = window.location.pathname;
         var pathPrefix = '../assets/animation/';
 
         if ( sPath == "/tag-three.html" || sPath == "/boards-2020/tag-three.html" ) {
             pathPrefix = 'assets/animation/';
             console.log('on-tag-three-page. path is ' + pathPrefix);
+        } else {
+            console.log('NOT on-tag-three-page. path is ' + pathPrefix);
         }
 
 
@@ -331,11 +332,13 @@ var Global = (function() {
 
     function bodyMovin() {
         var sPath = window.location.pathname;
-        var path = '../../assets/animation/star/data.json';
+        var path = '../assets/animation/star.json';
 
         if ( sPath == "/tag-one.html" || sPath == "/boards-2020/tag-one.html" ) {
-            path = 'assets/animation/star/data.json';
+            path = 'assets/animation/star.json';
             console.log('on-tag-one-page. path is ' + path);
+        } else {
+            console.log('NOTE on-tag-one-page. path is ' + path);
         }
 
 

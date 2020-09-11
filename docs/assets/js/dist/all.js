@@ -461,7 +461,7 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var pathPrefix = '../assets/animation/';
 
-        if (sPath.indexOf('/tag-three') > 1) {
+        if (sPath == '/tag-three.html' || '/tag-three') {
             pathPrefix = 'assets/animation/';
         }
 
@@ -755,7 +755,7 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var path = '../assets/animation/star/data.json';
 
-        if (sPath.indexOf('/tag-one') > 1) {
+        if (sPath == '/tag-one.html' || '/tag-one') {
             path = 'assets/animation/star/data.json';
         }
 

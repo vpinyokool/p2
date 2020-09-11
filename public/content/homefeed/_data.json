@@ -187,7 +187,7 @@
 		"foodPins": [
 		{
 			"title":"Wee Society Collection, Prints and Posters ",
-			"img": "/food/2",
+			"img": "assets/images/food/2.png",
 			"ratings": "",
 			"time": 20,
 			"japanese": false,
@@ -198,7 +198,7 @@
 		},
 		{
 			"title":"Jelly Milky Clenser",
-			"img": "/food/1",
+			"img": "assets/images/food/1.png",
 			"time": 15,
 			"japanese": true,
 			"italian": false,
@@ -208,7 +208,7 @@
 		},
 		{
 			"title":"New colors for 2018 Fall/Winter Collection",
-			"img": "/food/3",
+			"img": "assets/images/food/3.png",
 			"time": 20,
 			"japanese": false,
 			"italian": false,
@@ -218,7 +218,7 @@
 		},
 		{
 			"title":"BLT with Lemon Basil Mayo",
-			"img": "/food/4",
+			"img": "assets/images/food/4.png",
 			"board": "Recipes",
 			"time": 30,
 			"japanese": true,
@@ -229,7 +229,7 @@
 		},
 		{
 			"title":"BLT with Lemon Basil Mayo",
-			"img": "/food/5",
+			"img": "assets/images/food/5.png",
 			"time": 45,
 			"japanese": false,
 			"italian": true,
@@ -239,7 +239,7 @@
 		},
 		{
 			"title":"Healthy Thai chicken lettuce wraps",
-			"img": "/food/6",
+			"img": "assets/images/food/6.png",
 			"time": 20,
 			"japanese": false,
 			"italian": true,
@@ -249,7 +249,7 @@
 		},
 		{
 			"title":"Yesterday’s New Quintet",
-			"img": "/food/7",
+			"img": "assets/images/food/7.png",
 			"time": 15,
 			"japanese": false,
 			"italian": false,
@@ -259,7 +259,7 @@
 		},
 		{
 			"title":"Youmeus design big top barware collection for homes",
-			"img": "/food/8",
+			"img": "assets/images/food/8.png",
 			"time": 30,
 			"japanese": false,
 			"italian": true,
@@ -268,7 +268,7 @@
 			"serve": 3
 		},
 		{
-			"img": "/food/9",
+			"img": "assets/images/food/9.png",
 			"time": 15,
 			"japanese": true,
 			"italian": false,
@@ -278,7 +278,7 @@
 		},
 		{
 			"title":"COS Sets a Desert Scene with Spring 2016 Campaign",
-			"img": "/food/10",
+			"img": "assets/images/food/10.png",
 			"time": 45,
 			"japanese": false,
 			"italian": true,
@@ -288,7 +288,7 @@
 		},
 		{
 			"title":"COS Sets a Desert Scene with Spring 2016 Campaign",
-			"img": "/food/11",
+			"img": "assets/images/food/11.png",
 			"time": 20,
 			"japanese": false,
 			"italian": false,
@@ -298,7 +298,7 @@
 		},
 		{
 			"title":"Refettorio Felix",
-			"img": "/food/12",
+			"img": "assets/images/food/12.png",
 			"time": 15,
 			"japanese": false,
 			"italian": true,
@@ -308,7 +308,7 @@
 		},
 		{
 			"title":"Thai Seafood Massaman Curry",
-			"img": "/food/13",
+			"img": "assets/images/food/13.png",
 			"time": 40,
 			"japanese": true,
 			"italian": false,
@@ -317,7 +317,7 @@
 			"serve": 1
 		},
 		{
-			"img": "/food/14",
+			"img": "assets/images/food/14.png",
 			"board": "Architecture",
 			"time": 15,
 			"japanese": false,
@@ -328,7 +328,7 @@
 		},
 		{
 			"title":"Model Aliane Uwimana Gatabazi",
-			"img": "/food/15",
+			"img": "assets/images/food/15.png",
 			"time": 15,
 			"japanese": false,
 			"italian": true,

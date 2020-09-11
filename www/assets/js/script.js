@@ -19,20 +19,20 @@ var call = {
         var sPath = window.location.pathname;
         console.log(sPath);
         // run on specific page
-        if ( sPath == '/tag-one' ) {
+        if ( sPath.indexOf('/tag-one') > 1 ) {
             Global.filter();
         }
 
-        if ( sPath == '/tag-two' ) {
+        if ( sPath.indexOf('/tag-two') > 1 ) {
             Global.autoTags();
         }
 
-        if ( sPath == '/tag-three' ) {
+        if ( sPath.indexOf('/tag-three') > 1 ) {
             Global.reactionGrid();
             Global.reactionAnimation();
         }
 
-        if ( sPath == '/tag-four' ) {
+        if ( sPath.indexOf('/tag-four') > 1 ) {
             Global.organicTagsGrid();
         }
         if ( sPath.indexOf('/tag-a') > 1 ) {

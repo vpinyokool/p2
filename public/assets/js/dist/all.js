@@ -469,7 +469,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: '/assets/animation/wanna-try.json'
+                path: '../assets/animation/wanna-try.json'
             });
 
 
@@ -478,7 +478,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: '/assets/animation/tried-it.json'
+                path: '../assets/animation/tried-it.json'
             });
 
             loveIt[i + 1] = lottie.loadAnimation({
@@ -486,7 +486,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: '/assets/animation/love-it.json'
+                path: '../assets/animation/love-it.json'
             });
 
             maybe[i + 1] = lottie.loadAnimation({
@@ -494,7 +494,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: '/assets/animation/maybe.json'
+                path: '../assets/animation/maybe.json'
             });
         }
 
@@ -748,7 +748,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: '/assets/animation/star/data.json'
+                path: '../assets/animation/star/data.json'
             });
         }
 
@@ -1183,20 +1183,20 @@ var call = {
         var sPath = window.location.pathname;
         console.log(sPath);
         // run on specific page
-        if ( sPath == '/tag-one' ) {
+        if ( sPath.indexOf('/tag-one') > 1 ) {
             Global.filter();
         }
 
-        if ( sPath == '/tag-two' ) {
+        if ( sPath.indexOf('/tag-two') > 1 ) {
             Global.autoTags();
         }
 
-        if ( sPath == '/tag-three' ) {
+        if ( sPath.indexOf('/tag-three') > 1 ) {
             Global.reactionGrid();
             Global.reactionAnimation();
         }
 
-        if ( sPath == '/tag-four' ) {
+        if ( sPath.indexOf('/tag-four') > 1 ) {
             Global.organicTagsGrid();
         }
         if ( sPath.indexOf('/tag-a') > 1 ) {

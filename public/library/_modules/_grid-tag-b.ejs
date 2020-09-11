@@ -1,8 +1,3 @@
-  <% var pathPrefix = "";
-     for (var i = 0; i < current.path.length-1; i++) {
-        pathPrefix += "../";
-     };
-  %>
 <%
 var homefeedData;
 //
@@ -44,7 +39,7 @@ if (mode == "demo") {
 
 		<div data-closeup-id="<%= i+1 %>" class="item pin-grid pin-id-<%= i+1 %>">
 			<div class="pin-img-wrapper">
-				<img src="<%= pathPrefix %><%= homefeedData[i].img %>" />
+				<img src="<%= homefeedData[i].img %>" />
 			</div>
 			<div class="pin-title">
 				<span class="reaction-marker wanna-try _hidden"><span>Wanna try</span> · </span>

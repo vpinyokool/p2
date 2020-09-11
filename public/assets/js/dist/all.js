@@ -461,14 +461,11 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var pathPrefix = '../assets/animation/';
 
-        if (sPath == "/tag-three.html") {
-            // console.log('true');
+        if ( sPath == "/tag-three.html" || sPath == "/boards-2020/tag-three.html" ) {
             pathPrefix = 'assets/animation/';
-            // console.log(pathPrefix + 'wanna-try.json');
-        } else {
-            // console.log('false');
-            // console.log(pathPrefix + 'wanna-try.json');
+            console.log('on-tag-three-page. path is ' + pathPrefix);
         }
+
 
         var pinCount = 15;
         var wannaTry = [];
@@ -777,14 +774,11 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var path = '../../assets/animation/star/data.json';
 
-        if (sPath == "/tag-one.html") {
+        if ( sPath == "/tag-one.html" || sPath == "/boards-2020/tag-one.html" ) {
             path = 'assets/animation/star/data.json';
-            // console.log('true');
-            // console.log('path is ' + path);
-        } else {
-            // console.log('false');
-            // console.log('path is ' + path);
+            console.log('on-tag-one-page. path is ' + path);
         }
+
 
         //
         var pinCount = 15;
@@ -1245,31 +1239,37 @@ var call = {
         var sPath = window.location.pathname;
 
         // run on specific page
-        if ( sPath == "/tag-one.html" ) {
+        if (sPath == '/tag-one.html' || sPath == '/boards-2020/tag-one.html' ) {
+            console.log('on-tag-one-page');
             Global.filter();
         }
 
-        if ( sPath == "/tag-two.html" ) {
+
+        if (sPath == '/tag-two.html' || sPath == '/boards-2020/tag-two.html' ) {
+            console.log('on-tag-two-page');
             Global.autoTags();
         }
 
-        if ( sPath == "/tag-three.html" ) {
-            // console.log(sPath);
-            // console.log('why-am-i-running');
+
+        if (sPath == '/tag-three.html' || sPath == '/boards-2020/tag-three.html' ) {
+            console.log('on-tag-three-page');
             Global.reactionGrid();
             Global.reactionAnimation();
         }
 
-        if ( sPath == "/tag-four.html" ) {
+
+        if (sPath == '/tag-four.html' || sPath == '/boards-2020/tag-four.html' ) {
+            console.log('on-tag-four-page');
             Global.organicTagsGrid();
         }
-        if ( sPath.indexOf('/tag-a') > 1 ) {
-            // console.log('tab-a-ran');
+
+        if (sPath.indexOf('/tag-a') > 1) {
+            console.log('on-tag-a-page');
             Global.filter();
             Global.optionalNote();
         }
-        if ( sPath.indexOf('/tag-b') > 1 ) {
-            // console.log('tab-b-ran');
+        if (sPath.indexOf('/tag-b') > 1) {
+            console.log('on-tag-b-page');
             Global.reactionGrid();
             Global.reactionAnimation();
             Global.optionalNote();

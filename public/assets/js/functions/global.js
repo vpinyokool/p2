@@ -20,14 +20,11 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var pathPrefix = '../assets/animation/';
 
-        if (sPath == "/tag-three.html") {
-            // console.log('true');
+        if ( sPath == "/tag-three.html" || sPath == "/boards-2020/tag-three.html" ) {
             pathPrefix = 'assets/animation/';
-            // console.log(pathPrefix + 'wanna-try.json');
-        } else {
-            // console.log('false');
-            // console.log(pathPrefix + 'wanna-try.json');
+            console.log('on-tag-three-page. path is ' + pathPrefix);
         }
+
 
         var pinCount = 15;
         var wannaTry = [];
@@ -336,14 +333,11 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var path = '../../assets/animation/star/data.json';
 
-        if (sPath == "/tag-one.html") {
+        if ( sPath == "/tag-one.html" || sPath == "/boards-2020/tag-one.html" ) {
             path = 'assets/animation/star/data.json';
-            // console.log('true');
-            // console.log('path is ' + path);
-        } else {
-            // console.log('false');
-            // console.log('path is ' + path);
+            console.log('on-tag-one-page. path is ' + path);
         }
+
 
         //
         var pinCount = 15;

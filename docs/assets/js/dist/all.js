@@ -458,10 +458,10 @@ var Global = (function() {
 
     function reactionAnimation() {
 
-                var sPath = window.location.pathname;
+        var sPath = window.location.pathname;
         var pathPrefix = '../assets/animation/';
 
-        if ( sPath.indexOf('/tag-three') > 1 ) {
+        if (sPath.indexOf('/tag-three') > 1) {
             pathPrefix = 'assets/animation/';
         }
 
@@ -674,6 +674,10 @@ var Global = (function() {
                 gutter: 8
             }
         });
+
+        $grid.imagesLoaded().progress(function() {
+            $grid.isotope('layout');
+        });
         // filter functions
         var filterFns = {
 
@@ -751,7 +755,7 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var path = '../assets/animation/star/data.json';
 
-        if ( sPath.indexOf('/tag-one') > 1 ) {
+        if (sPath.indexOf('/tag-one') > 1) {
             path = 'assets/animation/star/data.json';
         }
 
@@ -1200,26 +1204,26 @@ var call = {
     init: function() {
         // getting location path
         var sPath = window.location.pathname;
-        console.log(sPath);
-        // run on specific page
-        if ( sPath.indexOf('/tag-one') > 1 ) {
-            Global.filter();
 
+        // run on specific page
+        if ( sPath == '/tag-one.html' || '/tag-one' ) {
+            Global.filter();
         }
 
-        if ( sPath.indexOf('/tag-two') > 1 ) {
+        if ( sPath == '/tag-two.html' || '/tag-two' ) {
             Global.autoTags();
         }
 
-        if ( sPath.indexOf('/tag-three') > 1 ) {
+        if ( sPath == '/tag-two.html' || '/tag-three' ) {
             Global.reactionGrid();
             Global.reactionAnimation();
         }
 
-        if ( sPath.indexOf('/tag-four') > 1 ) {
+        if ( sPath == '/tag-two.html' || '/tag-four' ) {
             Global.organicTagsGrid();
         }
         if ( sPath.indexOf('/tag-a') > 1 ) {
+
             Global.filter();
             Global.optionalNote();
         }

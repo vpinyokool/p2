@@ -17,26 +17,26 @@ var call = {
     init: function() {
         // getting location path
         var sPath = window.location.pathname;
-        console.log(sPath);
-        // run on specific page
-        if ( sPath.indexOf('/tag-one') > 1 ) {
-            Global.filter();
 
+        // run on specific page
+        if ( sPath == '/tag-one.html' || '/tag-one' ) {
+            Global.filter();
         }
 
-        if ( sPath.indexOf('/tag-two') > 1 ) {
+        if ( sPath == '/tag-two.html' || '/tag-two' ) {
             Global.autoTags();
         }
 
-        if ( sPath.indexOf('/tag-three') > 1 ) {
+        if ( sPath == '/tag-two.html' || '/tag-three' ) {
             Global.reactionGrid();
             Global.reactionAnimation();
         }
 
-        if ( sPath.indexOf('/tag-four') > 1 ) {
+        if ( sPath == '/tag-two.html' || '/tag-four' ) {
             Global.organicTagsGrid();
         }
         if ( sPath.indexOf('/tag-a') > 1 ) {
+
             Global.filter();
             Global.optionalNote();
         }

@@ -17,10 +17,10 @@ var Global = (function() {
 
     function reactionAnimation() {
 
-                var sPath = window.location.pathname;
+        var sPath = window.location.pathname;
         var pathPrefix = '../assets/animation/';
 
-        if ( sPath.indexOf('/tag-three') > 1 ) {
+        if (sPath.indexOf('/tag-three') > 1) {
             pathPrefix = 'assets/animation/';
         }
 
@@ -233,6 +233,10 @@ var Global = (function() {
                 gutter: 8
             }
         });
+
+        $grid.imagesLoaded().progress(function() {
+            $grid.isotope('layout');
+        });
         // filter functions
         var filterFns = {
 
@@ -310,7 +314,7 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var path = '../assets/animation/star/data.json';
 
-        if ( sPath.indexOf('/tag-one') > 1 ) {
+        if (sPath.indexOf('/tag-one') > 1) {
             path = 'assets/animation/star/data.json';
         }
 

@@ -51,6 +51,20 @@ main,
 	}
 }
 
+.index-link {
+	position: fixed;
+	top: 24px;
+	color: rgba($darkest, 0.4);
+	right: 8px;
+	font-size: 14px;
+	transform: rotate(90deg);
+	text-decoration: none;
+	&:hover  {
+		color: $darkest;
+		text-decoration: underline;
+	}
+}
+
 .proto-container {
 	padding: 10vw;
 	width: 75vw;

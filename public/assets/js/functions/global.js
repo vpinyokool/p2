@@ -16,12 +16,17 @@ var Global = (function() {
     }, false);
 
     function reactionAnimation() {
-
+        // console.log('ran');
         var sPath = window.location.pathname;
         var pathPrefix = '../assets/animation/';
 
-        if (sPath == '/tag-three.html' || '/tag-three') {
+        if (sPath == "/tag-three.html") {
+            // console.log('true');
             pathPrefix = 'assets/animation/';
+            // console.log(pathPrefix + 'wanna-try.json');
+        } else {
+            // console.log('false');
+            // console.log(pathPrefix + 'wanna-try.json');
         }
 
         var pinCount = 15;
@@ -120,6 +125,17 @@ var Global = (function() {
                 gutter: 8
             }
         });
+
+        $grid.imagesLoaded().progress(function(instance, image) {
+            var $item = $(image.img);
+            $grid.isotope('layout');
+            $('.masonry-layout .item').addClass('_loaded');
+            $item.css({
+                "opacity": "1",
+                "transition-delay": Math.random() + "s"
+            });
+        });
+
         var isotope = $grid.data('isotope');
         var currentReactionID;
         var currentPinItem;
@@ -234,8 +250,14 @@ var Global = (function() {
             }
         });
 
-        $grid.imagesLoaded().progress(function() {
+        $grid.imagesLoaded().progress(function(instance, image) {
+            var $item = $(image.img);
             $grid.isotope('layout');
+            $('.masonry-layout .item').addClass('_loaded');
+            $item.css({
+                "opacity": "1",
+                "transition-delay": Math.random() + "s"
+            });
         });
         // filter functions
         var filterFns = {
@@ -312,10 +334,15 @@ var Global = (function() {
 
     function bodyMovin() {
         var sPath = window.location.pathname;
-        var path = '../assets/animation/star/data.json';
+        var path = '../../assets/animation/star/data.json';
 
-        if (sPath == '/tag-one.html' || '/tag-one') {
+        if (sPath == "/tag-one.html") {
             path = 'assets/animation/star/data.json';
+            // console.log('true');
+            // console.log('path is ' + path);
+        } else {
+            // console.log('false');
+            // console.log('path is ' + path);
         }
 
         //
@@ -539,16 +566,15 @@ var Global = (function() {
             }
         });
         // layout the grid
-        $gridFour.imagesLoaded()
-            .progress(function(instance, image) {
-                var $item = $(image.img);
-                $gridFour.isotope('layout');
-                $('.masonry-layout .item').addClass('_loaded');
-                $item.css({
-                    "opacity": "1",
-                    "transition-delay": Math.random() + "s"
-                });
+        $gridFour.imagesLoaded().progress(function(instance, image) {
+            var $item = $(image.img);
+            $gridFour.isotope('layout');
+            $('.masonry-layout .item').addClass('_loaded');
+            $item.css({
+                "opacity": "1",
+                "transition-delay": Math.random() + "s"
             });
+        });
         // click event
         $('.usg-tags-wrap').on('click', '.usg-tag', function() {
             // which tag
@@ -595,7 +621,7 @@ var Global = (function() {
     }
 
     function states() {
-
+        // console.log('ran');
         var currentCloseupID;
         $('.item').on('click', function() {
 
@@ -686,8 +712,14 @@ var Global = (function() {
         var isotope = $grid.data('isotope');
 
         function renderGrid() {
-            $grid.imagesLoaded().progress(function() {
+            $grid.imagesLoaded().progress(function(instance, image) {
+                var $item = $(image.img);
                 $grid.isotope('layout');
+                $('.masonry-layout .item').addClass('_loaded');
+                $item.css({
+                    "opacity": "1",
+                    "transition-delay": Math.random() + "s"
+                });
             });
         }
 

@@ -980,9 +980,16 @@ var Global = (function() {
             }
         });
         // layout the grid
-        $gridFour.imagesLoaded().progress(function() {
-            $gridFour.isotope('layout');
-        });
+        $gridFour.imagesLoaded()
+            .progress(function(instance, image) {
+                var $item = $(image.img);
+                $gridFour.isotope('layout');
+                $('.masonry-layout .item').addClass('_loaded');
+                $item.css({
+                    "opacity": "1",
+                    "transition-delay": Math.random() + "s"
+                });
+            });
         // click event
         $('.usg-tags-wrap').on('click', '.usg-tag', function() {
             // which tag

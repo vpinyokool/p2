@@ -172,6 +172,16 @@ main,
 	}
 }
 
+// masonry layout
+
+.masonry-layout .item,
+.masonry-layout .item img  {
+	opacity: 0;
+	transition: opacity 450ms $ease-out;
+	&._loaded {
+		opacity: 1;
+	}
+}
 
 //icon buttons
 

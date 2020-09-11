@@ -21,6 +21,7 @@ var call = {
         // run on specific page
         if ( sPath.indexOf('/tag-one') > 1 ) {
             Global.filter();
+
         }
 
         if ( sPath.indexOf('/tag-two') > 1 ) {

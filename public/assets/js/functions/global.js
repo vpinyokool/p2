@@ -16,6 +16,14 @@ var Global = (function() {
     }, false);
 
     function reactionAnimation() {
+
+                var sPath = window.location.pathname;
+        var pathPrefix = '../assets/animation/';
+
+        if ( sPath.indexOf('/tag-three') > 1 ) {
+            pathPrefix = 'assets/animation/';
+        }
+
         var pinCount = 15;
         var wannaTry = [];
         var triedIt = [];
@@ -28,7 +36,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: '../assets/animation/wanna-try.json'
+                path: pathPrefix + 'wanna-try.json'
             });
 
 
@@ -37,7 +45,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: '../assets/animation/tried-it.json'
+                path: pathPrefix + 'tried-it.json'
             });
 
             loveIt[i + 1] = lottie.loadAnimation({
@@ -45,7 +53,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: '../assets/animation/love-it.json'
+                path: pathPrefix + 'love-it.json'
             });
 
             maybe[i + 1] = lottie.loadAnimation({
@@ -53,7 +61,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: '../assets/animation/maybe.json'
+                path: pathPrefix + 'maybe.json'
             });
         }
 
@@ -299,6 +307,14 @@ var Global = (function() {
     }
 
     function bodyMovin() {
+        var sPath = window.location.pathname;
+        var path = '../assets/animation/star/data.json';
+
+        if ( sPath.indexOf('/tag-one') > 1 ) {
+            path = 'assets/animation/star/data.json';
+        }
+
+        //
         var pinCount = 15;
         var anim = [];
         for (var i = 0; i < pinCount; i++) {
@@ -307,7 +323,7 @@ var Global = (function() {
                 renderer: 'svg',
                 loop: false,
                 autoplay: false,
-                path: '../assets/animation/star/data.json'
+                path: path
             });
         }
 
@@ -693,13 +709,16 @@ var Global = (function() {
             }
 
             if ($(this).attr('data-filter') == '.star') {
-                $('.show-sheet').addClass('_active').text('Filter(1)')
+                $('.show-sheet').addClass('_active').text('Filter(1)');
+                $('.empty-state').html("You don't have any star Pins yet.<br>Tap ★ to mark your favorite ideas.")
                 updateCount(' starred');
             }
 
             if ($(this).attr('data-filter') == '.with-notes') {
-                $('.show-sheet').addClass('_active').text('Filter(1)')
+                $('.show-sheet').addClass('_active').text('Filter(1)');
+                $('.empty-state').text("You don't have any Pins with notes yet.")
                 updateCount(' with notes');
+
             }
         });
     }

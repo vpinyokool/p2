@@ -19,6 +19,7 @@ main,
 	color: $darkest;
 	height: 100%;
 	overflow: hidden;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 ._hidden {
 	display: none;
@@ -113,8 +114,8 @@ main,
 	height: 812px;
 	background-color: white;
 	overflow: hidden;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
 	border-radius: 40px;
-	box-shadow: 0 0 0 16px rgba($black, .05);
 }
 
 
@@ -124,6 +125,8 @@ main,
 	overflow-x: hidden;
 	overflow-y: auto;
 	height: 812px;
+	border-radius: 40px;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 // home indicator + status bar //
 
@@ -174,10 +177,9 @@ main,
 
 // masonry layout
 
-.masonry-layout .item,
-.masonry-layout .item img  {
+.masonry-layout .item  {
 	opacity: 0;
-	transition: opacity 450ms $ease-out;
+	transition: opacity 350ms $ease-out;
 	&._loaded {
 		opacity: 1;
 	}
@@ -353,7 +355,11 @@ main,
 	cursor: pointer;
 	border-radius: 100%;
 	position: relative;
+	width: 44px;
+	height: 44px;
 	&:after {
+		width: 44px;
+		height: 44px;
 		position: absolute;
 		content: '';
 		width: 100%;
@@ -376,6 +382,7 @@ main,
 	border-radius: 16px;
 	font-size: 0;
 	overflow: hidden;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
 	position: relative;
 	img {
 		width: 100%;
@@ -417,6 +424,9 @@ main,
 	padding-left: 6px;
 	padding-top: 6px;
 	line-height: 1.2;
+	&.more-like-this {
+		padding-right: 16px;
+	}
 }
 .item {
 	width: 176px;
@@ -451,6 +461,7 @@ main,
 	overflow-x: hidden;
 	._keyboard-is-on & {
 		overflow: hidden;
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
 	}
 }
 
@@ -571,6 +582,7 @@ text-align: center;
 .main-card-wrapper {
 	background-color: $white;
 	overflow: hidden;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
 	border-radius: 32px;
 	margin-bottom: 2px;
 
@@ -582,6 +594,7 @@ text-align: center;
 .reaction-card-wrapper {
 	background-color: $white;
 	overflow: hidden;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
 	border-radius: 32px;
 	margin: 0 auto;
 	margin-bottom: 2px;
@@ -595,7 +608,10 @@ text-align: center;
 			margin-top: 16px;
 		}
 		.tags-a & {
-			margin-bottom: 24px;
+			margin-bottom: 16px;
+		}
+		.tags-b & {
+			margin-bottom: -16px;
 		}
 		&._hidden {
 			display: none;
@@ -637,6 +653,28 @@ text-align: center;
 	padding: 24px 0 16px 0;
 	text-align: center;
 	font-family: $font-display;
+	position: relative;
+	&.with-note,
+	&.with-lock, {
+		&:before {
+				content: '';
+				position: absolute;
+				width: 12px;
+				height: 12px;
+				background-image: url('../icons/icon-lock.svg');
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: center;
+				left: 50%;
+				top: 50%;
+				margin-left: -66px;
+				margin-top: -2px;
+		}
+	}
+	&.with-lock:before {
+		margin-left: -74px;
+		margin-top: -2px;
+	}
 }
 
 // overlay
@@ -672,8 +710,7 @@ text-align: center;
 	bottom: 0;
 	z-index: 2;
 	background-color: $white;
-	border-top-right-radius: 32px;
-	border-top-left-radius: 32px;
+	border-radius: 32px;
 	transition:  transform 450ms  $ease-out;
 	._sheet-is-on & {
 		transform: translateY(0);
@@ -803,6 +840,7 @@ padding: 80px 32px;
 	.pin-img-wrapper {
 		border-radius: 16px;
 		overflow: hidden;
+		-webkit-mask-image: -webkit-radial-gradient(white, black);
 		background-color: green;
 		img {
 			width: 176px;
@@ -945,7 +983,7 @@ padding: 80px 32px;
 .reaction-button-wrap {
 	display: flex;
 	padding: 32px;
-	padding-top: 16px;
+	padding-top: 8px;
 	padding-bottom: 24px;
 	margin: 0 auto;
 	text-align: center;
@@ -1193,5 +1231,11 @@ span.maybe span {
 		background-repeat: no-repeat;
 		background-size: 80%;
 		background-position: center;
+	}
+}
+
+.kb-trigger {
+	&:hover {
+		background-color: $light;
 	}
 }

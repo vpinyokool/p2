@@ -124,14 +124,14 @@ var Global = (function() {
             }
         });
 
-        $grid.imagesLoaded().progress(function(instance, image) {
-            var $item = $(image.img);
+        $grid.imagesLoaded().done(function(instance, image) {
+            // var $item = $(image.img);
             $grid.isotope('layout');
             $('.masonry-layout .item').addClass('_loaded');
-            $item.css({
-                "opacity": "1",
-                "transition-delay": Math.random() + "s"
-            });
+            // $item.css({
+            //     "opacity": "1",
+            //     "transition-delay": Math.random() + "s"
+            // });
         });
 
         var isotope = $grid.data('isotope');
@@ -248,14 +248,14 @@ var Global = (function() {
             }
         });
 
-        $grid.imagesLoaded().progress(function(instance, image) {
-            var $item = $(image.img);
+        $grid.imagesLoaded().done(function(instance, image) {
+            // var $item = $(image.img);
             $grid.isotope('layout');
             $('.masonry-layout .item').addClass('_loaded');
-            $item.css({
-                "opacity": "1",
-                "transition-delay": Math.random() + "s"
-            });
+            // $item.css({
+            //     "opacity": "1",
+            //     "transition-delay": Math.random() + "s"
+            // });
         });
         // filter functions
         var filterFns = {
@@ -563,14 +563,14 @@ var Global = (function() {
             }
         });
         // layout the grid
-        $gridFour.imagesLoaded().progress(function(instance, image) {
-            var $item = $(image.img);
+        $gridFour.imagesLoaded().done(function(instance, image) {
+            // var $item = $(image.img);
             $gridFour.isotope('layout');
             $('.masonry-layout .item').addClass('_loaded');
-            $item.css({
-                "opacity": "1",
-                "transition-delay": Math.random() + "s"
-            });
+            // $item.css({
+            //     "opacity": "1",
+            //     "transition-delay": Math.random() + "s"
+            // });
         });
         // click event
         $('.usg-tags-wrap').on('click', '.usg-tag', function() {
@@ -709,14 +709,14 @@ var Global = (function() {
         var isotope = $grid.data('isotope');
 
         function renderGrid() {
-            $grid.imagesLoaded().progress(function(instance, image) {
-                var $item = $(image.img);
+            $grid.imagesLoaded().done(function(instance, image) {
+                // var $item = $(image.img);
                 $grid.isotope('layout');
                 $('.masonry-layout .item').addClass('_loaded');
-                $item.css({
-                    "opacity": "1",
-                    "transition-delay": Math.random() + "s"
-                });
+                // $item.css({
+                //     "opacity": "1",
+                //     "transition-delay": Math.random() + "s"
+                // });
             });
         }
 

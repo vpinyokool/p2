@@ -1,7 +1,16 @@
-  <% var pathPrefix = "";
+  <%
+   var pathPrefix = "";
+   var indexHref = "";
+   var path = current.path.length;
      for (var i = 0; i < current.path.length-1; i++) {
         pathPrefix += "../";
      };
+
+     if ( current.path.length == 2 ) {
+        indexHref = "../";
+     } else {
+        indexHref = "index.html";
+     }
   %>
 
 <!DOCTYPE html>
@@ -19,7 +28,7 @@
     <div class="master-wrapper">
       <main id="content-wrapper">
         <div class="outer-wrapper">
-            <a href="https://vpinyokool.github.io/boards-2020/index.html" class="index-link">Index</a>
+            <a href= "<%= indexHref %>" class="index-link">Index</a>
           <%- yield %>
         </div>
       </main>

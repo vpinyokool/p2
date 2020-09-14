@@ -1,4 +1,8 @@
 {
+	"index":{
+	"title":"Pinterest",
+	"layout": "../library/_views/_layout"
+	},
 	"tag-a":{
 		"title":"Pinterest-A",
 		"layout": "../library/_views/_layout"

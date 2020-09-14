@@ -1,24 +1,11 @@
-  <%
-   var pathPrefix = "";
-   var indexHref = "";
-   var path = current.path.length;
-     for (var i = 0; i < current.path.length-1; i++) {
-        pathPrefix += "../";
-     };
-
-     if ( current.path.length == 2 ) {
-        indexHref = "../";
-     } else {
-        indexHref = "index.html";
-     }
-  %>
+  
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title><%= title %></title>
-    <link href="<%- pathPrefix %>assets/css/main.css" type="text/css" rel="stylesheet">
+    <title>Pinterest</title>
+    <link href="../assets/css/main.css" type="text/css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="robots" content="NOODP">
     <meta name="pinterest" content="nopin" />
@@ -30,11 +17,20 @@
     <div class="master-wrapper">
       <main id="content-wrapper">
         <div class="outer-wrapper">
-            <a href= "<%= indexHref %>" class="index-link">Index</a>
-          <%- yield %>
+            <a href= "../" class="index-link">Index</a>
+          <section class="parent">
+	<div class="child">
+		<h1 class="intro">Hi Cristina!</h1>
+		<h2 class="caption">Thanks for joining our study!</h2>
+		<div class="proto-links-new">
+			<a href="tag-a.html">Prototype A</a>
+			<a href="tag-b.html">Prototype B</a>
+		</div>
+	</div>
+</section>
         </div>
       </main>
     </div>
   </body>
-  <script type="text/javascript" src="<%- pathPrefix %>assets/js/dist/all.js"></script>
+  <script type="text/javascript" src="../assets/js/dist/all.js"></script>
 </html>

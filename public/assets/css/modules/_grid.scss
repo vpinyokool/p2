@@ -1239,3 +1239,41 @@ span.maybe span {
 		background-color: $light;
 	}
 }
+
+h1.intro {
+	font-family: $font-display;
+	font-size: 42px;
+	letter-spacing: -1px;
+	text-align: center;
+	font-weight: 700;
+	padding-top: 200px;
+}
+
+h2.caption {
+	font-family: $font-display;
+	font-size: 21px;
+	margin-top: 16px;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+.proto-links-new {
+	margin: 0 auto;
+	text-align: center;
+
+	a {
+		margin: 0 auto;
+		border-radius: 8px;;
+		color: $darkest;
+		text-decoration: none;
+		width: 59px;
+		height: 60px;
+		background-color: $light;
+		padding: 13px 24px;
+		text-align: center;
+		&:hover {
+			background-color: $darkest;
+			color: $white;
+		}
+	}
+}

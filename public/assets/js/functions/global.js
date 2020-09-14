@@ -120,7 +120,10 @@ var Global = (function() {
             stagger: 30,
             masonry: {
                 columnWidth: 176,
-                gutter: 8
+                gutter: 8,
+                horizontalOrder: true,
+                fitWidth: true,
+                originLeft: true
             }
         });
         function renderGrid() {
@@ -246,8 +249,11 @@ var Global = (function() {
             itemSelector: '.item',
             stagger: 30,
             masonry: {
-                columnWidth: 174,
-                gutter: 8
+                columnWidth: 176,
+                gutter: 8,
+                horizontalOrder: true,
+                fitWidth: true,
+                originLeft: true
             }
         });
 
@@ -383,8 +389,11 @@ var Global = (function() {
             itemSelector: '.item',
             stagger: 30,
             masonry: {
-                columnWidth: 174,
-                gutter: 8
+                columnWidth: 176,
+                gutter: 8,
+                horizontalOrder: true,
+                fitWidth: true,
+                originLeft: true
             }
         });
 
@@ -558,7 +567,7 @@ var Global = (function() {
         var $gridFour = $('.masonry-layout').isotope({
             itemSelector: '.item',
             masonry: {
-                columnWidth: 174,
+                columnWidth: 176,
                 gutter: 8,
                 horizontalOrder: true,
                 fitWidth: true,
@@ -683,7 +692,7 @@ var Global = (function() {
         var $likeThisGrid = $('.more-like-this-grid').isotope({
             itemSelector: '.disco-pin',
             masonry: {
-                columnWidth: 174,
+                columnWidth: 176,
                 gutter: 8,
                 horizontalOrder: true,
                 fitWidth: true,
@@ -696,12 +705,12 @@ var Global = (function() {
         });
     }
 
-    function filter() {
+    function starGrid() {
 
         var $grid = $('.masonry-layout').isotope({
             itemSelector: '.item',
             masonry: {
-                columnWidth: 174,
+                columnWidth: 176,
                 gutter: 8,
                 horizontalOrder: true,
                 fitWidth: true,
@@ -772,7 +781,7 @@ var Global = (function() {
         states: states,
         trunk8: trunk8,
         modal: modal,
-        filter: filter,
+        starGrid: starGrid,
         autoTags: autoTags,
         reactionGrid: reactionGrid,
         backButton: backButton,

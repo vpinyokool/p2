@@ -22,11 +22,7 @@ main,
 	-webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
-::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    background: transparent; /* make scrollbar transparent */
-}
+
 
 ._hidden {
 	display: none;
@@ -130,11 +126,16 @@ main,
 
 .scroll-area {
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: scroll;
 	height: 812px;
 	border-radius: 40px;
 	-webkit-mask-image: -webkit-radial-gradient(white, black);
+
 }
+
+
+
+
 // home indicator + status bar //
 
 .home-indicator-wrap {

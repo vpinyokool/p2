@@ -20,7 +20,7 @@ var call = {
         // run on specific page
         if (sPath == '/tag-one.html' || sPath == '/boards-2020/tag-one.html' ) {
             console.log('on-tag-one-page');
-            Global.filter();
+            Global.starGrid();
             Global.bodyMovin();
         }
 
@@ -45,7 +45,7 @@ var call = {
 
         if (sPath.indexOf('/tag-a') > 1) {
             console.log('on-tag-a-page');
-            Global.filter();
+            Global.starGrid();
             Global.optionalNote();
             Global.bodyMovin();
         }

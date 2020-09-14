@@ -143,8 +143,11 @@ main,
 	pointer-events: none;
 	bottom: 0;
 	height: 34px;
-	// background-color: yellow;
-	z-index: 10
+	z-index: 10;
+	img {
+		height: 34px;
+		width: auto;
+	}
 }
 
 .status-bar-wrap {

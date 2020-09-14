@@ -213,21 +213,21 @@ main,
 	._closeup-is-on & {
 		pointer-events: auto;
 	}
-	background-image: url('../icons/icon-back.svg');
+	background-image: url(../icons/icon-back.svg);
 }
 
 .share {
-	background-image: url('../icons/icon-share.svg');
+	background-image: url(../icons/icon-share.svg);
 			background-size: 20px;
 }
 
 .overflow {
-	background-image: url('../icons/icon-overflow.svg');
+	background-image: url(../icons/icon-overflow.svg);
 			background-size: 20px;
 }
 
 .filter {
-	background-image: url('../icons/icon-filter.svg');
+	background-image: url(../icons/icon-filter.svg);
 			background-size: 20px;
 }
 
@@ -261,7 +261,7 @@ main,
 			display: inline-block;
 		}
 		.you {
-			background-image: url('../images/a-4.png');
+			background-image: url(../images/a-4.png);
 			background-size: cover;
 			&.k {
 				background-image: url(https://i.pinimg.com/280x280_RS/2d/15/dd/2d15ddccec3ec11e81b3e588dc95918b.jpg);
@@ -282,7 +282,7 @@ main,
 		.add {
 			margin-left: -16px;
 			background-color: $light;
-			background-image: url('../icons/icon-add.svg');
+			background-image: url(../icons/icon-add.svg);
 			background-size: 20px;
 			background-position: center;
 			background-repeat: no-repeat;
@@ -322,14 +322,14 @@ main,
 }
 
 .notes .icon {
-	background-image: url('../icons/icon-notes.svg');
+	background-image: url(../icons/icon-notes.svg);
 }
 .organize .icon {
-	background-image: url('../icons/icon-organize.svg');
+	background-image: url(../icons/icon-organize.svg);
 }
 
 .more-ideas .icon {
-	background-image: url('../icons/icon-more-ideas.svg');
+	background-image: url(../icons/icon-more-ideas.svg);
 }
 
 // filter-bar
@@ -410,7 +410,7 @@ main,
 			width: 32px;
 			height: 32px;
 			transform:  scale(.8);
-			background-image: url('../icons/icon-not-active.svg');
+			background-image: url(../icons/icon-not-active.svg);
 			transition: transform 250ms $ease-out-back 50ms;
 			background-repeat: no-repeat;
 			background-position: center;
@@ -421,7 +421,7 @@ main,
 		&._active {
 			.icon-wrap {
 				transform:  scale(.88);
-				background-image: url('../icons/icon-star-active.svg');
+				background-image: url(../icons/icon-star-active.svg);
 			}
 		}
 	}
@@ -519,7 +519,7 @@ text-align: center;
 	width: 44px;
 	height: 44px;
 	border-radius: 100%;
-	background-image: url('../images/a-4.png');
+	background-image: url(../images/a-4.png);
 	background-size: cover;
 	margin-right: 8px;
 	&.k {
@@ -554,7 +554,7 @@ text-align: center;
 		top: 0;
 		width: 44px;
 		height: 44px;
-		background-image: url('../icons/icon-img.svg');
+		background-image: url(../icons/icon-img.svg);
 	}
 }
 
@@ -669,7 +669,7 @@ text-align: center;
 				position: absolute;
 				width: 12px;
 				height: 12px;
-				background-image: url('../icons/icon-lock.svg');
+				background-image: url(../icons/icon-lock.svg);
 				background-size: contain;
 				background-repeat: no-repeat;
 				background-position: center;
@@ -773,7 +773,7 @@ text-align: center;
 			height: 20px;
 			opacity: 0;
 			transform: scale(0);
-			background-image: url('../icons/icon-check.svg');
+			background-image: url(../icons/icon-check.svg);
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: 16px;
@@ -821,11 +821,11 @@ padding: 80px 32px;
 	z-index: 2;
 	transition: box-shadow 350ms $ease-out, background-color 350ms $ease-out;
 	._closeup-is-on & {
-		background-image: url('../icons/icon-back-white.svg');
+		background-image: url(../icons/icon-back-white.svg);
 		background-color: rgba($black, .2);
 		backdrop-filter: blur(10px);
 		&._active {
-			background-image: url('../icons/icon-back.svg');
+			background-image: url(../icons/icon-back.svg);
 			background-color: $white;
 			box-shadow: 0 0 8px rgba($black, .1);
 			backdrop-filter: unset;
@@ -867,7 +867,7 @@ padding: 80px 32px;
 			width: 10px;
 			height: 10px;
 			background-size: cover;
-			background-image: url('../icons/icon-overflow.svg');
+			background-image: url(../icons/icon-overflow.svg);
 		}
 	}
 }
@@ -942,7 +942,7 @@ padding: 80px 32px;
 	width: 11px;
 	height: 11px;
 	display: inline-block;
-	background-image: url('../icons/icon-star.svg');
+	background-image: url(../icons/icon-star.svg);
 	background-size: contain;
 	background-repeat: no-repeat;
 	margin-right: 2px;
@@ -1056,7 +1056,7 @@ span.maybe span {
 		&.new-tag {
 			height: 44px;
 			width: 44px;
-			background-image: url('../icons/icon-add.svg');
+			background-image: url(../icons/icon-add.svg);
 			background-repeat: no-repeat;
 			background-size: 16px;
 			background-position: center;
@@ -1171,7 +1171,7 @@ span.maybe span {
 	width: 44px;
 	height: 44px;
 	background-position: center;
-	background-image: url('../icons/icon-trash.svg');
+	background-image: url(../icons/icon-trash.svg);
 	background-size: 74%;
 	background-repeat: no-repeat;
 	vertical-align: middle;
@@ -1235,7 +1235,7 @@ span.maybe span {
 		top: -15px;
 		width: 44px;
 		height: 44px;
-		background-image: url('../icons/icon-add-note.svg');
+		background-image: url(../icons/icon-add-note.svg);
 		background-repeat: no-repeat;
 		background-size: 80%;
 		background-position: center;

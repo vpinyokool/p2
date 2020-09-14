@@ -1246,7 +1246,6 @@ h1.intro {
 	letter-spacing: -1px;
 	text-align: center;
 	font-weight: 700;
-	padding-top: 200px;
 }
 
 h2.caption {
@@ -1276,4 +1275,17 @@ h2.caption {
 			color: $white;
 		}
 	}
+}
+
+section.parent {
+  position: relative;
+  height: 100%;
+}
+
+.child {
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	margin-top: -100px;
+  	transform: translateY(-50%) translateX(-50%);
 }

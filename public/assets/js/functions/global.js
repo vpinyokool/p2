@@ -115,7 +115,7 @@ var Global = (function() {
 
     function reactionGrid() {
         // init Isotope
-        var $grid = $('.masonry-layout').isotope({
+        var $gridB = $('.masonry-layout').isotope({
             itemSelector: '.item',
             stagger: 30,
             masonry: {
@@ -123,18 +123,21 @@ var Global = (function() {
                 gutter: 8
             }
         });
+        function renderGrid() {
+            $gridB.imagesLoaded().done(function(instance, image) {
+                // var $item = $(image.img);
+                $gridB.isotope('layout');
+                $('.masonry-layout .item').addClass('_loaded');
+                // $item.css({
+                //     "opacity": "1",
+                //     "transition-delay": Math.random() + "s"
+                // });
+            });
+        }
 
-        $grid.imagesLoaded().done(function(instance, image) {
-            // var $item = $(image.img);
-            $grid.isotope('layout');
-            $('.masonry-layout .item').addClass('_loaded');
-            // $item.css({
-            //     "opacity": "1",
-            //     "transition-delay": Math.random() + "s"
-            // });
-        });
+        renderGrid();
 
-        var isotope = $grid.data('isotope');
+        var isotope = $gridB.data('isotope');
         var currentReactionID;
         var currentPinItem;
 
@@ -144,7 +147,7 @@ var Global = (function() {
             el.addClass('_active');
 
             // update masonry
-            $grid.isotope('layout');
+            $gridB.isotope('layout');
 
             // get id
             currentReactionID = el.parent().parent().data('closeup-id');
@@ -243,7 +246,7 @@ var Global = (function() {
             itemSelector: '.item',
             stagger: 30,
             masonry: {
-                columnWidth: 176,
+                columnWidth: 174,
                 gutter: 8
             }
         });
@@ -380,7 +383,7 @@ var Global = (function() {
             itemSelector: '.item',
             stagger: 30,
             masonry: {
-                columnWidth: 176,
+                columnWidth: 174,
                 gutter: 8
             }
         });
@@ -555,7 +558,7 @@ var Global = (function() {
         var $gridFour = $('.masonry-layout').isotope({
             itemSelector: '.item',
             masonry: {
-                columnWidth: 176,
+                columnWidth: 174,
                 gutter: 8,
                 horizontalOrder: true,
                 fitWidth: true,
@@ -680,7 +683,7 @@ var Global = (function() {
         var $likeThisGrid = $('.more-like-this-grid').isotope({
             itemSelector: '.disco-pin',
             masonry: {
-                columnWidth: 176,
+                columnWidth: 174,
                 gutter: 8,
                 horizontalOrder: true,
                 fitWidth: true,
@@ -698,7 +701,7 @@ var Global = (function() {
         var $grid = $('.masonry-layout').isotope({
             itemSelector: '.item',
             masonry: {
-                columnWidth: 176,
+                columnWidth: 174,
                 gutter: 8,
                 horizontalOrder: true,
                 fitWidth: true,

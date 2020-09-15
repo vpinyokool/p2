@@ -537,7 +537,7 @@ text-align: center;
 	padding: 16px;
 	display: flex;
 	align-items: center;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 }
 
 .comment-avatar {
@@ -866,10 +866,11 @@ padding: 80px 32px;
 // more like this pin grid
 
 .more-like-this-grid {
-	padding: 8px;
+	padding-left: 8px;
 }
+
 .disco-pin {
-	width: 176px;
+	width: 175px;
 	margin-bottom: 16px;
 	margin-right: 8px;
 	.pin-img-wrapper {

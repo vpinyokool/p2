@@ -1133,8 +1133,8 @@ var Global = (function() {
         var $likeThisGrid = $('.more-like-this-grid').isotope({
             itemSelector: '.disco-pin',
             masonry: {
-                columnWidth: 176,
-                gutter: 8,
+                columnWidth: 174,
+                gutter: 7,
                 horizontalOrder: true,
                 fitWidth: true,
                 originLeft: true

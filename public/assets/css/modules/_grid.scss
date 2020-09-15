@@ -680,7 +680,7 @@ text-align: center;
 	font-family: $font-display;
 	position: relative;
 	&.with-note,
-	&.with-lock, {
+	&.with-lock {
 		&:before {
 				content: '';
 				position: absolute;
@@ -856,11 +856,11 @@ padding: 80px 32px;
 // more like this pin grid
 
 .more-like-this-grid {
-	padding-left: 8px;
+	padding-left: 7px;
 }
 
 .disco-pin {
-	width: 175px;
+	width: 174px;
 	margin-bottom: 16px;
 	margin-right: 8px;
 	.pin-img-wrapper {
@@ -869,7 +869,7 @@ padding: 80px 32px;
 		-webkit-mask-image: -webkit-radial-gradient(white, black);
 		background-color: green;
 		img {
-			width: 176px;
+			width: 174px;
 			height: auto;
 		}
 	}

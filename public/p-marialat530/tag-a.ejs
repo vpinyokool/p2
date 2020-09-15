@@ -1,13 +1,15 @@
 <%
 var name = "marialat530";
 var ph = "Add a private note—like “Show Tony?” or “Needs more salt”—to remember your ideas about this Pin";
+var marialat530Data = public.content.marialat530._data.pins;
+var num = marialat530Data.length;
 %>
 
 <div class="proto-nav">
 	<a class="_active" href="tag-a.html">A</a>
 	<a href="tag-b.html">B</a>
 </div>
-<section class="canvas tags-a">
+<section data-num="<%= num %>" class="canvas tags-a">
 	<div class="phone-canvas">
 		<div class="home-indicator-wrap">
 			<img src="../assets/images/home-indicator.png" alt="">
@@ -95,7 +97,7 @@ var ph = "Add a private note—like “Show Tony?” or “Needs more salt”—
 	</div>
 	</div>
 	<div class="filter-bar">
-		<div class="pin-count">15 Pins</div>
+		<div class="pin-count"><%= num %> Pins</div>
 		<div class="button-sml show-sheet">Filter</div>
 
 	</div>

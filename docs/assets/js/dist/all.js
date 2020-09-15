@@ -556,7 +556,7 @@ var Global = (function() {
 
     function reactionGrid() {
         // init Isotope
-        var $gridB = $('.masonry-layout').isotope({
+        var $grid = $('.masonry-layout').isotope({
             itemSelector: '.item',
             stagger: 30,
             masonry: {
@@ -568,9 +568,9 @@ var Global = (function() {
             }
         });
         function renderGrid() {
-            $gridB.imagesLoaded().done(function(instance, image) {
+            $grid.imagesLoaded().done(function(instance, image) {
                 // var $item = $(image.img);
-                $gridB.isotope('layout');
+                $grid.isotope('layout');
                 $('.masonry-layout .item').addClass('_loaded');
                 // $item.css({
                 //     "opacity": "1",
@@ -581,7 +581,7 @@ var Global = (function() {
 
         renderGrid();
 
-        var isotope = $gridB.data('isotope');
+        var isotope = $grid.data('isotope');
         var currentReactionID;
         var currentPinItem;
 
@@ -591,7 +591,7 @@ var Global = (function() {
             el.addClass('_active');
 
             // update masonry
-            $gridB.isotope('layout');
+            $grid.isotope('layout');
 
             // get id
             currentReactionID = el.parent().parent().data('closeup-id');

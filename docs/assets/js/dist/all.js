@@ -1134,7 +1134,7 @@ var Global = (function() {
             itemSelector: '.disco-pin',
             masonry: {
                 columnWidth: 174,
-                gutter: 7,
+                gutter: 8,
                 horizontalOrder: true,
                 fitWidth: true,
                 originLeft: true

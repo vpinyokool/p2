@@ -1340,9 +1340,10 @@ main {
 	transform: scale(.96);
 	transition: all 400ms $ease-out;
 	&._active {
-			opacity: 1;
-	pointer-events: none;
-	transform: scale(1);
+		opacity: 1;
+		pointer-events: auto;
+		cursor: pointer;
+		transform: scale(1);
 	}
 }
 
@@ -1366,9 +1367,6 @@ body {
 	._modal-is-active & {
 		opacity: 1;
 		pointer-events: auto;
-		&:hover {
-			cursor: pointer;
-		}
 	}
 }
 
@@ -1385,6 +1383,7 @@ body {
 	position: relative;
 	height: 600px;
 	transform: translateY(-50%);
+	z-index: 10;
 	box-shadow: 0 0 8px rgba($black, .1);
 }
 

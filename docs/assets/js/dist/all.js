@@ -1181,10 +1181,10 @@ var Global = (function() {
             $('body').removeClass('_modal-is-active');
         });
 
-        $('.modal-overlay').on('click', function() {
-            $('.modal-wrap').removeClass('_active');
-            $('body').removeClass('_modal-is-active');
-        });
+        // $('.modal-wrap').on('click', function() {
+        //     $('.modal-wrap').removeClass('_active');
+        //     $('body').removeClass('_modal-is-active');
+        // });
 
 
         $('.content-first').children().each(function() {

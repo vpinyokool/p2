@@ -1329,7 +1329,7 @@ main {
 	position: relative;
 }
 .modal-wrap {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	z-index: 3;
 	left: 0;
@@ -1337,12 +1337,11 @@ main {
 	height: 100vh;
 	opacity: 0;
 	pointer-events: none;
-	// transform: scale(.96) rotate3d(-1, 0, 0, 20deg);
 	transform: scale(.96);
 	transition: all 400ms $ease-out;
 	&._active {
 			opacity: 1;
-	pointer-events: auto;
+	pointer-events: none;
 	transform: scale(1);
 	}
 }
@@ -1366,6 +1365,10 @@ body {
 	transition: opacity 400ms $ease-out;
 	._modal-is-active & {
 		opacity: 1;
+		pointer-events: auto;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 }
 

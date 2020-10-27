@@ -740,10 +740,14 @@ var Global = (function() {
             $('body').removeClass('_modal-is-active');
         });
 
-        // $('.modal-wrap').on('click', function() {
-        //     $('.modal-wrap').removeClass('_active');
-        //     $('body').removeClass('_modal-is-active');
-        // });
+        $('.modal-wrap').on('click', function() {
+            $('.modal-wrap').removeClass('_active');
+            $('body').removeClass('_modal-is-active');
+        });
+
+        $('.modal-wrap .modal').click(function(e) {
+            e.stopPropagation();
+        });
 
 
         $('.content-first').children().each(function() {

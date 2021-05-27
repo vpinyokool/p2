@@ -178,10 +178,6 @@ main,
 		background-color: rgba($white,1);
 		box-shadow: 0 0 8px rgba($black, .1);
 	}
-	._sheet-is-on & {
-		transform: scale(0.97) translateY(32px);
-
-	}
 }
 
 
@@ -198,6 +194,7 @@ main,
 	&.light {
 		opacity: 0;
 		._closeup-is-on &,
+		._stream-is-on &,
 		._sheet-is-on & {
 			opacity: 1;
 		}
@@ -247,6 +244,18 @@ main,
 	background-size: 16px;
 	pointer-events: none;
 	._closeup-is-on & {
+		pointer-events: auto;
+	}
+	background-image: url(../icons/icon-back.png);
+}
+.stream-back {
+	position: absolute;
+	top:  44px + 8;
+	left: 8px;
+	z-index: 9;
+	background-size: 16px;
+	pointer-events: none;
+	._stream-is-on & {
 		pointer-events: auto;
 	}
 	background-image: url(../icons/icon-back.png);
@@ -512,14 +521,24 @@ main,
 		background-color: $black;
 	}
 }
+
+.scroll-content-wrapper {
+	transform: translateX(0);
+	transition: transform 450ms $ease-out, opacity 450ms $ease-out;
+	._sheet-is-on & {
+		transform: scale(.97) translateY(-6px);
+	}
+		._stream-is-on & {
+		transform: scale(1.2);
+		opacity: 0;
+		pointer-events: none;
+	}
+}
 .pingrid {
 	transition: all 450ms $ease-out;
 	background-color: $white;
 	transform: translateX(0);
-		._sheet-is-on & {
-		transform: scale(.97) translateY(32px);
 
-	}
 }
 
 .closeup {
@@ -534,9 +553,7 @@ main,
 		transform: translateX(0) scale(1) translateY(0);
 	}
 
-	._sheet-is-on & {
-		transform: translateX(0) scale(0.97) translateY(-14px);
-	}
+
 
 
 	._keyboard-is-on & {
@@ -951,6 +968,8 @@ padding: 80px 32px;
 	}
 }
 
+
+
 .icon-button.back {
 	background-color: $white;
 	cursor: pointer;
@@ -972,6 +991,19 @@ padding: 80px 32px;
 	&._active {
 		box-shadow: 0 0 8px rgba($black, .1);
 	}
+}
+.icon-button.stream-back {
+	opacity: 0;
+	background-image: url(../icons/icon-back-white.png);
+	pointer-events: none;
+	._stream-is-on & {
+		pointer-events: auto;
+		&:hover {
+      cursor: pointer;
+    }
+		opacity: 1;
+
+		}
 }
 
 // more like this pin grid
@@ -1452,4 +1484,75 @@ section.parent {
 			background-color: $darkest;
 		}
 	}
+}
+
+// toast
+
+.toast {
+	position: absolute;
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+	top: 0px;
+	opacity: 0;
+	width: 360px;
+	z-index: 1001;
+	background-color: $white;
+	box-shadow: 0 0 8px rgba($darkest, .15);
+	border-radius: 80px;
+	padding: 24px;
+	left: 50%;
+	transform: translateX(-50%);
+	.toast-img-wrapper {
+		border-radius: 8px;
+		overflow: hidden;
+	}
+	.toast-text {
+		font-size: 16px;
+		margin-left: 14px;
+		color: $darkest;
+		span {
+			font-weight: 600;
+		}
+	}
+}
+
+
+// stream
+
+.stream-wrapper {
+	pointer-events: none;
+	position: absolute;
+	width: 375px;
+	overflow: hidden;
+	opacity: 0;
+	transition: transform 450ms $ease-out-back;
+	transform: scale(.9);
+._stream-is-on & {
+	transform: scale(1);
+	opacity: 1;
+	pointer-events: auto;
+}
+	.idea-pin {
+		padding-top: 44px;
+		height: 812px;
+	}
+}
+
+.page-container {
+	width: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	overflow: hidden;
+	flex-wrap: nowrap;
+			.page {
+			flex: none;
+			width: 375px;
+			background-color: pink;
+			height: 667px;
+			overflow: hidden;
+			border-radius: 32px;
+		}
 }

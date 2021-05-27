@@ -106,6 +106,9 @@ position: relative;
 }
   }
   li.discover {
+    &:hover {
+      cursor: pointer;
+    }
 img {
   width: 96px;
   height: auto;
@@ -130,10 +133,13 @@ img {
   width: 328px;
   border-radius: 80px;
   background-color: white;
-
   position: absolute;
   bottom: 34px;
   z-index: 10;
+  transition: bottom 450ms $ease-out-back;
+  ._stream-is-on & {
+    bottom: -100px;
+  }
   .nav-list {
     opacity: .57;
 &:hover,

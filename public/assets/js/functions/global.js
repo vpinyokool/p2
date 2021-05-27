@@ -410,6 +410,7 @@ var Global = (function() {
         //
         var pinCount = 15;
         var anim = [];
+        var $toast = $('.toast');
         for (var i = 0; i < pinCount; i++) {
             anim[i + 1] = lottie.loadAnimation({
                 container: document.getElementById('heart-' + [i + 1]),
@@ -441,6 +442,12 @@ var Global = (function() {
                         $body.addClass('_sheet-is-on');
                     }, 1500);
 
+                    $('.board-list.profile').on('click', function() {
+                        $('.board-picker-sheet').removeClass('_active');
+                        $body.removeClass('_sheet-is-on');
+                        showToast()
+                    });
+
                     $('.icon-button.close').on('click', function() {
                         $('.board-picker-sheet').removeClass('_active');
                         $('.heart-' + value).removeClass('_active');
@@ -451,6 +458,17 @@ var Global = (function() {
                         }, 600);
                     });
 
+                }
+
+
+                function showToast() {
+                    console.log('ran');
+                    var tl = new TimelineLite({});
+
+                    tl.to($toast, .45, {y:60, opacity: 1 });
+                    tl.to($toast, .45, {y:60, opacity: 0 }, "+=2.0");
+                    tl.set($toast, {y:0, opacity: 1});
+                    tl.set($toast, {clearProps:"all"});
                 }
             });
         });
@@ -707,7 +725,12 @@ var Global = (function() {
 
     function states() {
         // console.log('ran');
+        var $discover = $('.discover');
         var currentCloseupID;
+        $discover.on('click', function() {
+            $body.addClass('_stream-is-on');
+        });
+
         $('.item').on('click', function() {
 
             // get id
@@ -736,7 +759,11 @@ var Global = (function() {
         $('.icon-button.back').on('click', function() {
             $('body').removeClass('_closeup-is-on');
             $('body').removeClass('_keyboard-is-on');
-        })
+        });
+
+        $('.icon-button.stream-back').on('click', function() {
+            $('body').removeClass('_stream-is-on');
+        });
 
     }
 

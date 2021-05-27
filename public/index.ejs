@@ -1,59 +1,154 @@
-<main>
-	<div class="proto-container">
-		<div class="proto-section">
-			<div class="proto-title">krizzly7</div>
-			<div class="link-wrap">
-				<a href="p-krizzly7/index.html">i</a>
-				<a href="p-krizzly7/tag-a.html">a</a>
-				<a href="p-krizzly7/tag-b.html">b</a>
-			</div>
-		</div>
-		<hr>
-		<div class="proto-section">
 
-			<div class="proto-title">marialat530</div>
-			<div class="link-wrap">
-				<a href="p-marialat530/index.html">i</a>
-				<a href="p-marialat530/tag-a.html">a</a>
-				<a href="p-marialat530/tag-b.html">b</a>
-			</div>
+<section class="canvas">
+	<div class="phone-canvas">
+		<div class="home-indicator-wrap">
+			<img src="assets/images/home-indicator.png" alt="">
 		</div>
-		<hr>
-		<div class="proto-section">
-			<div class="proto-title">moominmom3</div>
-			<div class="link-wrap">
-				<a href="p-moominmom3/index.html">i</a>
-				<a href="p-moominmom3/tag-a.html">a</a>
-				<a href="p-moominmom3/tag-b.html">b</a>
-			</div>
-		</div>
-		<hr>
-		<div class="proto-section">
-			<div class="proto-title">thenifyshopper</div>
-			<div class="link-wrap">
-				<a href="p-thenifyshopper/index.html">i</a>
-				<a href="p-thenifyshopper/tag-a.html">a</a>
-				<a href="p-thenifyshopper/tag-b.html">b</a>
-			</div>
-		</div>
-		<hr>
-		<div class="proto-section">
-			<div class="proto-title">shavon</div>
-			<div class="link-wrap">
-				<a href="p-shavon/index.html">i</a>
-				<a href="p-shavon/tag-a.html">a</a>
-				<a href="p-shavon/tag-b.html">b</a>
-			</div>
-		</div>
-		<hr>
-		<div class="proto-section">
-			<div class="proto-title">Misc.</div>
-			<div class="link-wrap">
-				<a href="tag-one.html">1</a>
-				<a href="tag-two.html">2</a>
-				<a href="tag-three.html">3</a>
-				<a href="tag-four.html">4</a>
-			</div>
-		</div>
+
+<div class="status-bar-wrap">
+	<img class="dark" src="assets/images/status-bar-dark.png" alt="">
+	<img class="light" src="assets/images/status-bar-light.png" alt="">
+</div>
+
+<div class="overlay"></div>
+<div class="board-picker-sheet">
+	<div class="sheet-header">
+		<div class="icon-button close"></div>
+		<div class="sheet-title">Save</div>
+		<div class="icon-button blank"></div>
+
 	</div>
-</main>
+	<div class="board-picker-sheet-subhead">
+		Top choice
+	</div>
+		<ul class="board-lists">
+		<li class="board-list">
+			<div class="board-list-img">
+				<img src="assets/images/save-to-profile.svg" alt="">
+			</div>
+			<div class="board-title">Profile</div>
+		</li>
+		<li class="board-list">
+			<div class="board-list-img">
+				<img src="assets/images/board-image-01.png" alt="">
+			</div>
+			<div class="board-title">Portraits</div>
+		</li>
+		<li class="board-list">
+			<div class="board-list-img">
+				<img src="assets/images/board-image-02.png" alt="">
+			</div>
+			<div class="board-title">RandoMe</div>
+		</li>
+
+	</ul>
+	<div class="board-picker-sheet-subhead">
+		All boards
+	</div>
+	<ul class="board-lists">
+		<li class="board-list">
+			<div class="board-list-img">
+				<img src="assets/images/board-image-03.png" alt="">
+			</div>
+			<div class="board-title">Apron</div>
+		</li>
+		<li class="board-list">
+			<div class="board-list-img">
+				<img src="assets/images/board-image-04.png" alt="">
+			</div>
+			<div class="board-title">Baby</div>
+		</li>
+		<li class="board-list">
+			<div class="board-list-img">
+				<img src="assets/images/board-image-05.png" alt="">
+			</div>
+			<div class="board-title">Blaschka</div>
+		</li>
+		<li class="board-list">
+			<div class="board-list-img">
+				<img src="assets/images/board-image-06.png" alt="">
+			</div>
+			<div class="board-title">Carabiner</div>
+		</li>
+		<li class="board-list">
+			<div class="board-list-img">
+				<img src="assets/images/board-image-07.png" alt="">
+			</div>
+			<div class="board-title">Illustrations</div>
+		</li>
+
+	</ul>
+</div>
+
+<div class="navigation-bar">
+	<ul class="hf-tabs">
+	<li class="_active">For you</li>
+		<li class="">Today</li>
+	<li class="">Following</li>
+</ul>
+</div>
+<div class="icon-button back"></div>
+
+<div class="floating-nav">
+	<ul class="nav-items">
+		<li class="nav-list home _active">
+			<img src="assets/icons/icon-home.svg" alt="">
+		</li>
+		<li class="nav-list search">
+			<img src="assets/icons/icon-search.svg" alt="">
+		</li>
+		<li class="nav-list add">
+			<img src="assets/icons/icon-add.svg" alt="">
+		</li>
+		<li class="nav-list notif">
+			<img src="assets/icons/icon-notif.svg" alt="">
+		</li>
+		<li class="nav-list profile">
+			<img src="assets/images/a-4.png" alt="">
+		</li>
+	</ul>
+</div>
+
+<div class="closeup scroll-area">
+	<%- partial('library/_modules/_closeup-card') %>
+	<div class="closeup-module">
+		<div class="cu-title">Comments</div>
+		<div class="comments-caption">
+			Love this Pin? Add a comment!
+		</div>
+		<div class="composer-wrap">
+			<div class="comment-avatar"></div>
+			<div class="comments-input">Add comment or photo</div>
+		</div>
+
+	</div>
+	<div class="closeup-module">
+		<div class="cu-title">More like this</div>
+		<%- partial('library/_modules/_more-like-this-grid') %>
+	</div>
+</div>
+<div class="pingrid scroll-area">
+
+<ul class="bubbles">
+<li class="create">
+	<div class="avatar-wrap">
+		<div class="icon-plus"></div>
+		<img src="assets/images/a-4.png" alt="">
+	</div>
+	<div class="img-wrap"></div>
+	<div class="caption">Create</div>
+</li>
+<li class="discover">
+	<div class="image-wrap">
+		<img src="assets/images/creator.png" alt="">
+	</div>
+	<div class="caption">Creators</div>
+</li>
+</ul>
+
+	<%- partial("library/_modules/_grid",{mode:"demo"}) %>
+	</div>
+</div>
+	</div>
+</div>
+</section>

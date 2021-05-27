@@ -39,18 +39,14 @@ if (mode == "demo") {
 	<% for ( var i=0; i < homefeedData.length; i++ ) { %>
 
 
-		<div data-closeup-id="<%= i+1 %>" class="item pin-grid pin-id-<%= i+1 %>">
+		<div data-closeup-id="<%= i+1 %>" class="item disco-pin pin-grid pin-id-<%= i+1 %>">
 			<div class="pin-img-wrapper">
 
-				<div class="star star-<%= i+1 %>">
-					<div class="icon-wrap"></div>
-				</div>
 				<img src="<%= homefeedData[i].img %>" />
 			</div>
-			<div class="pin-title">
+			<div class="pin-title more-like-this">
 				<%= homefeedData[i].title %>
 			</div>
-			<div class="pin-note"></div>
 		</div>
 
 	<% } %>

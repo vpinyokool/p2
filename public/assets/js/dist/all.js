@@ -460,7 +460,7 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var pathPrefix = '../assets/animation/';
 
-        if ( sPath == "/tag-three.html" || sPath == "/boards-2020/tag-three.html" ) {
+        if (sPath == "/tag-three.html" || sPath == "/boards-2020/tag-three.html") {
             pathPrefix = 'assets/animation/';
             console.log('on-tag-three-page. path is ' + pathPrefix);
         } else {
@@ -567,6 +567,7 @@ var Global = (function() {
                 originLeft: true
             }
         });
+
         function renderGrid() {
             $grid.imagesLoaded().done(function(instance, image) {
                 // var $item = $(image.img);
@@ -766,7 +767,7 @@ var Global = (function() {
     function backButton() {
         var gst;
         var el = $('.icon-button.back');
-
+        var bar = $('.navigation-bar');
 
 
         $('.pingrid.scroll-area').on('scroll', function() {
@@ -774,17 +775,21 @@ var Global = (function() {
 
             if (gst > 15) {
                 el.addClass('_active');
+                bar.addClass('_active');
             } else {
                 el.removeClass('_active');
+                bar.removeClass('_active');
             }
         });
     }
+
+
 
     function bodyMovin() {
         var sPath = window.location.pathname;
         var path = '../assets/animation/star.json';
 
-        if ( sPath == "/tag-one.html" || sPath == "/boards-2020/tag-one.html" ) {
+        if (sPath == "/tag-one.html" || sPath == "/boards-2020/tag-one.html") {
             path = 'assets/animation/star.json';
             console.log('on-tag-one-page. path is ' + path);
         } else {
@@ -816,6 +821,77 @@ var Global = (function() {
                     $('.star-' + value).addClass('_active');
                     $('.pin-id-' + value).addClass('star');
                     anim[value].play();
+                }
+            });
+        });
+
+
+
+    };
+
+    function boardPicker() {
+        // $('.bubbles').on('click', function() {
+        //     $('.filter-sheet').addClass('_active');
+        //     $body.addClass('_sheet-is-on');
+        // });
+    }
+
+    function hearting() {
+        var sPath = window.location.pathname;
+        var path = '../assets/animation/heart.json';
+
+        // if ( sPath == "/tag-one.html" || sPath == "/boards-2020/tag-one.html" ) {
+        //     path = 'assets/animation/star.json';
+        //     console.log('on-tag-one-page. path is ' + path);
+        // } else {
+        //     console.log('NOT on-tag-one-page. on tag a page. path is ' + path);
+        // }
+
+
+        //
+        var pinCount = 15;
+        var anim = [];
+        for (var i = 0; i < pinCount; i++) {
+            anim[i + 1] = lottie.loadAnimation({
+                container: document.getElementById('heart-' + [i + 1]),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: path
+            });
+        }
+
+        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        $.each(arr, function(index, value) {
+            $('.heart-' + value).on('click', function() {
+                if ($('.heart-' + value).hasClass('_active')) {
+                    $('.heart-' + value).removeClass('_active');
+                    $('.pin-id-' + value).removeClass('heart');
+                    anim[value].playSegments([60, 119], true);
+                    // anim[value].goToAndStop(0, true);
+
+
+                } else {
+                    $('.heart-' + value).addClass('_active');
+                    $('.pin-id-' + value).addClass('heart');
+                    anim[value].playSegments([0, 59], true);
+
+                    // pull up board picker
+                    setTimeout(function() {
+                        $('.board-picker-sheet').addClass('_active');
+                        $body.addClass('_sheet-is-on');
+                    }, 1500);
+
+                    $('.icon-button.close').on('click', function() {
+                        $('.board-picker-sheet').removeClass('_active');
+                        $('.heart-' + value).removeClass('_active');
+                        $('.pin-id-' + value).removeClass('heart');
+                        $body.removeClass('_sheet-is-on');
+                        setTimeout(function() {
+                            anim[value].playSegments([60, 119], true);
+                        }, 600);
+                    });
+
                 }
             });
         });
@@ -1230,7 +1306,9 @@ var Global = (function() {
         reactionAnimation: reactionAnimation,
         likeThisGrid: likeThisGrid,
         organicTagsGrid: organicTagsGrid,
-        optionalNote: optionalNote
+        optionalNote: optionalNote,
+        hearting: hearting,
+        boardPicker: boardPicker
     }
 })();
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -1246,6 +1324,9 @@ var call = {
         Global.modal();
         Global.likeThisGrid();
         Global.trunk8();
+        Global.starGrid();
+        Global.hearting();
+        Global.boardPicker();
 
     },
     init: function() {

@@ -11,6 +11,9 @@ var call = {
         Global.modal();
         Global.likeThisGrid();
         Global.trunk8();
+        Global.starGrid();
+        Global.hearting();
+        Global.boardPicker();
 
     },
     init: function() {

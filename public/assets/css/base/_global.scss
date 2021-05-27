@@ -59,3 +59,98 @@ body {
   width: 100%;
   height: 2px;
 }
+
+.bubbles {
+  padding-top: 104px;
+  font-size: 0;
+  li {
+    display: inline-block;
+    // background-color: teal;
+    vertical-align: top;
+    margin-right: 4px;
+  }
+  .caption {
+    font-size: 12px;
+    color: $darkest;
+    text-align: center;
+    margin-top: 4px;
+  }
+  li.create {
+
+    .icon-plus {
+      position: absolute;
+      z-index: 100;
+      width: 24px;
+      height: 24px;
+      right: 10px;
+      bottom: 10px;
+      background-color: $white;
+      border-radius: 100%;
+      background-image: url('/assets/icons/icon-add.svg');
+      background-repeat: no-repeat;
+      background-size: 10px;
+      background-position: center;
+      box-shadow: 0 0 8px rgba($darkest, .15);
+    }
+.avatar-wrap {
+position: relative;
+  padding: 12px;
+  overflow: hidden;
+  img {
+      border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    position: relative;
+
+  }
+}
+  }
+  li.discover {
+img {
+  width: 96px;
+  height: auto;
+  margin-top: 8px;
+  }
+  .caption {
+    margin-top: 13px;
+  }
+}
+}
+
+.nav-items {
+  display: flex;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  align-items: center;
+  left: 50%;
+  margin-left: -164px;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  box-shadow: 0 0 8px rgba($black, .1);
+  width: 328px;
+  border-radius: 80px;
+  background-color: white;
+
+  position: absolute;
+  bottom: 34px;
+  z-index: 10;
+  .nav-list {
+    opacity: .57;
+&:hover,
+&._active {
+  cursor: pointer;
+  opacity: 1;
+}
+    &.profile {
+          border-radius: 100%;
+    overflow: hidden;
+    font-size: 0;
+    opacity: 1;
+    }
+  }
+  img {
+    width: 24px;
+    height: auto;
+  }
+
+}

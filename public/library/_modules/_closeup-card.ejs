@@ -10,12 +10,15 @@ var homefeedData = public.content.homefeed._data.pins;
 		<div class="cu-pin-title"><%= homefeedData[i].title %></div>
 		<div class="cu-pin-description">Pin description goes here</div>
 		<div class="cu-pin-actions-wrap">
-			<div class="icon-button-star star-<%= i+1 %>" id="star-<%= i+1 %>"></div>
+			<div class="leading-button-wrap">
+				<div class="icon-button share"></div>
+				<div class="icon-button comment"></div>
+			</div>
+
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="button primary">Save</div>
+				<div class="save-btn heart-<%= i+1 %>" id="heart-<%= i+1 %>"></div>
 			</div>
-			<div class="icon-button overflow"></div>
 		</div>
 	</div>
 <% } %>

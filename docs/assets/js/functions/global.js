@@ -399,12 +399,11 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var path = '../assets/animation/heart.json';
 
-        // if ( sPath == "/tag-one.html" || sPath == "/boards-2020/tag-one.html" ) {
-        //     path = 'assets/animation/star.json';
-        //     console.log('on-tag-one-page. path is ' + path);
-        // } else {
-        //     console.log('NOT on-tag-one-page. on tag a page. path is ' + path);
-        // }
+        if ( sPath == "/p2/" || sPath == "/p2.html" ) {
+            path = 'assets/animation/heart.json';
+        } else {
+            console.log('not on index');
+        }
 
 
         //

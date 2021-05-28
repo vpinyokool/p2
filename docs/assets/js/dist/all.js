@@ -1305,25 +1305,25 @@ var Global = (function() {
     function streams() {
         var $progressBar;
         var progress;
+        var interval = null;
+        var pageIndex = 1;
         var howManyPages;
         var activeVid = $('.idea-pin._active').find('.page._active').find('video');
         var currentPageIndex;
 
 
-
-
         $('.discover').on('click', function() {
 
-            var splide = new Splide( '.splide' ).mount();
+            var splide = new Splide('.splide').mount();
             playVideoOnActivePage();
 
             // if someone navigate idea Pin
-            splide.on( 'moved', function() {
+            splide.on('moved', function() {
                 console.log('has a new active slide');
 
                 // stop the current active video
                 activeVid.get(0).pause();
-                activeVid.get(0).currentTime = 0;
+                killInterval();
 
                 // set the new states for all elements
 
@@ -1344,21 +1344,71 @@ var Global = (function() {
                 $('.page-container').css('transform', 'translateX(0)');
 
                 //reset all progress
-                $('.progress').css('width','0%');
+                $('.progress').css('width', '0%');
 
                 // set new active video
                 activeVid = $('.idea-pin._active').find('.page._active').find('video');
                 playVideoOnActivePage();
 
 
-            } );
+            });
+        });
 
+        $('.next-btn').on('click', function() {
+
+            // pause video
+            activeVid.get(0).pause();
+            killInterval();
+
+            // vid
+            activeVid = activeVid.parent().next().find('video');
+            activeVid.get(0).currentTime = 0;
+
+            // update page active state
+            $('.page').removeClass('_active');
+            activeVid.parent().addClass('_active');
+
+            // fill in the current progress bar
+            $progressBar.css('width', '100%');
+
+            // translate to the next page
+            pageIndex = $('.page._active').index();
+            $('.page._active').parent().css('transform', 'translateX(' + -375 * (pageIndex) + 'px)');
+
+            playVideoOnActivePage();
+
+        });
+
+        $('.prev-btn').on('click', function() {
+
+            // pause video
+            activeVid.get(0).pause();
+            killInterval();
+
+            // vid
+            activeVid = activeVid.parent().prev().find('video');
+            activeVid.get(0).currentTime = 0;
+
+            // update page active state
+            $('.page').removeClass('_active');
+            activeVid.parent().addClass('_active');
+
+            // fill in the current progress bar
+            $progressBar.css('width', '0%');
+
+            // translate to the next page
+            pageIndex = $('.page._active').index();
+            $('.page._active').parent().css('transform', 'translateX(' + -375 * (pageIndex) + 'px)');
+
+            playVideoOnActivePage();
 
         });
 
         $('.stream-back').on('click', function() {
             activeVid.get(0).pause();
-            $('.progress').css('width','0%');
+            killInterval();
+
+            $('.progress').css('width', '0%');
 
             $('.idea-pin').removeClass('_active');
             $('.page').removeClass('_active');
@@ -1366,6 +1416,9 @@ var Global = (function() {
 
             $('.idea-pin').first().addClass('_active');
             $('.idea-pin').first().find('.page').first().addClass('_active');
+
+            //reset page container
+            $('.page-container').css('transform', 'translateX(0)');
 
             activeVid = $('.idea-pin._active').find('.page._active').find('video');
 
@@ -1375,7 +1428,7 @@ var Global = (function() {
 
 
             activeVid = $('.idea-pin._active').find('.page._active').find('video');
-            console.log(activeVid);
+            activeVid.get(0).currentTime = 0;
             activeVid.get(0).play();
             console.log('video played');
 
@@ -1384,9 +1437,9 @@ var Global = (function() {
             // set a new progress bar
             $progressBar = $('.idea-pin._active .pages-progress .progress-wrap:eq( ' + $('.page._active').index() + ' ) .progress');
 
-            setInterval(function() {
-                updateProgress();
-            }, 200);
+
+
+            updateProgress();
 
             activeVid.get(0).onended = function(e) {
                 console.log('video has ended');
@@ -1411,13 +1464,16 @@ var Global = (function() {
                     console.log('current ideaPin has ended');
 
                     //check if we can play the next pin
-                    if ( $('.idea-pin._active').next().hasClass('_do-not-play') ) {
+                    if ($('.idea-pin._active').next().hasClass('_do-not-play')) {
                         // current idea pins has ended, and the next pin is the second to last pin.
                         //..this will be the last pin we play
-
+                        killInterval();
                         console.log('END OF FEED');
                     } else {
                         // current idea pins has ended, and the next pin is not the second to last pin
+
+                        // clear interval
+                        killInterval();
 
                         //remove active state from current video
                         activeVid.parent().removeClass('_active');
@@ -1437,7 +1493,7 @@ var Global = (function() {
 
                         //animate / flick to the new idea Pin
 
-                       // play the video
+                        // play the video
                         playVideoOnActivePage();
                     }
                 }
@@ -1446,10 +1502,19 @@ var Global = (function() {
 
 
 
+
         function updateProgress() {
-            progress = activeVid.get(0).currentTime / activeVid.get(0).duration * 100;
-            // $progressBar = $('.page_active').index();
-            $progressBar.css('width', progress + '%');
+            interval = setInterval(function() {
+                progress = activeVid.get(0).currentTime / activeVid.get(0).duration * 100;
+                $progressBar.css('width', progress + '%');
+
+                console.log('ran');
+            }, 100);
+
+        }
+
+        function killInterval() {
+            clearInterval(interval);
         }
 
         // setInterval(function() {

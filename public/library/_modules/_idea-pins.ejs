@@ -25,14 +25,17 @@ var lastPinData = public.content.ideapin._data.thelastpin;
 				</div>
 				<div class="page-container">
 					<% for ( var k=0; k < ideaPinData[i].pages.length; k++ ) { %>
-					<div class="page <%= ideaPinData[i].pages[k].class %>">
-					<video id='<%= ideaPinData[i].pages[k].src %>' preload=true muted=true ><source type="video/mp4" src="assets/videos/<%= ideaPinData[i].pages[k].src %>.mp4"></video>
-				</div>
+						<div class="page <%= ideaPinData[i].pages[k].class %>">
+							<div class="next-btn"></div>
+							<div class="prev-btn"></div>
+							<div class="video-skrim"></div>
+							<video id='<%= ideaPinData[i].pages[k].src %>' preload=true muted=true ><source type="video/mp4" src="assets/videos/<%= ideaPinData[i].pages[k].src %>.mp4"></video>
+						</div>
 				<% } %>
 			</div>
 			<div class="attribution">
 				<div class="creator-avatar">
-					<img src="assets/images/a-4.png" alt="">
+					<img src="assets/images/creator/<%= ideaPinData[i].creatorImg %>.png" alt="">
 				</div>
 				<div class="attribution-info">
 					<div class="creator-title">
@@ -82,39 +85,6 @@ var lastPinData = public.content.ideapin._data.thelastpin;
 					<video id='<%= lastPinData[q].pages[e].src %>' preload=true muted=true ><source type="video/mp4" src="assets/videos/<%= lastPinData[q].pages[e].src %>.mp4"></video>
 				</div>
 				<% } %>
-			</div>
-			<div class="attribution">
-				<div class="creator-avatar">
-					<img src="assets/images/a-4.png" alt="">
-				</div>
-				<div class="attribution-info">
-					<div class="creator-title">
-						<%= lastPinData[q].creator %> · Follow
-					</div>
-					<div class="creator-caption">
-						<%= lastPinData[q].followingCount %> followers
-					</div>
-				</div>
-			</div>
-			<div class="action-bar">
-				<ul class="actions">
-					<li class="action stream-detail">
-						<div class="stream-button"></div>
-						<div class="stream-count">Detail</div>
-					</li>
-					<li class="action stream-share">
-						<div class="stream-button"></div>
-						<div class="stream-count"><%= lastPinData[q].shareCount %></div>
-					</li>
-					<li class="action stream-comment">
-						<div class="stream-button"></div>
-						<div class="stream-count"><%= lastPinData[q].commentCount %></div>
-					</li>
-					<li class="action stream-save">
-						<div class="stream-button"></div>
-						<div class="stream-count"><%= lastPinData[q].saveCount %></div>
-					</li>
-				</ul>
 			</div>
 		</div>
 

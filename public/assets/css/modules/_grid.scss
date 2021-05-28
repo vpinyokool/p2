@@ -140,11 +140,25 @@ main,
 	position: absolute;
 	pointer-events: none;
 	bottom: 0;
+	width: 375px;
 	height: 34px;
 	z-index: 100;
 	img {
 		height: 34px;
+		position: absolute;
 		width: auto;
+	}
+	.light {
+		opacity: 0;
+		._stream-is-on & {
+			opacity: 1;
+		}
+	}
+	.dark {
+	opacity: 1;
+		._stream-is-on & {
+			opacity: 0;
+		}
 	}
 }
 
@@ -258,7 +272,7 @@ main,
 	._stream-is-on & {
 		pointer-events: auto;
 	}
-	background-image: url(../icons/icon-back.png);
+	background-image: url(../icons/icon-close-white.svg);
 }
 
 .comment {
@@ -994,7 +1008,6 @@ padding: 80px 32px;
 }
 .icon-button.stream-back {
 	opacity: 0;
-	background-image: url(../icons/icon-back-white.png);
 	pointer-events: none;
 	._stream-is-on & {
 		pointer-events: auto;
@@ -1566,6 +1579,7 @@ section.parent {
 	padding: 16px;
 	display: flex;
 	align-items: center;
+	z-index: 3;
 	font-size: 12px;
 	color: $white;
 	.attribution-info {
@@ -1597,6 +1611,7 @@ section.parent {
 	.page {
 		flex: none;
 		width: 375px;
+		position: relative;
 		background-color: teal;
 		height: 667px;
 		overflow: hidden;
@@ -1611,6 +1626,7 @@ section.parent {
 	position: absolute;
 	bottom: 0;
 	right: 0;
+	z-index: 3;
 	.actions {
 		padding: 16px;
 		padding-bottom: 8px;
@@ -1695,4 +1711,46 @@ background-image: url('../icons/stream-icon-detail.svg');
 		border-radius: 8px;
 		height: 100%;
 	}
+}
+
+.next-btn,
+.prev-btn {
+	height: 100%;
+	width: 100px;
+	// background-color: green;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 2;
+	&:hover {
+		cursor: pointer;
+	}
+
+}
+
+.prev-btn {
+	.page:first-child & {
+		pointer-events: none;
+	}
+}
+
+.next-btn {
+	right: 0px;
+	left: auto;
+
+	.page:last-child & {
+		pointer-events: none;
+	}
+}
+
+.video-skrim {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	// https://cssgradient.io/
+	background: rgb(0,0,0);
+	background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.4) 100%);
 }

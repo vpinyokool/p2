@@ -109,15 +109,15 @@ position: relative;
     &:hover {
       cursor: pointer;
     }
-img {
-  width: 96px;
-  height: auto;
-  margin-top: 8px;
+    img {
+      width: 96px;
+      height: auto;
+      margin-top: 8px;
+    }
+    .caption {
+      margin-top: 13px;
+    }
   }
-  .caption {
-    margin-top: 13px;
-  }
-}
 }
 
 .nav-items {

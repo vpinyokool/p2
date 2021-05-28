@@ -14,6 +14,7 @@ var call = {
         Global.starGrid();
         Global.hearting();
         Global.boardPicker();
+        Global.streams();
 
     },
     init: function() {

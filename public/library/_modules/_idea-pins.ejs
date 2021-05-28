@@ -1,0 +1,131 @@
+<%
+var ideaPinData = public.content.ideapin._data.pins;
+var lastPinData = public.content.ideapin._data.thelastpin;
+// var homefeedData = public.content.homefeed._data.pins;
+// var homefeedData = public.content.homefeed._data.ugly;
+// var homefeedData = public.content.homefeed._data.real;
+%>
+<div class="stream-wrapper splide"  data-splide='{
+	"height":"667px",
+	"arrows": false,
+	"pagination": false,
+	"easing": "cubic-bezier(0.25, 1, 0.5, 1)",
+	"direction":"ttb"
+	}'>
+	<div class="splide__track">
+		<div class="splide__list">
+			<% for ( var i=0; i < ideaPinData.length; i++ ) { %>
+			<div class="idea-pin <%= ideaPinData[i].class %> splide__slide">
+				<div class="pages-progress">
+					<% for ( var j=0; j < ideaPinData[i].pages.length; j++ ) { %>
+					<div class="progress-wrap">
+						<div class="progress"></div>
+					</div>
+					<% } %>
+				</div>
+				<div class="page-container">
+					<% for ( var k=0; k < ideaPinData[i].pages.length; k++ ) { %>
+					<div class="page <%= ideaPinData[i].pages[k].class %>">
+					<video id='<%= ideaPinData[i].pages[k].src %>' preload=true muted=true ><source type="video/mp4" src="assets/videos/<%= ideaPinData[i].pages[k].src %>.mp4"></video>
+				</div>
+				<% } %>
+			</div>
+			<div class="attribution">
+				<div class="creator-avatar">
+					<img src="assets/images/a-4.png" alt="">
+				</div>
+				<div class="attribution-info">
+					<div class="creator-title">
+						<%= ideaPinData[i].creator %> · Follow
+					</div>
+					<div class="creator-caption">
+						<%= ideaPinData[i].followingCount %> followers
+					</div>
+				</div>
+			</div>
+			<div class="action-bar">
+				<ul class="actions">
+					<li class="action stream-detail">
+						<div class="stream-button"></div>
+						<div class="stream-count">Detail</div>
+					</li>
+					<li class="action stream-share">
+						<div class="stream-button"></div>
+						<div class="stream-count"><%= ideaPinData[i].shareCount %></div>
+					</li>
+					<li class="action stream-comment">
+						<div class="stream-button"></div>
+						<div class="stream-count"><%= ideaPinData[i].commentCount %></div>
+					</li>
+					<li class="action stream-save">
+						<div class="stream-button"></div>
+						<div class="stream-count"><%= ideaPinData[i].saveCount %></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<% for ( var q=0; q < lastPinData.length; q++ ) { %>
+
+
+
+			<div class="idea-pin <%= lastPinData[q].class %>">
+				<div class="pages-progress">
+					<% for ( var w=0; w < lastPinData[q].pages.length; w++ ) { %>
+					<div class="progress-wrap">
+						<div class="progress"></div>
+					</div>
+					<% } %>
+				</div>
+				<div class="page-container">
+					<% for ( var e=0; e < lastPinData[q].pages.length; e++ ) { %>
+					<div class="page <%= lastPinData[q].pages[e].class %>">
+					<video id='<%= lastPinData[q].pages[e].src %>' preload=true muted=true ><source type="video/mp4" src="assets/videos/<%= lastPinData[q].pages[e].src %>.mp4"></video>
+				</div>
+				<% } %>
+			</div>
+			<div class="attribution">
+				<div class="creator-avatar">
+					<img src="assets/images/a-4.png" alt="">
+				</div>
+				<div class="attribution-info">
+					<div class="creator-title">
+						<%= lastPinData[q].creator %> · Follow
+					</div>
+					<div class="creator-caption">
+						<%= lastPinData[q].followingCount %> followers
+					</div>
+				</div>
+			</div>
+			<div class="action-bar">
+				<ul class="actions">
+					<li class="action stream-detail">
+						<div class="stream-button"></div>
+						<div class="stream-count">Detail</div>
+					</li>
+					<li class="action stream-share">
+						<div class="stream-button"></div>
+						<div class="stream-count"><%= lastPinData[q].shareCount %></div>
+					</li>
+					<li class="action stream-comment">
+						<div class="stream-button"></div>
+						<div class="stream-count"><%= lastPinData[q].commentCount %></div>
+					</li>
+					<li class="action stream-save">
+						<div class="stream-button"></div>
+						<div class="stream-count"><%= lastPinData[q].saveCount %></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+
+<% } %>
+		<% } %>
+	</div>
+</div>
+
+
+
+
+</div>

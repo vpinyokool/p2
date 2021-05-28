@@ -399,7 +399,7 @@ var Global = (function() {
         var sPath = window.location.pathname;
         var path = '../assets/animation/heart.json';
 
-        if ( sPath == "/p2/" || sPath == "/p2.html" ) {
+        if (sPath == "/p2/" || sPath == "/p2.html") {
             path = 'assets/animation/heart.json';
         } else {
             console.log('not on index');
@@ -464,10 +464,21 @@ var Global = (function() {
                     console.log('ran');
                     var tl = new TimelineLite({});
 
-                    tl.to($toast, .45, {y:60, opacity: 1 });
-                    tl.to($toast, .45, {y:60, opacity: 0 }, "+=2.0");
-                    tl.set($toast, {y:0, opacity: 1});
-                    tl.set($toast, {clearProps:"all"});
+                    tl.to($toast, .45, {
+                        y: 60,
+                        opacity: 1
+                    });
+                    tl.to($toast, .45, {
+                        y: 60,
+                        opacity: 0
+                    }, "+=2.0");
+                    tl.set($toast, {
+                        y: 0,
+                        opacity: 1
+                    });
+                    tl.set($toast, {
+                        clearProps: "all"
+                    });
                 }
             });
         });
@@ -807,6 +818,161 @@ var Global = (function() {
         });
     }
 
+    function streams() {
+        var $progressBar;
+        var progress;
+        var howManyPages;
+        var activeVid = $('.idea-pin._active').find('.page._active').find('video');
+        var currentPageIndex;
+
+
+
+
+        $('.discover').on('click', function() {
+
+            var splide = new Splide( '.splide' ).mount();
+            playVideoOnActivePage();
+
+            // if someone navigate idea Pin
+            splide.on( 'moved', function() {
+                console.log('has a new active slide');
+
+                // stop the current active video
+                activeVid.get(0).pause();
+                activeVid.get(0).currentTime = 0;
+
+                // set the new states for all elements
+
+                // set the new states for idea pins
+                $('.idea-pin').removeClass('_active');
+                $('.idea-pin.is-active').addClass('_active');
+
+                // set played state
+                $('.idea-pin').removeClass('_played');
+                $('.idea-pin.is-active').prev().addClass('_played');
+
+                // set snew ates for pages
+                $('.page').removeClass('_active');
+                $('.idea-pin.is-active').find('.page').first().addClass('_active');
+
+
+                // reset page-container positioning
+                $('.page-container').css('transform', 'translateX(0)');
+
+                //reset all progress
+                $('.progress').css('width','0%');
+
+                // set new active video
+                activeVid = $('.idea-pin._active').find('.page._active').find('video');
+                playVideoOnActivePage();
+
+
+            } );
+
+
+        });
+
+        $('.stream-back').on('click', function() {
+            activeVid.get(0).pause();
+            $('.progress').css('width','0%');
+
+            $('.idea-pin').removeClass('_active');
+            $('.page').removeClass('_active');
+            $('.idea-pin').removeClass('_played');
+
+            $('.idea-pin').first().addClass('_active');
+            $('.idea-pin').first().find('.page').first().addClass('_active');
+
+            activeVid = $('.idea-pin._active').find('.page._active').find('video');
+
+        });
+
+        function playVideoOnActivePage() {
+
+
+            activeVid = $('.idea-pin._active').find('.page._active').find('video');
+            console.log(activeVid);
+            activeVid.get(0).play();
+            console.log('video played');
+
+
+
+            // set a new progress bar
+            $progressBar = $('.idea-pin._active .pages-progress .progress-wrap:eq( ' + $('.page._active').index() + ' ) .progress');
+
+            setInterval(function() {
+                updateProgress();
+            }, 200);
+
+            activeVid.get(0).onended = function(e) {
+                console.log('video has ended');
+
+                // if next page exist, play the next video
+
+                if (activeVid.parent().next().length != 0) {
+                    activeVid.parent().removeClass('_active');
+                    activeVid.parent().next().addClass('_active');
+                    activeVid = activeVid.parent().next().find('video');
+                    console.log(activeVid.get(0));
+
+                    // current page index
+                    currentPageIndex = $('.page._active').index();
+                    // console.log('current page index is ' + $('.page._active').index());
+                    // move to the next page
+
+                    $('.idea-pin._active .page-container').css('transform', 'translateX(' + 375 * -currentPageIndex + 'px)');
+                    //playing the next video
+                    playVideoOnActivePage();
+                } else {
+                    console.log('current ideaPin has ended');
+
+                    //check if we can play the next pin
+                    if ( $('.idea-pin._active').next().hasClass('_do-not-play') ) {
+                        // current idea pins has ended, and the next pin is the second to last pin.
+                        //..this will be the last pin we play
+
+                        console.log('END OF FEED');
+                    } else {
+                        // current idea pins has ended, and the next pin is not the second to last pin
+
+                        //remove active state from current video
+                        activeVid.parent().removeClass('_active');
+
+                        //remove idea pin active state
+                        activeVid.parent().parent().parent().removeClass('_active').addClass('_played');
+
+                        //add active state to the next idea Pin
+                        activeVid.parent().parent().parent().next().addClass('_active');
+
+
+                        //add active state to the first page in the active idea Pin
+                        activeVid.parent().parent().parent().next().find('.page').first().addClass('_active');
+
+                        // //set active state on the new video in the newly actived idea pin
+                        activeVid = $('.idea-pin._active').find('.page._active').find('video');
+
+                        //animate / flick to the new idea Pin
+
+                       // play the video
+                        playVideoOnActivePage();
+                    }
+                }
+            };
+        }
+
+
+
+        function updateProgress() {
+            progress = activeVid.get(0).currentTime / activeVid.get(0).duration * 100;
+            // $progressBar = $('.page_active').index();
+            $progressBar.css('width', progress + '%');
+        }
+
+        // setInterval(function() {
+        //     updateProgress();
+        // }, 200);
+    }
+
     function starGrid() {
 
         var $grid = $('.masonry-layout').isotope({
@@ -893,6 +1059,7 @@ var Global = (function() {
         organicTagsGrid: organicTagsGrid,
         optionalNote: optionalNote,
         hearting: hearting,
-        boardPicker: boardPicker
+        boardPicker: boardPicker,
+        streams: streams
     }
 })();

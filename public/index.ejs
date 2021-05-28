@@ -1,171 +1,21 @@
 <section class="canvas">
 	<div class="phone-canvas">
-		<div class="home-indicator-wrap">
-			<img src="assets/images/home-indicator.png" alt="">
-		</div>
-		<div class="status-bar-wrap">
-			<img class="dark" src="assets/images/status-bar-dark.png" alt="">
-			<img class="light" src="assets/images/status-bar-light.png" alt="">
-		</div>
-
-
+		<%- partial('library/_modules/_status-bar') %>
 		<div class="icon-button stream-back"></div>
-
-		<div class="stream-wrapper">
-			<div class="idea-pin">
-				<div class="action-bar">
-					<div class="creator"></div>
-				</div>
-				<div class="page-container">
-					<div class="page"></div>
-					<div class="page"></div>
-					<div class="page"></div>
-					<div class="page"></div>
-					<div class="page"></div>
-					<div class="page"></div>
-				</div>
-			</div>
-		</div>
+		<%- partial('library/_modules/_idea-pins') %>
 		<div class="overlay"></div>
-				<div class="floating-nav">
-			<ul class="nav-items">
-				<li class="nav-list home _active">
-					<img src="assets/icons/icon-home.svg" alt="">
-				</li>
-				<li class="nav-list search">
-					<img src="assets/icons/icon-search.svg" alt="">
-				</li>
-				<li class="nav-list add">
-					<img src="assets/icons/icon-add.svg" alt="">
-				</li>
-				<li class="nav-list notif">
-					<img src="assets/icons/icon-notif.svg" alt="">
-				</li>
-				<li class="nav-list profile">
-					<img src="assets/images/a-4.png" alt="">
-				</li>
-			</ul>
-		</div>
-		<div class="board-picker-sheet">
-			<div class="sheet-header">
-				<div class="icon-button close"></div>
-				<div class="sheet-title">Save</div>
-				<div class="icon-button blank"></div>
-			</div>
-			<div class="board-picker-sheet-subhead">
-				Top choice
-			</div>
-			<ul class="board-lists">
-				<li class="board-list profile">
-					<div class="board-list-img">
-						<img src="assets/images/save-to-profile.svg" alt="">
-					</div>
-					<div class="board-title">Profile</div>
-				</li>
-				<li class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/board-image-01.png" alt="">
-					</div>
-					<div class="board-title">Portraits</div>
-				</li>
-				<li class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/board-image-02.png" alt="">
-					</div>
-					<div class="board-title">RandoMe</div>
-				</li>
-			</ul>
-
-			<div class="board-picker-sheet-subhead">
-				All boards
-			</div>
-			<ul class="board-lists">
-				<li class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/board-image-03.png" alt="">
-					</div>
-					<div class="board-title">Apron</div>
-				</li>
-				<li class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/board-image-04.png" alt="">
-					</div>
-					<div class="board-title">Baby</div>
-				</li>
-				<li class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/board-image-05.png" alt="">
-					</div>
-					<div class="board-title">Blaschka</div>
-				</li>
-				<li class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/board-image-06.png" alt="">
-					</div>
-					<div class="board-title">Carabiner</div>
-				</li>
-				<li class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/board-image-07.png" alt="">
-					</div>
-					<div class="board-title">Illustrations</div>
-				</li>
-			</ul>
-		</div>
-
-		<div class="toast">
-			<div class="toast-img-wrapper">
-				<img src="assets/images/save-to-profile.svg" alt="">
-			</div>
-			<div class="toast-text">
-				Save to <span>Profile</span>
-			</div>
-		</div>
+		<%- partial('library/_modules/_board-picker') %>
+		<%- partial('library/_modules/_toast') %>
+		<%- partial('library/_modules/_floating-nav') %>
 		<div class="scroll-content-wrapper">
-		<div class="navigation-bar">
-			<ul class="hf-tabs">
-				<li class="_active">For you</li>
-				<li class="">Today</li>
-				<li class="">Following</li>
-			</ul>
-		</div>
-		<div class="icon-button back"></div>
-
-
+			<%- partial('library/_modules/_navigation-bar') %>
+			<div class="icon-button back"></div>
 			<div class="closeup scroll-area">
 				<%- partial('library/_modules/_closeup-card') %>
-				<div class="closeup-module">
-					<div class="cu-title">Comments</div>
-					<div class="comments-caption">
-						Love this Pin? Add a comment!
-					</div>
-					<div class="composer-wrap">
-						<div class="comment-avatar"></div>
-						<div class="comments-input">Add comment or photo</div>
-					</div>
-				</div>
-				<div class="closeup-module">
-					<div class="cu-title">More like this</div>
-					<%- partial('library/_modules/_more-like-this-grid') %>
-				</div>
+				<%- partial('library/_modules/_closeup-junk') %>
 			</div>
 			<div class="pingrid scroll-area">
-				<ul class="bubbles">
-					<li class="create">
-						<div class="avatar-wrap">
-							<div class="icon-plus"></div>
-							<img src="assets/images/a-4.png" alt="">
-						</div>
-						<div class="img-wrap"></div>
-						<div class="caption">Create</div>
-					</li>
-					<li class="discover">
-						<div class="image-wrap">
-							<img src="assets/images/creator.png" alt="">
-						</div>
-						<div class="caption">Creators</div>
-					</li>
-				</ul>
+				<%- partial('library/_modules/_bubbles') %>
 				<%- partial("library/_modules/_grid",{mode:"demo"}) %>
 			</div>
 		</div>

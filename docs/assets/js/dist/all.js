@@ -893,7 +893,6 @@ var Global = (function() {
         //
         var pinCount = 15;
         var anim = [];
-        var $toast = $('.toast');
         for (var i = 0; i < pinCount; i++) {
             anim[i + 1] = lottie.loadAnimation({
                 container: document.getElementById('heart-' + [i + 1]),
@@ -904,7 +903,10 @@ var Global = (function() {
             });
         }
 
-        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        // var arr = new Array(pinCount);
+        var arr = Array.from({
+            length: pinCount
+        }, (_, i) => i + 1)
         $.each(arr, function(index, value) {
             $('.heart-' + value).on('click', function() {
                 if ($('.heart-' + value).hasClass('_active')) {
@@ -928,47 +930,50 @@ var Global = (function() {
                     $('.board-list.profile').on('click', function() {
                         $('.board-picker-sheet').removeClass('_active');
                         $body.removeClass('_sheet-is-on');
-                        showToast()
+                        showToast();
                     });
 
                     $('.icon-button.close').on('click', function() {
                         $('.board-picker-sheet').removeClass('_active');
-                        $('.heart-' + value).removeClass('_active');
-                        $('.pin-id-' + value).removeClass('heart');
+                        // $('.heart-' + value).removeClass('_active');
+                        // $('.pin-id-' + value).removeClass('heart');
                         $body.removeClass('_sheet-is-on');
-                        setTimeout(function() {
-                            anim[value].playSegments([60, 119], true);
-                        }, 600);
+                        showToast();
+                        // setTimeout(function() {
+                        //     anim[value].playSegments([60, 119], true);
+                        // }, 600);
                     });
 
                 }
 
 
-                function showToast() {
-                    console.log('ran');
-                    var tl = new TimelineLite({});
 
-                    tl.to($toast, .45, {
-                        y: 60,
-                        opacity: 1
-                    });
-                    tl.to($toast, .45, {
-                        y: 60,
-                        opacity: 0
-                    }, "+=2.0");
-                    tl.set($toast, {
-                        y: 0,
-                        opacity: 1
-                    });
-                    tl.set($toast, {
-                        clearProps: "all"
-                    });
-                }
             });
         });
 
 
 
+    };
+
+    function showToast() {
+        var $toast = $('.toast');
+        var tl = new TimelineLite({});
+
+        tl.to($toast, .45, {
+            y: 60,
+            opacity: 1
+        });
+        tl.to($toast, .45, {
+            y: 60,
+            opacity: 0
+        }, "+=2.0");
+        tl.set($toast, {
+            y: 0,
+            opacity: 1
+        });
+        tl.set($toast, {
+            clearProps: "all"
+        });
     };
 
     function optionalNote() {
@@ -1311,12 +1316,13 @@ var Global = (function() {
         var activeVid = $('.idea-pin._active').find('.page._active').find('video');
         var currentPageIndex;
 
-
+        streamHearting();
         $('.discover').on('click', function() {
 
             var splide = new Splide('.splide').mount();
             playVideoOnActivePage();
-
+            navigativeActiveVid();
+            playPauseActiveVideo();
             // if someone navigate idea Pin
             splide.on('moved', function() {
                 console.log('has a new active slide');
@@ -1354,55 +1360,10 @@ var Global = (function() {
             });
         });
 
-        $('.next-btn').on('click', function() {
 
-            // pause video
-            activeVid.get(0).pause();
-            killInterval();
 
-            // vid
-            activeVid = activeVid.parent().next().find('video');
-            activeVid.get(0).currentTime = 0;
 
-            // update page active state
-            $('.page').removeClass('_active');
-            activeVid.parent().addClass('_active');
 
-            // fill in the current progress bar
-            $progressBar.css('width', '100%');
-
-            // translate to the next page
-            pageIndex = $('.page._active').index();
-            $('.page._active').parent().css('transform', 'translateX(' + -375 * (pageIndex) + 'px)');
-
-            playVideoOnActivePage();
-
-        });
-
-        $('.prev-btn').on('click', function() {
-
-            // pause video
-            activeVid.get(0).pause();
-            killInterval();
-
-            // vid
-            activeVid = activeVid.parent().prev().find('video');
-            activeVid.get(0).currentTime = 0;
-
-            // update page active state
-            $('.page').removeClass('_active');
-            activeVid.parent().addClass('_active');
-
-            // fill in the current progress bar
-            $progressBar.css('width', '0%');
-
-            // translate to the next page
-            pageIndex = $('.page._active').index();
-            $('.page._active').parent().css('transform', 'translateX(' + -375 * (pageIndex) + 'px)');
-
-            playVideoOnActivePage();
-
-        });
 
         $('.stream-back').on('click', function() {
             activeVid.get(0).pause();
@@ -1421,7 +1382,7 @@ var Global = (function() {
             $('.page-container').css('transform', 'translateX(0)');
 
             activeVid = $('.idea-pin._active').find('.page._active').find('video');
-
+            activeVid.unbind();
         });
 
         function playVideoOnActivePage() {
@@ -1430,14 +1391,11 @@ var Global = (function() {
             activeVid = $('.idea-pin._active').find('.page._active').find('video');
             activeVid.get(0).currentTime = 0;
             activeVid.get(0).play();
-            console.log('video played');
-
+            // console.log('video played');
 
 
             // set a new progress bar
             $progressBar = $('.idea-pin._active .pages-progress .progress-wrap:eq( ' + $('.page._active').index() + ' ) .progress');
-
-
 
             updateProgress();
 
@@ -1460,6 +1418,8 @@ var Global = (function() {
                     $('.idea-pin._active .page-container').css('transform', 'translateX(' + 375 * -currentPageIndex + 'px)');
                     //playing the next video
                     playVideoOnActivePage();
+
+
                 } else {
                     console.log('current ideaPin has ended');
 
@@ -1495,6 +1455,8 @@ var Global = (function() {
 
                         // play the video
                         playVideoOnActivePage();
+
+
                     }
                 }
             };
@@ -1502,13 +1464,167 @@ var Global = (function() {
 
 
 
+        function streamHearting() {
+
+            var sPath = window.location.pathname;
+            var path = '../assets/animation/heart-stream.json';
+
+            if (sPath == "/p2/" || sPath == "/p2.html") {
+                path = 'assets/animation/heart-stream.json';
+            } else {
+                // console.log('not on index');
+            }
+
+            //
+            var pinCount = 2;
+            var curCount;
+            var anim = [];
+            // var $toast = $('.toast');
+            for (var i = 0; i < pinCount; i++) {
+                anim[i + 1] = lottie.loadAnimation({
+                    container: document.getElementById('heart-stream-' + [i + 1]),
+                    renderer: 'svg',
+                    loop: false,
+                    autoplay: false,
+                    path: path
+                });
+            }
+
+            // var arr = new Array(pinCount);
+            var arr = Array.from({
+                length: pinCount
+            }, (_, i) => i + 1)
+            $.each(arr, function(index, value) {
+                $('.stream-save-btn-' + value).on('click', function() {
+                    curCount = parseInt($('.stream-save-btn-' + value).next().html());
+                    console.log('clicked!');
+                    if ($('.stream-save-btn-' + value).hasClass('_active')) {
+                        $('.stream-save-btn-' + value).removeClass('_active');
+                        activeVid.parent().parent().removeClass('_saved');
+                        anim[value].goToAndStop(0, true);
+
+                        $('.stream-save-btn-' + value).next().html(curCount - 1);
+                            // activeVid.get(0).play();
+                            // updateProgress();
+
+                    } else {
+                        activeVid.get(0).pause();
+                        killInterval();
+                        $('.stream-save-btn-' + value).addClass('_active');
+                        activeVid.parent().parent().addClass('_saved');
+                        anim[value].playSegments([0, 59], true);
+                        $('.stream-save-btn-' + value).next().html(curCount + 1);
+
+                        // pull up board picker
+                        setTimeout(function() {
+                            $('.board-picker-sheet').addClass('_active');
+                            $body.addClass('_sheet-is-on');
+                        }, 1100);
+
+                        $('.board-list.profile').on('click', function() {
+                            $('.board-picker-sheet').removeClass('_active');
+                            $body.removeClass('_sheet-is-on');
+                            showToast();
+                            activeVid.get(0).play();
+                            updateProgress();
+                        });
+
+                        $('.icon-button.close').on('click', function() {
+                            $('.board-picker-sheet').removeClass('_active');
+
+                            $body.removeClass('_sheet-is-on');
+                                                        showToast();
+                            activeVid.get(0).play();
+                            updateProgress();
+
+
+                        });
+
+                    }
+                });
+            });
+        };
+
+        function navigativeActiveVid() {
+            $('.next-btn').on('click', function() {
+
+                console.log('next');
+                // pause video
+                activeVid.get(0).pause();
+                killInterval();
+
+                // vid
+                activeVid = activeVid.parent().next().find('video');
+                activeVid.get(0).currentTime = 0;
+
+                // update page active state
+                $('.page').removeClass('_active');
+                activeVid.parent().addClass('_active');
+
+                // fill in the current progress bar
+                $progressBar.css('width', '100%');
+
+                // translate to the next page
+                pageIndex = $('.page._active').index();
+                $('.page._active').parent().css('transform', 'translateX(' + -375 * (pageIndex) + 'px)');
+
+                playVideoOnActivePage();
+
+            });
+
+            $('.prev-btn').on('click', function() {
+                console.log('prev');
+                // pause video
+                activeVid.get(0).pause();
+                killInterval();
+                activeVid.unbind();
+
+                // vid
+                activeVid = activeVid.parent().prev().find('video');
+                // console.log(activeVid);
+                activeVid.get(0).currentTime = 0;
+
+                // update page active state
+                $('.page').removeClass('_active');
+                activeVid.parent().addClass('_active');
+
+                // fill in the current progress bar
+                $progressBar.css('width', '0%');
+
+                // translate to the next page
+                pageIndex = $('.page._active').index();
+                $('.page._active').parent().css('transform', 'translateX(' + -375 * (pageIndex) + 'px)');
+
+                playVideoOnActivePage();
+
+            });
+        }
+
+        function playPauseActiveVideo() {
+
+            $('.page').on('click', function() {
+                activeVid = $('.idea-pin._active').find('.page._active').find('video');
+                // console.log(activeVid);
+                // e.stopPropagation();
+                console.log('active video clicked');
+                if (activeVid.get(0).currentTime > 0 && !activeVid.get(0).ended && !activeVid.get(0).paused && activeVid.get(0).readyState > 2) {
+                    console.log('pause video');
+                    activeVid.get(0).pause();
+                    killInterval();
+                } else {
+                    console.log('play');
+                    activeVid.get(0).play();
+                    updateProgress();
+                }
+            });
+        }
 
         function updateProgress() {
             interval = setInterval(function() {
                 progress = activeVid.get(0).currentTime / activeVid.get(0).duration * 100;
                 $progressBar.css('width', progress + '%');
 
-                console.log('ran');
+                // console.log('ran');
             }, 100);
 
         }
@@ -1609,6 +1725,7 @@ var Global = (function() {
         optionalNote: optionalNote,
         hearting: hearting,
         boardPicker: boardPicker,
+        showToast: showToast,
         streams: streams
     }
 })();

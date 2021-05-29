@@ -61,7 +61,7 @@ var lastPinData = public.content.ideapin._data.thelastpin;
 						<div class="stream-count"><%= ideaPinData[i].commentCount %></div>
 					</li>
 					<li class="action stream-save">
-						<div class="stream-button"></div>
+						<div id ="heart-stream-<%= i + 1%>"class="stream-save-btn stream-save-btn-<%= i + 1 %> stream-button"></div>
 						<div class="stream-count"><%= ideaPinData[i].saveCount %></div>
 					</li>
 				</ul>

@@ -2,7 +2,7 @@
 	"pins": [
 		{
 			"title": "matcha",
-			"class": "_active",
+			"class": "splide__slide _active",
 			"commentCount": 39,
 			"shareCount": 40,
 			"saveCount": 20,
@@ -30,7 +30,7 @@
 		},
 		{
 			"title": "chicken",
-			"class": "",
+			"class": "splide__slide",
 			"commentCount": 39,
 			"shareCount": 40,
 			"saveCount": 20,
@@ -55,6 +55,34 @@
 					"class": ""
 				}
 			]
+		},
+		{
+			"title": "matcha",
+			"class": "_do-not-play",
+			"commentCount": 39,
+			"shareCount": 40,
+			"saveCount": 20,
+			"creator": " John Smith",
+			"creatorImg": "c-04",
+			"followingCount": "3k",
+			"pages": [
+				{
+					"src" : "matcha-1",
+					"class": "_active"
+				},
+				{
+					"src" : "matcha-2",
+					"class": ""
+				},
+				{
+					"src" : "matcha-3",
+					"class": ""
+				},
+				{
+					"src" : "matcha-4",
+					"class": ""
+				}
+			]
 		}
 	],
 		"thelastpin": [
@@ -65,7 +93,7 @@
 			"shareCount": 40,
 			"saveCount": 20,
 			"creator": " John Smith",
-			"creatorImg": "a-4",
+			"creatorImg": "c-04",
 			"followingCount": "3k",
 			"pages": [
 				{

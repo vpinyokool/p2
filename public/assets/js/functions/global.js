@@ -443,21 +443,27 @@ var Global = (function() {
                         $body.addClass('_sheet-is-on');
                     }, 1500);
 
-                    $('.board-list.profile').on('click', function() {
+                    $('.board-list').on('click', function() {
                         $('.board-picker-sheet').removeClass('_active');
                         $body.removeClass('_sheet-is-on');
+                        $('.toast-text span').html($(this).data('dest'));
+                        $('.toast-img-wrapper').html(
+                            '<img src="assets/images/boards-cover/' + $(this).data('dest') + '.png" alt>'
+                        );
                         showToast();
                     });
 
                     $('.icon-button.close').on('click', function() {
                         $('.board-picker-sheet').removeClass('_active');
-                        // $('.heart-' + value).removeClass('_active');
-                        // $('.pin-id-' + value).removeClass('heart');
+
                         $body.removeClass('_sheet-is-on');
+
+                        $('.toast-text span').html('profile');
+                        $('.toast-img-wrapper').html(
+                            '<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>'
+                        );
                         showToast();
-                        // setTimeout(function() {
-                        //     anim[value].playSegments([60, 119], true);
-                        // }, 600);
+
                     });
 
                 }
@@ -474,15 +480,19 @@ var Global = (function() {
     function showToast() {
         var $toast = $('.toast');
         var tl = new TimelineLite({});
+        var dur = .45;
 
-        tl.to($toast, .45, {
+        tl.to($toast, dur * 1.5, {
+            ease: Back.easeOut.config(1.7),
             y: 60,
             opacity: 1
         });
-        tl.to($toast, .45, {
+        tl.to($toast, dur, {
+            ease: Power2.easeOut,
             y: 60,
             opacity: 0
         }, "+=2.0");
+
         tl.set($toast, {
             y: 0,
             opacity: 1
@@ -826,22 +836,137 @@ var Global = (function() {
     function streams() {
         var $progressBar;
         var progress;
+        var $splide;
         var interval = null;
         var pageIndex = 1;
         var howManyPages;
         var activeVid = $('.idea-pin._active').find('.page._active').find('video');
         var currentPageIndex;
 
-        streamHearting();
-        $('.discover').on('click', function() {
 
-            var splide = new Splide('.splide').mount();
+        initCarousel();
+        streamHearting();
+        navigativeActiveVid();
+        playPauseActiveVideo();
+        splideMove();
+
+        $('.discover').on('click', function() {
+            firstSlide();
             playVideoOnActivePage();
-            navigativeActiveVid();
-            playPauseActiveVideo();
-            // if someone navigate idea Pin
-            splide.on('moved', function() {
-                console.log('has a new active slide');
+
+        });
+
+
+        $('.stream-back').on('click', function() {
+            onCloseStream();
+            killInterval();
+
+        });
+
+        function playVideoOnActivePage() {
+
+            activeVid = $('.idea-pin._active').find('.page._active').find('video');
+            activeVid.get(0).currentTime = 0;
+            activeVid.get(0).play();
+
+
+            // set a new progress bar
+            $progressBar = $('.idea-pin._active .pages-progress .progress-wrap:eq( ' + $('.page._active').index() + ' ) .progress');
+            // update progress
+            updateProgress();
+
+            activeVid.get(0).onended = function() {
+                // console.log('video has ended');
+
+                // if next page exist, play the next video
+
+                if (activeVid.parent().next().length != 0) {
+                    activeVid.parent().removeClass('_active');
+                    activeVid.parent().next().addClass('_active');
+                    activeVid = activeVid.parent().next().find('video');
+                    // console.log(activeVid.get(0));
+
+                    // current page index
+                    currentPageIndex = $('.page._active').index();
+
+                    // move to the next page
+                    $('.idea-pin._active .page-container').css('transform', 'translateX(' + 375 * -currentPageIndex + 'px)');
+
+                    //playing the next video
+                    playVideoOnActivePage();
+
+
+                } else {
+                    // console.log('current ideaPin has ended');
+
+                    //check if we can play the next pin
+
+                    // console.log($('.idea-pin._active').next());
+                    if ($('.idea-pin._active').next().hasClass('_do-not-play')) {
+                        // current idea pins has ended, and the next pin is the second to last pin.
+                        //..this will be the last pin we play
+                        killInterval();
+
+                        console.log('END OF FEED');
+                    } else {
+                        // current idea pins has ended, and the next pin is not the second to last pin
+
+                        // clear interval
+                        killInterval();
+
+                        //remove active state from current video
+                        activeVid.parent().removeClass('_active');
+
+                        //remove idea pin active state
+                        activeVid.parent().parent().parent().removeClass('_active').addClass('_played');
+
+                        //add active state to the next idea Pin
+                        activeVid.parent().parent().parent().next().addClass('_active');
+
+                        //add active state to the first page in the active idea Pin
+                        activeVid.parent().parent().parent().next().find('.page').first().addClass('_active');
+
+                        // //set active state on the new video in the newly actived idea pin
+                        activeVid = $('.idea-pin._active').find('.page._active').find('video');
+
+                        //animate / flick to the new idea Pin
+                        // console.log('splide object is ' + $splide);
+                        nextSlide();
+
+                        // play the video
+                        playVideoOnActivePage();
+                        // updateProgress();
+
+                    }
+                }
+            };
+        }
+
+
+
+        function onCloseStream() {
+            activeVid.get(0).pause();
+
+            $('.progress').css('width', '0%');
+
+            $('.idea-pin').removeClass('_active');
+            $('.page').removeClass('_active');
+            $('.idea-pin').removeClass('_played');
+
+            $('.idea-pin').first().addClass('_active');
+            $('.idea-pin').first().find('.page').first().addClass('_active');
+
+            //reset page container
+            $('.page-container').css('transform', 'translateX(0)');
+
+            activeVid = $('.idea-pin._active').find('.page._active').find('video');
+        }
+
+        function splideMove() {
+
+
+            $splide.on('moved', function() {
+                console.log('Splide has moved!');
 
                 // stop the current active video
                 activeVid.get(0).pause();
@@ -872,113 +997,20 @@ var Global = (function() {
                 activeVid = $('.idea-pin._active').find('.page._active').find('video');
                 playVideoOnActivePage();
 
-
             });
-        });
-
-
-
-
-
-
-        $('.stream-back').on('click', function() {
-            activeVid.get(0).pause();
-            killInterval();
-
-            $('.progress').css('width', '0%');
-
-            $('.idea-pin').removeClass('_active');
-            $('.page').removeClass('_active');
-            $('.idea-pin').removeClass('_played');
-
-            $('.idea-pin').first().addClass('_active');
-            $('.idea-pin').first().find('.page').first().addClass('_active');
-
-            //reset page container
-            $('.page-container').css('transform', 'translateX(0)');
-
-            activeVid = $('.idea-pin._active').find('.page._active').find('video');
-            activeVid.unbind();
-        });
-
-        function playVideoOnActivePage() {
-
-
-            activeVid = $('.idea-pin._active').find('.page._active').find('video');
-            activeVid.get(0).currentTime = 0;
-            activeVid.get(0).play();
-            // console.log('video played');
-
-
-            // set a new progress bar
-            $progressBar = $('.idea-pin._active .pages-progress .progress-wrap:eq( ' + $('.page._active').index() + ' ) .progress');
-
-            updateProgress();
-
-            activeVid.get(0).onended = function(e) {
-                console.log('video has ended');
-
-                // if next page exist, play the next video
-
-                if (activeVid.parent().next().length != 0) {
-                    activeVid.parent().removeClass('_active');
-                    activeVid.parent().next().addClass('_active');
-                    activeVid = activeVid.parent().next().find('video');
-                    console.log(activeVid.get(0));
-
-                    // current page index
-                    currentPageIndex = $('.page._active').index();
-                    // console.log('current page index is ' + $('.page._active').index());
-                    // move to the next page
-
-                    $('.idea-pin._active .page-container').css('transform', 'translateX(' + 375 * -currentPageIndex + 'px)');
-                    //playing the next video
-                    playVideoOnActivePage();
-
-
-                } else {
-                    console.log('current ideaPin has ended');
-
-                    //check if we can play the next pin
-                    if ($('.idea-pin._active').next().hasClass('_do-not-play')) {
-                        // current idea pins has ended, and the next pin is the second to last pin.
-                        //..this will be the last pin we play
-                        killInterval();
-                        console.log('END OF FEED');
-                    } else {
-                        // current idea pins has ended, and the next pin is not the second to last pin
-
-                        // clear interval
-                        killInterval();
-
-                        //remove active state from current video
-                        activeVid.parent().removeClass('_active');
-
-                        //remove idea pin active state
-                        activeVid.parent().parent().parent().removeClass('_active').addClass('_played');
-
-                        //add active state to the next idea Pin
-                        activeVid.parent().parent().parent().next().addClass('_active');
-
-
-                        //add active state to the first page in the active idea Pin
-                        activeVid.parent().parent().parent().next().find('.page').first().addClass('_active');
-
-                        // //set active state on the new video in the newly actived idea pin
-                        activeVid = $('.idea-pin._active').find('.page._active').find('video');
-
-                        //animate / flick to the new idea Pin
-
-                        // play the video
-                        playVideoOnActivePage();
-
-
-                    }
-                }
-            };
         }
 
+        function initCarousel() {
+            $splide = new Splide('.splide').mount();
+        }
 
+        function firstSlide() {
+            $splide.go('0');
+        }
+
+        function nextSlide() {
+            $splide.go('+');
+        }
 
         function streamHearting() {
 
@@ -1020,12 +1052,11 @@ var Global = (function() {
                         anim[value].goToAndStop(0, true);
 
                         $('.stream-save-btn-' + value).next().html(curCount - 1);
-                            // activeVid.get(0).play();
-                            // updateProgress();
+                        // activeVid.get(0).play();
+                        // updateProgress();
 
                     } else {
-                        activeVid.get(0).pause();
-                        killInterval();
+
                         $('.stream-save-btn-' + value).addClass('_active');
                         activeVid.parent().parent().addClass('_saved');
                         anim[value].playSegments([0, 59], true);
@@ -1035,11 +1066,17 @@ var Global = (function() {
                         setTimeout(function() {
                             $('.board-picker-sheet').addClass('_active');
                             $body.addClass('_sheet-is-on');
+                            activeVid.get(0).pause();
+                            killInterval();
                         }, 1100);
 
-                        $('.board-list.profile').on('click', function() {
+                        $('.board-list').on('click', function() {
                             $('.board-picker-sheet').removeClass('_active');
                             $body.removeClass('_sheet-is-on');
+
+                            $('.toast-text span').html($(this).data('dest'));
+                            $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + $(this).data('dest') + '.png" alt>');
+
                             showToast();
                             activeVid.get(0).play();
                             updateProgress();
@@ -1049,7 +1086,11 @@ var Global = (function() {
                             $('.board-picker-sheet').removeClass('_active');
 
                             $body.removeClass('_sheet-is-on');
-                                                        showToast();
+
+                            $('.toast-text span').html('profile');
+                            $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>');
+
+                            showToast();
                             activeVid.get(0).play();
                             updateProgress();
 
@@ -1061,10 +1102,12 @@ var Global = (function() {
             });
         };
 
+
+
         function navigativeActiveVid() {
             $('.next-btn').on('click', function() {
 
-                console.log('next');
+                // console.log('next');
                 // pause video
                 activeVid.get(0).pause();
                 killInterval();
@@ -1085,11 +1128,12 @@ var Global = (function() {
                 $('.page._active').parent().css('transform', 'translateX(' + -375 * (pageIndex) + 'px)');
 
                 playVideoOnActivePage();
+                // updateProgress();
 
             });
 
             $('.prev-btn').on('click', function() {
-                console.log('prev');
+                // console.log('prev');
                 // pause video
                 activeVid.get(0).pause();
                 killInterval();
@@ -1112,46 +1156,101 @@ var Global = (function() {
                 $('.page._active').parent().css('transform', 'translateX(' + -375 * (pageIndex) + 'px)');
 
                 playVideoOnActivePage();
-
+                // updateProgress();
             });
         }
 
         function playPauseActiveVideo() {
 
-            $('.page').on('click', function() {
+            var tlPause = new TimelineLite({});
+            var tlPlay = new TimelineLite({});
+            var $pause = $('.player-control.pause');
+            var $play = $('.player-control.play');
+            var dur = .6;
+
+            var timer = 7000;
+
+
+
+            $('.play-pause-btn').on('click', function() {
+
+                if (timer) {
+                    // console.log('in timer');
+                    clearTimeout(timer);
+                }
+
+                timer = setTimeout(playPause, 250);
+            });
+
+            function playPause() {
                 activeVid = $('.idea-pin._active').find('.page._active').find('video');
-                // console.log(activeVid);
+                killInterval();
+                // tl.restart();
+                // console.log('play pause ran');
                 // e.stopPropagation();
-                console.log('active video clicked');
+                // console.log('active video clicked');
                 if (activeVid.get(0).currentTime > 0 && !activeVid.get(0).ended && !activeVid.get(0).paused && activeVid.get(0).readyState > 2) {
+
+                    // video is playing
+
+
+                    tlPause.to($pause, dur, {
+                        ease: Elastic.easeOut.config(1, 0.3),
+                        scale: 1,
+                        opacity: 1
+                    });
+                    tlPause.to($pause, dur * 0.5, {
+                        ease: Power2.easeOut,
+                        scale: 1,
+                        opacity: 0
+                    }, "+=.5");
+                    tlPause.set($pause, {
+                        clearProps: "all"
+                    });
+
                     console.log('pause video');
                     activeVid.get(0).pause();
-                    killInterval();
                 } else {
-                    console.log('play');
+
+
+                    tlPlay.to($play, dur, {
+                        ease: Elastic.easeOut.config(1, 0.3),
+                        scale: 1,
+                        opacity: 1
+                    });
+                    tlPlay.to($play, dur * 0.5, {
+                        ease: Power2.easeOut,
+                        scale: 1,
+                        opacity: 0
+                    }, "+=.5");
+                    tlPlay.set($play, {
+                        clearProps: "all"
+                    });
+
+                    // console.log('play');
                     activeVid.get(0).play();
                     updateProgress();
                 }
-            });
+            }
         }
 
         function updateProgress() {
+            clearInterval(interval);
+            interval = null;
+            // console.log('no interval set yet');
             interval = setInterval(function() {
                 progress = activeVid.get(0).currentTime / activeVid.get(0).duration * 100;
                 $progressBar.css('width', progress + '%');
 
-                // console.log('ran');
+                // console.log('progress is running');
             }, 100);
-
         }
 
         function killInterval() {
             clearInterval(interval);
+            interval = null;
         }
 
-        // setInterval(function() {
-        //     updateProgress();
-        // }, 200);
     }
 
     function starGrid() {

@@ -15,7 +15,7 @@ var lastPinData = public.content.ideapin._data.thelastpin;
 	<div class="splide__track">
 		<div class="splide__list">
 			<% for ( var i=0; i < ideaPinData.length; i++ ) { %>
-			<div class="idea-pin <%= ideaPinData[i].class %> splide__slide">
+			<div class="idea-pin <%= ideaPinData[i].class %>">
 				<div class="pages-progress">
 					<% for ( var j=0; j < ideaPinData[i].pages.length; j++ ) { %>
 					<div class="progress-wrap">
@@ -23,14 +23,18 @@ var lastPinData = public.content.ideapin._data.thelastpin;
 					</div>
 					<% } %>
 				</div>
+					<div class="player-control play"></div>
+					<div class="player-control pause"></div>
 				<div class="page-container">
+
 					<% for ( var k=0; k < ideaPinData[i].pages.length; k++ ) { %>
-						<div class="page <%= ideaPinData[i].pages[k].class %>">
-							<div class="next-btn"></div>
-							<div class="prev-btn"></div>
-							<div class="video-skrim"></div>
-							<video id='<%= ideaPinData[i].pages[k].src %>' preload=true muted=true ><source type="video/mp4" src="assets/videos/<%= ideaPinData[i].pages[k].src %>.mp4"></video>
-						</div>
+					<div class="page <%= ideaPinData[i].pages[k].class %>">
+						<div class="play-pause-btn"></div>
+						<div class="next-btn"></div>
+						<div class="prev-btn"></div>
+						<div class="video-skrim"></div>
+					<video id='<%= ideaPinData[i].pages[k].src %>' preload=true muted=true ><source type="video/mp4" src="assets/videos/<%= ideaPinData[i].pages[k].src %>.mp4"></video>
+				</div>
 				<% } %>
 			</div>
 			<div class="attribution">
@@ -67,35 +71,8 @@ var lastPinData = public.content.ideapin._data.thelastpin;
 				</ul>
 			</div>
 		</div>
-		<% for ( var q=0; q < lastPinData.length; q++ ) { %>
 
-
-
-			<div class="idea-pin <%= lastPinData[q].class %>">
-				<div class="pages-progress">
-					<% for ( var w=0; w < lastPinData[q].pages.length; w++ ) { %>
-					<div class="progress-wrap">
-						<div class="progress"></div>
-					</div>
-					<% } %>
-				</div>
-				<div class="page-container">
-					<% for ( var e=0; e < lastPinData[q].pages.length; e++ ) { %>
-					<div class="page <%= lastPinData[q].pages[e].class %>">
-					<video id='<%= lastPinData[q].pages[e].src %>' preload=true muted=true ><source type="video/mp4" src="assets/videos/<%= lastPinData[q].pages[e].src %>.mp4"></video>
-				</div>
-				<% } %>
-			</div>
-		</div>
-
-
-
-<% } %>
-		<% } %>
-	</div>
+	<% } %>
 </div>
-
-
-
-
+</div>
 </div>

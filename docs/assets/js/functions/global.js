@@ -227,7 +227,7 @@ var Global = (function() {
     function showToast() {
         var $toast = $('.toast');
         var tl = new TimelineLite({});
-        var dur = .45;
+        var dur = .35;
 
         tl.to($toast, dur * 1.5, {
             ease: Back.easeOut.config(1.7),

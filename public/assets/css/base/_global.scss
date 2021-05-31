@@ -26,6 +26,12 @@ body {
   &._overlay-is-on {
     overflow-y: hidden;
   }
+
+  &._profile-is-on {
+    .pin-grid {
+      display: none;
+    }
+  }
   @include lego-mode {
     background-color: $black;
   }
@@ -63,6 +69,10 @@ body {
 .bubbles {
   padding-top: 104px;
   font-size: 0;
+display: block;
+  ._profile-is-on & {
+    display: none;
+  }
   li {
     display: inline-block;
     // background-color: teal;
@@ -140,18 +150,23 @@ position: relative;
   ._stream-is-on & {
     bottom: -100px;
   }
+
   .nav-list {
     opacity: .57;
-&:hover,
-&._active {
-  cursor: pointer;
-  opacity: 1;
+    &:hover,
+    &._active {
+      cursor: pointer;
+      opacity: 1;
 }
     &.profile {
           border-radius: 100%;
     overflow: hidden;
     font-size: 0;
     opacity: 1;
+    position: relative;
+      &._active {
+    box-shadow: 0 0 0 2px $white, 0 0 0 4px $darkest;
+  }
     }
   }
   img {

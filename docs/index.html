@@ -326,7 +326,11 @@
 </div>
 </div>
 		<div class="overlay"></div>
-				<div class="board-picker-sheet">
+		
+
+
+
+		<div class="board-picker-sheet">
 			<div class="sheet-header">
 				<div class="icon-button close"></div>
 				<div class="sheet-title">Organize to board</div>
@@ -336,69 +340,117 @@
 				Top choice
 			</div>
 			<ul class="board-lists">
+				
+
 				<li data-dest="profile" class="board-list profile">
 					<div class="board-list-img">
 						<img src="assets/images/boards-cover/save-to-profile.svg" alt="">
 					</div>
 					<div class="board-title">Organize later</div>
 				</li>
-				<li data-dest="Portraits" class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/boards-cover/portraits.png" alt="">
-					</div>
-					<div class="board-title">Portraits</div>
-				</li>
-				<li data-dest="random" class="board-list">
+				
+
+				<li data-dest="random" class="board-list profile">
 					<div class="board-list-img">
 						<img src="assets/images/boards-cover/random.png" alt="">
 					</div>
-					<div class="board-title">Random</div>
+					<div class="board-title">random</div>
 				</li>
+				
+
+				<li data-dest="portraits" class="board-list profile">
+					<div class="board-list-img">
+						<img src="assets/images/boards-cover/portraits.png" alt="">
+					</div>
+					<div class="board-title">portraits</div>
+				</li>
+				
 			</ul>
 			<div class="board-picker-sheet-subhead">
 				All boards
 			</div>
 			<ul class="board-lists">
-				<li data-dest="apron" class="board-list">
+				
+
+				<li data-dest="apron" class="board-list profile">
 					<div class="board-list-img">
 						<img src="assets/images/boards-cover/apron.png" alt="">
 					</div>
-					<div class="board-title">Apron</div>
+					<div class="board-title">apron</div>
 				</li>
-				<li data-dest="baby" class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/boards-cover/baby.png" alt="">
-					</div>
-					<div class="board-title">Baby</div>
-				</li>
-				<li data-dest="blaschka" class="board-list">
+			
+
+				<li data-dest="blaschka" class="board-list profile">
 					<div class="board-list-img">
 						<img src="assets/images/boards-cover/blaschka.png" alt="">
 					</div>
-					<div class="board-title">Blaschka</div>
+					<div class="board-title">blaschka</div>
 				</li>
-				<li data-dest="carabiner" class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/boards-cover/carabiner.png" alt="">
-					</div>
-					<div class="board-title">Carabiner</div>
-				</li>
-				<li data-dest="illustrations" class="board-list">
+			
+
+				<li data-dest="illustrations" class="board-list profile">
 					<div class="board-list-img">
 						<img src="assets/images/boards-cover/illustrations.png" alt="">
 					</div>
-					<div class="board-title">Illustrations</div>
+					<div class="board-title">illustrations</div>
 				</li>
+			
+
+				<li data-dest="portraits" class="board-list profile">
+					<div class="board-list-img">
+						<img src="assets/images/boards-cover/portraits.png" alt="">
+					</div>
+					<div class="board-title">portraits</div>
+				</li>
+			
+
+				<li data-dest="baby" class="board-list profile">
+					<div class="board-list-img">
+						<img src="assets/images/boards-cover/baby.png" alt="">
+					</div>
+					<div class="board-title">baby</div>
+				</li>
+			
+
+				<li data-dest="design" class="board-list profile">
+					<div class="board-list-img">
+						<img src="assets/images/boards-cover/design.png" alt="">
+					</div>
+					<div class="board-title">design</div>
+				</li>
+			
+
+				<li data-dest="carabiner" class="board-list profile">
+					<div class="board-list-img">
+						<img src="assets/images/boards-cover/carabiner.png" alt="">
+					</div>
+					<div class="board-title">carabiner</div>
+				</li>
+			
+
+				<li data-dest="random" class="board-list profile">
+					<div class="board-list-img">
+						<img src="assets/images/boards-cover/random.png" alt="">
+					</div>
+					<div class="board-title">random</div>
+				</li>
+			
 			</ul>
 		</div>
+
 		<div class="toast">
+	<div class="toast-leading">
 			<div class="toast-img-wrapper">
 				<img src="assets/images/a-4.png" alt="">
 			</div>
 			<div class="toast-text">
 				Saved to <span>Profile</span>
 			</div>
-		</div>
+			</div>
+			<div class="toast-trailing">
+				<div class="button-sml secondary">Undo</div>
+			</div>
+</div>
 				<div class="floating-nav">
 			<ul class="nav-items">
 				<li class="nav-list home _active">
@@ -426,6 +478,21 @@
 					<li class="">Following</li>
 				</ul>
 			</div>
+			<div class="profile-navigation-bar">
+	<div class="profile-leading">
+		<div class="profile-avatar">
+			<img src="assets/images/a-4.png" alt="">
+		</div>
+		<div class="profile-title">jnewman</div>
+	</div>
+
+	<div class="profile-trailing">
+		<div class="profile-icon add"></div>
+		<div class="profile-icon search"></div>
+		<div class="profile-icon settings"></div>
+	</div>
+</div>
+
 			<div class="icon-button back"></div>
 			<div class="closeup scroll-area">
 				
@@ -443,7 +510,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-1" id="heart-1"></div>
+				<div data-id="1" class="save-btn heart-1" id="heart-1"></div>
 			</div>
 		</div>
 	</div>
@@ -460,7 +527,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-2" id="heart-2"></div>
+				<div data-id="2" class="save-btn heart-2" id="heart-2"></div>
 			</div>
 		</div>
 	</div>
@@ -477,7 +544,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-3" id="heart-3"></div>
+				<div data-id="3" class="save-btn heart-3" id="heart-3"></div>
 			</div>
 		</div>
 	</div>
@@ -494,7 +561,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-4" id="heart-4"></div>
+				<div data-id="4" class="save-btn heart-4" id="heart-4"></div>
 			</div>
 		</div>
 	</div>
@@ -511,7 +578,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-5" id="heart-5"></div>
+				<div data-id="5" class="save-btn heart-5" id="heart-5"></div>
 			</div>
 		</div>
 	</div>
@@ -528,7 +595,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-6" id="heart-6"></div>
+				<div data-id="6" class="save-btn heart-6" id="heart-6"></div>
 			</div>
 		</div>
 	</div>
@@ -545,7 +612,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-7" id="heart-7"></div>
+				<div data-id="7" class="save-btn heart-7" id="heart-7"></div>
 			</div>
 		</div>
 	</div>
@@ -562,7 +629,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-8" id="heart-8"></div>
+				<div data-id="8" class="save-btn heart-8" id="heart-8"></div>
 			</div>
 		</div>
 	</div>
@@ -579,7 +646,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-9" id="heart-9"></div>
+				<div data-id="9" class="save-btn heart-9" id="heart-9"></div>
 			</div>
 		</div>
 	</div>
@@ -596,7 +663,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-10" id="heart-10"></div>
+				<div data-id="10" class="save-btn heart-10" id="heart-10"></div>
 			</div>
 		</div>
 	</div>
@@ -613,7 +680,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-11" id="heart-11"></div>
+				<div data-id="11" class="save-btn heart-11" id="heart-11"></div>
 			</div>
 		</div>
 	</div>
@@ -630,7 +697,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-12" id="heart-12"></div>
+				<div data-id="12" class="save-btn heart-12" id="heart-12"></div>
 			</div>
 		</div>
 	</div>
@@ -647,7 +714,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-13" id="heart-13"></div>
+				<div data-id="13" class="save-btn heart-13" id="heart-13"></div>
 			</div>
 		</div>
 	</div>
@@ -664,7 +731,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-14" id="heart-14"></div>
+				<div data-id="14" class="save-btn heart-14" id="heart-14"></div>
 			</div>
 		</div>
 	</div>
@@ -681,7 +748,7 @@
 
 			<div class="main-card-button-wrap">
 				<div class="button secondary">Visit</div>
-				<div class="save-btn heart-15" id="heart-15"></div>
+				<div data-id="15" class="save-btn heart-15" id="heart-15"></div>
 			</div>
 		</div>
 	</div>
@@ -841,6 +908,270 @@
 	
 </div>
 </div>
+			</div>
+			<div class="profile scroll-area">
+				
+
+
+
+<div class="profile-tabs">
+	<div class="tab shop"></div>
+	<div class="tab saved"></div>
+</div>
+
+<section class="boards">
+
+
+	<div class="board">
+		<div class="board-rep">
+			<div class="br-leading"></div>
+			<div class="br-trailing">
+				<div class="top"></div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="board-meta">
+			<div class="board-title">
+				apron
+			</div>
+			<div class="board-pin-count">
+				65 Pins
+			</div>
+		</div>
+	</div>
+	
+	<div class="board">
+		<div class="board-rep">
+			<div class="br-leading"></div>
+			<div class="br-trailing">
+				<div class="top"></div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="board-meta">
+			<div class="board-title">
+				blaschka
+			</div>
+			<div class="board-pin-count">
+				12 Pins
+			</div>
+		</div>
+	</div>
+	
+	<div class="board">
+		<div class="board-rep">
+			<div class="br-leading"></div>
+			<div class="br-trailing">
+				<div class="top"></div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="board-meta">
+			<div class="board-title">
+				illustrations
+			</div>
+			<div class="board-pin-count">
+				43 Pins
+			</div>
+		</div>
+	</div>
+	
+	<div class="board">
+		<div class="board-rep">
+			<div class="br-leading"></div>
+			<div class="br-trailing">
+				<div class="top"></div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="board-meta">
+			<div class="board-title">
+				portraits
+			</div>
+			<div class="board-pin-count">
+				75 Pins
+			</div>
+		</div>
+	</div>
+	
+	<div class="board">
+		<div class="board-rep">
+			<div class="br-leading"></div>
+			<div class="br-trailing">
+				<div class="top"></div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="board-meta">
+			<div class="board-title">
+				baby
+			</div>
+			<div class="board-pin-count">
+				12 Pins
+			</div>
+		</div>
+	</div>
+	
+	<div class="board">
+		<div class="board-rep">
+			<div class="br-leading"></div>
+			<div class="br-trailing">
+				<div class="top"></div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="board-meta">
+			<div class="board-title">
+				design
+			</div>
+			<div class="board-pin-count">
+				54 Pins
+			</div>
+		</div>
+	</div>
+	
+	<div class="board">
+		<div class="board-rep">
+			<div class="br-leading"></div>
+			<div class="br-trailing">
+				<div class="top"></div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="board-meta">
+			<div class="board-title">
+				carabiner
+			</div>
+			<div class="board-pin-count">
+				15 Pins
+			</div>
+		</div>
+	</div>
+	
+	<div class="board">
+		<div class="board-rep">
+			<div class="br-leading"></div>
+			<div class="br-trailing">
+				<div class="top"></div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="board-meta">
+			<div class="board-title">
+				random
+			</div>
+			<div class="board-pin-count">
+				176 Pins
+			</div>
+		</div>
+	</div>
+	
+</section>
+
+<section class="unorganized-pins">
+	<div class="unorganized-pin-toolbar">
+		<div class="title">
+			Organize later
+		</div>
+		<div class="button-sml">Organize</div>
+	</div>
+	<div class="unorganized-pins-wrap">
+		
+			<div id="uop-1" class="uop-pin _hidden">
+				<img src="assets/images/2.png" alt="">
+			</div>
+		
+			<div id="uop-2" class="uop-pin _hidden">
+				<img src="assets/images/1.png" alt="">
+			</div>
+		
+			<div id="uop-3" class="uop-pin _hidden">
+				<img src="assets/images/3.png" alt="">
+			</div>
+		
+			<div id="uop-4" class="uop-pin _hidden">
+				<img src="assets/images/4.png" alt="">
+			</div>
+		
+			<div id="uop-5" class="uop-pin _hidden">
+				<img src="assets/images/5.png" alt="">
+			</div>
+		
+			<div id="uop-6" class="uop-pin _hidden">
+				<img src="assets/images/6.png" alt="">
+			</div>
+		
+			<div id="uop-7" class="uop-pin _hidden">
+				<img src="assets/images/7.png" alt="">
+			</div>
+		
+			<div id="uop-8" class="uop-pin _hidden">
+				<img src="assets/images/8.png" alt="">
+			</div>
+		
+			<div id="uop-9" class="uop-pin _hidden">
+				<img src="assets/images/9.png" alt="">
+			</div>
+		
+			<div id="uop-10" class="uop-pin _hidden">
+				<img src="assets/images/10.png" alt="">
+			</div>
+		
+			<div id="uop-11" class="uop-pin _hidden">
+				<img src="assets/images/11.png" alt="">
+			</div>
+		
+			<div id="uop-12" class="uop-pin _hidden">
+				<img src="assets/images/12.png" alt="">
+			</div>
+		
+			<div id="uop-13" class="uop-pin _hidden">
+				<img src="assets/images/13.png" alt="">
+			</div>
+		
+			<div id="uop-14" class="uop-pin _hidden">
+				<img src="assets/images/14.png" alt="">
+			</div>
+		
+			<div id="uop-15" class="uop-pin _hidden">
+				<img src="assets/images/15.png" alt="">
+			</div>
+		
+			
+			<div class="uop-pin">
+				<img src="assets/images/food/2.png" alt="">
+			</div>
+		
+			<div class="uop-pin">
+				<img src="assets/images/food/1.png" alt="">
+			</div>
+		
+			<div class="uop-pin">
+				<img src="assets/images/food/3.png" alt="">
+			</div>
+		
+			<div class="uop-pin">
+				<img src="assets/images/food/4.png" alt="">
+			</div>
+		
+			<div class="uop-pin">
+				<img src="assets/images/food/5.png" alt="">
+			</div>
+		
+			<div class="uop-pin">
+				<img src="assets/images/food/6.png" alt="">
+			</div>
+		
+			<div class="uop-pin">
+				<img src="assets/images/food/7.png" alt="">
+			</div>
+		
+			<div class="uop-pin">
+				<img src="assets/images/food/8.png" alt="">
+			</div>
+		
+	</div>
+</section>
 			</div>
 			<div class="pingrid scroll-area">
 				<ul class="bubbles">

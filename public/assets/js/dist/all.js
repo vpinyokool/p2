@@ -470,298 +470,18 @@ var Global = (function() {
         }
     }, false);
 
-    function reactionAnimation() {
-        var sPath = window.location.pathname;
-        var pathPrefix = '../assets/animation/';
+    function profileScroll(scrollpos) {
+        var ps;
+        var el = $('.profile-navigation-bar');
+        $('.profile.scroll-area').on('scroll', function() {
+            cst = $(this).scrollTop();
 
-        if (sPath == "/tag-three.html" || sPath == "/boards-2020/tag-three.html") {
-            pathPrefix = 'assets/animation/';
-            console.log('on-tag-three-page. path is ' + pathPrefix);
-        } else {
-            console.log('NOT on-tag-three-page. on b page path is ' + pathPrefix + 'wanna-try.json');
-        }
-
-
-        var pinCount = 15;
-        var wannaTry = [];
-        var triedIt = [];
-        var loveIt = [];
-        var maybe = [];
-        for (var i = 0; i < pinCount; i++) {
-
-            wannaTry[i + 1] = lottie.loadAnimation({
-                container: document.getElementById('wanna-try-' + [i + 1]),
-                renderer: 'svg',
-                loop: false,
-                autoplay: false,
-                path: pathPrefix + 'wanna-try.json'
-            });
-
-
-            triedIt[i + 1] = lottie.loadAnimation({
-                container: document.getElementById('tried-it-' + [i + 1]),
-                renderer: 'svg',
-                loop: false,
-                autoplay: false,
-                path: pathPrefix + 'tried-it.json'
-            });
-
-            loveIt[i + 1] = lottie.loadAnimation({
-                container: document.getElementById('love-it-' + [i + 1]),
-                renderer: 'svg',
-                loop: false,
-                autoplay: false,
-                path: pathPrefix + 'love-it.json'
-            });
-
-            maybe[i + 1] = lottie.loadAnimation({
-                container: document.getElementById('maybe-' + [i + 1]),
-                renderer: 'svg',
-                loop: false,
-                autoplay: false,
-                path: pathPrefix + 'maybe.json'
-            });
-        }
-
-        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-        var obj;
-
-        function deselectReaction(ele, value) {
-            if (ele.parent().parent().find('._active').length >= 1) {
-                var reactionData = ele.parent().parent().find('._active').data('reaction');
-                if (reactionData == 'triedIt') {
-                    obj = triedIt;
-                }
-                if (reactionData == 'loveIt') {
-                    obj = loveIt;
-                }
-                if (reactionData == 'maybe') {
-                    obj = maybe;
-                }
-                if (reactionData == 'wannaTry') {
-                    obj = wannaTry;
-                }
-                // console.log(reactionData);
-                obj[value].playSegments([48, 62], true);
-            }
-        }
-        $.each(arr, function(index, value) {
-            $('#wanna-try-' + value).on('click', function() {
-                deselectReaction($(this), value);
-                wannaTry[value].playSegments([0, 47], true);
-            });
-
-            $('#tried-it-' + value).on('click', function() {
-                deselectReaction($(this), value);
-                triedIt[value].playSegments([0, 47], true);
-            });
-
-            $('#love-it-' + value).on('click', function() {
-                deselectReaction($(this), value);
-                loveIt[value].playSegments([0, 47], true);
-            });
-
-            $('#maybe-' + value).on('click', function() {
-                deselectReaction($(this), value);
-                maybe[value].playSegments([0, 47], true);
-            });
-        });
-    }
-
-    function reactionGrid() {
-        // init Isotope
-        var $grid = $('.masonry-layout').isotope({
-            itemSelector: '.item',
-            stagger: 30,
-            masonry: {
-                columnWidth: 176,
-                gutter: 8,
-                horizontalOrder: true,
-                fitWidth: true,
-                originLeft: true
-            }
-        });
-
-        function renderGrid() {
-            $grid.imagesLoaded().done(function(instance, image) {
-                // var $item = $(image.img);
-                $grid.isotope('layout');
-                $('.masonry-layout .item').addClass('_loaded');
-                // $item.css({
-                //     "opacity": "1",
-                //     "transition-delay": Math.random() + "s"
-                // });
-            });
-        }
-
-        renderGrid();
-
-        var isotope = $grid.data('isotope');
-        var currentReactionID;
-        var currentPinItem;
-
-        function filtering(el, name) {
-            // update state
-            $('.reaction-btn').removeClass('_active');
-            el.addClass('_active');
-
-            // update masonry
-            $grid.isotope('layout');
-
-            // get id
-            currentReactionID = el.parent().parent().data('closeup-id');
-            currentPinItem = $('.pin-id-' + currentReactionID);
-            // add state to grid item
-            currentPinItem.removeClass('love-it wanna-try maybe tried-it');
-            currentPinItem.addClass(name);
-            currentPinItem.find('.reaction-marker').addClass('_hidden');
-            currentPinItem.find('span.' + name).removeClass('_hidden');
-        }
-
-        $('.wanna-try-btn').on('click', function() {
-            filtering($(this), 'wanna-try');
-        });
-
-        //
-        $('.love-it-btn').on('click', function() {
-            filtering($(this), 'love-it');
-        });
-        //
-        $('.tried-it-btn').on('click', function() {
-            filtering($(this), 'tried-it');
-        });
-        //
-        $('.maybe-btn').on('click', function() {
-            filtering($(this), 'maybe');
-        });
-
-
-        ////////////
-
-        // bind filter button click
-        var filterLists = $('.filter-sheet li');
-        var pinCountString;
-        var emptyStateString;
-        filterLists.on('click', function() {
-            filterLists.removeClass('_active');
-            $(this).addClass('_active');
-            var filterValue = $(this).attr('data-filter');
-            $grid.isotope({
-                filter: filterValue
-            });
-            if ($(this).attr('data-filter') == '*') {
-                $('.show-sheet').removeClass('_active');
-                $('.show-sheet').text('Filter');
+            if (cst > scrollpos) {
+                el.addClass('_active');
             } else {
-                $('.show-sheet').addClass('_active');
-                $('.show-sheet').text('Filter(1)');
-            }
-            updateReactionPinCount();
-            $('body').removeClass('_sheet-is-on');
-
-            if ($(this).attr('data-filter') == '*') {
-                pinCountString = '';
-                emptyStateString = '';
-            }
-            if ($(this).attr('data-filter') == '.wanna-try') {
-                pinCountString = ' with wanna try';
-                emptyStateString = ' with wanna try';
-            }
-            if ($(this).attr('data-filter') == '.tried-it') {
-                pinCountString = ' with Tried it';
-                emptyStateString = ' with Tried it';
-            }
-            if ($(this).attr('data-filter') == '.love-it') {
-                pinCountString = ' with Love it';
-                emptyStateString = ' with Love it';
-            }
-            if ($(this).attr('data-filter') == '.maybe') {
-                pinCountString = ' with maybe';
-                emptyStateString = ' with maybe';
-            }
-
-            if ($(this).attr('data-filter') == '.with-notes') {
-                pinCountString = ' with notes';
-                emptyStateString = ' with notes';
-            }
-
-            $('span.reaction').text(pinCountString);
-            $('span.empty-reaction').text(emptyStateString);
-        });
-
-        function updateReactionPinCount() {
-            $('.pin-count span').text(isotope.filteredItems.length + ' ');
-            if (isotope.filteredItems.length == 0) {
-                $('.empty-state').removeClass('_hidden');
-            } else {
-                $('.empty-state').addClass('_hidden');
-            }
-        }
-    }
-
-    function autoTags() {
-        // init Isotope
-        var $grid = $('.masonry-layout').isotope({
-            itemSelector: '.item',
-            stagger: 30,
-            masonry: {
-                columnWidth: 176,
-                gutter: 8,
-                horizontalOrder: true,
-                fitWidth: true,
-                originLeft: true
+                el.removeClass('_active');
             }
         });
-
-        $grid.imagesLoaded().done(function(instance, image) {
-            // var $item = $(image.img);
-            $grid.isotope('layout');
-            $('.masonry-layout .item').addClass('_loaded');
-            // $item.css({
-            //     "opacity": "1",
-            //     "transition-delay": Math.random() + "s"
-            // });
-        });
-        // filter functions
-        var filterFns = {
-
-            starsGreaterThan4: function() {
-                var number = $(this).find('.number').text();
-                $('.number-wrap').removeClass('_hidden');
-                return parseInt(number) > 3;
-            },
-
-            lessThan30: function() {
-                var time = $(this).find('.time').text();
-                $('.time-wrap').removeClass('_hidden');
-                return parseInt(time) < 30;
-
-            },
-
-            serve2: function() {
-                var serve = $(this).find('.serve').text();
-                $('.serve-wrap').removeClass('_hidden');
-                return parseInt(serve) == 2;
-            }
-        };
-        // bind filter button click
-        $('.auto-generate-tags-bar .button-sml').on('click', function() {
-            $('.time-wrap').addClass('_hidden');
-            $('.serve-wrap').addClass('_hidden');
-            $('.number-wrap').addClass('_hidden');
-            var filterValue = $(this).attr('data-filter');
-            // use filterFn if matches value
-            filterValue = filterFns[filterValue] || filterValue;
-            $grid.isotope({
-                filter: filterValue
-            });
-        });
-        // change is-checked class on buttons
-        $('.auto-generate-tags-bar .button-sml').on('click', function() {
-            $('.button-sml').removeClass('_is-checked');
-            $(this).addClass('_is-checked');
-        });
-
     }
 
     function updateCloseupState(scrollpos) {
@@ -863,6 +583,7 @@ var Global = (function() {
 
         //
         var pinCount = 15;
+        var curPinID;
         var anim = [];
         for (var i = 0; i < pinCount; i++) {
             anim[i + 1] = lottie.loadAnimation({
@@ -878,15 +599,37 @@ var Global = (function() {
         var arr = Array.from({
             length: pinCount
         }, (_, i) => i + 1)
+        $('.icon-button.close').on('click', function() {
+            closeBoardPicker();
+        });
+
+        function closeBoardPicker() {
+            console.log('ran');
+            $('.board-picker-sheet').removeClass('_active');
+
+            $body.removeClass('_sheet-is-on');
+
+            $('.toast-text span').html('profile');
+            $('.toast-img-wrapper').html(
+                '<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>'
+            );
+
+            // save to profile anyway
+            curPinID = $('body').attr('data-cu-id');
+            $('#uop-' + curPinID).removeClass('_hidden');
+
+            showToast();
+        }
         $.each(arr, function(index, value) {
             $('.heart-' + value).on('click', function() {
+
+                // if you you already saved, unsaveed
                 if ($('.heart-' + value).hasClass('_active')) {
                     $('.heart-' + value).removeClass('_active');
                     $('.pin-id-' + value).removeClass('heart');
                     anim[value].playSegments([60, 119], true);
-                    // anim[value].goToAndStop(0, true);
 
-
+                    // if not save
                 } else {
                     $('.heart-' + value).addClass('_active');
                     $('.pin-id-' + value).addClass('heart');
@@ -899,6 +642,17 @@ var Global = (function() {
                     }, 1500);
 
                     $('.board-list').on('click', function() {
+
+                        // show pin in profile uop if saved without organization
+                        if ($(this).data('dest') == 'profile') {
+
+                            // get pin id, then find pin idea on profile and unhide
+                            curPinID = $('body').attr('data-cu-id');
+                            $('#uop-' + curPinID).removeClass('_hidden');
+                        }
+
+
+                        // update states + show toast
                         $('.board-picker-sheet').removeClass('_active');
                         $body.removeClass('_sheet-is-on');
                         $('.toast-text span').html($(this).data('dest'));
@@ -908,18 +662,11 @@ var Global = (function() {
                         showToast();
                     });
 
-                    $('.icon-button.close').on('click', function() {
-                        $('.board-picker-sheet').removeClass('_active');
+                    // $('.icon-button.close').on('click', function() {
+                    //     closeBoardPicker();
+                    // });
 
-                        $body.removeClass('_sheet-is-on');
 
-                        $('.toast-text span').html('profile');
-                        $('.toast-img-wrapper').html(
-                            '<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>'
-                        );
-                        showToast();
-
-                    });
 
                 }
 
@@ -957,265 +704,38 @@ var Global = (function() {
         });
     };
 
-    function optionalNote() {
 
-        var $grid = $('.masonry-layout').isotope({
-            itemSelector: '.item',
-            stagger: 30,
-            masonry: {
-                columnWidth: 176,
-                gutter: 8,
-                horizontalOrder: true,
-                fitWidth: true,
-                originLeft: true
-            }
-        });
-
-        var input = $('.note-composer-input');
-        var submit = $('.button-confirm-note');
-        var deleteNote = $('.button-delete-note');
-        var editNote = $('.reaction-card-wrapper .button-sml');
-        var keyboardTrigger = $('.kb-trigger');
-        var currentCloseupID;
-        var curPrivateNote;
-        var curCloseupPrivateNote;
-
-        function deleteNoteButton() {
-            if (input.val() != '') {
-                deleteNote.removeClass('_hidden');
-            } else {
-                deleteNote.addClass('_hidden');
-            }
-        }
-
-        function deletePrivateNote(id, value) {
-
-            // update the grid
-            $('.pin-id-' + id + ' .pin-note').text(value);
-            $('.pin-id-' + id + ' .pin-note').addClass('_hidden');
-
-            // remove .with-notes class to pin
-            $('.pin-id-' + id).removeClass('with-notes');
-
-            // update masonry
-            $grid.isotope('layout');
-
-            // show the input
-            $('.reaction-card-wrapper.cu-' + id + ' .note-input').removeClass('_hidden');
-
-            // hide edit button
-            $('.reaction-card-wrapper.cu-' + id + ' .button-sml').addClass('_hidden');
-
-            // hide the note
-            $('.reaction-card-wrapper.cu-' + id + ' .private-note').addClass('_hidden');
-
-            // hide the title (tag a only)
-            $('.reaction-card-wrapper.cu-' + id + ' .cu-title').addClass('_hidden');
-
-            // hide note trigger wrap (tag a only)
-            $('.reaction-card-wrapper.cu-' + id + ' .note-trigger-wrap').removeClass('_hidden');
-
-
-        }
-
-        keyboardTrigger.on('click', function() {
-            $('body').addClass('_keyboard-is-on');
-            input.val('');
-            deleteNoteButton();
-
-            setTimeout(function() {
-                input.focus();
-            }, 450);
-        });
-
-        input.on('keyup', function() {
-            deleteNoteButton();
-        });
-
-        submit.on('click', function() {
-            $('body').removeClass('_keyboard-is-on');
-            curPrivateNote = input.val();
-            currentCloseupID = $('body').data('cu-id');
-
-            // move note to closeup  module
-            $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .private-note span').text(curPrivateNote);
-
-            // add data to body
-            $('body').data('note-' + currentCloseupID, curPrivateNote);
-
-
-
-            // if val isn't empty
-            if (curPrivateNote.length > 0) {
-
-
-                // add note to Pin on grid and show the pin note + run masonry
-                $('.pin-id-' + currentCloseupID + ' .pin-note').text(curPrivateNote);
-                $('.pin-id-' + currentCloseupID + ' .pin-note').removeClass('_hidden');
-                $grid.isotope('layout');
-
-                // add .with-notes class to pin
-                $('.pin-id-' + currentCloseupID).addClass('with-notes');
-
-                // show the note
-                $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .private-note').removeClass('_hidden');
-
-                // show edit button
-                $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .button-sml').removeClass('_hidden');
-
-                // hide the input
-                $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .note-input').addClass('_hidden');
-
-                // show the title (tag a only)
-                $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .cu-title').removeClass('_hidden');
-
-                // hide note trigger wrap (tag a only)
-                $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .note-trigger-wrap').addClass('_hidden');
-
-                // if val us empty close the keyboard
-            } else {
-
-                deletePrivateNote(currentCloseupID, curPrivateNote);
-
-            }
-
-        });
-
-        // editing note
-        editNote.on('click', function() {
-            $('body').addClass('_keyboard-is-on');
-            deleteNoteButton();
-            var currentCloseupID = $('body').data('cu-id');
-
-            // get note data
-            curCloseupPrivateNote = $('body').data('note-' + currentCloseupID);
-            // add note to composer
-            input.val(curCloseupPrivateNote);
-            setTimeout(function() {
-                input.focus();
-            }, 450);
-        });
-        // deleting note
-        deleteNote.on('click', function() {
-            $('body').removeClass('_keyboard-is-on');
-            curPrivateNote = input.val();
-            currentCloseupID = $('body').data('cu-id');
-
-            // move note to closeup  module
-            $('.reaction-card-wrapper.cu-' + currentCloseupID + ' .private-note span').text(curPrivateNote);
-
-            // add data to body
-            $('body').data('note-' + currentCloseupID, curPrivateNote);
-
-
-            deletePrivateNote(currentCloseupID, curPrivateNote);
-        });
-    }
-
-    function organicTagsGrid() {
-
-        var input = $('.composer input');
-        var newTag;
-        var trimmedTag;
-        $('.new-tag').on('click', function() {
-            $('body').addClass('_keyboard-is-on');
-            input.val('');
-            setTimeout(function() {
-                input.focus();
-            }, 450);
-        });
-        $('#confirm-tag').on('click', function() {
-            $('body').removeClass('_keyboard-is-on');
-            newTag = input.val();
-            trimmedTag = newTag.replace(/\s+/g, '').replace(/,/g, '').toLowerCase();
-            var newFilterBtn = '<div data-filter=".' + trimmedTag + '" class="button-sml multiple">' + newTag + '</div>';
-            var newTagUI = '<div data-tag="' + trimmedTag + '" class="usg-tag button-sml">' + newTag + '</div>';
-
-            // add new ui to filter bar on grid
-            $('.usg-tag-bar').append(newFilterBtn);
-
-            // add new ui to label it module on closeup
-            $('.new-tag').before(newTagUI);
-
-        });
-        var $gridFour = $('.masonry-layout').isotope({
-            itemSelector: '.item',
-            masonry: {
-                columnWidth: 176,
-                gutter: 8,
-                horizontalOrder: true,
-                fitWidth: true,
-                originLeft: true
-            }
-        });
-        // layout the grid
-        $gridFour.imagesLoaded().done(function(instance, image) {
-            // var $item = $(image.img);
-            $gridFour.isotope('layout');
-            $('.masonry-layout .item').addClass('_loaded');
-            // $item.css({
-            //     "opacity": "1",
-            //     "transition-delay": Math.random() + "s"
-            // });
-        });
-        // click event
-        $('.usg-tags-wrap').on('click', '.usg-tag', function() {
-            // which tag
-            var curTag = $(this).data('tag');
-
-            // which pin
-            var curPin = $(this).parent().data('closeup-id');
-
-            // update state
-            if ($(this).hasClass('_active')) {
-                $(this).removeClass('_active');
-                // remove class to Pin
-                $('#pin-' + curPin).removeClass(curTag);
-            } else {
-                $(this).addClass('_active');
-                // add class to Pin
-                $('#pin-' + curPin).addClass(curTag);
-            }
-
-
-
-
-        });
-        var isotope = $gridFour.data('isotope');
-        // filtering on grid
-        $('.usg-tag-bar').on('click', '.button-sml', function() {
-            $('.usg-tag-bar .button-sml').removeClass('_is-checked');
-            $(this).addClass('_is-checked');
-            var filterValue = $(this).attr('data-filter');
-            $gridFour.isotope({
-                filter: filterValue
-            });
-
-            // show empty state if pin count is 0
-            if (isotope.filteredItems.length == 0) {
-                $('.empty-state').removeClass('_hidden');
-            } else {
-                $('.empty-state').addClass('_hidden');
-            }
-        });
-
-
-
-    }
 
     function states() {
         // console.log('ran');
         var $discover = $('.discover');
         var currentCloseupID;
+        var $profile = ($('.nav-list.profile'));
+        var $home = ($('.nav-list.home'));
         $discover.on('click', function() {
             $body.addClass('_stream-is-on');
         });
 
-        $('.item').on('click', function() {
+        $profile.on('click', function() {
+            $('.nav-list').removeClass('_active');
+            $(this).addClass('_active');
+            $body.addClass('_profile-is-on');
 
+            unorganizedPins();
+        });
+
+        $home.on('click', function() {
+            $('.nav-list').removeClass('_active');
+            $(this).addClass('_active');
+            $body.removeClass('_profile-is-on');
+        });
+
+        $('.item').on('click', function() {
             // get id
             currentCloseupID = $(this).data('closeup-id');
-            $('body').data('cu-id', currentCloseupID);
+            $body.attr('data-cu-id', currentCloseupID);
+
+            // $('body').data('info', '222');
 
             //  switch state
             $('body').addClass('_closeup-is-on');
@@ -1226,14 +746,12 @@ var Global = (function() {
             $('.cu-' + currentCloseupID).removeClass('_hidden');
             var imgHeight = $('.cu-' + currentCloseupID).find('img').height();
             // console.log(imgHeight);
-            // run backbutton function
 
+            // run backbutton function
             updateCloseupState(imgHeight);
         });
 
-        $('.pin-img-wrapper .star').click(function(e) {
-            e.stopPropagation();
-        });
+
 
 
         $('.icon-button.back').on('click', function() {
@@ -1269,6 +787,23 @@ var Global = (function() {
         });
 
 
+    }
+
+    function unorganizedPins() {
+        var $uop = $('.unorganized-pins-wrap').isotope({
+            itemSelector: '.uop-pin',
+            masonry: {
+                columnWidth: 114,
+                gutter: 8,
+                horizontalOrder: true,
+                fitWidth: true,
+                originLeft: true
+            }
+        });
+
+        $uop.imagesLoaded().progress(function() {
+            $uop.isotope('layout');
+        });
     }
 
     function likeThisGrid() {
@@ -1621,7 +1156,7 @@ var Global = (function() {
             var tlPlay = new TimelineLite({});
             var $pause = $('.player-control.pause');
             var $play = $('.player-control.play');
-            var dur = .6;
+            var dur = .2;
 
             var timer = 7000;
 
@@ -1650,15 +1185,15 @@ var Global = (function() {
 
 
                     tlPause.to($pause, dur, {
-                        ease: Elastic.easeOut.config(1, 0.3),
+                        ease: Power4.easeOut,
                         scale: 1,
                         opacity: 1
                     });
-                    tlPause.to($pause, dur * 0.5, {
+                    tlPause.to($pause, dur * 1, {
                         ease: Power2.easeOut,
                         scale: 1,
                         opacity: 0
-                    }, "+=.5");
+                    }, "+=.3");
                     tlPause.set($pause, {
                         clearProps: "all"
                     });
@@ -1669,15 +1204,15 @@ var Global = (function() {
 
 
                     tlPlay.to($play, dur, {
-                        ease: Elastic.easeOut.config(1, 0.3),
+                        ease: Power4.easeOut,
                         scale: 1,
                         opacity: 1
                     });
-                    tlPlay.to($play, dur * 0.5, {
+                    tlPlay.to($play, dur * 1, {
                         ease: Power2.easeOut,
                         scale: 1,
                         opacity: 0
-                    }, "+=.5");
+                    }, "+=.3");
                     tlPlay.set($play, {
                         clearProps: "all"
                     });
@@ -1785,18 +1320,15 @@ var Global = (function() {
         trunk8: trunk8,
         modal: modal,
         starGrid: starGrid,
-        autoTags: autoTags,
-        reactionGrid: reactionGrid,
         backButton: backButton,
         bodyMovin: bodyMovin,
-        reactionAnimation: reactionAnimation,
         likeThisGrid: likeThisGrid,
-        organicTagsGrid: organicTagsGrid,
-        optionalNote: optionalNote,
         hearting: hearting,
         boardPicker: boardPicker,
         showToast: showToast,
-        streams: streams
+        streams: streams,
+        profileScroll: profileScroll,
+        unorganizedPins: unorganizedPins
     }
 })();
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -1816,6 +1348,8 @@ var call = {
         Global.hearting();
         Global.boardPicker();
         Global.streams();
+        Global.profileScroll(32);
+        // Global.unorganizedPins();
 
     },
     init: function() {

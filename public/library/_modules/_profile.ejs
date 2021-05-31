@@ -1,0 +1,62 @@
+<%
+var homefeedData;
+var boardsData = public.content.boards._data.all;
+var demoData = public.content.homefeed._data.pins;
+var uopData = public.content.homefeed._data.foodPins;
+
+
+if (mode == "demo") {
+	homefeedData = demoData;
+}
+%>
+
+
+
+<div class="profile-tabs">
+	<div class="tab shop"></div>
+	<div class="tab saved"></div>
+</div>
+
+<section class="boards">
+
+<% for ( var i=0; i < boardsData.length; i++ ) { %>
+	<div class="board">
+		<div class="board-rep">
+			<div class="br-leading"></div>
+			<div class="br-trailing">
+				<div class="top"></div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+		<div class="board-meta">
+			<div class="board-title">
+				<%= boardsData[i].title %>
+			</div>
+			<div class="board-pin-count">
+				<%= boardsData[i].count %> Pins
+			</div>
+		</div>
+	</div>
+	<% } %>
+</section>
+
+<section class="unorganized-pins">
+	<div class="unorganized-pin-toolbar">
+		<div class="title">
+			Organize later
+		</div>
+		<div class="button-sml">Organize</div>
+	</div>
+	<div class="unorganized-pins-wrap">
+		<% for ( var i=0; i < homefeedData.length; i++ ) { %>
+			<div id="uop-<%= i + 1 %>"class="uop-pin _hidden">
+				<img src="<%= homefeedData[i].img %>" alt="">
+			</div>
+		<% } %>
+			<% for ( var j=0; j < uopData.length; j++ ) { %>
+			<div class="uop-pin">
+				<img src="<%= uopData[j].img %>" alt="">
+			</div>
+		<% } %>
+	</div>
+</section>

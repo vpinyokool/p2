@@ -15,6 +15,8 @@ var call = {
         Global.hearting();
         Global.boardPicker();
         Global.streams();
+        Global.profileScroll(32);
+        // Global.unorganizedPins();
 
     },
     init: function() {

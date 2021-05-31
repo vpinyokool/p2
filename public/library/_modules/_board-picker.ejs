@@ -1,3 +1,10 @@
+<%
+var topChoiceData = public.content.boards._data.topChoice;
+var allBoardsData = public.content.boards._data.all;
+%>
+
+
+
 		<div class="board-picker-sheet">
 			<div class="sheet-header">
 				<div class="icon-button close"></div>
@@ -8,58 +15,28 @@
 				Top choice
 			</div>
 			<ul class="board-lists">
-				<li data-dest="profile" class="board-list profile">
+				<% for ( var i=0; i < topChoiceData.length; i++ ) { %>
+
+				<li data-dest="<%= topChoiceData[i].src %>" class="board-list profile">
 					<div class="board-list-img">
-						<img src="assets/images/boards-cover/save-to-profile.svg" alt="">
+						<img src="assets/images/boards-cover/<%= topChoiceData[i].img %>" alt="">
 					</div>
-					<div class="board-title">Organize later</div>
+					<div class="board-title"><%= topChoiceData[i].title %></div>
 				</li>
-				<li data-dest="Portraits" class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/boards-cover/portraits.png" alt="">
-					</div>
-					<div class="board-title">Portraits</div>
-				</li>
-				<li data-dest="random" class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/boards-cover/random.png" alt="">
-					</div>
-					<div class="board-title">Random</div>
-				</li>
+				<% } %>
 			</ul>
 			<div class="board-picker-sheet-subhead">
 				All boards
 			</div>
 			<ul class="board-lists">
-				<li data-dest="apron" class="board-list">
+				<% for ( var j=0; j < allBoardsData.length; j++ ) { %>
+
+				<li data-dest="<%= allBoardsData[j].src %>" class="board-list profile">
 					<div class="board-list-img">
-						<img src="assets/images/boards-cover/apron.png" alt="">
+						<img src="assets/images/boards-cover/<%= allBoardsData[j].img %>" alt="">
 					</div>
-					<div class="board-title">Apron</div>
+					<div class="board-title"><%= allBoardsData[j].title %></div>
 				</li>
-				<li data-dest="baby" class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/boards-cover/baby.png" alt="">
-					</div>
-					<div class="board-title">Baby</div>
-				</li>
-				<li data-dest="blaschka" class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/boards-cover/blaschka.png" alt="">
-					</div>
-					<div class="board-title">Blaschka</div>
-				</li>
-				<li data-dest="carabiner" class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/boards-cover/carabiner.png" alt="">
-					</div>
-					<div class="board-title">Carabiner</div>
-				</li>
-				<li data-dest="illustrations" class="board-list">
-					<div class="board-list-img">
-						<img src="assets/images/boards-cover/illustrations.png" alt="">
-					</div>
-					<div class="board-title">Illustrations</div>
-				</li>
+			<% } %>
 			</ul>
 		</div>

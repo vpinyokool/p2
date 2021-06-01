@@ -7,55 +7,55 @@
 	},
 	{
 		"src" : "random",
-		"title": "random",
+		"title": "Random",
 		"img": "random.png"
 	},
 	{
 		"src" : "portraits",
-		"title": "portraits",
+		"title": "Portraits",
 		"img": "portraits.png"
 	}
 	],
 "all": [
 	{
 		"src" : "apron",
-		"title": "apron",
+		"title": "Apron",
 		"img": "apron.png",
 		"count": 65
 	},
 		{
 		"src" : "blaschka",
-		"title": "blaschka",
+		"title": "Blaschka",
 		"img": "blaschka.png",
 		"count": 12
 	},
 		{
 		"src" : "illustrations",
-		"title": "illustrations",
+		"title": "Illustrations",
 		"img": "illustrations.png",
 		"count": 43
 	},
 	{
 		"src" : "portraits",
-		"title": "portraits",
+		"title": "Portraits",
 		"img": "portraits.png",
 		"count": 75
 	},
 	{
 		"src" : "baby",
-		"title": "baby",
+		"title": "Baby",
 		"img": "baby.png",
 		"count": 12
 	},
 	{
 		"src" : "design",
-		"title": "design",
+		"title": "Design",
 		"img": "design.png",
 		"count": 54
 	},
 	{
 		"src" : "carabiner",
-		"title": "carabiner",
+		"title": "Carabiner",
 		"img": "carabiner.png",
 		"count": 15
 	},

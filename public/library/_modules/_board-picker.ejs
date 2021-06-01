@@ -17,7 +17,7 @@ var allBoardsData = public.content.boards._data.all;
 			<ul class="board-lists">
 				<% for ( var i=0; i < topChoiceData.length; i++ ) { %>
 
-				<li data-dest="<%= topChoiceData[i].src %>" class="board-list profile">
+				<li data-dest="<%= topChoiceData[i].src %>" data-toast="<%= topChoiceData[i].title %>" class="board-list profile">
 					<div class="board-list-img">
 						<img src="assets/images/boards-cover/<%= topChoiceData[i].img %>" alt="">
 					</div>
@@ -31,7 +31,7 @@ var allBoardsData = public.content.boards._data.all;
 			<ul class="board-lists">
 				<% for ( var j=0; j < allBoardsData.length; j++ ) { %>
 
-				<li data-dest="<%= allBoardsData[j].src %>" class="board-list profile">
+				<li data-dest="<%= allBoardsData[j].src %>" data-toast="<%= allBoardsData[j].title %>" class="board-list profile">
 					<div class="board-list-img">
 						<img src="assets/images/boards-cover/<%= allBoardsData[j].img %>" alt="">
 					</div>

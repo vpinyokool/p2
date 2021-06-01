@@ -1,7 +1,8 @@
 {
 	"index":{
 		"title":"Pinterest",
-		"layout": "library/_views/_layout"
+		"layout": "library/_views/_layout",
+		"username": "Jonathan"
 	},
 	"tag-one":{
 		"title":"Pinterest-Tags-1",

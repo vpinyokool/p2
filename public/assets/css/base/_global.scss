@@ -147,7 +147,8 @@ position: relative;
   bottom: 34px;
   z-index: 10;
   transition: bottom 450ms $ease-out-back;
-  ._stream-is-on & {
+  ._stream-is-on &,
+  ._closeup-is-on & {
     bottom: -100px;
   }
 
@@ -174,4 +175,24 @@ position: relative;
     height: auto;
   }
 
+}
+.main-card-wrapper._floating {
+  overflow: hidden;
+  padding-bottom: 92px;
+  -webkit-mask-image: none;
+}
+
+.cu-pin-actions-wrap {
+  ._floating & {
+    position: absolute;
+    bottom: 0;
+    padding-top: 8px;
+    left: 0;
+    width: 100%;
+    background-color: $white;
+    box-shadow: 0 0 8px rgba($darkest, .1);
+    bottom: 0;
+    z-index: 9;
+    padding-bottom: 34px;
+  }
 }

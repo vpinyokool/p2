@@ -3,6 +3,11 @@
 
 
 
+$.fn.extend($, {
+    capitalize: function() {
+        return $.camelCase("-"+arguments[0]);
+    }
+});
 /*
  * jQuery throttle / debounce - v1.1 - 3/7/2010
  * http://benalman.com/projects/jquery-throttle-debounce-plugin/
@@ -592,12 +597,12 @@ var Global = (function() {
         });
 
         function closeBoardPicker() {
-            console.log('ran');
+            // console.log('ran');
             $('.board-picker-sheet').removeClass('_active');
 
             $body.removeClass('_sheet-is-on');
 
-            $('.toast-text span').html('profile');
+            $('.toast-text span').html('Organize later');
             $('.toast-img-wrapper').html(
                 '<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>'
             );
@@ -643,7 +648,7 @@ var Global = (function() {
                         // update states + show toast
                         $('.board-picker-sheet').removeClass('_active');
                         $body.removeClass('_sheet-is-on');
-                        $('.toast-text span').html($(this).data('dest'));
+                        $('.toast-text span').html($(this).data('toast'));
                         $('.toast-img-wrapper').html(
                             '<img src="assets/images/boards-cover/' + $(this).data('dest') + '.png" alt>'
                         );
@@ -700,10 +705,10 @@ var Global = (function() {
         var currentCloseupID;
         var $profile = ($('.nav-list.profile'));
         var $home = ($('.nav-list.home'));
+        var activeC;
         $discover.on('click', function() {
             $body.addClass('_stream-is-on');
         });
-
         $profile.on('click', function() {
             $('.nav-list').removeClass('_active');
             $(this).addClass('_active');
@@ -719,6 +724,7 @@ var Global = (function() {
         });
 
         $('.item').on('click', function() {
+
             // get id
             currentCloseupID = $(this).data('closeup-id');
             $body.attr('data-cu-id', currentCloseupID);
@@ -737,9 +743,8 @@ var Global = (function() {
 
             // run backbutton function
             updateCloseupState(imgHeight);
+            floatingActionBar();
         });
-
-
 
 
         $('.icon-button.back').on('click', function() {
@@ -753,6 +758,44 @@ var Global = (function() {
 
     }
 
+        function floatingActionBar() {
+            // check if action bar is in the viewport
+            activeC = parseInt($body.attr('data-cu-id')) - 1;
+            var st;
+            var scrollpos;
+            var offset;
+            var phoneTop = $('.phone-canvas').offset().top;
+            var trigger = 681 + 8 + 16;
+            var curOffset;
+            var cst;
+            // var ps;
+            //  var el = $('.profile-navigation-bar');
+            st = $('.closeup.scroll-area').scrollTop();
+            offset = $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-description').offset().top + $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-description').height();
+            curOffset = offset - phoneTop;
+
+            if (curOffset >= trigger) {
+                // console.log('show bar');
+                $('.main-card-wrapper:eq(' + activeC + ')').addClass('_floating');
+            } else {
+                // console.log('do nothing');
+                $('.main-card-wrapper:eq(' + activeC + ')').removeClass('_floating');
+            }
+            $('.closeup.scroll-area').on('scroll', function() {
+                cst = $(this).scrollTop();
+                // console.log(curOffset);
+                // console.log( 'the real trigger ' + ((trigger - curOffset) * -1 ));
+                // console.log( 'the scroll ' + cst );
+                if (cst > ((trigger - curOffset) * -1)) {
+                    $('.main-card-wrapper:eq(' + activeC + ')').removeClass('_floating');
+                    $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-actions-wrap').css('bottom', 0);
+                } else {
+                    $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-actions-wrap').css('bottom', -cst);
+                    $('.main-card-wrapper:eq(' + activeC + ')').addClass('_floating');
+                }
+            });
+
+        }
     function trunk8() {
         $('.cu-pin-description .string').trunk8({
             lines: 2
@@ -1052,7 +1095,7 @@ var Global = (function() {
                             $('.board-picker-sheet').removeClass('_active');
                             $body.removeClass('_sheet-is-on');
 
-                            $('.toast-text span').html($(this).data('dest'));
+                            $('.toast-text span').html($(this).data('toast'));
                             $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + $(this).data('dest') + '.png" alt>');
 
                             showToast();
@@ -1060,23 +1103,24 @@ var Global = (function() {
                             updateProgress();
                         });
 
-                        $('.icon-button.close').on('click', function() {
-                            $('.board-picker-sheet').removeClass('_active');
-
-                            $body.removeClass('_sheet-is-on');
-
-                            $('.toast-text span').html('profile');
-                            $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>');
-
-                            showToast();
-                            activeVid.get(0).play();
-                            updateProgress();
-
-
-                        });
 
                     }
                 });
+            });
+
+            $('.icon-button.close').on('click', function() {
+                $('.board-picker-sheet').removeClass('_active');
+
+                $body.removeClass('_sheet-is-on');
+
+                $('.toast-text span').html('Organize later');
+                $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>');
+
+                showToast();
+                activeVid.get(0).play();
+                updateProgress();
+
+
             });
         };
 
@@ -1316,7 +1360,8 @@ var Global = (function() {
         showToast: showToast,
         streams: streams,
         profileScroll: profileScroll,
-        unorganizedPins: unorganizedPins
+        unorganizedPins: unorganizedPins,
+        floatingActionBar: floatingActionBar
     }
 })();
 //////////////////////////////////////////////////////////////////////////////////////////

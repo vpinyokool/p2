@@ -155,11 +155,17 @@ main,
 		._stream-is-on & {
 			opacity: 1;
 		}
+		._sheet-is-on._stream-is-on & {
+			opacity: 0;
+		}
 	}
 	.dark {
 	opacity: 1;
 		._stream-is-on & {
 			opacity: 0;
+		}
+		._sheet-is-on._stream-is-on & {
+			opacity: 1;
 		}
 	}
 }

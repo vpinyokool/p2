@@ -108,13 +108,6 @@ var Global = (function() {
 
     };
 
-    function boardPicker() {
-        // $('.bubbles').on('click', function() {
-        //     $('.filter-sheet').addClass('_active');
-        //     $body.addClass('_sheet-is-on');
-        // });
-    }
-
     function hearting() {
         var sPath = window.location.pathname;
         var path = '../assets/animation/heart.json';
@@ -207,10 +200,6 @@ var Global = (function() {
                         showToast();
                     });
 
-                    // $('.icon-button.close').on('click', function() {
-                    //     closeBoardPicker();
-                    // });
-
 
 
                 }
@@ -281,7 +270,6 @@ var Global = (function() {
             currentCloseupID = $(this).data('closeup-id');
             $body.attr('data-cu-id', currentCloseupID);
 
-            // $('body').data('info', '222');
 
             //  switch state
             $('body').addClass('_closeup-is-on');
@@ -291,7 +279,6 @@ var Global = (function() {
             $('.reaction-card-wrapper').addClass('_hidden');
             $('.cu-' + currentCloseupID).removeClass('_hidden');
             var imgHeight = $('.cu-' + currentCloseupID).find('img').height();
-            // console.log(imgHeight);
 
             // run backbutton function
             updateCloseupState(imgHeight);
@@ -302,6 +289,9 @@ var Global = (function() {
         $('.icon-button.back').on('click', function() {
             $('body').removeClass('_closeup-is-on');
             $('body').removeClass('_keyboard-is-on');
+
+            // unbind scroll
+            $('.closeup.scroll-area').off('scroll');
         });
 
         $('.icon-button.stream-back').on('click', function() {
@@ -311,6 +301,7 @@ var Global = (function() {
     }
 
         function floatingActionBar() {
+
             // check if action bar is in the viewport
             activeC = parseInt($body.attr('data-cu-id')) - 1;
             var st;
@@ -320,8 +311,7 @@ var Global = (function() {
             var trigger = 681 + 8 + 16;
             var curOffset;
             var cst;
-            // var ps;
-            //  var el = $('.profile-navigation-bar');
+
             st = $('.closeup.scroll-area').scrollTop();
             offset = $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-description').offset().top + $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-description').height();
             curOffset = offset - phoneTop;
@@ -335,9 +325,7 @@ var Global = (function() {
             }
             $('.closeup.scroll-area').on('scroll', function() {
                 cst = $(this).scrollTop();
-                // console.log(curOffset);
-                // console.log( 'the real trigger ' + ((trigger - curOffset) * -1 ));
-                // console.log( 'the scroll ' + cst );
+
                 if (cst > ((trigger - curOffset) * -1)) {
                     $('.main-card-wrapper:eq(' + activeC + ')').removeClass('_floating');
                     $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-actions-wrap').css('bottom', 0);
@@ -908,7 +896,6 @@ var Global = (function() {
         bodyMovin: bodyMovin,
         likeThisGrid: likeThisGrid,
         hearting: hearting,
-        boardPicker: boardPicker,
         showToast: showToast,
         streams: streams,
         profileScroll: profileScroll,

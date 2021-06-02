@@ -13,10 +13,8 @@ var call = {
         Global.trunk8();
         Global.starGrid();
         Global.hearting();
-        Global.boardPicker();
         Global.streams();
         Global.profileScroll(32);
-        // Global.unorganizedPins();
 
     },
     init: function() {

@@ -879,8 +879,6 @@ var Global = (function() {
             activeVid.get(0).play();
 
 
-            // set a new progress bar
-            $progressBar = $('.idea-pin._active .pages-progress .progress-wrap:eq( ' + $('.page._active').index() + ' ) .progress');
             // update progress
             updateProgress();
 
@@ -944,7 +942,6 @@ var Global = (function() {
 
                         // play the video
                         playVideoOnActivePage();
-                        // updateProgress();
 
                     }
                 }
@@ -1061,8 +1058,6 @@ var Global = (function() {
                         anim[value].goToAndStop(0, true);
 
                         $('.stream-save-btn-' + value).next().html(curCount - 1);
-                        // activeVid.get(0).play();
-                        // updateProgress();
 
                     } else {
 
@@ -1138,7 +1133,6 @@ var Global = (function() {
                 $('.page._active').parent().css('transform', 'translateX(' + -375 * (pageIndex) + 'px)');
 
                 playVideoOnActivePage();
-                // updateProgress();
 
             });
 
@@ -1166,7 +1160,6 @@ var Global = (function() {
                 $('.page._active').parent().css('transform', 'translateX(' + -375 * (pageIndex) + 'px)');
 
                 playVideoOnActivePage();
-                // updateProgress();
             });
         }
 
@@ -1245,9 +1238,13 @@ var Global = (function() {
         }
 
         function updateProgress() {
+            // set a new progress bar
+            $progressBar = $('.idea-pin._active .pages-progress .progress-wrap:eq( ' + $('.page._active').index() + ' ) .progress');
+
+            // clear current
             clearInterval(interval);
             interval = null;
-            // console.log('no interval set yet');
+
             interval = setInterval(function() {
                 progress = activeVid.get(0).currentTime / activeVid.get(0).duration * 100;
                 $progressBar.css('width', progress + '%');

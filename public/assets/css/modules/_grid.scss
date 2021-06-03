@@ -2097,6 +2097,7 @@ background-image: url('../icons/stream-icon-detail.svg');
 		background-color: $white;
 		a {
 			text-decoration: none;
+			color: $darkest;
 				&:visited {
 					text-decoration: none;
 					color: $darkest;
@@ -2124,6 +2125,7 @@ background-image: url('../icons/stream-icon-detail.svg');
 			font-size: 22px;
 			text-align: center;
 			width: 100%;
+			color: $darkest;
 			margin-top: 8px;
 
 		}

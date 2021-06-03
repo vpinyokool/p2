@@ -111,12 +111,12 @@ var Global = (function() {
     function hearting() {
            var sPath = window.location.pathname;
             var pathHref = window.location.href;
-            var path = '../assets/animation/heart-stream.json';
+            var path = '../assets/animation/heart.json';
             var string = 'github';
             console.log('pathHREF is ' + pathHref);
             if (pathHref.indexOf(string) >= 1 ) {
                 console.log('path has '+ string +' in it');
-                path = 'assets/animation/heart-stream.json';
+                path = 'assets/animation/heart.json';
             } else {
                 console.log('path does not have '+ string +' in it');
             }

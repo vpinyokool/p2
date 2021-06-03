@@ -109,14 +109,17 @@ var Global = (function() {
     };
 
     function hearting() {
-        var sPath = window.location.pathname;
-        var path = '../assets/animation/heart.json';
-
-        if (sPath == "/p2/" || sPath == "/p2.html") {
-            path = 'assets/animation/heart.json';
-        } else {
-            console.log('not on index');
-        }
+           var sPath = window.location.pathname;
+            var pathHref = window.location.href;
+            var path = '../assets/animation/heart-stream.json';
+            var string = 'github';
+            console.log('pathHREF is ' + pathHref);
+            if (pathHref.indexOf(string) >= 1 ) {
+                console.log('path has '+ string +' in it');
+                path = 'assets/animation/heart-stream.json';
+            } else {
+                console.log('path does not have '+ string +' in it');
+            }
 
 
         //
@@ -603,12 +606,15 @@ var curSavedImgSrc;
         function streamHearting() {
 
             var sPath = window.location.pathname;
+            var pathHref = window.location.href;
             var path = '../assets/animation/heart-stream.json';
-
-            if (sPath == "/p2/" || sPath == "/p2.html") {
+            var string = 'github';
+            console.log('pathHREF is ' + pathHref);
+            if (pathHref.indexOf(string) >= 1 ) {
+                console.log('path has '+ string +' in it');
                 path = 'assets/animation/heart-stream.json';
             } else {
-                // console.log('not on index');
+                console.log('path does not have '+ string +' in it');
             }
 
             //

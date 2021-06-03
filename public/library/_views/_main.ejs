@@ -1,0 +1,32 @@
+<section class="canvas">
+	<div class="phone-canvas">
+		<%- partial('../_modules/_status-bar') %>
+		<div class="icon-button stream-back"></div>
+		<div class="icon-button stream-audio"></div>
+		<%- partial('../_modules/_idea-pins') %>
+		<div class="overlay"></div>
+		<%- partial('../_modules/_board-picker') %>
+		<%- partial('../_modules/_toast') %>
+		<%- partial('../_modules/_floating-nav') %>
+		<div class="scroll-content-wrapper">
+			<%- partial('../_modules/_navigation-bar') %>
+			<%- partial('../_modules/_profile-navigation-bar') %>
+			<div class="icon-button back"></div>
+			<div class="closeup scroll-area">
+
+
+				<%- partial('../_modules/_closeup-card') %>
+				<%- partial('../_modules/_closeup-junk') %>
+			</div>
+			<div class="profile scroll-area">
+				<%- partial('../_modules/_profile',{mode:'demo'}) %>
+			</div>
+			<div class="pingrid scroll-area">
+				<%- partial('../_modules/_bubbles') %>
+				<%- partial('../_modules/_grid',{mode:'demo'}) %>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</section>

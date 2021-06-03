@@ -1,0 +1,42 @@
+<%
+var topChoiceData = public.content.boards._data.topChoice;
+var allBoardsData = public.content.boards._data.all;
+%>
+
+
+
+		<div class="board-picker-sheet">
+			<div class="sheet-header">
+				<div class="icon-button close"></div>
+				<div class="sheet-title">Organize to board</div>
+				<div class="icon-button blank"></div>
+			</div>
+			<div class="board-picker-sheet-subhead">
+				Top choice
+			</div>
+			<ul class="board-lists">
+				<% for ( var i=0; i < topChoiceData.length; i++ ) { %>
+
+				<li data-dest="<%= topChoiceData[i].src %>" data-toast="<%= topChoiceData[i].title %>" class="board-list profile">
+					<div class="board-list-img">
+						<img src="assets/images/boards-cover/<%= topChoiceData[i].img %>" alt="">
+					</div>
+					<div class="board-title"><%= topChoiceData[i].title %></div>
+				</li>
+				<% } %>
+			</ul>
+			<div class="board-picker-sheet-subhead">
+				All boards
+			</div>
+			<ul class="board-lists">
+				<% for ( var j=0; j < allBoardsData.length; j++ ) { %>
+
+				<li data-dest="<%= allBoardsData[j].src %>" data-toast="<%= allBoardsData[j].title %>" class="board-list profile">
+					<div class="board-list-img">
+						<img src="assets/images/boards-cover/<%= allBoardsData[j].img %>" alt="">
+					</div>
+					<div class="board-title"><%= allBoardsData[j].title %></div>
+				</li>
+			<% } %>
+			</ul>
+		</div>

@@ -1,9 +1,65 @@
+<%
+	var name;
+	var src;
+	var pinnerData = public.content.pinner._data.pinner;
+	if ( current.source == pinnerData[0].username) {
+		name = pinnerData[0].name
+		src = pinnerData[0].src
+	}
+
+	if ( current.source == pinnerData[1].username) {
+		name = pinnerData[1].name
+		src = pinnerData[1].src
+	}
+
+	if ( current.source == pinnerData[2].username) {
+		name = pinnerData[2].name
+		src = pinnerData[2].src
+	}
+
+	if ( current.source == pinnerData[3].username) {
+		name = pinnerData[3].name
+		src = pinnerData[3].src
+	}
+
+	if ( current.source == pinnerData[4].username) {
+		name = pinnerData[4].name
+		src = pinnerData[4].src
+	}
+
+	if ( current.source == pinnerData[5].username) {
+		name = pinnerData[5].name
+		src = pinnerData[5].src
+	}
+
+	if ( current.source == pinnerData[6].username) {
+		name = pinnerData[6].name
+		src = pinnerData[6].src
+	}
+
+	if ( current.source == pinnerData[7].username) {
+		name = pinnerData[7].name
+		src = pinnerData[7].src
+	}
+
+	if ( current.source == pinnerData[8].username) {
+		name = pinnerData[8].name
+		src = pinnerData[8].src
+	}
+
+	if ( current.source == pinnerData[9].username) {
+		name = pinnerData[9].name
+		src = pinnerData[9].src
+	}
+
+%>
+
 <div class="profile-navigation-bar">
 	<div class="profile-leading">
 		<div class="profile-avatar">
-			<img src="assets/images/a-4.png" alt="">
+			<img src="assets/images/pinner/<%= src %>.png" alt="">
 		</div>
-		<div class="profile-title"><%= username %></div>
+		<div class="profile-title"><%= name %></div>
 	</div>
 
 	<div class="profile-trailing">

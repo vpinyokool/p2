@@ -6,8 +6,8 @@
 			"commentCount": 39,
 			"shareCount": 40,
 			"saveCount": 20,
-			"creator": " John Smith",
-			"creatorImg": "c-03",
+			"creator": " Tastemade",
+			"creatorImg": "c-01.jpg",
 			"followingCount": "3k",
 			"pages": [
 				{
@@ -34,10 +34,14 @@
 			"commentCount": 39,
 			"shareCount": 40,
 			"saveCount": 20,
-			"creator": " John Smith",
-			"creatorImg": "c-01",
+			"creator": " I Heart Umami",
+			"creatorImg": "c-02.jpg",
 			"followingCount": "3k",
 			"pages": [
+				{
+					"src" : "chicken-0",
+					"class": ""
+				},
 				{
 					"src" : "chicken-1",
 					"class": ""
@@ -57,13 +61,249 @@
 			]
 		},
 		{
+			"title": "color",
+			"class": "splide__slide",
+			"commentCount": 39,
+			"shareCount": 40,
+			"saveCount": 20,
+			"creator": " Olive+Brown",
+			"creatorImg": "c-09.jpg",
+			"followingCount": "3k",
+			"pages": [
+				{
+					"src" : "color-1",
+					"class": ""
+				},
+				{
+					"src" : "color-2",
+					"class": ""
+				},
+				{
+					"src" : "color-3",
+					"class": ""
+				},
+				{
+					"src" : "chicken-3",
+					"class": ""
+				}
+			]
+		},
+		{
+			"title": "pasta",
+			"class": "splide__slide",
+			"commentCount": 39,
+			"shareCount": 40,
+			"saveCount": 20,
+			"creator": " Jennifer Fisher",
+			"creatorImg": "c-03.jpg",
+			"followingCount": "3k",
+			"pages": [
+				{
+					"src" : "pasta-1",
+					"class": ""
+				},
+				{
+					"src" : "pasta-2",
+					"class": ""
+				},
+				{
+					"src" : "pasta-3",
+					"class": ""
+				},
+				{
+					"src" : "pasta-4",
+					"class": ""
+				},
+				{
+					"src" : "pasta-5",
+					"class": ""
+				},
+				{
+					"src" : "pasta-6",
+					"class": ""
+				},
+				{
+					"src" : "pasta-7",
+					"class": ""
+				},
+				{
+					"src" : "pasta-8",
+					"class": ""
+				}
+			]
+		},
+		{
+			"title": "wavy",
+			"class": "splide__slide",
+			"commentCount": 39,
+			"shareCount": 40,
+			"saveCount": 20,
+			"creator": " And I get dressed",
+			"creatorImg": "c-04.jpg",
+			"followingCount": "3k",
+			"pages": [
+				{
+					"src" : "wavy-dividers-1",
+					"class": ""
+				}
+			]
+		},
+		{
+			"title": "balance",
+			"class": "splide__slide",
+			"commentCount": 39,
+			"shareCount": 40,
+			"saveCount": 20,
+			"creator": " Vogue Magazine",
+			"creatorImg": "c-05.jpg",
+			"followingCount": "3k",
+			"pages": [
+				{
+					"src" : "balance-1",
+					"class": ""
+				},
+				{
+					"src" : "balance-2",
+					"class": "balance-offset"
+				},
+				{
+					"src" : "balance-3",
+					"class": "balance-offset"
+				},
+				{
+					"src" : "balance-4",
+					"class": "balance-offset"
+				},
+				{
+					"src" : "balance-5",
+					"class": "balance-offset"
+				},
+				{
+					"src" : "balance-6",
+					"class": "balance-offset"
+				},
+				{
+					"src" : "balance-7",
+					"class": ""
+				}
+			]
+		},
+		{
+			"title": "sunset",
+			"class": "splide__slide",
+			"commentCount": 39,
+			"shareCount": 40,
+			"saveCount": 20,
+			"creator": " Angela Chu",
+			"creatorImg": "c-07.jpg",
+			"followingCount": "3k",
+			"pages": [
+				{
+					"src" : "sunset-1",
+					"class": ""
+				},
+				{
+					"src" : "sunset-2",
+					"class": ""
+				},
+				{
+					"src" : "sunset-3",
+					"class": ""
+				},
+				{
+					"src" : "sunset-4",
+					"class": ""
+				},
+				{
+					"src" : "sunset-5",
+					"class": ""
+				},
+				{
+					"src" : "sunset-6",
+					"class": ""
+				},
+				{
+					"src" : "sunset-7",
+					"class": ""
+				}
+			]
+		},
+		{
+			"title": "egg",
+			"class": "splide__slide",
+			"commentCount": 39,
+			"shareCount": 40,
+			"saveCount": 20,
+			"creator": " So Yummy",
+			"creatorImg": "c-06.jpg",
+			"followingCount": "3k",
+			"pages": [
+				{
+					"src" : "egg-1",
+					"class": ""
+				}
+			]
+		},
+		{
+			"title": "ice-cream",
+			"class": "splide__slide",
+			"commentCount": 39,
+			"shareCount": 40,
+			"saveCount": 20,
+			"creator": "Aya Kanai",
+			"creatorImg": "c-08.jpg",
+			"followingCount": "3k",
+			"pages": [
+				{
+					"src" : "ice-cream-1",
+					"class": ""
+				},
+				{
+					"src" : "ice-cream-2",
+					"class": ""
+				},
+				{
+					"src" : "ice-cream-3",
+					"class": ""
+				},
+				{
+					"src" : "ice-cream-4",
+					"class": ""
+				},
+				{
+					"src" : "ice-cream-5",
+					"class": ""
+				},
+				{
+					"src" : "ice-cream-6",
+					"class": ""
+				},
+				{
+					"src" : "ice-cream-7",
+					"class": ""
+				},
+				{
+					"src" : "ice-cream-8",
+					"class": ""
+				},
+				{
+					"src" : "ice-cream-9",
+					"class": ""
+				},
+				{
+					"src" : "ice-cream-10",
+					"class": ""
+				}
+			]
+		},
+		{
 			"title": "matcha",
 			"class": "_do-not-play",
 			"commentCount": 39,
 			"shareCount": 40,
 			"saveCount": 20,
 			"creator": " John Smith",
-			"creatorImg": "c-04",
+			"creatorImg": "c-04.png",
 			"followingCount": "3k",
 			"pages": [
 				{
@@ -93,7 +333,7 @@
 			"shareCount": 40,
 			"saveCount": 20,
 			"creator": " John Smith",
-			"creatorImg": "c-04",
+			"creatorImg": "c-04.png",
 			"followingCount": "3k",
 			"pages": [
 				{

@@ -137,11 +137,12 @@ var Global = (function() {
         var arr = Array.from({
             length: pinCount
         }, (_, i) => i + 1)
-        $('.icon-button.close').on('click', function() {
+        $('#skip').on('click', function() {
             closeBoardPicker();
         });
 
         function closeBoardPicker() {
+
             // console.log('ran');
             $('.board-picker-sheet').removeClass('_active');
 
@@ -160,6 +161,13 @@ var Global = (function() {
         }
         $.each(arr, function(index, value) {
             $('.heart-' + value).on('click', function() {
+
+var curSavedImgSrc;
+            var $savedPin = $('.saved-pin-wrapper');
+                // get pin image then apply as background in the board picker
+                var i = $body.attr('data-cu-id');
+                curSavedImgSrc =  $('.cu-'+i).find('img').attr('src');
+                $savedPin.css('background-image','url("'+ curSavedImgSrc +'")');
 
                 // if you you already saved, unsaveed
                 if ($('.heart-' + value).hasClass('_active')) {
@@ -180,6 +188,9 @@ var Global = (function() {
                     }, 1500);
 
                     $('.board-list').on('click', function() {
+
+
+
 
                         // show pin in profile uop if saved without organization
                         if ($(this).data('dest') == 'profile') {
@@ -300,42 +311,43 @@ var Global = (function() {
 
     }
 
-        function floatingActionBar() {
+    function floatingActionBar() {
 
-            // check if action bar is in the viewport
-            activeC = parseInt($body.attr('data-cu-id')) - 1;
-            var st;
-            var scrollpos;
-            var offset;
-            var phoneTop = $('.phone-canvas').offset().top;
-            var trigger = 681 + 8 + 16;
-            var curOffset;
-            var cst;
+        // check if action bar is in the viewport
+        activeC = parseInt($body.attr('data-cu-id')) - 1;
+        var st;
+        var scrollpos;
+        var offset;
+        var phoneTop = $('.phone-canvas').offset().top;
+        var trigger = 681 + 8 + 16;
+        var curOffset;
+        var cst;
 
-            st = $('.closeup.scroll-area').scrollTop();
-            offset = $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-description').offset().top + $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-description').height();
-            curOffset = offset - phoneTop;
+        st = $('.closeup.scroll-area').scrollTop();
+        offset = $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-description').offset().top + $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-description').height();
+        curOffset = offset - phoneTop;
 
-            if (curOffset >= trigger) {
-                // console.log('show bar');
-                $('.main-card-wrapper:eq(' + activeC + ')').addClass('_floating');
-            } else {
-                // console.log('do nothing');
-                $('.main-card-wrapper:eq(' + activeC + ')').removeClass('_floating');
-            }
-            $('.closeup.scroll-area').on('scroll', function() {
-                cst = $(this).scrollTop();
-
-                if (cst > ((trigger - curOffset) * -1)) {
-                    $('.main-card-wrapper:eq(' + activeC + ')').removeClass('_floating');
-                    $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-actions-wrap').css('bottom', 0);
-                } else {
-                    $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-actions-wrap').css('bottom', -cst);
-                    $('.main-card-wrapper:eq(' + activeC + ')').addClass('_floating');
-                }
-            });
-
+        if (curOffset >= trigger) {
+            // console.log('show bar');
+            $('.main-card-wrapper:eq(' + activeC + ')').addClass('_floating');
+        } else {
+            // console.log('do nothing');
+            $('.main-card-wrapper:eq(' + activeC + ')').removeClass('_floating');
         }
+        $('.closeup.scroll-area').on('scroll', function() {
+            cst = $(this).scrollTop();
+
+            if (cst > ((trigger - curOffset) * -1)) {
+                $('.main-card-wrapper:eq(' + activeC + ')').removeClass('_floating');
+                $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-actions-wrap').css('bottom', 0);
+            } else {
+                $('.main-card-wrapper:eq(' + activeC + ')').find('.cu-pin-actions-wrap').css('bottom', -cst);
+                $('.main-card-wrapper:eq(' + activeC + ')').addClass('_floating');
+            }
+        });
+
+    }
+
     function trunk8() {
         $('.cu-pin-description .string').trunk8({
             lines: 2
@@ -421,6 +433,24 @@ var Global = (function() {
         $('.stream-back').on('click', function() {
             onCloseStream();
             killInterval();
+
+        });
+
+        $('.stream-audio').on('click', function() {
+
+            $videos = $('.idea-pin video');
+            if ($videos.prop('muted')) {
+
+                // unmute
+                $videos.prop('muted', false);
+                $body.addClass('_audio-is-on');
+            } else {
+
+                // mute
+                $videos.prop('muted', true);
+                $body.removeClass('_audio-is-on');
+            }
+
 
         });
 
@@ -524,7 +554,7 @@ var Global = (function() {
 
 
             $splide.on('moved', function() {
-                console.log('Splide has moved!');
+                // console.log('Splide has moved!');
 
                 // stop the current active video
                 activeVid.get(0).pause();
@@ -582,7 +612,7 @@ var Global = (function() {
             }
 
             //
-            var pinCount = 2;
+            var pinCount = parseInt($('.idea-pin').length) - 1;
             var curCount;
             var anim = [];
             // var $toast = $('.toast');
@@ -630,6 +660,7 @@ var Global = (function() {
                             $('.board-picker-sheet').removeClass('_active');
                             $body.removeClass('_sheet-is-on');
 
+
                             $('.toast-text span').html($(this).data('toast'));
                             $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + $(this).data('dest') + '.png" alt>');
 
@@ -643,7 +674,7 @@ var Global = (function() {
                 });
             });
 
-            $('.icon-button.close').on('click', function() {
+            $('#skip').on('click', function() {
                 $('.board-picker-sheet').removeClass('_active');
 
                 $body.removeClass('_sheet-is-on');
@@ -798,7 +829,7 @@ var Global = (function() {
             interval = null;
 
             interval = setInterval(function() {
-                progress = activeVid.get(0).currentTime / activeVid.get(0).duration * 100;
+                progress = Math.ceil(activeVid.get(0).currentTime / activeVid.get(0).duration * 100);
                 $progressBar.css('width', progress + '%');
 
                 // console.log('progress is running');

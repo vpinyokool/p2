@@ -1,31 +1,46 @@
 {
 	"index":{
 		"title":"Pinterest",
-		"layout": "library/_views/_layout",
-		"username": "Jonathan"
-	},
-	"tag-one":{
-		"title":"Pinterest-Tags-1",
 		"layout": "library/_views/_layout"
 	},
-	"tag-two":{
-		"title":"Pinterest-Tags-2",
+	"demo":{
+		"title":"Pinterest",
 		"layout": "library/_views/_layout"
 	},
-	"tag-three":{
-		"title":"Pinterest-Tags-3",
+	"low-1":{
+		"title":"Pinterest",
 		"layout": "library/_views/_layout"
 	},
-	"tag-four":{
-		"title":"Pinterest-Tags-4",
+	"low-2":{
+		"title":"Pinterest",
 		"layout": "library/_views/_layout"
 	},
-	"tag-a":{
-	"title":"Pinterest-Tags-A",
-	"layout": "library/_views/_layout"
+	"low-3":{
+		"title":"Pinterest",
+		"layout": "library/_views/_layout"
 	},
-	"tag-b":{
-	"title":"Pinterest-Tags-B",
-	"layout": "library/_views/_layout"
+	"creator-1":{
+		"title":"Pinterest",
+		"layout": "library/_views/_layout"
+	},
+	"creator-2":{
+		"title":"Pinterest",
+		"layout": "library/_views/_layout"
+	},
+	"creator-3":{
+		"title":"Pinterest",
+		"layout": "library/_views/_layout"
+	},
+	"core-1":{
+		"title":"Pinterest",
+		"layout": "library/_views/_layout"
+	},
+	"core-2":{
+		"title":"Pinterest",
+		"layout": "library/_views/_layout"
+	},
+	"core-3":{
+		"title":"Pinterest",
+		"layout": "library/_views/_layout"
 	}
 }

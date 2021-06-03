@@ -146,7 +146,7 @@ position: relative;
   position: absolute;
   bottom: 34px;
   z-index: 10;
-  transition: bottom 450ms $ease-out-back;
+  transition: bottom 450ms $ease-out;
   ._stream-is-on &,
   ._closeup-is-on & {
     bottom: -100px;

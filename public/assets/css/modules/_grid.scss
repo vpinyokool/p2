@@ -2147,7 +2147,6 @@ background-image: url('../icons/stream-icon-detail.svg');
 	margin: 0 auto;
 	overflow: hidden;
 	background-color: $white;
-	// background-color: green;
 	background-size: cover;
 	background-position: center;
 }
@@ -2160,4 +2159,54 @@ background-image: url('../icons/stream-icon-detail.svg');
 		font-weight: 600;
 	}
 	margin-bottom: 24px;
+}
+
+#appreciation {
+	position: absolute;
+	z-index: 10;
+	width: 80px;
+	height: auto;
+	bottom: 96px;
+	left: -2px;
+	display: none;
+	._stream-is-on & {
+		display: block;
+	}
+}
+
+.creator-thanks-wrap {
+	display: none;
+		._stream-is-on & {
+		display: block;
+		display: none;
+	}
+}
+#creator-thanks {
+	position: absolute;
+	z-index: 10;
+	font-size: 12px;
+	pointer-events: none;
+	font-weight: 600;
+	color: $white;
+	padding: 8px;
+	bottom: 170px;
+	border-radius: 4px;
+	left: 10px;
+
+	background-color: rgba($black, .4);
+	backdrop-filter: blur(10px);
+
+}
+$arrow-size: 4px;
+#creator-arrow-down {
+	position: absolute;
+	z-index: 10;
+	width: 0;
+	bottom: 166px;
+	left: 35px;
+  height: 0;
+  border-left: $arrow-size solid transparent;
+  border-right: $arrow-size solid transparent;
+  border-top: $arrow-size solid rgba($black, .4);
+
 }

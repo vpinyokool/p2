@@ -1,8 +1,7 @@
 <section class="canvas">
 	<div class="phone-canvas">
 		<%- partial('../_modules/_status-bar') %>
-		<div class="icon-button stream-back"></div>
-		<div class="icon-button stream-audio"></div>
+		<%- partial('../_modules/_stream-components') %>
 		<%- partial('../_modules/_idea-pins') %>
 		<div class="overlay"></div>
 		<%- partial('../_modules/_board-picker') %>
@@ -13,8 +12,6 @@
 			<%- partial('../_modules/_profile-navigation-bar') %>
 			<div class="icon-button back"></div>
 			<div class="closeup scroll-area">
-
-
 				<%- partial('../_modules/_closeup-card') %>
 				<%- partial('../_modules/_closeup-junk') %>
 			</div>

@@ -64,62 +64,18 @@ var Global = (function() {
 
 
 
-    function bodyMovin() {
-        var sPath = window.location.pathname;
-        var path = '../assets/animation/star.json';
-
-        if (sPath == "/tag-one.html" || sPath == "/boards-2020/tag-one.html") {
-            path = 'assets/animation/star.json';
-            console.log('on-tag-one-page. path is ' + path);
-        } else {
-            console.log('NOT on-tag-one-page. on tag a page. path is ' + path);
-        }
-
-
-        //
-        var pinCount = 15;
-        var anim = [];
-        for (var i = 0; i < pinCount; i++) {
-            anim[i + 1] = lottie.loadAnimation({
-                container: document.getElementById('star-' + [i + 1]),
-                renderer: 'svg',
-                loop: false,
-                autoplay: false,
-                path: path
-            });
-        }
-
-        var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-        $.each(arr, function(index, value) {
-            $('.star-' + value).on('click', function() {
-                if ($('.star-' + value).hasClass('_active')) {
-                    $('.star-' + value).removeClass('_active');
-                    $('.pin-id-' + value).removeClass('star');
-                    anim[value].goToAndStop(0, true);
-                } else {
-                    $('.star-' + value).addClass('_active');
-                    $('.pin-id-' + value).addClass('star');
-                    anim[value].play();
-                }
-            });
-        });
-
-
-
-    };
-
     function hearting() {
-           var sPath = window.location.pathname;
-            var pathHref = window.location.href;
-            var path = '../assets/animation/heart.json';
-            var string = 'github';
-            console.log('pathHREF is ' + pathHref);
-            if (pathHref.indexOf(string) >= 1 ) {
-                console.log('path has '+ string +' in it');
-                path = 'assets/animation/heart.json';
-            } else {
-                console.log('path does not have '+ string +' in it');
-            }
+        var sPath = window.location.pathname;
+        var pathHref = window.location.href;
+        var path = '../assets/animation/heart.json';
+        var string = 'github';
+        console.log('pathHREF is ' + pathHref);
+        if (pathHref.indexOf(string) >= 1) {
+            console.log('path has ' + string + ' in it');
+            path = 'assets/animation/heart.json';
+        } else {
+            console.log('path does not have ' + string + ' in it');
+        }
 
 
         //
@@ -139,7 +95,7 @@ var Global = (function() {
         // var arr = new Array(pinCount);
         var arr = Array.from({
             length: pinCount
-        }, (_, i) => i + 1)
+        }, (_, i) => i + 1);
         $('#skip').on('click', function() {
             closeBoardPicker();
         });
@@ -165,12 +121,12 @@ var Global = (function() {
         $.each(arr, function(index, value) {
             $('.heart-' + value).on('click', function() {
 
-var curSavedImgSrc;
-            var $savedPin = $('.saved-pin-wrapper');
+                var curSavedImgSrc;
+                var $savedPin = $('.saved-pin-wrapper');
                 // get pin image then apply as background in the board picker
                 var i = $body.attr('data-cu-id');
-                curSavedImgSrc =  $('.cu-'+i).find('img').attr('src');
-                $savedPin.css('background-image','url("'+ curSavedImgSrc +'")');
+                curSavedImgSrc = $('.cu-' + i).find('img').attr('src');
+                $savedPin.css('background-image', 'url("' + curSavedImgSrc + '")');
 
                 // if you you already saved, unsaveed
                 if ($('.heart-' + value).hasClass('_active')) {
@@ -355,24 +311,6 @@ var curSavedImgSrc;
         $('.cu-pin-description .string').trunk8({
             lines: 2
         });
-    }
-
-    function modal() {
-        // filter sheet
-        $('.show-sheet').on('click', function() {
-            $('body').addClass('_sheet-is-on');
-        });
-
-        $('.close-sheet').on('click', function() {
-            $('body').removeClass('_sheet-is-on');
-        });
-
-        $('.overlay').on('click', function() {
-            $('body').removeClass('_sheet-is-on');
-            $('body').removeClass('_keyboard-is-on');
-        });
-
-
     }
 
     function unorganizedPins() {
@@ -608,20 +546,44 @@ var curSavedImgSrc;
             var sPath = window.location.pathname;
             var pathHref = window.location.href;
             var path = '../assets/animation/heart-stream.json';
+            var aPath = '../assets/animation/appreciation.json';
             var string = 'github';
             console.log('pathHREF is ' + pathHref);
-            if (pathHref.indexOf(string) >= 1 ) {
-                console.log('path has '+ string +' in it');
+            if (pathHref.indexOf(string) >= 1) {
+                console.log('path has ' + string + ' in it');
                 path = 'assets/animation/heart-stream.json';
+                aPath = 'assets/animation/appreciation.json';
             } else {
-                console.log('path does not have '+ string +' in it');
+                console.log('path does not have ' + string + ' in it');
             }
 
             //
             var pinCount = parseInt($('.idea-pin').length) - 1;
             var curCount;
+            var appreciation;
             var anim = [];
-            // var $toast = $('.toast');
+
+            appreciation = lottie.loadAnimation({
+                container: document.getElementById('appreciation'),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: aPath
+            });
+
+            appreciation.onComplete = function() {
+                appreciation.goToAndStop(0, true)
+            };
+
+            // $('.stream-save-btn').on('click', function() {
+
+            //     if (!$(this).hasClass('_active')) {
+            //         appreciation.play();
+            //     }
+            // });
+            var curIdeaPinImg;
+            var $savedPin = $('.saved-pin-wrapper');
+            var $toast = $('.toast');
             for (var i = 0; i < pinCount; i++) {
                 anim[i + 1] = lottie.loadAnimation({
                     container: document.getElementById('heart-stream-' + [i + 1]),
@@ -635,17 +597,28 @@ var curSavedImgSrc;
             // var arr = new Array(pinCount);
             var arr = Array.from({
                 length: pinCount
-            }, (_, i) => i + 1)
+            }, (_, i) => i + 1);
             $.each(arr, function(index, value) {
                 $('.stream-save-btn-' + value).on('click', function() {
                     curCount = parseInt($('.stream-save-btn-' + value).next().html());
                     console.log('clicked!');
+
+
+
+                        curIdeaPinImg = $('.idea-pin._active').attr('data-poster');
+                         console.log(curIdeaPinImg);
+                        $savedPin.css('background-image', 'url("../assets/videos/' + curIdeaPinImg + '.png")');
                     if ($('.stream-save-btn-' + value).hasClass('_active')) {
                         $('.stream-save-btn-' + value).removeClass('_active');
                         activeVid.parent().parent().removeClass('_saved');
                         anim[value].goToAndStop(0, true);
 
+                        // update save count
                         $('.stream-save-btn-' + value).next().html(curCount - 1);
+
+
+                        // update poster image in toast
+                        // which idea Pin + get poster attribute
 
                     } else {
 
@@ -668,9 +641,11 @@ var curSavedImgSrc;
 
 
                             $('.toast-text span').html($(this).data('toast'));
-                            $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + $(this).data('dest') + '.png" alt>');
+                            $('.toast-img-wrapper').html('<img src="assets/videos/boards-cover/' + $(this).data('dest') + '.png" alt>');
 
                             showToast();
+                            setTimeout(function() {appreciation.play()}, 600);
+                            appreciation.play();
                             activeVid.get(0).play();
                             updateProgress();
                         });
@@ -689,6 +664,7 @@ var curSavedImgSrc;
                 $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>');
 
                 showToast();
+                setTimeout(function() {appreciation.play()}, 600);
                 activeVid.get(0).play();
                 updateProgress();
 
@@ -777,10 +753,7 @@ var curSavedImgSrc;
             function playPause() {
                 activeVid = $('.idea-pin._active').find('.page._active').find('video');
                 killInterval();
-                // tl.restart();
-                // console.log('play pause ran');
-                // e.stopPropagation();
-                // console.log('active video clicked');
+
                 if (activeVid.get(0).currentTime > 0 && !activeVid.get(0).ended && !activeVid.get(0).paused && activeVid.get(0).readyState > 2) {
 
                     // video is playing
@@ -869,10 +842,6 @@ var curSavedImgSrc;
                 // var $item = $(image.img);
                 $grid.isotope('layout');
                 $('.masonry-layout .item').addClass('_loaded');
-                // $item.css({
-                //     "opacity": "1",
-                //     "transition-delay": Math.random() + "s"
-                // });
             });
         }
 
@@ -924,10 +893,8 @@ var curSavedImgSrc;
     return {
         states: states,
         trunk8: trunk8,
-        modal: modal,
         starGrid: starGrid,
         backButton: backButton,
-        bodyMovin: bodyMovin,
         likeThisGrid: likeThisGrid,
         hearting: hearting,
         showToast: showToast,

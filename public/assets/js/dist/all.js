@@ -685,7 +685,7 @@ $toast.removeClass('_rounded');
 
                     curIdeaPinImg = $('.idea-pin._active').attr('data-poster');
                     // console.log(curIdeaPinImg);
-                    $savedPin.css('background-image', 'url("../assets/videos/' + curIdeaPinImg + '.png")');
+                    $savedPin.css('background-image', 'url("assets/videos/' + curIdeaPinImg + '.png")');
 
                     //unhide the pin
 

@@ -168,7 +168,7 @@ var Global = (function() {
             $('.toast-img-wrapper').html(
                 '<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>'
             );
-                showToast();
+            showToast();
 
             // unhide HF Pins on orgainze later section
             if ($body.hasClass('_closeup-is-on')) {
@@ -629,6 +629,9 @@ var Global = (function() {
             var path = '../assets/animation/heart-stream.json';
             var aPath = '../assets/animation/appreciation.json';
             var string = 'github';
+            var $savedPin = $('.saved-pin-wrapper');
+            var curIdeaPinImg;
+            var posterPath;
             console.log('pathHREF is ' + pathHref);
             if (pathHref.indexOf(string) >= 1) {
                 console.log('path has ' + string + ' in it');
@@ -660,8 +663,6 @@ var Global = (function() {
             };
 
 
-            var curIdeaPinImg;
-            var $savedPin = $('.saved-pin-wrapper');
             for (var i = 0; i < pinCount; i++) {
                 anim[i + 1] = lottie.loadAnimation({
                     container: document.getElementById('heart-stream-' + [i + 1]),
@@ -679,13 +680,18 @@ var Global = (function() {
             $.each(arr, function(index, value) {
                 $('.stream-save-btn-' + value).on('click', function() {
                     curCount = parseInt($('.stream-save-btn-' + value).next().html());
-                    console.log('clicked!');
-$toast.removeClass('_rounded');
-
+                    // console.log('clicked!');
+                    $toast.removeClass('_rounded');
 
                     curIdeaPinImg = $('.idea-pin._active').attr('data-poster');
-                    // console.log(curIdeaPinImg);
-                    $savedPin.css('background-image', 'url("assets/videos/' + curIdeaPinImg + '.png")');
+
+                    posterPath = 'url("assets/videos/' + curIdeaPinImg + '.png")';
+
+                    if (pathHref.indexOf(string) >= 1) {
+                        console.log('on git');
+                        posterPath = 'url("p2/assets/videos/' + curIdeaPinImg + '.png")';
+                    }
+                    $savedPin.css('background-image', posterPath);
 
                     //unhide the pin
 

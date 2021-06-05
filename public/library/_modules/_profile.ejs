@@ -1,5 +1,6 @@
 <%
 var homefeedData;
+var ideaPinData = public.content.ideapin._data.pins;
 var boardsData = public.content.boards._data.all;
 var demoData = public.content.homefeed._data.pins;
 var uopData = public.content.homefeed._data.foodPins;
@@ -47,7 +48,12 @@ if (mode == "demo") {
 		</div>
 		<div class="button-sml">Organize</div>
 	</div>
-	<div class="unorganized-pins-wrap">
+	<div id="unorganized-pins-wrap" class="unorganized-pins-wrap">
+		<% for ( var k=0; k < ideaPinData.length; k++ ) { %>
+			<div id="uop-idea-pin-<%= k + 1 %>"class="uop-pin _hidden">
+				<img src="assets/videos/<%= ideaPinData[k].poster %>.png" alt="">
+			</div>
+		<% } %>
 		<% for ( var i=0; i < homefeedData.length; i++ ) { %>
 			<div id="uop-<%= i + 1 %>"class="uop-pin _hidden">
 				<img src="<%= homefeedData[i].img %>" alt="">

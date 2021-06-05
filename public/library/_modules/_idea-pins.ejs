@@ -15,7 +15,7 @@ var lastPinData = public.content.ideapin._data.thelastpin;
 	<div class="splide__track">
 		<div class="splide__list">
 			<% for ( var i=0; i < ideaPinData.length; i++ ) { %>
-			<div class="idea-pin <%= ideaPinData[i].class %>" data-poster = "<%= ideaPinData[i].poster %>">
+			<div class="idea-pin <%= ideaPinData[i].class %>" data-poster = "<%= ideaPinData[i].poster %>" data-idea-pin-id = "<%= i + 1 %>">
 				<div class="pages-progress">
 					<% for ( var j=0; j < ideaPinData[i].pages.length; j++ ) { %>
 					<div class="progress-wrap">

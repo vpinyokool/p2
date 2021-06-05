@@ -57,6 +57,7 @@ var Global = (function() {
     // return true or false
     var $body = $('body');
     var $nav = $('nav');
+    var $toast = $('.toast');
 
     // disable zoom on phones
     document.addEventListener('touchmove', function(event) {
@@ -132,6 +133,7 @@ var Global = (function() {
         //
         var pinCount = 15;
         var curPinID;
+        var curProfileImg;
         var anim = [];
         for (var i = 0; i < pinCount; i++) {
             anim[i + 1] = lottie.loadAnimation({
@@ -148,6 +150,10 @@ var Global = (function() {
             length: pinCount
         }, (_, i) => i + 1);
         $('#skip').on('click', function() {
+            $toast.addClass('_rounded');
+            curProfileImg = $('.avatar-wrap').find('img').attr('src');
+
+            $('.toast-img-wrapper').html('<img src="' + curProfileImg + '" alt>');
             closeBoardPicker();
         });
 
@@ -162,16 +168,19 @@ var Global = (function() {
             $('.toast-img-wrapper').html(
                 '<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>'
             );
+                showToast();
 
-            // save to profile anyway
-            curPinID = $('body').attr('data-cu-id');
-            $('#uop-' + curPinID).removeClass('_hidden');
-
-            showToast();
+            // unhide HF Pins on orgainze later section
+            if ($body.hasClass('_closeup-is-on')) {
+                destroyUPGrid();
+                curPinID = $('body').attr('data-cu-id');
+                $('#uop-' + curPinID).removeClass('_hidden');
+                $('#uop-' + curPinID).prependTo('#unorganized-pins-wrap');
+            }
         }
         $.each(arr, function(index, value) {
             $('.heart-' + value).on('click', function() {
-
+                $toast.removeClass('_rounded');
                 var curSavedImgSrc;
                 var $savedPin = $('.saved-pin-wrapper');
                 // get pin image then apply as background in the board picker
@@ -235,7 +244,6 @@ var Global = (function() {
     };
 
     function showToast() {
-        var $toast = $('.toast');
         var tl = new TimelineLite({});
         var dur = .35;
 
@@ -379,6 +387,23 @@ var Global = (function() {
         $uop.imagesLoaded().progress(function() {
             $uop.isotope('layout');
         });
+
+        return $uop;
+    }
+
+    function destroyUPGrid() {
+        var $uop = $('.unorganized-pins-wrap').isotope({
+            itemSelector: '.uop-pin',
+            masonry: {
+                columnWidth: 114,
+                gutter: 8,
+                horizontalOrder: true,
+                fitWidth: true,
+                originLeft: true
+            }
+        });
+
+        $uop.isotope('destroy'); // destroy
     }
 
     function likeThisGrid() {
@@ -447,11 +472,16 @@ var Global = (function() {
         });
 
         function playVideoOnActivePage() {
+            var activeIdeaPinIndex;
 
             activeVid = $('.idea-pin._active').find('.page._active').find('video');
             activeVid.get(0).currentTime = 0;
             activeVid.get(0).play();
 
+            activeIdeaPinIndex = $('.idea-pin._active').attr('data-idea-pin-id');
+
+            // update stream id number
+            $body.attr('data-stream-id', activeIdeaPinIndex);
 
             // update progress
             updateProgress();
@@ -613,6 +643,9 @@ var Global = (function() {
             var curCount;
             var appreciation;
             var anim = [];
+            var tlThanks = new TimelineLite({});
+            var $thanks = $('#creator-thanks');
+            var thanksDur = .8;
 
             appreciation = lottie.loadAnimation({
                 container: document.getElementById('appreciation'),
@@ -626,15 +659,9 @@ var Global = (function() {
                 appreciation.goToAndStop(0, true)
             };
 
-            // $('.stream-save-btn').on('click', function() {
 
-            //     if (!$(this).hasClass('_active')) {
-            //         appreciation.play();
-            //     }
-            // });
             var curIdeaPinImg;
             var $savedPin = $('.saved-pin-wrapper');
-            var $toast = $('.toast');
             for (var i = 0; i < pinCount; i++) {
                 anim[i + 1] = lottie.loadAnimation({
                     container: document.getElementById('heart-stream-' + [i + 1]),
@@ -653,12 +680,16 @@ var Global = (function() {
                 $('.stream-save-btn-' + value).on('click', function() {
                     curCount = parseInt($('.stream-save-btn-' + value).next().html());
                     console.log('clicked!');
+$toast.removeClass('_rounded');
 
 
+                    curIdeaPinImg = $('.idea-pin._active').attr('data-poster');
+                    // console.log(curIdeaPinImg);
+                    $savedPin.css('background-image', 'url("../assets/videos/' + curIdeaPinImg + '.png")');
 
-                        curIdeaPinImg = $('.idea-pin._active').attr('data-poster');
-                         console.log(curIdeaPinImg);
-                        $savedPin.css('background-image', 'url("../assets/videos/' + curIdeaPinImg + '.png")');
+                    //unhide the pin
+
+
                     if ($('.stream-save-btn-' + value).hasClass('_active')) {
                         $('.stream-save-btn-' + value).removeClass('_active');
                         activeVid.parent().parent().removeClass('_saved');
@@ -692,11 +723,34 @@ var Global = (function() {
 
 
                             $('.toast-text span').html($(this).data('toast'));
-                            $('.toast-img-wrapper').html('<img src="assets/videos/boards-cover/' + $(this).data('dest') + '.png" alt>');
+                            $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + $(this).data('dest') + '.png" alt>');
 
                             showToast();
-                            setTimeout(function() {appreciation.play()}, 600);
-                            appreciation.play();
+
+
+
+
+
+                            setTimeout(function() {
+                                appreciation.play()
+                                tlThanks.to($thanks, thanksDur, {
+                                    ease: Back.easeOut,
+                                    bottom: '172px',
+                                    opacity: 1
+                                }, "+=.5");
+
+                                tlThanks.to($thanks, thanksDur, {
+                                    ease: Power2.easeOut,
+                                    bottom: '172px',
+                                    opacity: 0
+                                }, "+=2.5");
+
+                                tlThanks.set($thanks, {
+                                    clearProps: "all"
+                                });
+
+
+                            }, 600);
                             activeVid.get(0).play();
                             updateProgress();
                         });
@@ -707,18 +761,53 @@ var Global = (function() {
             });
 
             $('#skip').on('click', function() {
+                var curProfileImg;
                 $('.board-picker-sheet').removeClass('_active');
 
                 $body.removeClass('_sheet-is-on');
-
+                $toast.addClass('_rounded');
                 $('.toast-text span').html('Organize later');
-                $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>');
+                curProfileImg = $('.avatar-wrap').find('img').attr('src');
 
-                showToast();
-                setTimeout(function() {appreciation.play()}, 600);
-                activeVid.get(0).play();
-                updateProgress();
+                $('.toast-img-wrapper').html('<img src="' + curProfileImg + '" alt>');
 
+                // unhide idea pin on profile
+
+                if ($body.hasClass('_stream-is-on')) {
+
+
+                    destroyUPGrid();
+
+                    curIdeaPinID = $('body').attr('data-stream-id');
+                    // alert('Running and idea pin ID  is' + curIdeaPinID);
+                    $('#uop-idea-pin-' + curIdeaPinID).removeClass('_hidden');
+                    $('#uop-idea-pin-' + curIdeaPinID).prependTo('#unorganized-pins-wrap');
+                    showToast();
+                    setTimeout(function() {
+                        appreciation.play()
+
+
+                        tlThanks.to($thanks, thanksDur, {
+                            ease: Back.easeOut,
+                            bottom: '172px',
+                            opacity: 1
+                        }, "+=.5");
+
+                        tlThanks.to($thanks, thanksDur, {
+                            ease: Power2.easeOut,
+                            bottom: '172px',
+                            opacity: 0
+                        }, "+=2.5");
+
+                        tlThanks.set($thanks, {
+                            clearProps: "all"
+                        });
+
+
+                    }, 600);
+                    activeVid.get(0).play();
+                    updateProgress();
+                }
 
             });
         };

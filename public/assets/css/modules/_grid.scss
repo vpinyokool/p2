@@ -1963,6 +1963,10 @@ background-image: url('../icons/stream-icon-detail.svg');
 		&.shop {
 			background-image: url('../icons/profile-icon-shop.svg');
 		}
+		&.created {
+			background-size: 18px;
+			background-image: url('../icons/profile-icon-created.svg');
+		}
 		&.saved {
 			background-image: url('../icons/profile-icon-saved.svg');
 			border-bottom: 2px solid $darkest;

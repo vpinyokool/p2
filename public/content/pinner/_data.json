@@ -124,11 +124,11 @@
 		],
 		"boards": [
 			{
-				"src": "Title of board",
+				"src": "board title",
 				"count": 123,
-				"img": "board cover img url",
-				"imgTwo": "latest pin img url",
-				"imgThree": "second latest pin img url"
+				"img": "",
+				"imgTwo": "",
+				"imgThree": ""
 			}
 		]
 	},
@@ -167,11 +167,11 @@
 		],
 		"boards": [
 			{
-				"src": "Title of board",
+				"src": "board title",
 				"count": 123,
-				"img": "board cover img url",
-				"imgTwo": "latest pin img url",
-				"imgThree": "second latest pin img url"
+				"img": "",
+				"imgTwo": "",
+				"imgThree": ""
 			}
 		]
 	},
@@ -189,11 +189,11 @@
 		],
 		"boards": [
 			{
-				"src": "Title of board",
+				"src": "board title",
 				"count": 123,
-				"img": "board cover img url",
-				"imgTwo": "latest pin img url",
-				"imgThree": "second latest pin img url"
+				"img": "",
+				"imgTwo": "",
+				"imgThree": ""
 			}
 		]
 	},
@@ -211,11 +211,11 @@
 		],
 		"boards": [
 			{
-				"src": "Title of board",
+				"src": "board title",
 				"count": 123,
-				"img": "board cover img url",
-				"imgTwo": "latest pin img url",
-				"imgThree": "second latest pin img url"
+				"img": "",
+				"imgTwo": "",
+				"imgThree": ""
 			}
 		]
 	},
@@ -233,11 +233,11 @@
 		],
 		"boards": [
 			{
-				"src": "Title of board",
+				"src": "board title",
 				"count": 123,
-				"img": "board cover img url",
-				"imgTwo": "latest pin img url",
-				"imgThree": "second latest pin img url"
+				"img": "",
+				"imgTwo": "",
+				"imgThree": ""
 			}
 		]
 	},
@@ -255,11 +255,11 @@
 		],
 		"boards": [
 			{
-				"src": "Title of board",
+				"src": "board title",
 				"count": 123,
-				"img": "board cover img url",
-				"imgTwo": "latest pin img url",
-				"imgThree": "second latest pin img url"
+				"img": "",
+				"imgTwo": "",
+				"imgThree": ""
 			}
 		]
 	},
@@ -277,11 +277,11 @@
 		],
 		"boards": [
 			{
-				"src": "Title of board",
+				"src": "board title",
 				"count": 123,
-				"img": "board cover img url",
-				"imgTwo": "latest pin img url",
-				"imgThree": "second latest pin img url"
+				"img": "",
+				"imgTwo": "",
+				"imgThree": ""
 			}
 		]
 	},
@@ -299,11 +299,11 @@
 		],
 		"boards": [
 			{
-				"src": "Title of board",
+				"src": "board title",
 				"count": 123,
-				"img": "board cover img url",
+				"img": "",
 				"imgTwo": "latest pin img url",
-				"imgThree": "second latest pin img url"
+				"imgThree": ""
 			}
 		]
 	}

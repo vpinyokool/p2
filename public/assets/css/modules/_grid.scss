@@ -527,49 +527,27 @@ main,
 		width: 100%;
 		height: auto;
 	}
-	.star {
-		cursor: pointer;
-		width: 32px;
-		height: 32px;
-		position: absolute;
-		background-color: rgba($white, .8);
-		border-radius: 100%;
-		right: 8px;
-		bottom: 8px;
-		.icon-wrap {
-			width: 32px;
-			height: 32px;
-			transform:  scale(.8);
-			background-image: url(../icons/icon-not-active.png);
-			transition: transform 250ms $ease-out-back 50ms;
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: 20px;
-		}
-		&:hover {
-			background-color: $white;
-		}
-		&._active {
-			.icon-wrap {
-				transform:  scale(.88);
-				background-image: url(../icons/icon-star-active.png);
-			}
-		}
-	}
 }
+
+.pin-title-wrapper {
+	height: auto;
+	max-height: 35px;
+	overflow: hidden;
+	// background-color: green;
+}
+
 .pin-title {
 	font-size: 12px;
 	font-weight: 600;
 	padding-left: 6px;
 	padding-top: 6px;
 	line-height: 1.2;
-	&.more-like-this {
-		padding-right: 16px;
-	}
+	padding-right: 19px;
+
 }
+
 .item {
 	width: 176px;
-	margin-bottom: 16px;
 	cursor: pointer;
 	&._hidden {
 		display: none;
@@ -924,7 +902,7 @@ text-align: center;
 		font-weight: 600;
 		font-family: $font-display;
 		margin-left: 8px;
-		// text-transform: capitalize;
+		text-transform: capitalize;
 	}
 	.board-list-img {
 		width: 48px;
@@ -1079,7 +1057,7 @@ padding: 80px 32px;
 
 .disco-pin {
 	width: 174px;
-	margin-bottom: 16px;
+	margin-bottom: 20px;
 	.pin-img-wrapper {
 		border-radius: 16px;
 		overflow: hidden;
@@ -2010,6 +1988,11 @@ background-image: url('../icons/stream-icon-detail.svg');
 	.br-leading {
 		background-color: $light;
 		width: 117px;
+		overflow: hidden;
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 	.br-trailing {
 		width: calc(176px - 1px - 117px);
@@ -2023,9 +2006,19 @@ background-image: url('../icons/stream-icon-detail.svg');
 		.top {
 			background-color: $light;
 			margin-bottom: 1px;
+			overflow: hidden;
+				img {
+					width: auto;
+					height: 100%;
+			}
 		}
 		.bottom {
 			background-color: $light;
+			overflow: hidden;
+			img {
+				width: auto;
+				height: 100%;
+			}
 		}
 	}
 }
@@ -2143,6 +2136,10 @@ background-image: url('../icons/stream-icon-detail.svg');
 			text-align: center;
 			margin-top: 2px;
 			color: $dark;
+			width: 100%;
+  			white-space: nowrap;
+  			overflow: hidden;
+  			text-overflow: ellipsis;
 		}
 	}
 }
@@ -2215,3 +2212,4 @@ $arrow-size: 4px;
   border-top: $arrow-size solid rgba($black, .4);
 
 }
+

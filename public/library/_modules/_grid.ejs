@@ -1,18 +1,50 @@
 <%
+var pinnerData = public.content.pinner._data.pinner;
+var ideaPinData = public.content.ideapin._data.pins;
+var uopData = public.content.homefeed._data.foodPins;
 var homefeedData;
-//
-// var krizzly7Data = public.content.krizzly7._data.pins;
-// var marialat530Data = public.content.marialat530._data.pins;
-// var moominmom3Data = public.content.moominmom3._data.pins;
-// var shavonData = public.content.shavon._data.pins;
-// var theniftyshopperData = public.content.theniftyshopper._data.pins;
-//
-var demoData = public.content.homefeed._data.pins;
+var boardsData;
 
 
-if (mode == "demo") {
-	homefeedData = demoData;
-}
+	if ( current.source == pinnerData[0].username) {
+		homefeedData = pinnerData[0].hf;
+	}
+
+	if ( current.source == pinnerData[1].username) {
+		homefeedData = pinnerData[1].hf;
+	}
+
+	if ( current.source == pinnerData[2].username) {
+		homefeedData = pinnerData[2].hf;
+	}
+
+	if ( current.source == pinnerData[3].username) {
+		homefeedData = pinnerData[3].hf;
+	}
+
+	if ( current.source == pinnerData[4].username) {
+		homefeedData = pinnerData[4].hf;
+	}
+
+	if ( current.source == pinnerData[5].username) {
+		homefeedData = pinnerData[5].hf;
+	}
+
+	if ( current.source == pinnerData[6].username) {
+		homefeedData = pinnerData[6].hf;
+	}
+
+	if ( current.source == pinnerData[7].username) {
+		homefeedData = pinnerData[7].hf;
+	}
+
+	if ( current.source == pinnerData[8].username) {
+		homefeedData = pinnerData[8].hf;
+	}
+
+	if ( current.source == pinnerData[9].username) {
+		homefeedData = pinnerData[9].hf;
+	}
 %>
 
 
@@ -25,8 +57,14 @@ if (mode == "demo") {
 
 				<img src="<%= homefeedData[i].img %>" />
 			</div>
-			<div class="pin-title more-like-this">
-				<%= homefeedData[i].title %>
+			<div class="pin-title-wrapper">
+				<div class="pin-title">
+					<% if ( homefeedData[i].title ) { %>
+						<%= homefeedData[i].title %>
+					<% } else { %>
+						<br>
+					<% } %>
+				</div>
 			</div>
 		</div>
 

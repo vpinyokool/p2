@@ -689,7 +689,7 @@ var Global = (function() {
 
                     if (pathHref.indexOf(string) >= 1) {
                         console.log('on git');
-                        posterPath = 'url("p2/assets/videos/' + curIdeaPinImg + '.png")';
+                        posterPath = 'url("assets/videos/' + curIdeaPinImg + '.png")';
                     }
                     $savedPin.css('background-image', posterPath);
 

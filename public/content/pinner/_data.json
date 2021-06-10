@@ -3,52 +3,309 @@
 	{
 		"username": "demo",
 		"name": "Jonathan",
-		"src": "p-00"
+		"src": "p-00",
+		"type": "n/a",
+		"hf": [
+		{
+			"title":"Wee Society Collection, Prints and Posters ",
+			"img": "assets/images/2.png"
+		},
+		{
+			"title":"Jelly Milky Clenser",
+			"img": "assets/images/1.png"
+		},
+		{
+			"title":"New colors for 2018 Fall/Winter Collection",
+			"img": "assets/images/3.png"
+		},
+		{
+			"title":"BLT with Lemon Basil Mayo",
+			"img": "assets/images/4.png"
+		},
+		{
+			"title":"BLT with Lemon Basil Mayo",
+			"img": "assets/images/5.png"
+		},
+		{
+			"title":"Healthy Thai chicken lettuce wraps",
+			"img": "assets/images/6.png"
+		},
+		{
+			"title":"Yesterday’s New Quintet, poster submitted and designed by Jacek Rudzki",
+			"img": "assets/images/7.png"
+		},
+		{
+			"title":"Youmeus design big top barware collection for homes",
+			"img": "assets/images/8.png"
+		},
+		{
+			"img": "assets/images/9.png"
+		},
+		{
+			"title":"COS Sets a Desert Scene with Spring 2016 Campaign",
+			"img": "assets/images/10.png"
+		},
+		{
+			"title":"COS Sets a Desert Scene with Spring 2016 Campaign",
+			"img": "assets/images/11.png"
+		},
+		{
+			"title":"Refettorio Felix",
+			"img": "assets/images/12.png"
+		},
+		{
+			"title":"Thai Seafood Massaman Curry",
+			"img": "assets/images/13.png"
+		},
+		{
+			"img": "assets/images/14.png"
+		},
+		{
+			"title":"Model Aliane Uwimana Gatabazi",
+			"img": "assets/images/15.png"
+		}
+		],
+		"boards": [
+			{
+				"src" : "apron",
+				"img": "apron.png",
+				"imgTwo": "apron.png",
+				"imgThree": "apron.png",
+				"count": 65
+			},
+			{
+				"src" : "blaschka",
+				"img": "blaschka.png",
+				"imgTwo": "blaschka.png",
+				"imgThree": "blaschka.png",
+				"count": 12
+			},
+			{
+				"src" : "illustrations",
+				"img": "illustrations.png",
+				"imgTwo": "illustrations.png",
+				"imgThree": "illustrations.png",
+				"count": 43
+			},
+			{
+				"src" : "portraits",
+				"img": "portraits.png",
+				"imgTwo": "portraits.png",
+				"imgThree": "portraits.png",
+				"count": 75
+			},
+			{
+				"src" : "baby",
+				"img": "baby.png",
+				"imgTwo": "baby.png",
+				"imgThree": "baby.png",
+				"count": 12
+			},
+			{
+				"src" : "design",
+				"img": "design.png",
+				"imgTwo": "design.png",
+				"imgThree": "design.png",
+				"count": 54
+			}
+		]
 	},
 	{
-		"username": "creator-1",
-		"name": "Alisha",
-		"src": "p-01"
+		"username": "dianamelanieeeee",
+		"name": "Diana",
+		"src": "p-01",
+		"type": "core",
+		"hf": [
+			{
+				"title": "",
+				"description": "",
+				"img": ""
+			}
+		],
+		"boards": [
+			{
+				"src": "Title of board",
+				"count": 123,
+				"img": "board cover img url",
+				"imgTwo": "latest pin img url",
+				"imgThree": "second latest pin img url"
+			}
+		]
 	},
 	{
-		"username": "creator-2",
-		"name": "June",
-		"src": "p-02"
+		"username": "wolfbelieverr",
+		"name": "Eileen",
+		"src": "p-02",
+		"type": "core",
+		"hf": [
+			{
+				"title": "",
+				"description": "",
+				"src": ""
+			}
+		],
+		"boards": [
+			{
+				"title": "",
+				"src": "",
+				"count": 123,
+				"img": ""
+			}
+		]
 	},
 	{
-		"username": "creator-3",
-		"name": "James",
-		"src": "p-03"
+		"username": "gsilverlining",
+		"name": "Gwen",
+		"src": "p-03",
+		"type": "casual",
+		"hf": [
+			{
+				"title": "",
+				"description": "",
+				"img": ""
+			}
+		],
+		"boards": [
+			{
+				"src": "Title of board",
+				"count": 123,
+				"img": "board cover img url",
+				"imgTwo": "latest pin img url",
+				"imgThree": "second latest pin img url"
+			}
+		]
 	},
 	{
-		"username": "low-1",
-		"name": "Shawn",
-		"src": "p-04"
+		"username": "checaskey",
+		"name": "Chelsea",
+		"src": "p-04",
+		"type": "marginal",
+		"hf": [
+			{
+				"title": "",
+				"description": "",
+				"img": ""
+			}
+		],
+		"boards": [
+			{
+				"src": "Title of board",
+				"count": 123,
+				"img": "board cover img url",
+				"imgTwo": "latest pin img url",
+				"imgThree": "second latest pin img url"
+			}
+		]
 	},
 	{
-		"username": "low-2",
-		"name": "Clara",
-		"src": "p-05"
+		"username": "camecabacchus",
+		"name": "Cameca",
+		"src": "p-05",
+		"type": "creator",
+		"hf": [
+			{
+				"title": "",
+				"description": "",
+				"img": ""
+			}
+		],
+		"boards": [
+			{
+				"src": "Title of board",
+				"count": 123,
+				"img": "board cover img url",
+				"imgTwo": "latest pin img url",
+				"imgThree": "second latest pin img url"
+			}
+		]
 	},
 	{
-		"username": "low-3",
-		"name": "Will",
-		"src": "p-06"
+		"username": "vapor247",
+		"name": "Wade",
+		"src": "p-06",
+		"type": "resurrected",
+		"hf": [
+			{
+				"title": "",
+				"description": "",
+				"img": ""
+			}
+		],
+		"boards": [
+			{
+				"src": "Title of board",
+				"count": 123,
+				"img": "board cover img url",
+				"imgTwo": "latest pin img url",
+				"imgThree": "second latest pin img url"
+			}
+		]
 	},
 	{
-		"username": "core-1",
-		"name": "Jess",
-		"src": "p-07"
+		"username": "juliavillarruel1832",
+		"name": "Julia",
+		"src": "p-07",
+		"type": "resurrected",
+		"hf": [
+			{
+				"title": "",
+				"description": "",
+				"img": ""
+			}
+		],
+		"boards": [
+			{
+				"src": "Title of board",
+				"count": 123,
+				"img": "board cover img url",
+				"imgTwo": "latest pin img url",
+				"imgThree": "second latest pin img url"
+			}
+		]
 	},
 	{
-		"username": "core-2",
-		"name": "Deja",
-		"src": "p-08"
+		"username": "unconventionalsouthernbelle",
+		"name": "Shiquita",
+		"src": "p-08",
+		"type": "creator",
+		"hf": [
+			{
+				"title": "",
+				"description": "",
+				"img": ""
+			}
+		],
+		"boards": [
+			{
+				"src": "Title of board",
+				"count": 123,
+				"img": "board cover img url",
+				"imgTwo": "latest pin img url",
+				"imgThree": "second latest pin img url"
+			}
+		]
 	},
 	{
-		"username": "core-3",
-		"name": "Edward",
-		"src": "p-09"
+		"username": "stylexkavya",
+		"name": "Kavya",
+		"src": "p-09",
+		"type": "creator",
+		"hf": [
+			{
+				"title": "",
+				"description": "",
+				"img": ""
+			}
+		],
+		"boards": [
+			{
+				"src": "Title of board",
+				"count": 123,
+				"img": "board cover img url",
+				"imgTwo": "latest pin img url",
+				"imgThree": "second latest pin img url"
+			}
+		]
 	}
 	]
 }

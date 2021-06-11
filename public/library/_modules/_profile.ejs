@@ -6,55 +6,12 @@ var homefeedData;
 var boardsData;
 
 
-	if ( current.source == pinnerData[0].username) {
-		boardsData = pinnerData[0].boards;
-		homefeedData = pinnerData[0].hf;
+for ( var a=0; a < pinnerData.length; a++ ) {
+	if ( current.source == pinnerData[a].username) {
+		homefeedData = pinnerData[a].hf;
+		boardsData = pinnerData[a].boards;
 	}
-
-	if ( current.source == pinnerData[1].username) {
-		boardsData = pinnerData[1].boards;
-		homefeedData = pinnerData[1].hf;
-	}
-
-	if ( current.source == pinnerData[2].username) {
-		boardsData = pinnerData[2].boards;
-		homefeedData = pinnerData[2].hf;
-	}
-
-	if ( current.source == pinnerData[3].username) {
-		boardsData = pinnerData[3].boards;
-		homefeedData = pinnerData[3].hf;
-	}
-
-	if ( current.source == pinnerData[4].username) {
-		boardsData = pinnerData[4].boards;
-		homefeedData = pinnerData[4].hf;
-	}
-
-	if ( current.source == pinnerData[5].username) {
-		boardsData = pinnerData[5].boards;
-		homefeedData = pinnerData[5].hf;
-	}
-
-	if ( current.source == pinnerData[6].username) {
-		boardsData = pinnerData[6].boards;
-		homefeedData = pinnerData[6].hf;
-	}
-
-	if ( current.source == pinnerData[7].username) {
-		boardsData = pinnerData[7].boards;
-		homefeedData = pinnerData[7].hf;
-	}
-
-	if ( current.source == pinnerData[8].username) {
-		boardsData = pinnerData[8].boards;
-		homefeedData = pinnerData[8].hf;
-	}
-
-	if ( current.source == pinnerData[9].username) {
-		boardsData = pinnerData[9].boards;
-		homefeedData = pinnerData[9].hf;
-	}
+}
 %>
 
 
@@ -69,18 +26,10 @@ var boardsData;
 <% for ( var i=0; i < boardsData.length; i++ ) { %>
 	<div class="board">
 		<div class="board-rep">
-			<div class="br-leading">
-				<img src="assets/images/boards-cover/<%= boardsData[i].img %>" alt="">
-
-			</div>
+			<div class="br-leading" style="background-image: url(<%= boardsData[i].img %>);" ></div>
 			<div class="br-trailing">
-				<div class="top">
-					<img src="assets/images/boards-cover/<%= boardsData[i].imgTwo %>" alt="">
-				</div>
-				<div class="bottom">
-					<img src="assets/images/boards-cover/<%= boardsData[i].imgThree %>" alt="">
-
-				</div>
+				<div class="top" style="background-image: url(<%= boardsData[i].imgTwo %>);"></div>
+				<div class="bottom" style="background-image: url(<%= boardsData[i].imgThree %>);"></div>
 			</div>
 		</div>
 		<div class="board-meta">

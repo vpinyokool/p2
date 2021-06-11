@@ -1,14 +1,33 @@
 <%
-var homefeedData = public.content.homefeed._data.pins;
-// var homefeedData = public.content.homefeed._data.ugly;
-// var homefeedData = public.content.homefeed._data.real;
+var pinnerData = public.content.pinner._data.pinner;
+var ideaPinData = public.content.ideapin._data.pins;
+var uopData = public.content.homefeed._data.foodPins;
+var homefeedData;
+var boardsData;
+
+for ( var a=0; a < pinnerData.length; a++ ) {
+	if ( current.source == pinnerData[a].username) {
+		homefeedData = pinnerData[a].hf;
+	}
+}
 %>
 
 <% for ( var i=0; i < homefeedData.length; i++ ) { %>
 	<div class="main-card-wrapper cu-<%= i+1 %>">
 		<img src="<%= homefeedData[i].img %>" />
+		<% if ( homefeedData[i].title ) { %>
 		<div class="cu-pin-title"><%= homefeedData[i].title %></div>
-		<div class="cu-pin-description">Pin description goes here</div>
+		<% } else { %>
+		<div class="cu-pin-title _padding-zero"></div>
+		<% } %>
+
+		<% if ( homefeedData[i].description ) { %>
+		<div class="cu-pin-description"><%= homefeedData[i].description %></div>
+		<% } else { %>
+<div class="cu-pin-description _padding-zero"></div>
+
+		<% } %>
+
 		<div class="cu-pin-actions-wrap">
 			<div class="leading-button-wrap">
 				<div class="icon-button share"></div>

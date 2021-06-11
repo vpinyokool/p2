@@ -121,12 +121,12 @@ var Global = (function() {
         var pathHref = window.location.href;
         var path = '../assets/animation/heart.json';
         var string = 'github';
-        console.log('pathHREF is ' + pathHref);
+        // console.log('pathHREF is ' + pathHref);
         if (pathHref.indexOf(string) >= 1) {
             console.log('path has ' + string + ' in it');
             path = 'assets/animation/heart.json';
         } else {
-            console.log('path does not have ' + string + ' in it');
+            // console.log('path does not have ' + string + ' in it');
         }
 
 
@@ -574,44 +574,53 @@ var Global = (function() {
 
         function splideMove() {
 
+            if ($('.stream-wrapper').length >= 1) {
+                $splide.on('moved', function() {
+                    // console.log('Splide has moved!');
 
-            $splide.on('moved', function() {
-                // console.log('Splide has moved!');
+                    // stop the current active video
+                    activeVid.get(0).pause();
+                    killInterval();
 
-                // stop the current active video
-                activeVid.get(0).pause();
-                killInterval();
+                    // set the new states for all elements
 
-                // set the new states for all elements
+                    // set the new states for idea pins
+                    $('.idea-pin').removeClass('_active');
+                    $('.idea-pin.is-active').addClass('_active');
 
-                // set the new states for idea pins
-                $('.idea-pin').removeClass('_active');
-                $('.idea-pin.is-active').addClass('_active');
+                    // set played state
+                    $('.idea-pin').removeClass('_played');
+                    $('.idea-pin.is-active').prev().addClass('_played');
 
-                // set played state
-                $('.idea-pin').removeClass('_played');
-                $('.idea-pin.is-active').prev().addClass('_played');
-
-                // set snew ates for pages
-                $('.page').removeClass('_active');
-                $('.idea-pin.is-active').find('.page').first().addClass('_active');
+                    // set snew ates for pages
+                    $('.page').removeClass('_active');
+                    $('.idea-pin.is-active').find('.page').first().addClass('_active');
 
 
-                // reset page-container positioning
-                $('.page-container').css('transform', 'translateX(0)');
+                    // reset page-container positioning
+                    $('.page-container').css('transform', 'translateX(0)');
 
-                //reset all progress
-                $('.progress').css('width', '0%');
+                    //reset all progress
+                    $('.progress').css('width', '0%');
 
-                // set new active video
-                activeVid = $('.idea-pin._active').find('.page._active').find('video');
-                playVideoOnActivePage();
+                    // set new active video
+                    activeVid = $('.idea-pin._active').find('.page._active').find('video');
+                    playVideoOnActivePage();
 
-            });
+                });
+            } else {
+                // console.log('on index page');
+            }
+
         }
 
         function initCarousel() {
-            $splide = new Splide('.splide').mount();
+
+            if ($('.stream-wrapper').length >= 1) {
+                $splide = new Splide('.splide').mount();
+            } else {
+                // console.log('on index page');
+            }
         }
 
         function firstSlide() {
@@ -632,13 +641,13 @@ var Global = (function() {
             var $savedPin = $('.saved-pin-wrapper');
             var curIdeaPinImg;
             var posterPath;
-            console.log('pathHREF is ' + pathHref);
+            // console.log('pathHREF is ' + pathHref);
             if (pathHref.indexOf(string) >= 1) {
-                console.log('path has ' + string + ' in it');
+                // console.log('path has ' + string + ' in it');
                 path = 'assets/animation/heart-stream.json';
                 aPath = 'assets/animation/appreciation.json';
             } else {
-                console.log('path does not have ' + string + ' in it');
+                // console.log('path does not have ' + string + ' in it');
             }
 
             //
@@ -688,7 +697,7 @@ var Global = (function() {
                     posterPath = 'url("assets/videos/' + curIdeaPinImg + '.png")';
 
                     if (pathHref.indexOf(string) >= 1) {
-                        console.log('on git');
+                        // console.log('on git');
                         posterPath = 'url("assets/videos/' + curIdeaPinImg + '.png")';
                     }
                     $savedPin.css('background-image', posterPath);

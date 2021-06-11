@@ -6,9 +6,9 @@ var pinnerData = public.content.pinner._data.pinner;
 <div class="grid-container">
 <div class="pinner-wrapper">
 <% for ( var i=0; i < pinnerData.length; i++ ) { %>
-<section class="pinner">
+<section class="pinner" data-type="<%= pinnerData[i].type %>">
 	<a href="<%= pinnerData[i].username %>">
-		<div class="avatar">
+		<div class="avatar" >
 			<img src="assets/images/pinner/<%= pinnerData[i].src %>.png" alt="">
 		</div>
 		<div class="name">

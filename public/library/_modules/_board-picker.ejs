@@ -2,45 +2,13 @@
 	var boardsData = public.content.boards._data.all;
 	var pinnerData = public.content.pinner._data.pinner;
 
-	if ( current.source == pinnerData[0].username) {
-		boardsData = pinnerData[0].boards;
-	}
 
-	if ( current.source == pinnerData[1].username) {
-		boardsData = pinnerData[1].boards;
+for ( var a=0; a < pinnerData.length; a++ ) {
+	if ( current.source == pinnerData[a].username) {
+		boardsData = pinnerData[a].boards;
 	}
+}
 
-	if ( current.source == pinnerData[2].username) {
-		boardsData = pinnerData[2].boards;
-	}
-
-	if ( current.source == pinnerData[3].username) {
-		boardsData = pinnerData[3].boards;
-	}
-
-	if ( current.source == pinnerData[4].username) {
-		boardsData = pinnerData[4].boards;
-	}
-
-	if ( current.source == pinnerData[5].username) {
-		boardsData = pinnerData[5].boards;
-	}
-
-	if ( current.source == pinnerData[6].username) {
-		boardsData = pinnerData[6].boards;
-	}
-
-	if ( current.source == pinnerData[7].username) {
-		boardsData = pinnerData[7].boards;
-	}
-
-	if ( current.source == pinnerData[8].username) {
-		boardsData = pinnerData[8].boards;
-	}
-
-	if ( current.source == pinnerData[9].username) {
-		boardsData = pinnerData[9].boards;
-	}
 %>
 
 
@@ -61,7 +29,7 @@
 		<% for ( var j=0; j < boardsData.length; j++ ) { %>
 		<li data-dest="<%= boardsData[j].src %>" data-toast="<%= boardsData[j].src %>" class="board-list profile">
 			<div class="board-list-img">
-				<img src="assets/images/boards-cover/<%= boardsData[j].img %>" alt="">
+				<img src="<%= boardsData[j].img %>" alt="">
 			</div>
 			<div class="board-title"><%= boardsData[j].src %></div>
 		</li>

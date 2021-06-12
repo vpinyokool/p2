@@ -372,7 +372,7 @@ var Global = (function() {
     }
 
     function trunk8() {
-        $('.cu-pin-description .string').trunk8({
+        $('.cu-pin-description').trunk8({
             lines: 2
         });
     }

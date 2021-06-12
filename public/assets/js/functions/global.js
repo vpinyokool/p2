@@ -83,6 +83,7 @@ var Global = (function() {
         var pinCount = 15;
         var curPinID;
         var curProfileImg;
+        var curImgSrc;
         var anim = [];
         for (var i = 0; i < pinCount; i++) {
             anim[i + 1] = lottie.loadAnimation({
@@ -113,7 +114,8 @@ var Global = (function() {
 
             $body.removeClass('_sheet-is-on');
 
-            $('.toast-text span').html('Organize later');
+            $('.toast-text').html('Moved to <span>Organize later</span>');
+
             $('.toast-img-wrapper').html(
                 '<img src="assets/images/boards-cover/' + 'profile' + '.png" alt>'
             );
@@ -137,11 +139,15 @@ var Global = (function() {
                 curSavedImgSrc = $('.cu-' + i).find('img').attr('src');
                 $savedPin.css('background-image', 'url("' + curSavedImgSrc + '")');
 
-                // if you you already saved, unsaveed
+                // if you you already saved, unsaved
                 if ($('.heart-' + value).hasClass('_active')) {
                     $('.heart-' + value).removeClass('_active');
                     $('.pin-id-' + value).removeClass('heart');
                     anim[value].playSegments([60, 119], true);
+
+                    $('.toast-text').html('<span>Deleted!</span>');
+                    $('.toast-img-wrapper').html('<img src="' + curSavedImgSrc + '" alt>');
+                    showToast();
 
                     // if not save
                 } else {
@@ -172,10 +178,9 @@ var Global = (function() {
                         // update states + show toast
                         $('.board-picker-sheet').removeClass('_active');
                         $body.removeClass('_sheet-is-on');
-                        $('.toast-text span').html($(this).data('toast'));
-                        $('.toast-img-wrapper').html(
-                            '<img src="assets/images/boards-cover/' + $(this).data('dest') + '.png" alt>'
-                        );
+                        $('.toast-text').html('Moved to <span>' + $(this).data('toast') + '</span>');
+                        curImgSrc = $(this).find('img').attr('src');
+                        $('.toast-img-wrapper').html('<img src="' + curImgSrc + '" alt>');
                         showToast();
                     });
 
@@ -601,12 +606,11 @@ var Global = (function() {
 
             //
             var pinCount = parseInt($('.idea-pin').length) - 1;
+            var toastPosterPath;
             var curCount;
+            var curImgSrc;
             var appreciation;
             var anim = [];
-            var tlThanks = new TimelineLite({});
-            var $thanks = $('#creator-thanks');
-            var thanksDur = .8;
 
             appreciation = lottie.loadAnimation({
                 container: document.getElementById('appreciation'),
@@ -642,9 +646,8 @@ var Global = (function() {
                     $toast.removeClass('_rounded');
 
                     curIdeaPinImg = $('.idea-pin._active').attr('data-poster');
-
                     posterPath = 'url("assets/videos/' + curIdeaPinImg + '.png")';
-
+                    toastPosterPath = 'assets/videos/' + curIdeaPinImg + '.png';
                     if (pathHref.indexOf(string) >= 1) {
                         // console.log('on git');
                         posterPath = 'url("assets/videos/' + curIdeaPinImg + '.png")';
@@ -653,7 +656,7 @@ var Global = (function() {
 
                     //unhide the pin
 
-
+                    // unsaved from stream
                     if ($('.stream-save-btn-' + value).hasClass('_active')) {
                         $('.stream-save-btn-' + value).removeClass('_active');
                         activeVid.parent().parent().removeClass('_saved');
@@ -661,6 +664,11 @@ var Global = (function() {
 
                         // update save count
                         $('.stream-save-btn-' + value).next().html(curCount - 1);
+
+                            $('.toast-text').html('<span>Deleted!</span>');
+                            $('.toast-img-wrapper').html('<img src="' + toastPosterPath + '" alt>');
+                            showToast();
+
 
 
                         // update poster image in toast
@@ -685,9 +693,10 @@ var Global = (function() {
                             $('.board-picker-sheet').removeClass('_active');
                             $body.removeClass('_sheet-is-on');
 
+                            $('.toast-text').html('Moved to <span>' + $(this).data('toast') + '</span>');
 
-                            $('.toast-text span').html($(this).data('toast'));
-                            $('.toast-img-wrapper').html('<img src="assets/images/boards-cover/' + $(this).data('dest') + '.png" alt>');
+                            curImgSrc = $(this).find('img').attr('src');
+                            $('.toast-img-wrapper').html('<img src="' + curImgSrc + '" alt>');
 
                             showToast();
 
@@ -696,24 +705,8 @@ var Global = (function() {
 
 
                             setTimeout(function() {
-                                appreciation.play()
-                                tlThanks.to($thanks, thanksDur, {
-                                    ease: Back.easeOut,
-                                    bottom: '172px',
-                                    opacity: 1
-                                }, "+=.5");
-
-                                tlThanks.to($thanks, thanksDur, {
-                                    ease: Power2.easeOut,
-                                    bottom: '172px',
-                                    opacity: 0
-                                }, "+=2.5");
-
-                                tlThanks.set($thanks, {
-                                    clearProps: "all"
-                                });
-
-
+                                appreciation.play();
+                                playThanks();
                             }, 600);
                             activeVid.get(0).play();
                             updateProgress();
@@ -730,7 +723,10 @@ var Global = (function() {
 
                 $body.removeClass('_sheet-is-on');
                 $toast.addClass('_rounded');
-                $('.toast-text span').html('Organize later');
+
+                $('.toast-text').html('Moved to <span>Organize later</span>');
+
+
                 curProfileImg = $('.avatar-wrap').find('img').attr('src');
 
                 $('.toast-img-wrapper').html('<img src="' + curProfileImg + '" alt>');
@@ -749,23 +745,7 @@ var Global = (function() {
                     showToast();
                     setTimeout(function() {
                         appreciation.play()
-
-
-                        tlThanks.to($thanks, thanksDur, {
-                            ease: Back.easeOut,
-                            bottom: '172px',
-                            opacity: 1
-                        }, "+=.5");
-
-                        tlThanks.to($thanks, thanksDur, {
-                            ease: Power2.easeOut,
-                            bottom: '172px',
-                            opacity: 0
-                        }, "+=2.5");
-
-                        tlThanks.set($thanks, {
-                            clearProps: "all"
-                        });
+                        playThanks();
 
 
                     }, 600);
@@ -776,7 +756,25 @@ var Global = (function() {
             });
         };
 
+        function playThanks() {
+            var tlThanks = new TimelineLite();
+            var $thanks = $('#creator-thanks');
+            var thanksDur = .8;
+            tlThanks.to($thanks, thanksDur, {
+                    ease: Back.easeOut,
+                    bottom: '172px',
+                    opacity: 1
+                }, "+=.5")
+                .to($thanks, thanksDur, {
+                    ease: Power2.easeOut,
+                    bottom: '172px',
+                    opacity: 0
+                }, "+=2.5")
 
+            .set($thanks, {
+                clearProps: "all"
+            });
+        }
 
         function navigativeActiveVid() {
             $('.next-btn').on('click', function() {

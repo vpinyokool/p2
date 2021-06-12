@@ -14,7 +14,9 @@ for ( var a=0; a < pinnerData.length; a++ ) {
 
 <% for ( var i=0; i < homefeedData.length; i++ ) { %>
 	<div class="main-card-wrapper cu-<%= i+1 %>">
-		<img src="<%= homefeedData[i].img %>" />
+		<div class="main-card-img-wrapper">
+			<img src="<%= homefeedData[i].img %>" />
+		</div>
 		<% if ( homefeedData[i].title ) { %>
 		<div class="cu-pin-title"><%= homefeedData[i].title %></div>
 		<% } else { %>

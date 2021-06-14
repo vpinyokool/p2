@@ -12,15 +12,21 @@
 			<%- partial('../_modules/_profile-navigation-bar') %>
 			<div class="icon-button back"></div>
 			<div class="closeup scroll-area">
-				<%- partial('../_modules/_closeup-card') %>
-				<%- partial('../_modules/_closeup-junk') %>
+				<div class="draggable">
+					<%- partial('../_modules/_closeup-card') %>
+					<%- partial('../_modules/_closeup-junk') %>
+				</div>
 			</div>
 			<div class="profile scroll-area">
-				<%- partial('../_modules/_profile',{mode:'demo'}) %>
+				<div class="draggable">
+					<%- partial('../_modules/_profile') %>
+				</div>
 			</div>
 			<div class="pingrid scroll-area">
-				<%- partial('../_modules/_bubbles') %>
-				<%- partial('../_modules/_grid',{mode:'demo'}) %>
+				<div class="draggable">
+					<%- partial('../_modules/_bubbles') %>
+					<%- partial('../_modules/_grid') %>
+				</div>
 			</div>
 		</div>
 	</div>

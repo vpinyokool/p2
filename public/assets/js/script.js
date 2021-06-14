@@ -9,6 +9,7 @@ var call = {
         Global.starGrid();
         Global.hearting();
         Global.streams();
+        // Global.drag();
         Global.profileScroll(32);
 
     },

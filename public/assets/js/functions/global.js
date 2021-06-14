@@ -29,7 +29,15 @@ var Global = (function() {
             }
         });
     }
+        function drag() {
+            Draggable.create('.draggable', {
+              type: 'oky',
+              edgeResistance: 0.65,
+              bounds: '.scroll-area',
+              inertia: true
+            });
 
+        }
     function updateCloseupState(scrollpos) {
         var cst;
         var el = $('.icon-button.back');
@@ -424,7 +432,6 @@ var Global = (function() {
 
 
         });
-
         function playVideoOnActivePage() {
             var activeIdeaPinIndex;
 
@@ -1003,6 +1010,7 @@ var Global = (function() {
         streams: streams,
         profileScroll: profileScroll,
         unorganizedPins: unorganizedPins,
-        floatingActionBar: floatingActionBar
+        floatingActionBar: floatingActionBar,
+        drag: drag
     }
 })();
